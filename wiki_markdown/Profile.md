@@ -1,0 +1,41 @@
+## Description
+
+This trigger fires when a player\'s paperdoll profile is accessed by
+another player.
+
+Fires on:
+
+-   [Players](Characters#Players "wikilink")
+
+## References
+
+The following object references are explicitly available for this
+trigger:
+
+  ----------------------- ------------------------------------------------------------------------------
+  **Name**                **Description**
+  [I](I "wikilink")       The [player](Characters#Players "wikilink") whose profile is being accessed.
+  [SRC](SRC "wikilink")   The [player](Characters#Players "wikilink") accessing the profile.
+  ----------------------- ------------------------------------------------------------------------------
+
+## Arguments
+
+The following arguments are set for this trigger. If an argument is
+marked as \"In\" then a value will be passed in to the trigger, if an
+argument is marked as \"Out\" then it can be set to a value to affect
+Sphere\'s behaviour:
+
+*No arguments are set for this trigger.*
+
+## Return Values {#return_values}
+
+The following return values are explicitly defined for this trigger:
+
+  ------------------ ------------------------------------------------------
+  **Return Value**   **Description**
+  1                  Prevents the player\'s profile from being displayed.
+  ------------------ ------------------------------------------------------
+
+[Category: Reference
+Compendium](Category:_Reference_Compendium "wikilink") [Category:
+Triggers](Category:_Triggers "wikilink")

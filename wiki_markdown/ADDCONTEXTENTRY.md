@@ -1,0 +1,24 @@
+AddContextEntry takes 2 to 4 arguments separated by a comma:
+
+`SRC.AddContextEntry EntryTag,TextID,Flags,Color`
+
++----------+----------------------------------------------------------+
+| EntryTag | -   the number to return as ARGN by                      |
+|          |     @(item)ContextMenuSelect. Make it unique.            |
+|          | -   EntryTags from 0 to 100 are reserved by Sphere for   |
+|          |     internal use, so do not use those.                   |
++----------+----------------------------------------------------------+
+| TextID   | -   CLILOCed name of the button. The number from         |
+|          |     cliloc.\[your_localization\]                         |
+|          | -   the legal range is between 3,000,000 and 3,032,767   |
+|          |     (or 0 and 32,767\... in which case, 3000000 is added |
+|          |     for you.)                                            |
++----------+----------------------------------------------------------+
+| Flags    | -   01 - locked (will be grayed out)                     |
+|          | -   02 - consecutive entries with this flag set will be  |
+|          |     summarized under a golden arrow                      |
+|          | -   020 - can be colored                                 |
++----------+----------------------------------------------------------+
+| Color    | -   applied only if Flags & 020                          |
+|          | -   any hue value can be specified                       |
++----------+----------------------------------------------------------+

@@ -1,0 +1,48 @@
+SERV.RTIME.FORMAT `<args>`{=html}
+
+SERV.RTIME.FORMAT accepts arguments as a string, e.g. SERV.RTIME.FORMAT
+%d returns the number of the day.
+
+Acceptable variables are:
+
+%a= day name 3 letter
+
+%A= day name full
+
+%b= month name 3 letter
+
+%B= month name full
+
+%c= date & time numeric
+
+%d= day of month
+
+%H= hour 24hr clock
+
+%I= hour 12hr clock
+
+%j= day of year 1-366
+
+%m= month number
+
+%M= minutes
+
+%p= AM/PM
+
+%S= seconds
+
+%U= week number 0-52 with Sunday as the first day of week 1
+
+%w= week day numerical Sunday = 0
+
+%W= week number in year 0-52 with Monday as the first day of week 1
+
+%x= date numeric
+
+%X= time numeric
+
+%y= year 2 digit
+
+%Y= year 4 digit
+
+%z= Time zone
