@@ -58,4 +58,4 @@ Settings\\`<USER_NAME>`{=html}\\Start Menu\\Programs\\Startup or Start
 \> All Programs \> Startup*). Paste the shortcut into this folder
 (Ctrl+V). You\'re done! Sphere should now start on every boot.
 
-[Category:Articles](Category:Articles "wikilink")
+[Category:Articles](./Articles.md)

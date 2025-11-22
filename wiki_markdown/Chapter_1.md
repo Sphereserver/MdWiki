@@ -231,7 +231,7 @@ But the real line we want to see the
 is where the script tells the server, \"I want item 0eed to be
 identified by the text i_gold from here on.\" If you tried to refer to
 i_gold before the server read this script (more on reordering scripts in
-[Chapter 2](Chapter_2 "wikilink"), the server would spit out an error,
+[Chapter 2](./Chapter_2.md), the server would spit out an error,
 but now it knows what that refers to, so you can use it in the game or
 in another script.
 
@@ -848,4 +848,4 @@ Remember, the best way to learn this type of scripts is to read the
 scripts provided for you in files like sphereitem_colorarm.scp and
 sphereitem_beers.scp.
 
-[Category:Tutorials](Category:Tutorials "wikilink")
+[Category:Tutorials](./Tutorials.md)

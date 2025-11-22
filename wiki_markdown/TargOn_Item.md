@@ -4,38 +4,38 @@ This trigger fires when an item is targeted with an item.
 
 Fires on:
 
--   [Items](Items "wikilink")
+- [Items](./Items.md)
 
 ## References
 
 The following object references are explicitly available for this
 trigger:
 
-  ------------------------- ----------------------------------------------------------------------
-  **Name**                  **Description**
-  [ARGO](ARGO "wikilink")   The [item](Items "wikilink") that was targeted.
-  [I](I "wikilink")         The [item](Items "wikilink") that the target cursor originated from.
-  [SRC](SRC "wikilink")     The [player](Characters#Players "wikilink") targeting an item.
-  ------------------------- ----------------------------------------------------------------------
+|  |  |
+|----|----|
+| **Name** | **Description** |
+| [ARGO](./ARGO.md) | The [item](./Items.md) that was targeted. |
+| [I](./I.md) | The [item](./Items.md) that the target cursor originated from. |
+| [SRC](./SRC.md) | The [player](./CharactersPlayers.md) targeting an item. |
 
 ## Arguments
 
 The following arguments are set for this trigger. If an argument is
-marked as \"In\" then a value will be passed in to the trigger, if an
-argument is marked as \"Out\" then it can be set to a value to affect
-Sphere\'s behaviour:
+marked as "In" then a value will be passed in to the trigger, if an
+argument is marked as "Out" then it can be set to a value to affect
+Sphere's behaviour:
 
 *No arguments are set for this trigger.*
 
-## Return Values {#return_values}
+## Return Values
 
 The following return values are explicitly defined for this trigger:
 
-  ------------------ ---------------------------------------------------------------
-  **Return Value**   **Description**
-  1                  Prevents Sphere from processing the default target behaviour.
-  ------------------ ---------------------------------------------------------------
+|  |  |
+|----|----|
+| **Return Value** | **Description** |
+| 1 | Prevents Sphere from processing the default target behaviour. |
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md)

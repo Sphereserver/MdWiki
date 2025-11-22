@@ -1,5 +1,5 @@
 \_\_FORCETOC\_\_ Skill menus are a more advanced form of
-[MENU](MENU "wikilink") where options can be hidden from the client
+[MENU](./MENU.md) where options can be hidden from the client
 based on criteria.
 
 ## Syntax
@@ -23,7 +23,7 @@ syntax for the item-based style of skill menu is shown below:
   **Name**    **Description**
   *defname*   The menu\'s defname.
   *title*     The title of the menu. Properties and references of the object the menu was called on can be accessed.
-  *baseid*    The item [BASEID](BASEID "wikilink") to display for the button.
+  *baseid*    The item [BASEID](./BASEID.md) to display for the button.
   *hue*       If the @*hue* syntax is used, the item will be displayed in the specified colour.
   *text*      The text to display for the option. Properties of the ITEMDEF that *baseid* refers to can be accessed.
   *script*    The script to run when the button is pressed.
@@ -39,10 +39,10 @@ be present). These functions affect the visibility of the menu option.
 
   -------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   **Name**                                           **Description**
-  [MAKEITEM](MAKEITEM "wikilink") *item_baseid*      Checks if the client meets the criteria for crafting the item ([SKILLREQ](SKILLREQ "wikilink") and [RESOURCES](RESOURCES "wikilink") properties on the item\'s [ITEMDEF](ITEMDEF "wikilink")).
-  [SKILLMENU](SKILLMENU "wikilink") *skillmenu_id*   Searches the skillmenu to see what options are available to the client. If there are no visible items in the submenu then the option will be hidden from the client.
-  [TEST](TEST "wikilink") *resource_or_skill_list*   Checks if the client possesses all of the listed resources/skills. If they do not then the menu option will not be available to them.
-  [TESTIF](TESTIF "wikilink") *condition*            Checks the condition. If it evaluates to false then the menu option will not be available to the client.
+  [MAKEITEM](./MAKEITEM.md) *item_baseid*      Checks if the client meets the criteria for crafting the item ([SKILLREQ](./SKILLREQ.md) and [RESOURCES](./RESOURCES.md) properties on the item\'s [ITEMDEF](./ITEMDEF.md)).
+  [SKILLMENU](./SKILLMENU.md) *skillmenu_id*   Searches the skillmenu to see what options are available to the client. If there are no visible items in the submenu then the option will be hidden from the client.
+  [TEST](./TEST.md) *resource_or_skill_list*   Checks if the client possesses all of the listed resources/skills. If they do not then the menu option will not be available to them.
+  [TESTIF](./TESTIF.md) *condition*            Checks the condition. If it evaluates to false then the menu option will not be available to the client.
   -------------------------------------------------- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Triggers
@@ -58,8 +58,8 @@ In both cases, the following references and arguments are available:
 
   --------------------------- ------------------------------------------------------------------------------------------------------------
   **Name**                    **Description**
-  **[I](I "wikilink")**       The [character](Characters "wikilink") or [item](Items "wikilink") that the MENU function was called from.
-  **[SRC](SRC "wikilink")**   The client operating the menu.
+  **[I](./I.md)**       The [character](./Characters.md) or [item](./Items.md) that the MENU function was called from.
+  **[SRC](./SRC.md)**   The client operating the menu.
   --------------------------- ------------------------------------------------------------------------------------------------------------
 
 ## Examples
@@ -109,5 +109,5 @@ ON=0 Nothing
 `</spherescript>`{=html}
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Definitions](Category:_Definitions "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Definitions](./_Definitions.md)

@@ -340,4 +340,4 @@ version 6.0.6.2. Notes after the jump:
 -   Fixed a number of stuck areas
 -   Fixed various incorrect tiles
 
-[Category: Articles](Category:_Articles "wikilink")
+[Category: Articles](./_Articles.md)

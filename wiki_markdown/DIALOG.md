@@ -29,9 +29,9 @@ clients.
 The script text can be a complete script that is executed in the same
 way as a function or trigger script, and can even contain conditional
 statements to display different layouts to different clients if desired.
-The default object is the [character](Characters "wikilink") or
-[item](Items "wikilink") that the dialog has been called upon, and
-[SRC](SRC "wikilink") is the [client](Characters#Clients "wikilink") who
+The default object is the [character](./Characters.md) or
+[item](./Items.md) that the dialog has been called upon, and
+[SRC](./SRC.md) is the [client](./CharactersClients.md) who
 is viewing the dialog. If the dialog ends with a \"RETURN 1\" then
 Sphere will cancel displaying the dialog.
 
@@ -42,36 +42,36 @@ can be used:
 
   ----------------------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   **Name**                                                                                                                **Description**
-  [button](button "wikilink") *x y gump_down gump_up is_pressable page id*                                                Places a button on to the page
-  [buttontileart](buttontileart "wikilink") *x y gump_down gump_up is_pressable page id tile_id tile_hue tile_x tile_Y*   Places a button on to the page, with an item image placed over the top as part of the button.
-  [checkbox](checkbox "wikilink") *x y gump_check gump_uncheck initial_state id*                                          Places a checkbox on to the page.
-  [checkertrans](checkertrans "wikilink") *x y width height*                                                              Adds a transparent area of the dialog.
-  [croppedtext](croppedtext "wikilink") *x y width height colour text_index*                                              Places some text on to the page that wraps to specified boundaries.
-  [dcroppedtext](dcroppedtext "wikilink") \'\'x y width height colour text                                                Places some text on to the page that wraps to specified boundaries. Accepts dynamic coordinates relative to [dorigin](dorigin "wikilink") using **-**, **+**, **\*** prefixes.
-  [dorigin](dorigin "wikilink") *x y*                                                                                     Sets the origin coordinates for dynamically positioned elements.
-  [dhtmlgump](dhtmlgump "wikilink") *x y width height has_background has_scrollbar text*                                  Places some HTML text on to the page. Accepts dynamic coordinates relative to [dorigin](dorigin "wikilink") using **-**, **+**, **\*** prefixes.
-  [dtext](dtext "wikilink") *x y colour text*                                                                             Places some text on to the page. Accepts dynamic coordinates relative to [dorigin](dorigin "wikilink") using **-**, **+**, **\*** prefixes.
-  [dtextentry](dtextentry "wikilink") *x y width height colour id text*                                                   Places a text entry field on to the page where the client can enter text. Accepts dynamic coordinates relative to [dorigin](dorigin "wikilink") using **-**, **+**, **\*** prefixes.
-  [dtextentrylimited](dtextentrylimited "wikilink") *x y width height colour id limit text*                               Places a text entry field on to the page where the client can enter a limited amount of text. Accepts dynamic coordinates relative to [dorigin](dorigin "wikilink") using **-**, **+**, **\*** prefixes.
-  [group](group "wikilink") *id*                                                                                          Defines a new group ID, for grouping sets of radio buttons.
-  [gumppic](gumppic "wikilink") *x y gump hue*                                                                            Places a gump on to the page.
-  [gumppictiled](gumppictiled "wikilink") *x y width height gump*                                                         Tiles a gump over an area of the page.
-  [htmlgump](htmlgump "wikilink") *x y width height text_index has_background has_scrollbar*                              Places some HTML text on to the page.
-  [noclose](noclose "wikilink")                                                                                           Prevents the dialog from being closed when right-clicked.
-  [nodispose](nodispose "wikilink")                                                                                       Prevents the dialog from being closed by the \"Close Dialogs\" macro.
-  [nomove](nomove "wikilink")                                                                                             Prevents the dialog from being moved around the screen.
-  [page](page "wikilink") *num*                                                                                           Begins defining page *num* of the dialog. (page 0 content is shown on all pages)
-  [radio](radio "wikilink") *x y gump_check gump_uncheck initial_state id*                                                Places a radio button on to the page.
-  [resizepic](resizepic "wikilink") *x y gump width height*                                                               Places a multi-part *gump* on to the page, often used for dialog backgrounds.
-  [text](text "wikilink") *x y colour text_index*                                                                         Places some text on to the page.
-  [textentry](textentry "wikilink") *x y width height colour id text_index*                                               Places a text entry field on to the page where the client can enter text.
-  [textentrylimited](textentrylimited "wikilink") *x y width height colour id text_index limit*                           Places a text entry field on to the page where the client can enter a limited amount of text.
-  [tilepic](tilepic "wikilink") *x y item_id*                                                                             Places an item image on to the page.
-  [tilepichue](tilepichue "wikilink") *x y item_id hue*                                                                   Places a coloured item image on to the page.
-  [tooltip](tooltip "wikilink") *cliloc_id \@args*                                                                        Places a tooltip on to the page (multiple arguments separated by @).
-  [xmfhtmlgump](xmfhtmlgump "wikilink") *x y width height clilod_id has_background has_scrollbar*                         Places some localised HTML text on to the page.
-  [xmfhtmlgumpcolor](xmfhtmlgumpcolor "wikilink") *x y width height cliloc_id has_background has_scrollbar colour*        Places some localised HTML text on to the page with the specified colour.
-  [xmfhtmltok](xmfhtmltok "wikilink") *x y width height has_background has_scrollbar colour cliloc_id \@args@*            Places some localised HTML text on to the page, with arguments to the cliloc (multiple arguments separated by @).
+  [button](./button.md) *x y gump_down gump_up is_pressable page id*                                                Places a button on to the page
+  [buttontileart](./buttontileart.md) *x y gump_down gump_up is_pressable page id tile_id tile_hue tile_x tile_Y*   Places a button on to the page, with an item image placed over the top as part of the button.
+  [checkbox](./checkbox.md) *x y gump_check gump_uncheck initial_state id*                                          Places a checkbox on to the page.
+  [checkertrans](./checkertrans.md) *x y width height*                                                              Adds a transparent area of the dialog.
+  [croppedtext](./croppedtext.md) *x y width height colour text_index*                                              Places some text on to the page that wraps to specified boundaries.
+  [dcroppedtext](./dcroppedtext.md) \'\'x y width height colour text                                                Places some text on to the page that wraps to specified boundaries. Accepts dynamic coordinates relative to [dorigin](./dorigin.md) using **-**, **+**, **\*** prefixes.
+  [dorigin](./dorigin.md) *x y*                                                                                     Sets the origin coordinates for dynamically positioned elements.
+  [dhtmlgump](./dhtmlgump.md) *x y width height has_background has_scrollbar text*                                  Places some HTML text on to the page. Accepts dynamic coordinates relative to [dorigin](./dorigin.md) using **-**, **+**, **\*** prefixes.
+  [dtext](./dtext.md) *x y colour text*                                                                             Places some text on to the page. Accepts dynamic coordinates relative to [dorigin](./dorigin.md) using **-**, **+**, **\*** prefixes.
+  [dtextentry](./dtextentry.md) *x y width height colour id text*                                                   Places a text entry field on to the page where the client can enter text. Accepts dynamic coordinates relative to [dorigin](./dorigin.md) using **-**, **+**, **\*** prefixes.
+  [dtextentrylimited](./dtextentrylimited.md) *x y width height colour id limit text*                               Places a text entry field on to the page where the client can enter a limited amount of text. Accepts dynamic coordinates relative to [dorigin](./dorigin.md) using **-**, **+**, **\*** prefixes.
+  [group](./group.md) *id*                                                                                          Defines a new group ID, for grouping sets of radio buttons.
+  [gumppic](./gumppic.md) *x y gump hue*                                                                            Places a gump on to the page.
+  [gumppictiled](./gumppictiled.md) *x y width height gump*                                                         Tiles a gump over an area of the page.
+  [htmlgump](./htmlgump.md) *x y width height text_index has_background has_scrollbar*                              Places some HTML text on to the page.
+  [noclose](./noclose.md)                                                                                           Prevents the dialog from being closed when right-clicked.
+  [nodispose](./nodispose.md)                                                                                       Prevents the dialog from being closed by the \"Close Dialogs\" macro.
+  [nomove](./nomove.md)                                                                                             Prevents the dialog from being moved around the screen.
+  [page](./page.md) *num*                                                                                           Begins defining page *num* of the dialog. (page 0 content is shown on all pages)
+  [radio](./radio.md) *x y gump_check gump_uncheck initial_state id*                                                Places a radio button on to the page.
+  [resizepic](./resizepic.md) *x y gump width height*                                                               Places a multi-part *gump* on to the page, often used for dialog backgrounds.
+  [text](./text.md) *x y colour text_index*                                                                         Places some text on to the page.
+  [textentry](./textentry.md) *x y width height colour id text_index*                                               Places a text entry field on to the page where the client can enter text.
+  [textentrylimited](./textentrylimited.md) *x y width height colour id text_index limit*                           Places a text entry field on to the page where the client can enter a limited amount of text.
+  [tilepic](./tilepic.md) *x y item_id*                                                                             Places an item image on to the page.
+  [tilepichue](./tilepichue.md) *x y item_id hue*                                                                   Places a coloured item image on to the page.
+  [tooltip](./tooltip.md) *cliloc_id \@args*                                                                        Places a tooltip on to the page (multiple arguments separated by @).
+  [xmfhtmlgump](./xmfhtmlgump.md) *x y width height clilod_id has_background has_scrollbar*                         Places some localised HTML text on to the page.
+  [xmfhtmlgumpcolor](./xmfhtmlgumpcolor.md) *x y width height cliloc_id has_background has_scrollbar colour*        Places some localised HTML text on to the page with the specified colour.
+  [xmfhtmltok](./xmfhtmltok.md) *x y width height has_background has_scrollbar colour cliloc_id \@args@*            Places some localised HTML text on to the page, with arguments to the cliloc (multiple arguments separated by @).
   ----------------------------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ### Text
@@ -117,12 +117,12 @@ describes each argument passed in to dialog button triggers:
 
   --------------------------------------- ----------------------------------------------------------------------------------
   **Name**                                **Description**
-  [ARGCHK](ARGCHK "wikilink")             Returns the number of selected checkboxes/radio buttons.
-  [ARGCHK](ARGCHK "wikilink")\[*id*\]     Returns 1 if the checkbox/radio button with a specified ID was pressed down.
-  [ARGCHKID](ARGCHKID "wikilink")         The ID of the first selected checkbox/radio button, or -1 if none were selected.
-  [ARGN1](ARGN1 "wikilink")               The ID of the button pressed.
-  [ARGTXT](ARGTXT "wikilink")             Returns the number of text fields submitted.
-  [ARGTXT](ARGTXT "wikilink")\[*id*\]\]   Returns the submitted text for the text field with the specified ID.
+  [ARGCHK](./ARGCHK.md)             Returns the number of selected checkboxes/radio buttons.
+  [ARGCHK](./ARGCHK.md)\[*id*\]     Returns 1 if the checkbox/radio button with a specified ID was pressed down.
+  [ARGCHKID](./ARGCHKID.md)         The ID of the first selected checkbox/radio button, or -1 if none were selected.
+  [ARGN1](./ARGN1.md)               The ID of the button pressed.
+  [ARGTXT](./ARGTXT.md)             Returns the number of text fields submitted.
+  [ARGTXT](./ARGTXT.md)\[*id*\]\]   Returns the submitted text for the text field with the specified ID.
   --------------------------------------- ----------------------------------------------------------------------------------
 
 ## Examples
@@ -171,5 +171,5 @@ ON=6 //PAPUA
 `</spherescript>`{=html}
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Definitions](Category:_Definitions "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Definitions](./_Definitions.md)

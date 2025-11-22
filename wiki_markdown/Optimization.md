@@ -112,7 +112,7 @@ This brings us to a very important point in our discussion. Sphere uses
 a single main thread to perform all of its tasks. This means that while
 one task is taking place, no other tasks occur (except that
 file-checking and background saving, like I said). Sphere runs in a loop
-model, much like the [WHILE](WHILE "wikilink") loops that you can have
+model, much like the [WHILE](./WHILE.md) loops that you can have
 in scripts. Here is a rather simplistic description of the innards of
 SPHERE:
 
@@ -184,7 +184,7 @@ execute more quickly. I shall detail a few of them.
 **1.** Check exit cases first, and return as soon as possible. This is
 an important feature of any function in which a particular state may
 cause the function to stop executing properly. A good scripter who paid
-attention in my [Occam\'s Razor](Occam's_Razor "wikilink") tutorial
+attention in my [Occam\'s Razor](./Occams_Razor.md) tutorial
 might write the following:
 
 `<spherescript>`{=html}\[FUNCTION do_something\] IF (\<SRC.STR\> \< 70)
@@ -459,4 +459,4 @@ reducing lag. Remember, for every internal function Sphere can avoid by
 not executing something in a script, it has extra time to do other
 internal things.
 
-[Category:Articles](Category:Articles "wikilink")
+[Category:Articles](./Articles.md)

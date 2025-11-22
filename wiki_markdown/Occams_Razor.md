@@ -302,6 +302,6 @@ And remember the following stages of scripting:
     want it to do
 2.  Make it work RIGHT - Debug all of the little mistakes
 3.  Make it work FAST - Not always necessary. I could post an article on
-    [optimization](Optimization "wikilink") some other time.
+    [optimization](./Optimization.md) some other time.
 
-[Category: Articles](Category:_Articles "wikilink")
+[Category: Articles](./_Articles.md)

@@ -420,4 +420,4 @@ system, like I tried to do when I suggested the TARGET function to the
 SPHERE devs back in version .42, when no one thought targeting was
 possible. Just be as cordial as possible in the process.
 
-[Category:Articles](Category:Articles "wikilink")
+[Category:Articles](./Articles.md)

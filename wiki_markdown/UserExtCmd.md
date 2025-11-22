@@ -5,58 +5,101 @@ This trigger fires when a player sends an extended command packet
 
 Fires on:
 
--   [Players](Characters#Players "wikilink")
+- [Players](./CharactersPlayers.md)
 
 ## References
 
 The following object references are explicitly available for this
 trigger:
 
-  ----------------------- ------------------------------------------------------------------
-  **Name**                **Description**
-  [I](I "wikilink")       The [player](Characters#Players "wikilink") sending the command.
-  [SRC](SRC "wikilink")   The [player](Characters#Players "wikilink") sending the command.
-  ----------------------- ------------------------------------------------------------------
+|  |  |
+|----|----|
+| **Name** | **Description** |
+| [I](./I.md) | The [player](./CharactersPlayers.md) sending the command. |
+| [SRC](./SRC.md) | The [player](./CharactersPlayers.md) sending the command. |
 
 ## Arguments
 
 The following arguments are set for this trigger. If an argument is
-marked as \"In\" then a value will be passed in to the trigger, if an
-argument is marked as \"Out\" then it can be set to a value to affect
-Sphere\'s behaviour:
+marked as "In" then a value will be passed in to the trigger, if an
+argument is marked as "Out" then it can be set to a value to affect
+Sphere's behaviour:
 
-+--------------+------------+----------------------------------------+
-| **Argument** | **In/Out** | **Description**                        |
-+--------------+------------+----------------------------------------+
-| ARGN1        | I          | The command type. Known commands are:  |
-|              |            |                                        |
-|              |            |   ------------- ---------------------- |
-|              |            |   **Command**   **Description**        |
-|              |            |   0x24          Use Skill macro        |
-|              |            |   0x27          Cast spell from book   |
-|              |            |   0x2F          Auto targeting macro   |
-|              |            |   0x43          Open Spellbook macro   |
-|              |            |   0x56          Cast Spell macro       |
-|              |            |   0x88          Open Door macro        |
-|              |            |   0x6B          God Client command     |
-|              |            |   0xC7          Bow or Salute macro    |
-|              |            |   0xF4          Invoke Virtue macro    |
-|              |            |   ------------- ---------------------- |
-+--------------+------------+----------------------------------------+
-| ARGS         | IO         | The command text.                      |
-+--------------+------------+----------------------------------------+
+<table>
+<tbody>
+<tr>
+<td><p><strong>Argument</strong></p></td>
+<td><p><strong>In/Out</strong></p></td>
+<td><p><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td><p>ARGN1</p></td>
+<td><p>I</p></td>
+<td><p>The command type. Known commands are:</p>
+<table>
+<tbody>
+<tr>
+<td><p><strong>Command</strong></p></td>
+<td><p><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td><p>0x24</p></td>
+<td><p>Use Skill macro</p></td>
+</tr>
+<tr>
+<td><p>0x27</p></td>
+<td><p>Cast spell from book</p></td>
+</tr>
+<tr>
+<td><p>0x2F</p></td>
+<td><p>Auto targeting macro</p></td>
+</tr>
+<tr>
+<td><p>0x43</p></td>
+<td><p>Open Spellbook macro</p></td>
+</tr>
+<tr>
+<td><p>0x56</p></td>
+<td><p>Cast Spell macro</p></td>
+</tr>
+<tr>
+<td><p>0x88</p></td>
+<td><p>Open Door macro</p></td>
+</tr>
+<tr>
+<td><p>0x6B</p></td>
+<td><p>God Client command</p></td>
+</tr>
+<tr>
+<td><p>0xC7</p></td>
+<td><p>Bow or Salute macro</p></td>
+</tr>
+<tr>
+<td><p>0xF4</p></td>
+<td><p>Invoke Virtue macro</p></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+<tr>
+<td><p>ARGS</p></td>
+<td><p>IO</p></td>
+<td><p>The command text.</p></td>
+</tr>
+</tbody>
+</table>
 
-## Return Values {#return_values}
+## Return Values
 
 The following return values are explicitly defined for this trigger:
 
-  ------------------ ----------------------------------------------
-  **Return Value**   **Description**
-  1                  Prevents Sphere from processing the command.
-  ------------------ ----------------------------------------------
+|                  |                                              |
+|------------------|----------------------------------------------|
+| **Return Value** | **Description**                              |
+| 1                | Prevents Sphere from processing the command. |
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink") [Category:
-Characters](Category:_Characters "wikilink") [Category:
-Players](Category:_Players "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md) [Category:
+Characters](./_Characters.md) [Category:
+Players](./_Players.md)

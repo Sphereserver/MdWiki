@@ -6,6 +6,6 @@ your skill points without decimals.
 
 # Usage
 
-\<spherescript \"darkblue\"\> \[function ShowAlchemy\] alchemy=99.9 say
-Alchemy is: \<feval `<alchemy>`{=html}\> // This will say \'Alchemy is:
-99\', removing the last number (.9).`</spherescript>`{=html}
+\<spherescript "darkblue"\> \[function ShowAlchemy\] alchemy=99.9 say
+Alchemy is: \<feval <alchemy>\> // This will say 'Alchemy is: 99',
+removing the last number (.9).</spherescript>

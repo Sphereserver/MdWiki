@@ -11839,4 +11839,4 @@ prerelease.
     Fixed: <SERV.BUILD> function returning build date instead build number.
     Fixed: Containers showing wrong weight on item tooltip when FEATURE_ML_UPDATE feature is enabled on sphere.ini.
 
-[Category: Articles](Category:_Articles "wikilink")
+[Category: Articles](./_Articles.md)

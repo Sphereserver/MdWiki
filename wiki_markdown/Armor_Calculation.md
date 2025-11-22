@@ -78,4 +78,4 @@ If you prefer it all in a combined table:
   shoes        \-
   ------------ ---------------
 
-[Category: Articles](Category:_Articles "wikilink")
+[Category: Articles](./_Articles.md)

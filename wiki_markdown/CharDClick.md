@@ -4,7 +4,7 @@ This trigger fires when a character double clicks another character.
 
 Fires on:
 
--   [Characters](Characters "wikilink")
+-   [Characters](./Characters.md)
 
 ## References
 
@@ -13,9 +13,9 @@ trigger:
 
   ----------------------- --------------------------------------------------------------
   **Name**                **Description**
-  [ACT](ACT "wikilink")   The [character](Characters "wikilink") being double clicked.
-  [I](I "wikilink")       The [character](Characters "wikilink") doing the clicking.
-  [SRC](SRC "wikilink")   The [character](Characters "wikilink") doing the clicking.
+  [ACT](./ACT.md)   The [character](./Characters.md) being double clicked.
+  [I](./I.md)       The [character](./Characters.md) doing the clicking.
+  [SRC](./SRC.md)   The [character](./Characters.md) doing the clicking.
   ----------------------- --------------------------------------------------------------
 
 ## Arguments
@@ -37,5 +37,5 @@ The following return values are explicitly defined for this trigger:
   ------------------ ------------------------------------------------
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md)

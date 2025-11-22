@@ -5,7 +5,7 @@ trigger will be fired on both characters.
 
 Fires on:
 
--   [Players](Characters#Players "wikilink")
+-   [Players](./CharactersPlayers.md)
 
 ## References
 
@@ -14,11 +14,11 @@ trigger:
 
   ---------------------------------------------------------- -------------------------------------------------------------------------
   **Name**                                                   **Description**
-  [ACT](ACT "wikilink")                                      The [player](Characters#Players "wikilink") the player is trading with.
-  [ARGO](ARGO "wikilink")                                    The [player](Characters#Players "wikilink") accepting the trade.
-  [I](I "wikilink")                                          The [player](Characters#Players "wikilink") accepting the trade.
-  [REF](REF "wikilink")1 to [REF](REF "wikilink")\<ARGN1\>   The [items](Items "wikilink") that the other player is receiving.
-  [SRC](SRC "wikilink")                                      The [player](Characters#Players "wikilink") the player is trading with.
+  [ACT](./ACT.md)                                      The [player](./CharactersPlayers.md) the player is trading with.
+  [ARGO](./ARGO.md)                                    The [player](./CharactersPlayers.md) accepting the trade.
+  [I](./I.md)                                          The [player](./CharactersPlayers.md) accepting the trade.
+  [REF](./REF.md)1 to [REF](./REF.md)\<ARGN1\>   The [items](./Items.md) that the other player is receiving.
+  [SRC](./SRC.md)                                      The [player](./CharactersPlayers.md) the player is trading with.
   ---------------------------------------------------------- -------------------------------------------------------------------------
 
 ## Arguments
@@ -44,5 +44,5 @@ The following return values are explicitly defined for this trigger:
   ------------------ ---------------------------------------
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md)

@@ -9,7 +9,7 @@ over (can_i_hover) and much more.
 
 On X version: CAN flags are read only. You can\'t edit them after the
 item/char creation. I you want modify the can Flags you should use
-[CANMASK](CANMASK "wikilink")
+[CANMASK](./CANMASK.md)
 
 # Usage
 

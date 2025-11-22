@@ -60,4 +60,4 @@ ENDFOR`</spherescript>`{=html}
 
 Good luck!
 
-[Category:Articles](Category:Articles "wikilink")
+[Category:Articles](./Articles.md)

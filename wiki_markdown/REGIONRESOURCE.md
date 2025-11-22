@@ -10,11 +10,11 @@ The following properties are available when defining a region resource:
 
   ------------------------------------------------------ ---------------- ---------------------------------------------------------------------------------------------------------------------------------------------------
   **Name**                                               **Read/Write**   **Description**
-  [AMOUNT](AMOUNT "wikilink")                            RW               Gets or sets the initial amount of the resource available when it spawns. Accepts multiple values to build a weighted range of difficulty values.
-  [DEFNAME](DEFNAME "wikilink")                          W                Gets or sets the resource defname.
-  [REAP](REAP "wikilink")                                RW               Gets or sets the [BASEID](BASEID "wikilink") of the resource item.
-  [REAPAMOUNT](REAPAMOUNT "wikilink")                    RW               Gets or sets the amount of the resource that can be gathered in one use of a skill. Accepts multiple values to adjust based on skill level.
-  [REGEN](REGEN "wikilink")                              RW               Gets or sets the length of time it takes for the resource to decay, in seconds.
+  [AMOUNT](./AMOUNT.md)                            RW               Gets or sets the initial amount of the resource available when it spawns. Accepts multiple values to build a weighted range of difficulty values.
+  [DEFNAME](./DEFNAME.md)                          W                Gets or sets the resource defname.
+  [REAP](./REAP.md)                                RW               Gets or sets the [BASEID](./BASEID.md) of the resource item.
+  [REAPAMOUNT](./REAPAMOUNT.md)                    RW               Gets or sets the amount of the resource that can be gathered in one use of a skill. Accepts multiple values to adjust based on skill level.
+  [REGEN](./REGEN.md)                              RW               Gets or sets the length of time it takes for the resource to decay, in seconds.
   [SKILL](SKILL_(Region_Resource_Property) "wikilink")   RW               Gets or sets the difficulty of gathering the resource. Accepts multiple values to build a weighted range of difficulty values.
   ------------------------------------------------------ ---------------- ---------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -25,9 +25,9 @@ name for more detailed information such as arguments and examples.
 
   ------------------------------------------------ -----------------------------------------------------------
   **Name**                                         **Description**
-  [\@ResourceFound](@ResourceFound "wikilink")     Fires when the resource is spawned.
-  [\@ResourceGather](@ResourceGather "wikilink")   Fires when you are going to gather a resource.
-  [\@ResourceTest](@ResourceTest "wikilink")       Fires when the resource is being considered for spawning.
+  [\@ResourceFound](./ResourceFound.md)     Fires when the resource is spawned.
+  [\@ResourceGather](./ResourceGather.md)   Fires when you are going to gather a resource.
+  [\@ResourceTest](./ResourceTest.md)       Fires when the resource is being considered for spawning.
   ------------------------------------------------ -----------------------------------------------------------
 
 ## Examples
@@ -39,5 +39,5 @@ REAP=i_fish_big_1 // the resource item REGEN=60\*60\*10 // decays after
 10 hours `</spherescript>`{=html}
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Objects](Category:_Objects "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Objects](./_Objects.md)

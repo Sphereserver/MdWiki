@@ -357,7 +357,7 @@ Windows Calculator and do some conversions.
 
 **Note:** UOFiddler is the most popular tool for viewing the contents of
 the UO files but it is not the only one out there. Check out the [Third
-Party Tools](Third_Party_Tools "wikilink") page for a list of other
+Party Tools](./Third_Party_Tools.md) page for a list of other
 programs which you may want to use.
 
 ## Gumps
@@ -868,4 +868,4 @@ remaining `<ARGN1>`{=html}).
 It\'s pretty simple and with a bit of playing around you should get this
 to work easily. Good luck!
 
-[Category:Tutorials](Category:Tutorials "wikilink")
+[Category:Tutorials](./Tutorials.md)

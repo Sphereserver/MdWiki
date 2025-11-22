@@ -4,7 +4,7 @@ This trigger fires when one character initiates an attack on another.
 
 Fires on:
 
--   [Characters](Characters "wikilink")
+-   [Characters](./Characters.md)
 
 ## References
 
@@ -13,8 +13,8 @@ trigger:
 
   ----------------------- ---------------------------------------------------------------
   **Name**                **Description**
-  [I](I "wikilink")       The [character](Characters "wikilink") initiating the attack.
-  [SRC](SRC "wikilink")   The [character](Characters "wikilink") being attacked.
+  [I](./I.md)       The [character](./Characters.md) initiating the attack.
+  [SRC](./SRC.md)   The [character](./Characters.md) being attacked.
   ----------------------- ---------------------------------------------------------------
 
 ## Arguments
@@ -26,8 +26,8 @@ Sphere\'s behaviour:
 
   --------------------------- ---------------------------------------------------------------------------------------------
   **Name**                    **Description**
-  [ARGN1](ARGN1 "wikilink")   Threat being assigned to the target after starting the fight (Only for NPCs).
-  [ARGN2](ARGN2 "wikilink")   replace Ignore status. 1-\>Force to ignore attacker 0-\>Force to unignore attacker (X-ONLY)
+  [ARGN1](./ARGN1.md)   Threat being assigned to the target after starting the fight (Only for NPCs).
+  [ARGN2](./ARGN2.md)   replace Ignore status. 1-\>Force to ignore attacker 0-\>Force to unignore attacker (X-ONLY)
   --------------------------- ---------------------------------------------------------------------------------------------
 
 ## Return Values {#return_values}
@@ -40,7 +40,7 @@ The following return values are explicitly defined for this trigger:
   ------------------ ----------------------------------------
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink") [Category:
-Characters](Category:_Characters "wikilink") [Category:
-Combat](Category:_Combat "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md) [Category:
+Characters](./_Characters.md) [Category:
+Combat](./_Combat.md)

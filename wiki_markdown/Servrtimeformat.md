@@ -1,4 +1,4 @@
-SERV.RTIME.FORMAT `<args>`{=html}
+SERV.RTIME.FORMAT <args>
 
 SERV.RTIME.FORMAT accepts arguments as a string, e.g. SERV.RTIME.FORMAT
 %d returns the number of the day.

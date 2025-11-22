@@ -20,7 +20,7 @@ different Version but Sphere X is the more recent, more performant and
 the one where there some active dev.
 
 This build is more than likely the one you want to download. *If you are
-unsure, then review the [Which Do I Want?](#Which_Do_I_Want? "wikilink")
+unsure, then review the [Which Do I Want?](./Which_Do_I_Want.md)
 section for more information.*
 
 ## Automated Builds {#automated_builds}
@@ -55,7 +55,7 @@ features before they are released.
 Here is a brief comparison of the two build types:
 
   ---------------------------------------------------------------------------- ---------------------------------------------------------
-  **[Prerelease Builds](#Prerelease_Builds "wikilink")**                       **[Automated Builds](#Automated_Builds "wikilink")**
+  **[Prerelease Builds](./Prerelease_Builds.md)**                       **[Automated Builds](./Automated_Builds.md)**
   Support available in \[<https://discord.gg/NufqpAw%5DDiscord> or the Forum   No support available at all
   Increased chance of stability                                                Decreased chance of stability
   Compiled manually from a more stable code branch                             Compiled automatically from the development code branch
@@ -78,4 +78,4 @@ there is also an increased chance that some of the work has not been
 completed, or a new bug may have been introduced, which could
 consequently destabalise your server!*
 
-[Category: Setting Up Sphere](Category:_Setting_Up_Sphere "wikilink")
+[Category: Setting Up Sphere](./_Setting_Up_Sphere.md)

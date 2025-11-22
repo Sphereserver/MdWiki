@@ -1,12 +1,12 @@
 ## Description
 
 This trigger fires when a client requests tooltips for another
-character. the [ADDCLILOC](ADDCLILOC "wikilink") function can be called
-on the [I](I "wikilink") object to send custom tooltips to the client.
+character. the [ADDCLILOC](./ADDCLILOC.md) function can be called
+on the [I](./I.md) object to send custom tooltips to the client.
 
 Fires on:
 
--   [Clients](Characters#Clients "wikilink")
+-   [Clients](./CharactersClients.md)
 
 ## References
 
@@ -15,9 +15,9 @@ trigger:
 
   ----------------------- ------------------------------------------------------------------------
   **Name**                **Description**
-  [ACT](ACT "wikilink")   The [character](Characters "wikilink") whose tooltips are to be sent.
-  [I](I "wikilink")       The [client](Characters#Clients "wikilink") who is receiving tooltips.
-  [SRC](SRC "wikilink")   The [character](Characters "wikilink") whose tooltips are to be sent.
+  [ACT](./ACT.md)   The [character](./Characters.md) whose tooltips are to be sent.
+  [I](./I.md)       The [client](./CharactersClients.md) who is receiving tooltips.
+  [SRC](./SRC.md)   The [character](./Characters.md) whose tooltips are to be sent.
   ----------------------- ------------------------------------------------------------------------
 
 ## Arguments
@@ -39,5 +39,5 @@ The following return values are explicitly defined for this trigger:
   ------------------ ------------------------------------------------
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md)

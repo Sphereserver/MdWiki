@@ -4,41 +4,41 @@ This trigger fires when a character drops an item on to the ground.
 
 Fires on:
 
--   [Characters](Characters "wikilink")
+- [Characters](./Characters.md)
 
 ## References
 
 The following object references are explicitly available for this
 trigger:
 
-  ----------------------- -----------------------------------------------------------
-  **Name**                **Description**
-  [ACT](ACT "wikilink")   The [item](Items "wikilink") being dropped.
-  [I](I "wikilink")       The [character](Characters "wikilink") dropping the item.
-  ----------------------- -----------------------------------------------------------
+|  |  |
+|----|----|
+| **Name** | **Description** |
+| [ACT](./ACT.md) | The [item](./Items.md) being dropped. |
+| [I](./I.md) | The [character](./Characters.md) dropping the item. |
 
 ## Arguments
 
 The following arguments are set for this trigger. If an argument is
-marked as \"In\" then a value will be passed in to the trigger, if an
-argument is marked as \"Out\" then it can be set to a value to affect
-Sphere\'s behaviour:
+marked as "In" then a value will be passed in to the trigger, if an
+argument is marked as "Out" then it can be set to a value to affect
+Sphere's behaviour:
 
-  -------------- ------------ ----------------------------------------------------------------------
-  **Argument**   **In/Out**   **Description**
-  ARGN1          IO           The decay time, in tenths of a second, that will be set on the item.
-  ARGS           I            The location that the item was dropped at.
-  -------------- ------------ ----------------------------------------------------------------------
+|  |  |  |
+|----|----|----|
+| **Argument** | **In/Out** | **Description** |
+| ARGN1 | IO | The decay time, in tenths of a second, that will be set on the item. |
+| ARGS | I | The location that the item was dropped at. |
 
-## Return Values {#return_values}
+## Return Values
 
 The following return values are explicitly defined for this trigger:
 
-  ------------------ -----------------------------------------------------------
-  **Return Value**   **Description**
-  1                  Prevents the item from being deleted if dropped on water.
-  ------------------ -----------------------------------------------------------
+|  |  |
+|----|----|
+| **Return Value** | **Description** |
+| 1 | Prevents the item from being deleted if dropped on water. |
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md)

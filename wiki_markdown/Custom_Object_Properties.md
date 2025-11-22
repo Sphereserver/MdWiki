@@ -35,4 +35,4 @@ now: 10,000 LOCAL.X = \<SRC.GOLD\> // local.x is now: 5,000 SRC.GOLD -=
 2000 // tag.gold is now: 3,000 // var.total_gold is now:
 8,000`</spherescript>`{=html}
 
-[Category: Articles](Category:_Articles "wikilink")
+[Category: Articles](./_Articles.md)

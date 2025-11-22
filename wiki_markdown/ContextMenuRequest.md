@@ -1,13 +1,13 @@
 ## Description
 
 This trigger fires when a character attempts to access the context menu
-on an object. The [ADDCONTEXTENTRY](ADDCONTEXTENTRY "wikilink") function
+on an object. The [ADDCONTEXTENTRY](./ADDCONTEXTENTRY.md) function
 can be called on SRC to add custom menu entries to the menu.
 
 Fires on:
 
--   [Characters](Characters "wikilink")
--   [Items](Items "wikilink")
+-   [Characters](./Characters.md)
+-   [Items](./Items.md)
 
 ## References
 
@@ -16,8 +16,8 @@ trigger:
 
   ----------------------- ------------------------------------------------------------------------------------
   **Name**                **Description**
-  [I](I "wikilink")       The [character](Characters "wikilink") or [item](Items "wikilink") being accessed.
-  [SRC](SRC "wikilink")   The [client](Characters#Clients "wikilink") requesting the menu.
+  [I](./I.md)       The [character](./Characters.md) or [item](./Items.md) being accessed.
+  [SRC](./SRC.md)   The [client](./CharactersClients.md) requesting the menu.
   ----------------------- ------------------------------------------------------------------------------------
 
 ## Arguments
@@ -42,5 +42,5 @@ The following return values are explicitly defined for this trigger:
   ------------------ ----------------------------------------------
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md)

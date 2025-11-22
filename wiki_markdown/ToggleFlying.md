@@ -4,32 +4,32 @@ This trigger fires when a Gargoyle player is about to fly, or to land.
 
 Fires on:
 
--   [Characters](Characters "wikilink")
+- [Characters](./Characters.md)
 
 ## References
 
 The following object references are explicitly available for this
 trigger:
 
-  ----------------------- ---------------------------------------------------------------
-  **Name**                **Description**
-  [I](I "wikilink")       The [character](Characters "wikilink") performing the action.
-  [SRC](SRC "wikilink")   The [character](Characters "wikilink") performing the action.
-  ----------------------- ---------------------------------------------------------------
+|  |  |
+|----|----|
+| **Name** | **Description** |
+| [I](./I.md) | The [character](./Characters.md) performing the action. |
+| [SRC](./SRC.md) | The [character](./Characters.md) performing the action. |
 
 ## Arguments
 
 The are no arguments for this trigger.
 
-## Return Values {#return_values}
+## Return Values
 
 The following return values are explicitly defined for this trigger:
 
-  ------------------ ---------------------------------------------------
-  **Return Value**   **Description**
-  1                  Prevents the gargoyle to proceed with the action.
-  ------------------ ---------------------------------------------------
+|                  |                                                   |
+|------------------|---------------------------------------------------|
+| **Return Value** | **Description**                                   |
+| 1                | Prevents the gargoyle to proceed with the action. |
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md)

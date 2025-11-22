@@ -9,13 +9,13 @@ The following properties are available when defining a skill class:
 
   --------------------------------- ---------------- -------------------------------------------------------------------------------------------------------------------
   **Name**                          **Read/Write**   **Description**
-  [DEX](DEX "wikilink")             RW               Gets or sets the maximum dexterity value allowed for characters with the class.
-  [INT](INT "wikilink")             RW               Gets or sets the maximum intelligence value allowed for characters with the class.
-  [NAME](NAME "wikilink")           RW               Gets or sets the name of the class.
+  [DEX](./DEX.md)             RW               Gets or sets the maximum dexterity value allowed for characters with the class.
+  [INT](./INT.md)             RW               Gets or sets the maximum intelligence value allowed for characters with the class.
+  [NAME](./NAME.md)           RW               Gets or sets the name of the class.
   *skill_key*                       RW               Gets or sets the maximum amount of *skill_key* is allowed for characters with the class.
-  [SKILLSUM](SKILLSUM "wikilink")   RW               Gets or sets the maximum skill total allowed for characters with the class.
-  [STATSUM](STATSUM "wikilink")     RW               Gets or sets the maximum stat total allowed for characters with the class. (dexterity, intelligence and strength)
-  [STR](STR "wikilink")             RW               Gets or sets the maximum strength value allowed for characters with the class.
+  [SKILLSUM](./SKILLSUM.md)   RW               Gets or sets the maximum skill total allowed for characters with the class.
+  [STATSUM](./STATSUM.md)     RW               Gets or sets the maximum stat total allowed for characters with the class. (dexterity, intelligence and strength)
+  [STR](./STR.md)             RW               Gets or sets the maximum strength value allowed for characters with the class.
   --------------------------------- ---------------- -------------------------------------------------------------------------------------------------------------------
 
 ## Examples
@@ -41,5 +41,5 @@ Focus=100.0 Chivalry=100.0 Bushido=100.0 Ninjitsu=100.0
 Spellweaving=100.0 `</spherescript>`{=html}
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Definitions](Category:_Definitions "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Definitions](./_Definitions.md)

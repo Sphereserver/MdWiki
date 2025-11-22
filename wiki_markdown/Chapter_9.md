@@ -516,7 +516,7 @@ useful for various applications on a server.
 `   RETURN 1``</spherescript>`{=html}
 
 You should have learned about dialogs in [Chapter
-8](Chapter_8 "wikilink"). For now you need to know that this script
+8](./Chapter_8.md). For now you need to know that this script
 would make a dialog called d_info appear on the screen of the SRC (the
 profile clicker). Perhaps contained in this dialog could be information
 about the person whose profile has been clicked. It may be that you want
@@ -532,7 +532,7 @@ to include an IF statement like so:
 
 This would check first to see if the user was a GM and display a
 different amount of information. You\'ve seen in [Chapter
-8](Chapter_8 "wikilink") how you can customize the appearance of this
+8](./Chapter_8.md) how you can customize the appearance of this
 dialog down to the most detailed level.
 
 These are just a few applications of these events. As you can probably
@@ -675,9 +675,9 @@ was crafting with!
 If you want to determine who killed someone, there are two safe ways of
 doing so:
 
--   Use the [\@Kill](@Kill "wikilink") trigger, which fires when one
+-   Use the [\@Kill](./Kill.md) trigger, which fires when one
     character kills another (not discussed in this chapter)
--   Use the [ATTACKER](ATTACKER "wikilink") property, which allows you
+-   Use the [ATTACKER](./ATTACKER.md) property, which allows you
     to access a full list of characters which have harmed a character.
 
 Anyway, back to the topic at hand.
@@ -918,4 +918,4 @@ etc) than a large one. This makes the script more interesting! :) Don\'t
 deny it. It\'s interesting. Say it. \"This script is interesting.\" Now
 shut up and keep reading.
 
-[Category:Tutorials](Category:Tutorials "wikilink")
+[Category:Tutorials](./Tutorials.md)

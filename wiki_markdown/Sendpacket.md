@@ -394,4 +394,4 @@ clients like 2.0.0 or 1.26.4 may not support them. Clients greater than
 about 2.0.7 should support all packets listed in the Guide. And that\'s
 it. Easy, right? :)
 
-[Category: Articles](Category:_Articles "wikilink")
+[Category: Articles](./_Articles.md)

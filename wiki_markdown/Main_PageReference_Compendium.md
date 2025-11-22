@@ -13,9 +13,9 @@
 </div>
 <div style="border-bottom:1px solid #a7bcdc; padding:0px 0px 5px 10px;">
 
--   [Where to get Sphere](Where_to_get_Sphere "wikilink")
--   [Installing Sphere](Installing_Sphere "wikilink")
--   [Configuring Sphere.ini](Configuring_Sphere.ini "wikilink")
+-   [Where to get Sphere](./Where_to_get_Sphere.md)
+-   [Installing Sphere](./Installing_Sphere.md)
+-   [Configuring Sphere.ini](./Configuring_Sphereini.md)
 
 </div>
 <div style="border-bottom:1px solid #a7bcdc; color:#a7bcdc; font-size:18px; padding-left:10px;">
@@ -26,18 +26,18 @@
 </div>
 <div style="padding:0px 0px 5px 10px;">
 
--   [Chapter 1](Chapter_1 "wikilink") *(Numbers, DEFNAME, ITEMDEF,
+-   [Chapter 1](./Chapter_1.md) *(Numbers, DEFNAME, ITEMDEF,
     CHARDEF)*
--   [Chapter 2](Chapter_2 "wikilink") *(Sphere files explained)*
--   [Chapter 3](Chapter_3 "wikilink") *(Scripting NPC\'s and items, Cool
+-   [Chapter 2](./Chapter_2.md) *(Sphere files explained)*
+-   [Chapter 3](./Chapter_3.md) *(Scripting NPC\'s and items, Cool
     commands)*
--   [Chapter 4](Chapter_4 "wikilink") *(Objects, operators, speech)*
--   [Chapter 5](Chapter_5 "wikilink") *(Tags, Vars, Locals, Functions)*
--   [Chapter 6](Chapter_6 "wikilink") *(LINKs, TIMERs, TARGETs)*
--   [Chapter 7](Chapter_7 "wikilink") *(Loops and powerful functions)*
--   [Chapter 8](Chapter_8 "wikilink") *(SKILLMENUs, MENUs, Gumps)*
--   [Chapter 9](Chapter_9 "wikilink") *(Events)*
--   [Chapter 10](Chapter_10 "wikilink") *(String Handling)*
+-   [Chapter 4](./Chapter_4.md) *(Objects, operators, speech)*
+-   [Chapter 5](./Chapter_5.md) *(Tags, Vars, Locals, Functions)*
+-   [Chapter 6](./Chapter_6.md) *(LINKs, TIMERs, TARGETs)*
+-   [Chapter 7](./Chapter_7.md) *(Loops and powerful functions)*
+-   [Chapter 8](./Chapter_8.md) *(SKILLMENUs, MENUs, Gumps)*
+-   [Chapter 9](./Chapter_9.md) *(Events)*
+-   [Chapter 10](./Chapter_10.md) *(String Handling)*
 
 </div>
 </div>
@@ -50,27 +50,27 @@
 </div>
 <div style="border-bottom:1px solid #a7bcdc; padding:0px 0px 5px 10px;">
 
--   [Common Mistakes Explained](Common_Mistakes "wikilink") *(A revision
+-   [Common Mistakes Explained](./Common_Mistakes.md) *(A revision
     of Maximus\'s tutorial on the forums, and continuation of Taran\'s
     Misconceptions tutorial)*
--   [Internet and Sphere](Internet_and_Sphere "wikilink") *(And how to
+-   [Internet and Sphere](./Internet_and_Sphere.md) *(And how to
     make the right use of them)*
--   [Languages Tutorial](Languages_Tutorial "wikilink") *(How to script
+-   [Languages Tutorial](./Languages_Tutorial.md) *(How to script
     your own language system)*
--   [Making your own Skills](Making_your_own_Skills "wikilink") *(How to
+-   [Making your own Skills](./Making_your_own_Skills.md) *(How to
     make and customize your skill)*
--   [Nazghul\'s Mul Patching Tutorial](Mul_Patching_Tutorial "wikilink")
+-   [Nazghul\'s Mul Patching Tutorial](./Mul_Patching_Tutorial.md)
     [external link](http://sorea.profitux.cz/patching/) *(A document
     about mul patching and customizing your server)*
 -   [Overriding Hardcoded
-    Commands](Overriding_Hardcoded_Commands "wikilink") *(How to
+    Commands](./Overriding_Hardcoded_Commands.md) *(How to
     override hardcoded commands and functions)*
--   [Scheduled Reboot](Scheduled_Reboot "wikilink") *(How to schedule
+-   [Scheduled Reboot](./Scheduled_Reboot.md) *(How to schedule
     system reboots)*
--   [Using MySQL](Using_MySQL "wikilink") *(How to use MySQL)*
--   [Bitwise Operations](Bitwise_Operations "wikilink") *(How to work
+-   [Using MySQL](./Using_MySQL.md) *(How to use MySQL)*
+-   [Bitwise Operations](./Bitwise_Operations.md) *(How to work
     with FLAGS/ATTR)*
--   [Script Debugging](Script_Debugging "wikilink") *(How to fix your
+-   [Script Debugging](./Script_Debugging.md) *(How to fix your
     scripts)*
 
 </div>
@@ -110,65 +110,65 @@
 <div style="border-right:1px solid #a7bcdc; float:left; height:100%; margin-right:-1px; width:33%;">
 <div style="border-bottom:1px solid #a7bcdc; color:#a7bcdc; font-size:18px; padding-left:10px;">
 
-[**Definitions**](:Category:Definitions "wikilink")
+[**Definitions**](./CategoryDefinitions.md)
 
 </div>
 <div style="padding:0px 0px 5px 10px;">
 
--   [Chardef](CHARDEF "wikilink") \| [Characters](Characters "wikilink")
--   [Dialogs](DIALOG "wikilink")
--   [Events](EVENTS "wikilink")
--   [Itemdef](ITEMDEF "wikilink") \| [Items](Items "wikilink")
--   [Menus](MENU "wikilink")
--   [Region Resources](REGIONRESOURCE "wikilink")
--   [Region Types](REGIONTYPE "wikilink")
--   [Regions](AREADEF "wikilink")
--   [Rooms](ROOMDEF "wikilink")
--   [Skill Classes](SKILLCLASS "wikilink")
--   [Skill Menus](SKILLMENU "wikilink")
--   [Skills](SKILL "wikilink")
--   [Spawn Groups](SPAWN "wikilink")
--   [Spells](SPELL "wikilink")
--   [Types](TYPEDEF "wikilink")
+-   [Chardef](./CHARDEF.md) \| [Characters](./Characters.md)
+-   [Dialogs](./DIALOG.md)
+-   [Events](./EVENTS.md)
+-   [Itemdef](./ITEMDEF.md) \| [Items](./Items.md)
+-   [Menus](./MENU.md)
+-   [Region Resources](./REGIONRESOURCE.md)
+-   [Region Types](./REGIONTYPE.md)
+-   [Regions](./AREADEF.md)
+-   [Rooms](./ROOMDEF.md)
+-   [Skill Classes](./SKILLCLASS.md)
+-   [Skill Menus](./SKILLMENU.md)
+-   [Skills](./SKILL.md)
+-   [Spawn Groups](./SPAWN.md)
+-   [Spells](./SPELL.md)
+-   [Types](./TYPEDEF.md)
 
 </div>
 </div>
 <div style="border-left:1px solid #a7bcdc; float:left; height:100%; margin-right:-1px; width:67%;">
 <div style="border-bottom:1px solid #a7bcdc; color:#a7bcdc; font-size:18px; padding-left:10px;">
 
-[**Objects**](:Category:Objects "wikilink")
+[**Objects**](./CategoryObjects.md)
 
 </div>
 <div style="border-bottom:1px solid #a7bcdc; padding:0px 0px 5px 10px;">
 
--   [Accounts](Accounts "wikilink")
--   [Characters](Characters "wikilink")
--   [Database](Database "wikilink")
--   [Files](Files "wikilink")
--   [GM Pages](GM_Pages "wikilink")
--   [Items](Items "wikilink")
-    -   *[Special Items](Special_Items "wikilink")*
--   [Map Points](Map_Points "wikilink")
--   [Parties](Parties "wikilink")
--   [Regions](Regions "wikilink")
--   [Rooms](Rooms "wikilink")
--   [Sectors](Sectors "wikilink")
--   [Server](Server "wikilink")
+-   [Accounts](./Accounts.md)
+-   [Characters](./Characters.md)
+-   [Database](./Database.md)
+-   [Files](./Files.md)
+-   [GM Pages](./GM_Pages.md)
+-   [Items](./Items.md)
+    -   *[Special Items](./Special_Items.md)*
+-   [Map Points](./Map_Points.md)
+-   [Parties](./Parties.md)
+-   [Regions](./Regions.md)
+-   [Rooms](./Rooms.md)
+-   [Sectors](./Sectors.md)
+-   [Server](./Server.md)
 
 </div>
 <div style="border-bottom:1px solid #a7bcdc; color:#a7bcdc; font-size:18px; padding-left:10px;">
 
-[**Scripts**](:Category:Scripts "wikilink")
+[**Scripts**](./CategoryScripts.md)
 
 </div>
 <div style="padding:0px 0px 5px 10px;">
 
--   [Functions and Triggers](:Category:Functions "wikilink")
+-   [Functions and Triggers](./CategoryFunctions.md)
 -   [General Functions, Properties and
-    References](:Category:Variables "wikilink")
--   [Intrinsic Functions](Intrinsic_Functions "wikilink")
--   [Statements](:Category:Statements "wikilink")
--   [Triggers](:Category:Triggers "wikilink")
+    References](./CategoryVariables.md)
+-   [Intrinsic Functions](./Intrinsic_Functions.md)
+-   [Statements](./CategoryStatements.md)
+-   [Triggers](./CategoryTriggers.md)
 
 </div>
 </div>
@@ -240,58 +240,58 @@
 
 ## Other Articles {#other_articles}
 
--   [Armor Calculation](Armor_Calculation "wikilink")
--   [Client Changes](Client_Changes "wikilink")
+-   [Armor Calculation](./Armor_Calculation.md)
+-   [Client Changes](./Client_Changes.md)
 -   [Common Scripting
-    Misconceptions](Common_Scripting_Misconceptions "wikilink")
--   [Custom Object Properties](Custom_Object_Properties "wikilink")
--   [Error Codes](Error_Codes "wikilink")
--   [Experience System](Experience_System "wikilink")
--   [How Combat Works](How_Combat_Works "wikilink")
--   [Occam\'s Razor](Occam's_Razor "wikilink")
--   [Optimization Theory](Optimization "wikilink")
--   [Override TAGs](Override_TAGs "wikilink")
--   [Revisions Changelog](Revisions_Changelog "wikilink")
--   [Sendpacket](Sendpacket "wikilink")
--   [Skill Gain Theory](Skill_Gain_Theory "wikilink")
--   [The Process of Scripting](The_Process_of_Scripting "wikilink")
+    Misconceptions](./Common_Scripting_Misconceptions.md)
+-   [Custom Object Properties](./Custom_Object_Properties.md)
+-   [Error Codes](./Error_Codes.md)
+-   [Experience System](./Experience_System.md)
+-   [How Combat Works](./How_Combat_Works.md)
+-   [Occam\'s Razor](./Occams_Razor.md)
+-   [Optimization Theory](./Optimization.md)
+-   [Override TAGs](./Override_TAGs.md)
+-   [Revisions Changelog](./Revisions_Changelog.md)
+-   [Sendpacket](./Sendpacket.md)
+-   [Skill Gain Theory](./Skill_Gain_Theory.md)
+-   [The Process of Scripting](./The_Process_of_Scripting.md)
 -   [Building Component
-    Reference](Building_Component_Reference "wikilink")
+    Reference](./Building_Component_Reference.md)
 
 ## Credits
 
 **Special thanks to:**
 
-[XuN, Nolok, Ben, and Drk](WhoIsWho "wikilink"), for their hard work on
+[XuN, Nolok, Ben, and Drk](./WhoIsWho.md), for their hard work on
 the X branch taking Sphere into the next decade.
 
 [Ben, Cloud_Br, Ellessar, Jdog, Lord Zerofiz, Mordaunt, Nazghul-ll,
 RanXerox, Rattlehead, Sandman, Sharlenwar, ShiryuX, thelegbra, Maximus,
-WarAngel and Valios](WhoIsWho "wikilink"), for helping to add content.
+WarAngel and Valios](./WhoIsWho.md), for helping to add content.
 
-[Daleth](WhoIsWho "wikilink"), for writing the Sphere Reference Project,
-and [Mordaunt](WhoIsWho "wikilink") for converting it to .chm format.
+[Daleth](./WhoIsWho.md), for writing the Sphere Reference Project,
+and [Mordaunt](./WhoIsWho.md) for converting it to .chm format.
 
-[Tracker](WhoIsWho "wikilink"), for writing the Sphere 56 Tracking
+[Tracker](./WhoIsWho.md), for writing the Sphere 56 Tracking
 Changes in Sphereserver.net
 
-[Taran](WhoIsWho "wikilink"), for writing the original and now famous
+[Taran](./WhoIsWho.md), for writing the original and now famous
 Sphere Scripting for Dummies tutorials, and
-[MrSugarCube](WhoIsWho "wikilink") for bringing it up-to-date directly
+[MrSugarCube](./WhoIsWho.md) for bringing it up-to-date directly
 from source.
 
 [Ben, Khaos, Ranxerox, Shiryux, Furio, Radiant, Vjaka, Nazghul-ll,
 Ellessar, Torfo, Shadow Dragon, MrSugarCube and
-coruja747](WhoIsWho "wikilink") for continuing to develop Sphere into a
+coruja747](./WhoIsWho.md) for continuing to develop Sphere into a
 powerful and very customizable Ultima Online emulator.
 
-[Crius](WhoIsWho "wikilink"), for providing hosting for the original
-SphereWiki, and [Torfo](WhoIsWho "wikilink") for providing the current
+[Crius](./WhoIsWho.md), for providing hosting for the original
+SphereWiki, and [Torfo](./WhoIsWho.md) for providing the current
 hosting.
 
 ## External Links {#external_links}
 
--   [Useful Links](Useful_Links "wikilink") *(An ongoing list of useful
+-   [Useful Links](./Useful_Links.md) *(An ongoing list of useful
     links for community members)*
 -   [Official SphereServer Website](http://www.spherecommunity.net/)
 -   [Nightly builds](https://forum.spherecommunity.net/sshare.php?srt=4)
@@ -302,4 +302,4 @@ hosting.
 -   [Wyatt&Kons\'s UOKR Packet
     Guide](http://uo.torfo.org/packetguideKR/)
 
-[Category: Navigation](Category:_Navigation "wikilink")
+[Category: Navigation](./_Navigation.md)

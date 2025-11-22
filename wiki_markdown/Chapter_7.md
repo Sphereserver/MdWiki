@@ -702,4 +702,4 @@ use Action to get the Key and get the player skill amount.
 
 You can find many uses for it, all you need is some imagination.
 
-[Category:Tutorials](Category:Tutorials "wikilink")
+[Category:Tutorials](./Tutorials.md)

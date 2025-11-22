@@ -3,45 +3,45 @@
 This trigger fires when a character is about to swing their weapon or
 fist using a combat skill.
 
-More info on [How_Combat_Works](How_Combat_Works "wikilink")
+More info on [How_Combat_Works](./How_Combat_Works.md)
 
 Fires on:
 
--   [Characters](Characters "wikilink")
+- [Characters](./Characters.md)
 
 ## References
 
 The following object references are explicitly available for this
 trigger:
 
-  ------------------------- --------------------------------------------------------------------------------
-  **Name**                  **Description**
-  [ARGO](ARGO "wikilink")   The [weapon](Items "wikilink") being used (can be nothing, if fists are used).
-  [I](I "wikilink")         The [character](Characters "wikilink") doing the hitting.
-  [SRC](SRC "wikilink")     The [character](Characters "wikilink") being hit.
-  ------------------------- --------------------------------------------------------------------------------
+|  |  |
+|----|----|
+| **Name** | **Description** |
+| [ARGO](./ARGO.md) | The [weapon](./Items.md) being used (can be nothing, if fists are used). |
+| [I](./I.md) | The [character](./Characters.md) doing the hitting. |
+| [SRC](./SRC.md) | The [character](./Characters.md) being hit. |
 
 ## Arguments
 
 The following arguments are set for this trigger. If an argument is
-marked as \"In\" then a value will be passed in to the trigger, if an
-argument is marked as \"Out\" then it can be set to a value to affect
-Sphere\'s behaviour:
+marked as "In" then a value will be passed in to the trigger, if an
+argument is marked as "Out" then it can be set to a value to affect
+Sphere's behaviour:
 
-  -------------- ------------ -----------------------------------------------------------------
-  **Argument**   **In/Out**   **Description**
-  ARGN1          IO           The time, in tenths of a second, until the swing will complete.
-  -------------- ------------ -----------------------------------------------------------------
+|  |  |  |
+|----|----|----|
+| **Argument** | **In/Out** | **Description** |
+| ARGN1 | IO | The time, in tenths of a second, until the swing will complete. |
 
-## Return Values {#return_values}
+## Return Values
 
 The following return values are explicitly defined for this trigger:
 
-  ------------------ ----------------------------
-  **Return Value**   **Description**
-  1                  Prevents the combat swing.
-  ------------------ ----------------------------
+|                  |                            |
+|------------------|----------------------------|
+| **Return Value** | **Description**            |
+| 1                | Prevents the combat swing. |
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md)

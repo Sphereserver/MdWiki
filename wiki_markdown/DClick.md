@@ -4,8 +4,8 @@ This trigger fires when an object is double clicked.
 
 Fires on:
 
--   [Characters](Characters "wikilink")
--   [Items](Items "wikilink")
+-   [Characters](./Characters.md)
+-   [Items](./Items.md)
 
 ## References
 
@@ -14,8 +14,8 @@ trigger:
 
   ----------------------- ------------------------------------------------------------------------------------------
   **Name**                **Description**
-  [I](I "wikilink")       The [character](Characters "wikilink") or [item](Items "wikilink") being double clicked.
-  [SRC](SRC "wikilink")   The [character](Characters "wikilink") doing the clicking.
+  [I](./I.md)       The [character](./Characters.md) or [item](./Items.md) being double clicked.
+  [SRC](./SRC.md)   The [character](./Characters.md) doing the clicking.
   ----------------------- ------------------------------------------------------------------------------------------
 
 ## Arguments
@@ -37,5 +37,5 @@ The following return values are explicitly defined for this trigger:
   ------------------ ------------------------------------------------
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md)

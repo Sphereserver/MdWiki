@@ -5,7 +5,7 @@ about to die.
 
 Fires on:
 
--   [Characters](Characters "wikilink")
+-   [Characters](./Characters.md)
 
 ## References
 
@@ -14,8 +14,8 @@ trigger:
 
   ----------------------- ------------------------------------------------------
   **Name**                **Description**
-  [I](I "wikilink")       The [character](Characters "wikilink") about to die.
-  [SRC](SRC "wikilink")   The [character](Characters "wikilink") about to die.
+  [I](./I.md)       The [character](./Characters.md) about to die.
+  [SRC](./SRC.md)   The [character](./Characters.md) about to die.
   ----------------------- ------------------------------------------------------
 
 ## Arguments
@@ -41,7 +41,7 @@ The following return values are explicitly defined for this trigger:
 +------------------+--------------------------------------------------+
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink") [Category:
-Characters](Category:_Characters "wikilink") [Category:
-Combat](Category:_Combat "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md) [Category:
+Characters](./_Characters.md) [Category:
+Combat](./_Combat.md)

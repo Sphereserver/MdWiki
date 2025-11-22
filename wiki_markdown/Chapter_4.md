@@ -110,7 +110,7 @@ objects available to you in a SPHERE script:
 +----------------+----------------------------------------------------+
 | FILE           | Call the file commands on the current FILE object. |
 +----------------+----------------------------------------------------+
-| DB             | See [MySQL](MySQL "wikilink")                      |
+| DB             | See [MySQL](./MySQL.md)                      |
 +----------------+----------------------------------------------------+
 | PARTY.MEMBER.x | The xth party member of the referenced party.      |
 +----------------+----------------------------------------------------+
@@ -456,4 +456,4 @@ And that\'s about it. I\'m pretty lenient huh?
 As a comparison, my Java class at school has style guidelines in a set
 of pages the size of this entire tutorial.
 
-[Category:Tutorials](Category:Tutorials "wikilink")
+[Category:Tutorials](./Tutorials.md)

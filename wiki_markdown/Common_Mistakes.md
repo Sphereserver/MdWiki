@@ -23,10 +23,10 @@ ON=@TargOn_Item // code here`</spherescript>`{=html}
 
 This isn\'t going to work too well :) 56b has introduced a new targeting
 function, eliminating the need for memory targets -
-[TARGETF](TARGETF "wikilink") and its 3 different variations:
+[TARGETF](./TARGETF.md) and its 3 different variations:
 
   ------------------------------- --------------------------------------------------------------------------------
-  [TARGETF](TARGETF "wikilink")   allows you to target characters and non-static items
+  [TARGETF](./TARGETF.md)   allows you to target characters and non-static items
   **TARGETFG**                    same as above only this one allows you to target the ground
   **TARGETFW**                    targst characters and non-static items, and also warns against criminal action
   ------------------------------- --------------------------------------------------------------------------------
@@ -102,7 +102,7 @@ sign is, well, the equals sign.
 
 The single sign should only be used when \"assigning\" variables,
 locals, tags, etc\... while the double equals sign should be used in
-conditional (e.g. [IF](IF "wikilink"), [WHILE](WHILE "wikilink"))
+conditional (e.g. [IF](./IF.md), [WHILE](./WHILE.md))
 statements:
 
 `<spherescript>`{=html}LOCAL.IMNAKED = 1 // correct LOCAL.IMNAKED == 1
@@ -111,4 +111,4 @@ statements:
 IF (\<LOCAL.IMNAKED\> == 1) // correct IF (\<LOCAL.IMNAKED\> = 1) //
 incorrect`</spherescript>`{=html}
 
-[Category:Articles](Category:Articles "wikilink")
+[Category:Articles](./Articles.md)

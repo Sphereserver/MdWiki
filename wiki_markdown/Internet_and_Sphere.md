@@ -76,4 +76,4 @@ example:
 
 `<spherescript color="darkgreen">`{=html}LoginServer=yourno-ip.homedns.org,2593`</spherescript>`{=html}
 
-[Category:Articles](Category:Articles "wikilink")
+[Category:Articles](./Articles.md)

@@ -1,6 +1,6 @@
 Syntax:
 
-ADDCLILOC `<cliloc id>`{=html}, \[arguments\]
+ADDCLILOC <cliloc id>, \[arguments\]
 
 Clilocs are used to build the tool tips, there are many cliloc ids most
 of which you are not able to customize. There are however some that you
@@ -11,7 +11,7 @@ defs listed in sphere_defs.scp
 
 1062028 //Condition: \[custom arguement\]
 
-1062613 //Colored Text with \"\"
+1062613 //Colored Text with ""
 
 1070722 //\[custom arguement\]
 
@@ -21,7 +21,7 @@ defs listed in sphere_defs.scp
 
 1071345 //Skill: \[custom arguement\]
 
-1071346 //Duration: \[custom arguement\] \"minutes\"
+1071346 //Duration: \[custom arguement\] "minutes"
 
 1071518 //Current Setting: \[custom arguement\]
 
@@ -100,7 +100,7 @@ arguement\]
 
 1150301 to 1150310 //add \[ \] around the entry
 
-1150312 // add \" \" around the entry
+1150312 // add " " around the entry
 
 1151396 //Type: \[custom arguement\]
 

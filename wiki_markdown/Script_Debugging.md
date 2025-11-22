@@ -25,15 +25,15 @@ someone, and when you kill that person you want to give the killer some
 experience points. You need to reference both the person being killed
 and the person that killed them.
 
-The trigger in this example is [\@Kill](@Kill "wikilink"). One may think
+The trigger in this example is [\@Kill](./Kill.md). One may think
 that they will use the default object I as the killer and that SRC will
 be the person being killed. or that ACT would be the person being
 killed. But it is best not to assume any of these triggers will use any
 object reference the same as another, or even the same as a similar
 trigger. The best practice is to take yourself to the Spherewiki (as YOU
 already have) and pull up the trigger you are looking for under the
-Reference Compendium \> [Objects](Objects "wikilink") \>
-[Characters](Characters "wikilink"), this will give you a very good idea
+Reference Compendium \> [Objects](./Objects.md) \>
+[Characters](./Characters.md), this will give you a very good idea
 of what references you can make in that trigger. Once you have that
 information you can begin to see what you are able to work with and how
 you can work with it.

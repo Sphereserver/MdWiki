@@ -119,7 +119,7 @@ absolutely no memorable qualities. :)
 **NAME=#NAMES_HUMANMALE the Alchemist** This is where SPHERE does some
 funky stuff. First of all, if you remember from the
 `<font color="darkblue">`{=html}SPHERE_NAME.SCP`</font>`{=html} lesson
-in [Chapter 2](Chapter_2 "wikilink"), it is going to replace
+in [Chapter 2](./Chapter_2.md), it is going to replace
 #NAMES_HUMANMALE with an actual name for this NPC, such as \"Fritz\",
 \"Bob\" or the ever popular \"Roderick\". The second thing it is going
 to do is divide this name into a
@@ -495,7 +495,7 @@ idea.
 ## TYPEs
 
 This section explains how you can use [built-in item
-types](TYPEDEF "wikilink"), how to override the built-in types, and how
+types](./TYPEDEF.md), how to override the built-in types, and how
 you can make your own.
 
 If you want to override a built-in typedef, that is indeed possible,
@@ -1678,4 +1678,4 @@ to do that, here\'s an example:
 `ENDFOR`\
 `</font>`{=html}
 
-[Category:Tutorials](Category:Tutorials "wikilink")
+[Category:Tutorials](./Tutorials.md)

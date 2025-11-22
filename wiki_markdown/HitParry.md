@@ -7,12 +7,12 @@ damage by 100% and thus negating the hit and the following triggers
 
 There are two for changing the damage reduced:
 
--   Overwriting the Argn1 value in the \@HitParry trigger.
+- Overwriting the Argn1 value in the @HitParry trigger.
 
 <!-- -->
 
--   By using the EFFECT property in the skill definition of the Parrying
-    Skill, in this case the damage will be reduced by the EFFECT value:
+- By using the EFFECT property in the skill definition of the Parrying
+  Skill, in this case the damage will be reduced by the EFFECT value:
 
 \- If only one values is defined (Example:EFFECT=75) the damage will
 always be reduced by 75% no matter skills.
@@ -26,48 +26,48 @@ scaled according to the character parrying skill.
 
 Fires on:
 
--   [Characters](Characters "wikilink")
+- [Characters](./Characters.md)
 
 ## References
 
 The following object references are explicitly available for this
 trigger:
 
-  ------------------------- --------------------------------------------------------------------------------
-  **Name**                  **Description**
-  [I](I "wikilink")         The [character](Characters "wikilink") that is attempting to parry the strike.
-  [SRC](SRC "wikilink")     The [character](Characters "wikilink") that did the strike.
-  [ARGO](ARGO "wikilink")   The [weapon](Items "wikilink") or shield used for parry, if any.
-  ------------------------- --------------------------------------------------------------------------------
+|  |  |
+|----|----|
+| **Name** | **Description** |
+| [I](./I.md) | The [character](./Characters.md) that is attempting to parry the strike. |
+| [SRC](./SRC.md) | The [character](./Characters.md) that did the strike. |
+| [ARGO](./ARGO.md) | The [weapon](./Items.md) or shield used for parry, if any. |
 
 ## Arguments
 
 The following arguments are set for this trigger. If an argument is
-marked as \"In\" then a value will be passed in to the trigger, if an
-argument is marked as \"Out\" then it can be set to a value to affect
-Sphere\'s behaviour:
+marked as "In" then a value will be passed in to the trigger, if an
+argument is marked as "Out" then it can be set to a value to affect
+Sphere's behaviour:
 
-  ----------------------------- ------------ -------------------------------------------------------------------------------------------------
-  **Argument**                  **In/Out**   **Description**
-  ARNG1                         IO           Percent of damage that will be reduced (default 100%).
-  ARNG2                         IO           Damage type.
-  LOCAL.PARRYCHANCE             IO           The chance to parry the blow. The chance will be passed to the SkillUseQuick/UseQuick triggers.
-  LOCAL.PARRYSKILLID            IO           The skill used for parrying, this can be changed by setting the appropriate skill ID.
-  LOCAL.ITEMPARRYDAMAGECHANCE   IO           The chance that the parrying item will be damaged (default 100%).
-  LOCAL.DAMAGE                  IO           The amount of damage (raw) before the parry reduction.
-  ----------------------------- ------------ -------------------------------------------------------------------------------------------------
+|  |  |  |
+|----|----|----|
+| **Argument** | **In/Out** | **Description** |
+| ARNG1 | IO | Percent of damage that will be reduced (default 100%). |
+| ARNG2 | IO | Damage type. |
+| LOCAL.PARRYCHANCE | IO | The chance to parry the blow. The chance will be passed to the SkillUseQuick/UseQuick triggers. |
+| LOCAL.PARRYSKILLID | IO | The skill used for parrying, this can be changed by setting the appropriate skill ID. |
+| LOCAL.ITEMPARRYDAMAGECHANCE | IO | The chance that the parrying item will be damaged (default 100%). |
+| LOCAL.DAMAGE | IO | The amount of damage (raw) before the parry reduction. |
 
-## Return Values {#return_values}
+## Return Values
 
 The following return values are explicitly defined for this trigger:
 
-  ------------------ -------------------------------------------------------------------------------
-  **Return Value**   **Description**
-  1                  Completely blocks the damage as if the parry damage reduction was set to 100.
-  ------------------ -------------------------------------------------------------------------------
+|  |  |
+|----|----|
+| **Return Value** | **Description** |
+| 1 | Completely blocks the damage as if the parry damage reduction was set to 100. |
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink") [Category:
-Characters](Category:_Characters "wikilink") [Category:
-Combat](Category:_Combat "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md) [Category:
+Characters](./_Characters.md) [Category:
+Combat](./_Combat.md)

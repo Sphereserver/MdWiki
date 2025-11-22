@@ -12,7 +12,7 @@ enough to meet the standards of today\'s shards. Stat gain is equally
 terrible.
 
 The obvious way to implement a skill gain script is to use the
-[\@SkillStart](@SkillStart "wikilink") event, which fires any time the
+[\@SkillStart](./SkillStart.md) event, which fires any time the
 player starts to use any skill. The skill being used is passed into
 \@SkillStart as \<ARGN1\>
 
@@ -217,4 +217,4 @@ Now, do it again with a different skill number. Try 01D, I think that\'s
 taming. So you see, this script will increment the skill for ALL skill
 numbers, in two lines of code.
 
-[Category: Articles](Category:_Articles "wikilink")
+[Category: Articles](./_Articles.md)

@@ -11,20 +11,20 @@ is marked as readable then it can return a value when used as
 usage and examples.
 
 This parameters must use with
-[DIALOGLIST](#Properties_and_Functions "wikilink"). For examples, please
-go [Examples](#Examples "wikilink").
+[DIALOGLIST](./Properties_and_Functions.md). For examples, please
+go [Examples](./Examples.md).
 
   ------------------------------- ---------------- -------------------------------------------------------------------------------------------
   **DIALOGLIST***.key*            **Read/Write**   **Description**
-  [COUNT](COUNT "wikilink")       R                Gets the number of number of dialogs currently considered to be visible on SRC\'s screen.
-  *n*.[COUNT](COUNT "wikilink")   R                Gets the number of instances of nth dialog SRC has open (zero-based).
-  *n*.[ID](ID "wikilink")         R                Gets the ID of the nth dialog that SRC has open (zero-based).
+  [COUNT](./COUNT.md)       R                Gets the number of number of dialogs currently considered to be visible on SRC\'s screen.
+  *n*.[COUNT](./COUNT.md)   R                Gets the number of instances of nth dialog SRC has open (zero-based).
+  *n*.[ID](./ID.md)         R                Gets the ID of the nth dialog that SRC has open (zero-based).
   ------------------------------- ---------------- -------------------------------------------------------------------------------------------
 
 ## Examples
 
 The following examples are about
-[dialoglist](#Properties_and_Functions "wikilink").
+[dialoglist](./Properties_and_Functions.md).
 
 **DIALOGLIST.COUNT**
 

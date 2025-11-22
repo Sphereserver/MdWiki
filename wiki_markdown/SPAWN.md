@@ -1,5 +1,5 @@
 \_\_FORCETOC\_\_ Instead of setting the MORE1 property of a spawn to a
-single [character](Characters "wikilink") defname, a spawn group can be
+single [character](./Characters.md) defname, a spawn group can be
 used instead so that a random character is spawned. A spawn group
 contains a set of character defnames, with optional weights to affect
 their chances of spawning.
@@ -24,13 +24,13 @@ The following properties are available when defining a spawn group:
 
   ----------------------------------------------- ---------------- -------------------------------------------------------------------------------------
   **Name**                                        **Read/Write**   **Description**
-  [CALCMEMBERINDEX](CALCMEMBERINDEX "wikilink")   R                Selects a defname from the spawn group at random, and returns its zero-based index.
-  [DEFNAME](DEFNAME "wikilink")                   W                Sets the spawn group\'s defname.
-  [ID](ID "wikilink") *defname* *weight*          W                Adds a defname to the spawn group with the specified weight.
-  [RESOURCES](RESOURCES "wikilink")               R                Gets a list of defnames contained in the spawn group.
-  [RESOURCES](RESOURCES "wikilink").COUNT         R                Gets the number of defnames in the spawn group.
-  [RESOURCES](RESOURCES "wikilink")*.n*.KEY       R                Gets the *nth* defname in the spawn group. *(1-based)*
-  [RESOURCES](RESOURCES "wikilink")*.n*.VAL       R                Gets the weight of the *nth* defname in the spawn group. *(1-based)*
+  [CALCMEMBERINDEX](./CALCMEMBERINDEX.md)   R                Selects a defname from the spawn group at random, and returns its zero-based index.
+  [DEFNAME](./DEFNAME.md)                   W                Sets the spawn group\'s defname.
+  [ID](./ID.md) *defname* *weight*          W                Adds a defname to the spawn group with the specified weight.
+  [RESOURCES](./RESOURCES.md)               R                Gets a list of defnames contained in the spawn group.
+  [RESOURCES](./RESOURCES.md).COUNT         R                Gets the number of defnames in the spawn group.
+  [RESOURCES](./RESOURCES.md)*.n*.KEY       R                Gets the *nth* defname in the spawn group. *(1-based)*
+  [RESOURCES](./RESOURCES.md)*.n*.VAL       R                Gets the weight of the *nth* defname in the spawn group. *(1-based)*
   ----------------------------------------------- ---------------- -------------------------------------------------------------------------------------
 
 ## Examples
@@ -70,5 +70,5 @@ ENDFOR
 `</spherescript>`{=html}
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Definitions](Category:_Definitions "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Definitions](./_Definitions.md)

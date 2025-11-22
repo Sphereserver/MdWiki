@@ -5,8 +5,8 @@ object.
 
 Fires on:
 
--   [Characters](Characters "wikilink")
--   [Items](Items "wikilink")
+-   [Characters](./Characters.md)
+-   [Items](./Items.md)
 
 ## References
 
@@ -15,8 +15,8 @@ trigger:
 
   ----------------------- -----------------------------------------------------------------------------------------
   **Name**                **Description**
-  [I](I "wikilink")       The [character](Characters "wikilink") or [item](Items "wikilink") displaying the menu.
-  [SRC](SRC "wikilink")   The [character](Characters "wikilink") who selected the option.
+  [I](./I.md)       The [character](./Characters.md) or [item](./Items.md) displaying the menu.
+  [SRC](./SRC.md)   The [character](./Characters.md) who selected the option.
   ----------------------- -----------------------------------------------------------------------------------------
 
 ## Arguments
@@ -41,5 +41,5 @@ The following return values are explicitly defined for this trigger:
   ------------------ ---------------------------------------------
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md)

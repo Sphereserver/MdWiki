@@ -4,7 +4,7 @@
 \_\_FORCETOC\_\_
 
 A CHARDEF block defines the basic properties of a
-[character](Characters "wikilink").
+[character](./Characters.md).
 
 ## Properties
 
@@ -12,58 +12,58 @@ Here is a list of all character definition properties.
 
   --------------------------------------------------------------------------------- ---------------- --------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   **Name**                                                                          **Read/Write**   **Override†**   **Description**
-  [ANIM](ANIM "wikilink")                                                           RW               ??              Gets or sets a mask of animations that the character supports. The default value is 0ffffff.
-  [ARMOR](ARMOR "wikilink")                                                         RW               ??              Gets or sets the character\'s base defense without armour.
-  [AVERSIONS](AVERSIONS "wikilink")                                                 RW               ??              Gets or sets a list of things that the character does not like.
-  [BASEID](BASEID "wikilink")                                                       R                ??              Gets the defname of the character if set, otherwise the ID.
-  [BLOODCOLOR](BLOODCOLOR "wikilink")                                               RW               ??              Gets or sets the character\'s blood colour (a value of -1 prevents the creature from bleeding at all.)
-  [CAN](CAN "wikilink")                                                             RW               ??              Gets or sets attributes for the character. See can_flags in sphere_defs.scp.
-  [COLOR](COLOR "wikilink")                                                         RW               ??              Gets or sets the character colour.
-  [DAM](DAM "wikilink") *min,max*                                                   RW               ??              Gets or sets the base damage that the character will deal without a weapon.
-  [DAM](DAM "wikilink").LO                                                          R                ??              Gets the minimum base damage the character will deal without a weapon.
-  [DAM](DAM "wikilink").HI                                                          R                ??              Gets the maximum base damage the character will deal without a weapon.
-  [DEFNAME](DEFNAME "wikilink")                                                     RW               ??              Gets or sets defname of the character.
-  [DESIRES](DESIRES "wikilink")                                                     RW               ??              Gets or sets a list of things that the character likes.
-  [DEX](DEX "wikilink")                                                             RW               ??              Gets or sets the dexterity that is set when a character polymorphs into this character.
-  [DISPID](DISPID "wikilink")                                                       R                ??              Gets the ID that the character displays as.
-  [FOODTYPE](FOODTYPE "wikilink")                                                   RW               ??              Gets or sets a list of things that the character can eat.
-  [HEIGHT](HEIGHT "wikilink")                                                       RW               ??              Gets or sets the height of the character.
-  [HIREDAYWAGE](HIREDAYWAGE "wikilink")                                             RW               ??              Gets or sets how much gold is needed to hire the character for one day.
-  [ICON](ICON "wikilink")                                                           RW               ??              Gets or sets the item that can be used to represent the character in figurine form.
-  [ID](ID "wikilink")                                                               RW               ??              Gets or sets the ID of the character to inherit property values from.
-  [INSTANCES](INSTANCES "wikilink")                                                 R                ??              Returns the number of this character that exist in the world.
-  [INT](INT "wikilink")                                                             RW               ??              Gets or sets the intelligence that is set when a character polymorphs into this character.
-  [JOB](JOB "wikilink")                                                             R                ??              Gets the character\'s job title.
-  [MAXFOOD](MAXFOOD "wikilink")                                                     R                ??              Gets the maximum food level that the character can have.
-  [MOVERATE](MOVERATE "wikilink")                                                   RW               Y               Boost or limit the movement speed (based on DEX) with the specified rate. The higher it is, the faster the NPC will be. 50 means 50% of speed, 200 means double speed.
-  [NAME](NAME "wikilink")                                                           RW               ??              Gets or sets the name of the character.
-  [RANGE](RANGE "wikilink") *min, max*                                              RW               Y               Gets or sets the attack range of the character.
-  [RANGEH](RANGEH "wikilink")                                                       R                ??              Gets the maximum attack range of the character.
-  [RANGEL](RANGEL "wikilink")                                                       R                ??              Gets the minimum attack range of the character.
-  [RESDISPDNHUE](RESDISPDNHUE "wikilink")                                           RW               ??              Gets or sets the colour to display as to clients who don\'t have a high enough [RESDISP](RESDISP "wikilink") to see the character.
-  [RESDISPNID](RESDISPNID "wikilink")                                               RW               ??              Gets or sets the character ID to display as to clients who don\'t have a high enough [RESDISP](RESDISP "wikilink") to see the character.
-  [RESLEVEL](RESLEVEL "wikilink")                                                   RW               ??              Gets or sets the minimum [RESDISP](RESDISP "wikilink") required for a client to see the character.
-  [RESOURCES](RESOURCES "wikilink")                                                 RW               ??              Gets or sets the resources that the character is made of.
-  [RESOURCES](RESOURCES "wikilink")*.COUNT*                                         R                ??              Gets the number of different resources that the character is made of.
-  [RESOURCES](RESOURCES "wikilink")*.n.KEY*                                         R                ??              Gets the [BASEID](BASEID "wikilink") of the nth resource that the character is made of. (zero-based)
-  [RESOURCES](RESOURCES "wikilink")*.n.VAL*                                         R                ??              Gets the amount of the nth resource that the character is made of. (zero-based)
-  [SOUND](SOUND "wikilink")                                                         RW               ??              Gets or sets the generic sound that the character makes. can be splitted into SOUNDHIT, SOUNDGETHIT, SOUNDDIE, SOUNDIDLE, SOUNDNOTICE, splitted values are optional, and when set it will have priority over default SOUND value.
-  [SOUNDIDLE](SOUNDIDLE "wikilink")                                                 RW               ??              Gets or sets the iddle sound that the character makes. (can have -1 as value to prevent action-related sound to be played)
-  [SOUNDNOTICE](SOUNDNOTICE "wikilink")                                             RW               ??              Gets or sets the notice sound that the character makes. (can have -1 as value to prevent action-related sound to be played)
-  [SOUNDHIT](SOUNDHIT "wikilink")                                                   RW               ??              Gets or sets the hit sound that the character makes. (can have -1 as value to prevent action-related sound to be played)
-  [SOUNDGETHIT](SOUNDGETHIT "wikilink")                                             RW               ??              Gets or sets the get hit sound that the character makes. (can have -1 as value to prevent action-related sound to be played)
-  [SOUNDDIE](SOUNDDIE "wikilink")                                                   RW               ??              Gets or sets the die sound that the character makes. (can have -1 as value to prevent action-related sound to be played)
-  [STR](STR "wikilink")                                                             RW               ??              Gets or sets the strength that is set when a character polymorphs into this character.
-  [TAG](TAG "wikilink")*.name*                                                      RW               ??              Gets or sets the value of a TAG.
+  [ANIM](./ANIM.md)                                                           RW               ??              Gets or sets a mask of animations that the character supports. The default value is 0ffffff.
+  [ARMOR](./ARMOR.md)                                                         RW               ??              Gets or sets the character\'s base defense without armour.
+  [AVERSIONS](./AVERSIONS.md)                                                 RW               ??              Gets or sets a list of things that the character does not like.
+  [BASEID](./BASEID.md)                                                       R                ??              Gets the defname of the character if set, otherwise the ID.
+  [BLOODCOLOR](./BLOODCOLOR.md)                                               RW               ??              Gets or sets the character\'s blood colour (a value of -1 prevents the creature from bleeding at all.)
+  [CAN](./CAN.md)                                                             RW               ??              Gets or sets attributes for the character. See can_flags in sphere_defs.scp.
+  [COLOR](./COLOR.md)                                                         RW               ??              Gets or sets the character colour.
+  [DAM](./DAM.md) *min,max*                                                   RW               ??              Gets or sets the base damage that the character will deal without a weapon.
+  [DAM](./DAM.md).LO                                                          R                ??              Gets the minimum base damage the character will deal without a weapon.
+  [DAM](./DAM.md).HI                                                          R                ??              Gets the maximum base damage the character will deal without a weapon.
+  [DEFNAME](./DEFNAME.md)                                                     RW               ??              Gets or sets defname of the character.
+  [DESIRES](./DESIRES.md)                                                     RW               ??              Gets or sets a list of things that the character likes.
+  [DEX](./DEX.md)                                                             RW               ??              Gets or sets the dexterity that is set when a character polymorphs into this character.
+  [DISPID](./DISPID.md)                                                       R                ??              Gets the ID that the character displays as.
+  [FOODTYPE](./FOODTYPE.md)                                                   RW               ??              Gets or sets a list of things that the character can eat.
+  [HEIGHT](./HEIGHT.md)                                                       RW               ??              Gets or sets the height of the character.
+  [HIREDAYWAGE](./HIREDAYWAGE.md)                                             RW               ??              Gets or sets how much gold is needed to hire the character for one day.
+  [ICON](./ICON.md)                                                           RW               ??              Gets or sets the item that can be used to represent the character in figurine form.
+  [ID](./ID.md)                                                               RW               ??              Gets or sets the ID of the character to inherit property values from.
+  [INSTANCES](./INSTANCES.md)                                                 R                ??              Returns the number of this character that exist in the world.
+  [INT](./INT.md)                                                             RW               ??              Gets or sets the intelligence that is set when a character polymorphs into this character.
+  [JOB](./JOB.md)                                                             R                ??              Gets the character\'s job title.
+  [MAXFOOD](./MAXFOOD.md)                                                     R                ??              Gets the maximum food level that the character can have.
+  [MOVERATE](./MOVERATE.md)                                                   RW               Y               Boost or limit the movement speed (based on DEX) with the specified rate. The higher it is, the faster the NPC will be. 50 means 50% of speed, 200 means double speed.
+  [NAME](./NAME.md)                                                           RW               ??              Gets or sets the name of the character.
+  [RANGE](./RANGE.md) *min, max*                                              RW               Y               Gets or sets the attack range of the character.
+  [RANGEH](./RANGEH.md)                                                       R                ??              Gets the maximum attack range of the character.
+  [RANGEL](./RANGEL.md)                                                       R                ??              Gets the minimum attack range of the character.
+  [RESDISPDNHUE](./RESDISPDNHUE.md)                                           RW               ??              Gets or sets the colour to display as to clients who don\'t have a high enough [RESDISP](./RESDISP.md) to see the character.
+  [RESDISPNID](./RESDISPNID.md)                                               RW               ??              Gets or sets the character ID to display as to clients who don\'t have a high enough [RESDISP](./RESDISP.md) to see the character.
+  [RESLEVEL](./RESLEVEL.md)                                                   RW               ??              Gets or sets the minimum [RESDISP](./RESDISP.md) required for a client to see the character.
+  [RESOURCES](./RESOURCES.md)                                                 RW               ??              Gets or sets the resources that the character is made of.
+  [RESOURCES](./RESOURCES.md)*.COUNT*                                         R                ??              Gets the number of different resources that the character is made of.
+  [RESOURCES](./RESOURCES.md)*.n.KEY*                                         R                ??              Gets the [BASEID](./BASEID.md) of the nth resource that the character is made of. (zero-based)
+  [RESOURCES](./RESOURCES.md)*.n.VAL*                                         R                ??              Gets the amount of the nth resource that the character is made of. (zero-based)
+  [SOUND](./SOUND.md)                                                         RW               ??              Gets or sets the generic sound that the character makes. can be splitted into SOUNDHIT, SOUNDGETHIT, SOUNDDIE, SOUNDIDLE, SOUNDNOTICE, splitted values are optional, and when set it will have priority over default SOUND value.
+  [SOUNDIDLE](./SOUNDIDLE.md)                                                 RW               ??              Gets or sets the iddle sound that the character makes. (can have -1 as value to prevent action-related sound to be played)
+  [SOUNDNOTICE](./SOUNDNOTICE.md)                                             RW               ??              Gets or sets the notice sound that the character makes. (can have -1 as value to prevent action-related sound to be played)
+  [SOUNDHIT](./SOUNDHIT.md)                                                   RW               ??              Gets or sets the hit sound that the character makes. (can have -1 as value to prevent action-related sound to be played)
+  [SOUNDGETHIT](./SOUNDGETHIT.md)                                             RW               ??              Gets or sets the get hit sound that the character makes. (can have -1 as value to prevent action-related sound to be played)
+  [SOUNDDIE](./SOUNDDIE.md)                                                   RW               ??              Gets or sets the die sound that the character makes. (can have -1 as value to prevent action-related sound to be played)
+  [STR](./STR.md)                                                             RW               ??              Gets or sets the strength that is set when a character polymorphs into this character.
+  [TAG](./TAG.md)*.name*                                                      RW               ??              Gets or sets the value of a TAG.
   [TAG.BARDING.DIFF (X branch only)](TAG.BARDING.DIFF_(X_branch_only) "wikilink")   RW               ??              determine the difficulty of Enticement, Peacemaking and Provocation skills. If this tag isn\'t set, the old behaviour is used.
-  [THROWDAM](THROWDAM "wikilink") *min,max*                                         RW               y               Gets or sets a range of damage used for thrown objects.
-  [THROWDAM](THROWDAM "wikilink") *dam*                                             RW               y               Gets or sets the constant damage used for thrown objects.
-  [THROWDAMTYPE](THROWDAMTYPE "wikilink") *damage flags*                            RW               y               Gets or sets the damage flags used for thrown objects.
-  [THROWOBJ](THROWOBJ "wikilink") *id*                                              RW               y               Gets or sets the ID of an object to be thrown by NPCs.
-  [THROWRANGE](THROWRANGE "wikilink") *min,max*                                     RW               y               Gets or sets the range that an object can be thrown at.
-  [THROWRANGE](THROWRANGE "wikilink") *max*                                         RW               y               Gets or sets the range that an object can be thrown at with a default min of 2.
-  [TSPEECH](TSPEECH "wikilink") *speech_defname*                                    RW               ??              Gets a list of speech handlers for the character, or adds a speech handler to the character.
-  [TEVENTS](TEVENTS "wikilink") *event_defname*                                     RW               ??              Gets a list of event handlers for the character, or adds an event handler to the character.
+  [THROWDAM](./THROWDAM.md) *min,max*                                         RW               y               Gets or sets a range of damage used for thrown objects.
+  [THROWDAM](./THROWDAM.md) *dam*                                             RW               y               Gets or sets the constant damage used for thrown objects.
+  [THROWDAMTYPE](./THROWDAMTYPE.md) *damage flags*                            RW               y               Gets or sets the damage flags used for thrown objects.
+  [THROWOBJ](./THROWOBJ.md) *id*                                              RW               y               Gets or sets the ID of an object to be thrown by NPCs.
+  [THROWRANGE](./THROWRANGE.md) *min,max*                                     RW               y               Gets or sets the range that an object can be thrown at.
+  [THROWRANGE](./THROWRANGE.md) *max*                                         RW               y               Gets or sets the range that an object can be thrown at with a default min of 2.
+  [TSPEECH](./TSPEECH.md) *speech_defname*                                    RW               ??              Gets a list of speech handlers for the character, or adds a speech handler to the character.
+  [TEVENTS](./TEVENTS.md) *event_defname*                                     RW               ??              Gets a list of event handlers for the character, or adds an event handler to the character.
   --------------------------------------------------------------------------------- ---------------- --------------- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 **†** Some properties can be overridden on a individual character basis.
@@ -147,5 +147,5 @@ ON=@NPCRestock
 `</spherescript>`{=html}
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Definitions](Category:_Definitions "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Definitions](./_Definitions.md)

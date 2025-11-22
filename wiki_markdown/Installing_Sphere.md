@@ -4,10 +4,10 @@
 ## Windows
 
 Start by downloading Sphere. See the [Where to get
-Sphere](Where_to_get_Sphere "wikilink") page for download links. You
+Sphere](./Where_to_get_Sphere.md) page for download links. You
 should end up with two different zip files, one containing the Sphere
 executable and the other containing the [Script
-Pack](Script_Pack "wikilink").
+Pack](./Script_Pack.md).
 
 1.  Extract the SphereServer.zip file to wherever you want to run it
     from. I would recommend \"c:\\sphere\"
@@ -23,7 +23,7 @@ Pack](Script_Pack "wikilink").
     (not .txt).
 5.  Copy this file four times an rename them as: spherestatics,
     spherechars.scp, spheremultis.scp and sphereworld.scp
-6.  Now, [configure your sphere.ini](Configuring_Sphere.ini "wikilink").
+6.  Now, [configure your sphere.ini](./Configuring_Sphereini.md).
     This is a must before running Sphere for the first time!
 7.  Double Click on SphereSvr.exe to launch the Console. This black
     window is your server console from which you can enter commands.
@@ -38,7 +38,7 @@ Now you can go around your map and explore some parts of it. You can use
 the navigation bar on the left to read various tutorials to learn how to
 script and learn something about Sphere. After that, read the other
 articles and check the [reference
-compendium](Main_Page#Reference_Compendium "wikilink") if you need
+compendium](./Main_PageReference_Compendium.md) if you need
 something special.
 
 ## Linux
@@ -272,4 +272,4 @@ Linked Against:
 If you use this release, please check [this
 topic](http://www.sphereserver.net/index.php?showtopic=44153).
 
-[Category: Setting Up Sphere](Category:_Setting_Up_Sphere "wikilink")
+[Category: Setting Up Sphere](./_Setting_Up_Sphere.md)

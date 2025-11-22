@@ -1,4 +1,4 @@
 ## Description
 
 This trigger was removed and merged in
-[\@RegenStat](@RegenStat "wikilink")
+[@RegenStat](./RegenStat.md)

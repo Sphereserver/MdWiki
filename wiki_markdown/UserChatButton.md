@@ -4,39 +4,39 @@ This trigger fires when a player presses the Chat button the paperdoll.
 
 Fires on:
 
--   [Players](Characters#Players "wikilink")
+- [Players](./CharactersPlayers.md)
 
 ## References
 
 The following object references are explicitly available for this
 trigger:
 
-  ----------------------- -------------------------------------------------------------
-  **Name**                **Description**
-  [I](I "wikilink")       The [player](Characters#Players "wikilink") accessing Chat.
-  [SRC](SRC "wikilink")   The [player](Characters#Players "wikilink") accessing Chat.
-  ----------------------- -------------------------------------------------------------
+|  |  |
+|----|----|
+| **Name** | **Description** |
+| [I](./I.md) | The [player](./CharactersPlayers.md) accessing Chat. |
+| [SRC](./SRC.md) | The [player](./CharactersPlayers.md) accessing Chat. |
 
 ## Arguments
 
 The following arguments are set for this trigger. If an argument is
-marked as \"In\" then a value will be passed in to the trigger, if an
-argument is marked as \"Out\" then it can be set to a value to affect
-Sphere\'s behaviour:
+marked as "In" then a value will be passed in to the trigger, if an
+argument is marked as "Out" then it can be set to a value to affect
+Sphere's behaviour:
 
 *No arguments are set for this trigger.*
 
-## Return Values {#return_values}
+## Return Values
 
 The following return values are explicitly defined for this trigger:
 
-  ------------------ ------------------------------------------
-  **Return Value**   **Description**
-  1                  Prevents the player from accessing Chat.
-  ------------------ ------------------------------------------
+|                  |                                          |
+|------------------|------------------------------------------|
+| **Return Value** | **Description**                          |
+| 1                | Prevents the player from accessing Chat. |
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink") [Category:
-Characters](Category:_Characters "wikilink") [Category:
-Players](Category:_Players "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md) [Category:
+Characters](./_Characters.md) [Category:
+Players](./_Players.md)

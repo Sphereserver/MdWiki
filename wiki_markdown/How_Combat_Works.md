@@ -2,23 +2,23 @@
 {{Languages|How_Combat_Works}}
 ```
 The following diagram shows when combat triggers are triggered. See the
-[Triggers](Triggers "wikilink") page for more information on each
+[Triggers](./Triggers.md) page for more information on each
 trigger.
 
-`       `[`@HitTry`](@HitTry "wikilink")` (attacker)`\
+`       `[`@HitTry`](./HitTry.md)` (attacker)`\
 `           /           \`\
-[`@Hit`](@Hit "wikilink")` (attacker)    `[`@HitMiss`](@HitMiss "wikilink")` (attacker)`\
+[`@Hit`](./Hit.md)` (attacker)    `[`@HitMiss`](./HitMiss.md)` (attacker)`\
 `       |`\
-[`@Damage`](@Damage "wikilink")` (weapon)`\
+[`@Damage`](./Damage.md)` (weapon)`\
 `       |`\
-[`@HitParry`](@HitParry "wikilink")` (victim)`\
+[`@HitParry`](./HitParry.md)` (victim)`\
 `       |`\
-[`@GetHit`](@GetHit "wikilink")` (victim)`\
+[`@GetHit`](./GetHit.md)` (victim)`\
 `       |`\
-[`@Damage`](@Damage "wikilink")` (armor)`\
+[`@Damage`](./Damage.md)` (armor)`\
 
 Thanks to Moe for posting this.
 
 NOTE: HITCHECK was added too. page need to be create
 
-[Category:Articles](Category:Articles "wikilink")
+[Category:Articles](./Articles.md)

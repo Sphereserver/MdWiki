@@ -495,7 +495,7 @@ this`</spherescript>`{=html}
 `<font color="darkgreen">`{=html}`// OF_Command_Sysmsgs = 00000008 //Shows status of hearall, allshow, allmove... commands after toggling them`\
 `// OF_OSIMultiSight = 00000020`\
 `// OF_Items_AutoName = 00000040`\
-`// OF_FileCommands = 00000080 ``<font color="darkblue">`{=html}**`// This enables all FILE commands, information about this command is `[` here`](File "wikilink")**\
+`// OF_FileCommands = 00000080 ``<font color="darkblue">`{=html}**`// This enables all FILE commands, information about this command is `[` here`](./File.md)**\
 `</font>`{=html}` // OF_NoItemNaming = 00000100 ``<font color="darkblue">`{=html}**`// If enabled, prevents Sphere from naming crafted items ("Crafted by...")`**\
 `</font>`{=html}` // OF_NoHouseMuteSpeech = 00000200`\
 `// OF_Flood_Protection = 00001000`\
@@ -697,4 +697,4 @@ MyShard 127.0.0.1 2593
 
 \[EOF\]`</spherescript>`{=html}
 
-[Category: Setting Up Sphere](Category:_Setting_Up_Sphere "wikilink")
+[Category: Setting Up Sphere](./_Setting_Up_Sphere.md)

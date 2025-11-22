@@ -48,4 +48,4 @@ pretty much change any of the hardcoded commands. You can even
 completely re-script the commands, maybe you want .KILL to actually
 resurrect the player, or something like that\... it\'s all possible!
 
-[Category:Articles](Category:Articles "wikilink")
+[Category:Articles](./Articles.md)

@@ -16,5 +16,5 @@ TARGP= ID of the tiles when target is a static tile
 local.id stores the ID of the targeted object
 
 [Category:Reference
-Compendium](Category:Reference_Compendium "wikilink") [Category:
-Properties and Functions](Category:_Properties_and_Functions "wikilink")
+Compendium](./Reference_Compendium.md) [Category:
+Properties and Functions](./_Properties_and_Functions.md)

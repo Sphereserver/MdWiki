@@ -527,4 +527,4 @@ And that is my chapter on functions. Later on, we\'ll see very useful
 purposes for doing this, other than eliminating a lot of lines of
 typing.
 
-[Category:Tutorials](Category:Tutorials "wikilink")
+[Category:Tutorials](./Tutorials.md)

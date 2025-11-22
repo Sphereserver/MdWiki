@@ -6,7 +6,7 @@ This trigger fires on the character being attacked.
 
 Fires on:
 
--   [Characters](Characters "wikilink")
+-   [Characters](./Characters.md)
 
 ## References
 
@@ -15,9 +15,9 @@ trigger:
 
   ----------------------- ---------------------------------------------------------------
   **Name**                **Description**
-  [ACT](ACT "wikilink")   The [character](Characters "wikilink") initiating the attack.
-  [I](I "wikilink")       The [character](Characters "wikilink") being attacked.
-  [SRC](SRC "wikilink")   The [character](Characters "wikilink") initiating the attack.
+  [ACT](./ACT.md)   The [character](./Characters.md) initiating the attack.
+  [I](./I.md)       The [character](./Characters.md) being attacked.
+  [SRC](./SRC.md)   The [character](./Characters.md) initiating the attack.
   ----------------------- ---------------------------------------------------------------
 
 ## Arguments
@@ -39,7 +39,7 @@ The following return values are explicitly defined for this trigger:
   ------------------ ----------------------------------------
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink") [Category:
-Characters](Category:_Characters "wikilink") [Category:
-Combat](Category:_Combat "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md) [Category:
+Characters](./_Characters.md) [Category:
+Combat](./_Combat.md)

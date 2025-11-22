@@ -5,7 +5,7 @@ and I don\'t have any more viable targets.
 
 Fires on:
 
--   [Characters](Characters "wikilink")
+-   [Characters](./Characters.md)
 
 ## References
 
@@ -14,7 +14,7 @@ trigger:
 
   ------------------- -----------------
   **Name**            **Description**
-  [I](I "wikilink")   Myself.
+  [I](./I.md)   Myself.
   ------------------- -----------------
 
 ## Arguments
@@ -33,7 +33,7 @@ The following return values are explicitly defined for this trigger:
 *No return values allowed for this trigger.*
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink") [Category:
-Characters](Category:_Characters "wikilink") [Category:
-Combat](Category:_Combat "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md) [Category:
+Characters](./_Characters.md) [Category:
+Combat](./_Combat.md)

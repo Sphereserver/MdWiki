@@ -28,7 +28,7 @@ Sphere console:
 
 This means that we have only 1 argument and it\'s our complete string.
 This is not too useful because later we will have to cut it using the
-[STRARG](#STRARG "wikilink") or [STREAT](#STREAT "wikilink") functions.
+[STRARG](./STRARG.md) or [STREAT](./STREAT.md) functions.
 But if we check what happens if we use commas, by typing
 \"`<font color="darkred">`{=html}.f_test
 Hello,to,all,World`</font>`{=html}\":
@@ -43,7 +43,7 @@ script. Pretty Simple, uh? Well, this is just the start.
 
 We can do almost whatever we want with a string: Comparing, cutting,
 removing, moving, etc.. To see all of the valid functions check the
-[list below](#String_Functions "wikilink"). They\'re heavily explained.
+[list below](./String_Functions.md). They\'re heavily explained.
 
 ## String Functions {#string_functions}
 
@@ -140,27 +140,27 @@ You might be asking, \"Why didn\'t you have to surround the function
 with \< \> there?\".
 
 Well, STRCMP is not a \'normal\' function. It is known as an *[intrinsic
-function](intrinsic_function "wikilink")*, a special kind of function
+function](./intrinsic_function.md)*, a special kind of function
 that can only be used inside an \<EVAL \...\> statement and rather than
 being surrounded by \< \> it instead has its arguments surrounded by
 brackets ( ).
 
 \"Wait, but that STRCMP *isn\'t* inside an EVAL!?\" you may say, but
 this is not actually the case. Inside conditional statements (such as
-[IF](IF "wikilink") and [WHILE](WHILE "wikilink")), Sphere automatically
+[IF](./IF.md) and [WHILE](./WHILE.md)), Sphere automatically
 treats the entire line as if it were inside an EVAL function, and so the
 above script will work fine for comparing strings.
 
 Another thing you should remember is that STRCMP is case-sensitive, and
 so \"STRING1\" will not be equal to \"string1\". If you want to perform
-a case-insensitive comparison, use [STRCMPI](#STRCMPI "wikilink")
+a case-insensitive comparison, use [STRCMPI](./STRCMPI.md)
 instead.
 
 ### STRCMPI
 
 The STRCMPI function can be used to compare two strings, ignoring their
 case. Apart from being case-insensitive this function is identical to
-[STRCMP](#STRCMP "wikilink").
+[STRCMP](./STRCMP.md).
 
 ### STRLEN
 
@@ -247,7 +247,7 @@ The function will return \"strings are fun to play with\".
 ### STRTOUPPER
 
 This function performs the opposite action to
-[STRTOLOWER](#STRTOLOWER "wikilink"). It converts all lowercase
+[STRTOLOWER](./STRTOLOWER.md). It converts all lowercase
 characters to uppercase. Following on from the previous example:
 
 `<spherescript>`{=html}LOCAL.UPPER =
@@ -335,7 +335,7 @@ intended to be used and you will be at a disadvantage for doing so:
     contain *\*MET\**)
 
 If you want to check the equality of two strings, use either the
-[STRCMP](#STRCMP "wikilink") or [STRCMPI](#STRCMPI "wikilink") function.
+[STRCMP](./STRCMP.md) or [STRCMPI](./STRCMPI.md) function.
 
 ### STRREGEX
 
@@ -399,4 +399,4 @@ ENDIF`</spherescript>`{=html}
 As complicated as that looks it does the job well. For example it
 matches values such as \"1.5\", \"-250.002\", \"50\", and even \".007\"!
 
-[Category:Tutorials](Category:Tutorials "wikilink")
+[Category:Tutorials](./Tutorials.md)

@@ -27,7 +27,7 @@ what the number is, you can always use the following function:
 
 But then again, why would you want to? The entire idea behind the
 DEFNAME feature is that there is no need for you to memorize those scary
-numbers. Remember [Chapter 1](Chapter_1 "wikilink")? :)
+numbers. Remember [Chapter 1](./Chapter_1.md)? :)
 
 ## Bodies and colors revert upon death {#bodies_and_colors_revert_upon_death}
 
@@ -128,7 +128,7 @@ above with CONT. There is one more thing to consider when doing anything
 of this nature. One of the functions we call inside of our fire_damage
 function depends on a SRC in its default state. Yes, it\'s the DAMAGE
 function. See the [Reference
-Compendium](Reference_Compendium "wikilink") for information about how
+Compendium](./Reference_Compendium.md) for information about how
 you might solve that problem.
 
 I\'ve been mentioning cases when SRC may be required in a function. I
@@ -147,4 +147,4 @@ didn\'t:
     in a function. I don\'t know when this might be, but you might find
     it necessary.
 
-[Category: Articles](Category:_Articles "wikilink")
+[Category: Articles](./_Articles.md)

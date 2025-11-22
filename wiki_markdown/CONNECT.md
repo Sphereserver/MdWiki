@@ -15,5 +15,5 @@ MySqlDatabase=
 **USES:** DB.CONNECT
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Properties and Functions](Category:_Properties_and_Functions "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Properties and Functions](./_Properties_and_Functions.md)

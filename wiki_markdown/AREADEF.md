@@ -19,29 +19,29 @@ to customise the behaviour of the area.
 
   ------------------------------------------------------------- ---------------- ----------------------------------------------------------------------------------------------------
   **Name**                                                      **Read/Write**   **Description**
-  [ANNOUNCE](ANNOUNCE "wikilink")                               RW               Gets or sets whether or not there will be an announcement when someone enters or exits the region.
-  [ARENA](ARENA "wikilink")                                     RW               Gets or sets whether or not the region is considered to be an arena.
-  [BUILDABLE](BUILDABLE "wikilink")                             RW               Gets or sets whether or not players can place buildings and ships in the region.
+  [ANNOUNCE](./ANNOUNCE.md)                               RW               Gets or sets whether or not there will be an announcement when someone enters or exits the region.
+  [ARENA](./ARENA.md)                                     RW               Gets or sets whether or not the region is considered to be an arena.
+  [BUILDABLE](./BUILDABLE.md)                             RW               Gets or sets whether or not players can place buildings and ships in the region.
   [EVENTS](EVENTS_(Property) "wikilink") *regiontype_defname*   W                Adds a region event to the region.
-  [FLAGS](FLAGS "wikilink")                                     RW               Gets or sets the region\'s attributes.
-  [GATE](GATE "wikilink")                                       RW               Gets or sets whether or not casting the gate travel spell is allowed in the region.
-  [GROUP](GROUP "wikilink")                                     RW               Gets or sets a group name for the region.
-  [GUARDED](GUARDED "wikilink")                                 RW               Gets or sets whether or not guards can be called within the region.
-  [MAGIC](MAGIC "wikilink")                                     RW               Gets or sets whether or not there is an anti-magic field in the region.
-  [MARK](MARK "wikilink")                                       RW               Gets or sets whether or not casting the mark spell is allowed in the region.
-  [NAME](NAME "wikilink")                                       RW               Gets or sets the name of the region.
-  [NOBUILD](NOBUILD "wikilink")                                 RW               Gets or sets whether or not players can place buildings in the region.
-  [NODECAY](NODECAY "wikilink")                                 RW               Gets or sets whether or not items will decay in the region.
-  [NOPVP](NOPVP "wikilink")                                     RW               Gets or sets whether or not PvP combat is allowed in the region.
-  [P](P "wikilink")                                             RW               Gets or sets the location of the region (used when using the [GO](GO "wikilink") command).
-  [RECALL](RECALL "wikilink")                                   RW               Gets or sets whether or not casting the recall spell is allowed in the region.
-  [RECALLIN](RECALLIN "wikilink")                               RW               Gets or sets whether or not it is possible to use the recall spell to enter the region.
-  [RECALLOUT](RECALLOUT "wikilink")                             RW               Gets or sets whether players can recall out of the region.
-  [RECT](RECT "wikilink") *left, top, right, bottom, map*       W                Adds a rectangle to the region definition.
-  [RESOURCES](RESOURCES "wikilink") *regiontype_defname*        W                Adds a region event to the region.
-  [SAFE](SAFE "wikilink")                                       RW               Gets or sets whether or not the region is a safe zone.
-  [TAG](TAG "wikilink")*.name*                                  RW               Gets or sets the value of a TAG.
-  [UNDERGROUND](UNDERGROUND "wikilink")                         RW               Gets or sets whether or not the region is considered to be underground.
+  [FLAGS](./FLAGS.md)                                     RW               Gets or sets the region\'s attributes.
+  [GATE](./GATE.md)                                       RW               Gets or sets whether or not casting the gate travel spell is allowed in the region.
+  [GROUP](./GROUP.md)                                     RW               Gets or sets a group name for the region.
+  [GUARDED](./GUARDED.md)                                 RW               Gets or sets whether or not guards can be called within the region.
+  [MAGIC](./MAGIC.md)                                     RW               Gets or sets whether or not there is an anti-magic field in the region.
+  [MARK](./MARK.md)                                       RW               Gets or sets whether or not casting the mark spell is allowed in the region.
+  [NAME](./NAME.md)                                       RW               Gets or sets the name of the region.
+  [NOBUILD](./NOBUILD.md)                                 RW               Gets or sets whether or not players can place buildings in the region.
+  [NODECAY](./NODECAY.md)                                 RW               Gets or sets whether or not items will decay in the region.
+  [NOPVP](./NOPVP.md)                                     RW               Gets or sets whether or not PvP combat is allowed in the region.
+  [P](./P.md)                                             RW               Gets or sets the location of the region (used when using the [GO](./GO.md) command).
+  [RECALL](./RECALL.md)                                   RW               Gets or sets whether or not casting the recall spell is allowed in the region.
+  [RECALLIN](./RECALLIN.md)                               RW               Gets or sets whether or not it is possible to use the recall spell to enter the region.
+  [RECALLOUT](./RECALLOUT.md)                             RW               Gets or sets whether players can recall out of the region.
+  [RECT](./RECT.md) *left, top, right, bottom, map*       W                Adds a rectangle to the region definition.
+  [RESOURCES](./RESOURCES.md) *regiontype_defname*        W                Adds a region event to the region.
+  [SAFE](./SAFE.md)                                       RW               Gets or sets whether or not the region is a safe zone.
+  [TAG](./TAG.md)*.name*                                  RW               Gets or sets the value of a TAG.
+  [UNDERGROUND](./UNDERGROUND.md)                         RW               Gets or sets whether or not the region is considered to be underground.
   ------------------------------------------------------------- ---------------- ----------------------------------------------------------------------------------------------------
 
 ## Examples
@@ -62,5 +62,5 @@ RECT=1313,1563,1392,1577,0 EVENTS=r_brit_castle TAG.GUARDOWNER=Lord
 British\'s Personal `</spherescript>`{=html}
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Definitions](Category:_Definitions "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Definitions](./_Definitions.md)

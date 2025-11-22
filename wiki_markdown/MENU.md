@@ -48,7 +48,7 @@ The syntax for an item-based menu is as follows:
   **Name**    **Description**
   *defname*   The menu\'s defname.
   *title*     The title of the menu. Properties and references of the object the menu was called on can be accessed.
-  *baseid*    The item [BASEID](BASEID "wikilink") to display for the button.
+  *baseid*    The item [BASEID](./BASEID.md) to display for the button.
   *hue*       If the @*hue* syntax is used, the item will be displayed in the specified colour.
   *text*      The text to display for the option. Properties of the ITEMDEF that *baseid* refers to can be accessed.
   *script*    The script to run when the button is pressed.
@@ -68,8 +68,8 @@ In both cases, the following references and arguments are available:
 
   --------------------------- ------------------------------------------------------------------------------------------------------------
   **Name**                    **Description**
-  **[I](I "wikilink")**       The [character](Characters "wikilink") or [item](Items "wikilink") that the MENU function was called from.
-  **[SRC](SRC "wikilink")**   The client operating the menu.
+  **[I](./I.md)**       The [character](./Characters.md) or [item](./Items.md) that the MENU function was called from.
+  **[SRC](./SRC.md)**   The client operating the menu.
   --------------------------- ------------------------------------------------------------------------------------------------------------
 
 ## Examples
@@ -138,5 +138,5 @@ ON=@Cancel
 `</spherescript>`{=html}
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Definitions](Category:_Definitions "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Definitions](./_Definitions.md)

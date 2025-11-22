@@ -4,41 +4,41 @@ This trigger fires when a character fails to cast a spell.
 
 Fires on:
 
--   [Spells](SPELL "wikilink")
+- [Spells](./SPELL.md)
 
 ## References
 
 The following object references are explicitly available for this
 trigger:
 
-  ------------------------- ------------------------------------------------------------------------------
-  **Name**                  **Description**
-  [ARGO](ARGO "wikilink")   The [item](Items "wikilink") used to cast the spell (e.g. a wand or scroll).
-  [I](I "wikilink")         The [character](Characters "wikilink") failing to cast the spell.
-  [SRC](SRC "wikilink")     The [character](Characters "wikilink") failing to cast the spell.
-  ------------------------- ------------------------------------------------------------------------------
+|  |  |
+|----|----|
+| **Name** | **Description** |
+| [ARGO](./ARGO.md) | The [item](./Items.md) used to cast the spell (e.g. a wand or scroll). |
+| [I](./I.md) | The [character](./Characters.md) failing to cast the spell. |
+| [SRC](./SRC.md) | The [character](./Characters.md) failing to cast the spell. |
 
 ## Arguments
 
 The following arguments are set for this trigger. If an argument is
-marked as \"In\" then a value will be passed in to the trigger, if an
-argument is marked as \"Out\" then it can be set to a value to affect
-Sphere\'s behaviour:
+marked as "In" then a value will be passed in to the trigger, if an
+argument is marked as "Out" then it can be set to a value to affect
+Sphere's behaviour:
 
-  -------------- ------------ --------------------------------
-  **Argument**   **In/Out**   **Description**
-  ARGN1          I            The spell that was being cast.
-  -------------- ------------ --------------------------------
+|              |            |                                |
+|--------------|------------|--------------------------------|
+| **Argument** | **In/Out** | **Description**                |
+| ARGN1        | I          | The spell that was being cast. |
 
-## Return Values {#return_values}
+## Return Values
 
 The following return values are explicitly defined for this trigger:
 
-  ------------------ ------------------------------------------------------------------------------
-  **Return Value**   **Description**
-  1                  Prevents normal fail behaviours (fail message, fizzle effect, reagent loss).
-  ------------------ ------------------------------------------------------------------------------
+|  |  |
+|----|----|
+| **Return Value** | **Description** |
+| 1 | Prevents normal fail behaviours (fail message, fizzle effect, reagent loss). |
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md)

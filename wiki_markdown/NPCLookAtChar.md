@@ -4,40 +4,40 @@ This trigger fires when an NPC looks at another character.
 
 Fires on:
 
--   [NPCs](Characters#NPCs "wikilink")
+- [NPCs](./CharactersNPCs.md)
 
 ## References
 
 The following object references are explicitly available for this
 trigger:
 
-  ----------------------- ---------------------------------------------------------------
-  **Name**                **Description**
-  [I](I "wikilink")       The [NPC](Characters#NPCs "wikilink") looking at a character.
-  [SRC](SRC "wikilink")   The [character](Characters "wikilink") being looked at.
-  ----------------------- ---------------------------------------------------------------
+|  |  |
+|----|----|
+| **Name** | **Description** |
+| [I](./I.md) | The [NPC](./CharactersNPCs.md) looking at a character. |
+| [SRC](./SRC.md) | The [character](./Characters.md) being looked at. |
 
 ## Arguments
 
 The following arguments are set for this trigger. If an argument is
-marked as \"In\" then a value will be passed in to the trigger, if an
-argument is marked as \"Out\" then it can be set to a value to affect
-Sphere\'s behaviour:
+marked as "In" then a value will be passed in to the trigger, if an
+argument is marked as "Out" then it can be set to a value to affect
+Sphere's behaviour:
 
 *No arguments are set for this trigger.*
 
-## Return Values {#return_values}
+## Return Values
 
 The following return values are explicitly defined for this trigger:
 
-  ------------------ --------------------------------------------------------------------------------------------
-  **Return Value**   **Description**
-  0                  Prevents the NPC from seeing the character, allows it to look at other characters.
-  1                  Prevents the NPC from seeing the character, does not allow it to look at other characters.
-  ------------------ --------------------------------------------------------------------------------------------
+|  |  |
+|----|----|
+| **Return Value** | **Description** |
+| 0 | Prevents the NPC from seeing the character, allows it to look at other characters. |
+| 1 | Prevents the NPC from seeing the character, does not allow it to look at other characters. |
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink") [Category:
-Characters](Category:_Characters "wikilink") [Category:
-NPCS](Category:_NPCS "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md) [Category:
+Characters](./_Characters.md) [Category:
+NPCS](./_NPCS.md)

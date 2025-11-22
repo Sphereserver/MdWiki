@@ -3,8 +3,8 @@
 ```
 \_\_FORCETOC\_\_ A map point is a specific location on a world map,
 defined by X, Y, Z and M coordinates. Map point references, such as *P*
-from the [character](Characters "wikilink")/[item](Items "wikilink")
-object and *MAP(x,y,map)* from the [server](Server "wikilink") object
+from the [character](./Characters.md)/[item](./Items.md)
+object and *MAP(x,y,map)* from the [server](./Server.md) object
 can be used to access additional information about a map point such as
 what static items exist at the location. The following tables detail the
 various properties of map points in SphereServer:
@@ -14,7 +14,7 @@ various properties of map points in SphereServer:
 References return pointers to other objects (e.g. the REGION reference
 allows you to access the region that contains the map point). These can
 either be accessed by using *\<REFNAME\>* to return the
-[UID](UID "wikilink") (1 for object types that don\'t have UIDs) of the
+[UID](./UID.md) (1 for object types that don\'t have UIDs) of the
 object or 0 if it doesn\'t exist, or by using *\<REFNAME.KEY\>* where
 KEY is a valid property/function/reference for the *REFNAME* object.
 Click on the name for more detailed information such as usage and
@@ -22,9 +22,9 @@ examples.
 
   ----------------------------- ---------------- --------------------------------------------------------------------
   **Name**                      **Read/Write**   **Description**
-  [REGION](REGION "wikilink")   R                Gets the [region](Regions "wikilink") that contains the map point.
-  [ROOM](ROOM "wikilink")       R                Gets the [room](Rooms "wikilink") that contains the map point.
-  [SECTOR](SECTOR "wikilink")   R                Gets the [sector](Sectors "wikilink") that contains the map point.
+  [REGION](./REGION.md)   R                Gets the [region](./Regions.md) that contains the map point.
+  [ROOM](./ROOM.md)       R                Gets the [room](./Rooms.md) that contains the map point.
+  [SECTOR](./SECTOR.md)   R                Gets the [sector](./Sectors.md) that contains the map point.
   ----------------------------- ---------------- --------------------------------------------------------------------
 
 ## Properties and Functions {#properties_and_functions}
@@ -40,24 +40,24 @@ usage and examples.
 | [COMPONENTS]            | R              | Gets the number of      |
 | (COMPONENTS "wikilink") |                | components of the       |
 |                         |                | [M                      |
-|                         |                | ULTI](MULTI "wikilink") |
+|                         |                | ULTI](./MULTI.md) |
 |                         |                | at the location.        |
 +-------------------------+----------------+-------------------------+
-| [COMPONENTS](COMPON     | R              | Gets the ID of the nth  |
-| ENTS "wikilink")*.n.ID* |                | component at the        |
+| [COMPONENTS](./COMPON______R_______________Gets_the_ID_of_the_nth__
+_ENTS.md)*.n.ID* |                | component at the        |
 |                         |                | location. (zero-based)  |
 +-------------------------+----------------+-------------------------+
-| [COMPONENTS](COMPONENT  | R              | Gets the UID of the     |
-| S "wikilink")*.n.MULTI* |                | MULTI item.             |
+| [COMPONENTS](./COMPONENT___R_______________Gets_the_UID_of_the_____
+_S.md)*.n.MULTI* |                | MULTI item.             |
 +-------------------------+----------------+-------------------------+
-| [COMPONENTS](COMPO      | R              | Gets the Z level of the |
-| NENTS "wikilink")*.n.Z* |                | nth component at the    |
+| [COMPONENTS](./COMPO_______R_______________Gets_the_Z_level_of_the_
+_NENTS.md)*.n.Z* |                | nth component at the    |
 |                         |                | location. (zero-based)  |
 +-------------------------+----------------+-------------------------+
-| [COMPONENTS](COMPONE    | R              | Gets the *KEY* property |
-| NTS "wikilink")*.n.KEY* |                | from the                |
+| [COMPONENTS](./COMPONE_____R_______________Gets_the_KEY_property_
+_NTS.md)*.n.KEY* |                | from the                |
 |                         |                | [ITEMD                  |
-|                         |                | EF](ITEMDEF "wikilink") |
+|                         |                | EF](./ITEMDEF.md) |
 |                         |                | of the nth component at |
 |                         |                | the location.           |
 |                         |                | (zero-based)            |
@@ -66,55 +66,55 @@ usage and examples.
 | (ISNEARTYPE "wikilink") |                | exists within           |
 | *type, distance,        |                | *distance* tiles of the |
 | check_multis*           |                | location whose          |
-|                         |                | [TYPE](TYPE "wikilink") |
+|                         |                | [TYPE](./TYPE.md) |
 |                         |                | matches a specified     |
 |                         |                | type.                   |
 +-------------------------+----------------+-------------------------+
-| [M](M "wikilink")\      | R              | Gets the location\'s    |
-| [MAP](MAP "wikilink")   |                | map number.             |
+| [M](./M.md)\      | R              | Gets the location\'s    |
+| [MAP](./MAP.md)   |                | map number.             |
 +-------------------------+----------------+-------------------------+
 | [STATI                  | R              | Gets the number of      |
-| CS](STATICS "wikilink") |                | static items at the     |
+| CS](./STATICS.md) |                | static items at the     |
 |                         |                | location.               |
 +-------------------------+----------------+-------------------------+
-| [STATICS](STA           | R              | Gets the ID of the nth  |
-| TICS "wikilink")*.n.ID* |                | item at the location.   |
+| [STATICS](./STA____________R_______________Gets_the_ID_of_the_nth__
+_TICS.md)*.n.ID* |                | item at the location.   |
 |                         |                | (zero-based)            |
 +-------------------------+----------------+-------------------------+
-| [STATICS](STATIC        | R              | Gets the hue of the nth |
-| S "wikilink")*.n.COLOR* |                | item at the location.   |
+| [STATICS](./STATIC_________R_______________Gets_the_hue_of_the_nth_
+_S.md)*.n.COLOR* |                | item at the location.   |
 |                         |                | (zero-based)            |
 +-------------------------+----------------+-------------------------+
-| [STATICS](ST            | R              | Gets the Z level of the |
-| ATICS "wikilink")*.n.Z* |                | nth item at the         |
+| [STATICS](./ST_____________R_______________Gets_the_Z_level_of_the_
+_ATICS.md)*.n.Z* |                | nth item at the         |
 |                         |                | location. (zero-based)  |
 +-------------------------+----------------+-------------------------+
-| [STATICS](STAT          | R              | Gets the *KEY* property |
-| ICS "wikilink")*.n.KEY* |                | from the                |
+| [STATICS](./STAT___________R_______________Gets_the_KEY_property_
+_ICS.md)*.n.KEY* |                | from the                |
 |                         |                | [ITEMD                  |
-|                         |                | EF](ITEMDEF "wikilink") |
+|                         |                | EF](./ITEMDEF.md) |
 |                         |                | of the nth item at the  |
 |                         |                | location. (zero-based)  |
 +-------------------------+----------------+-------------------------+
 | [TERRA                  | R              | Gets the terrain\'s ID  |
-| IN](TERRAIN "wikilink") |                | at the location.        |
+| IN](./TERRAIN.md) |                | at the location.        |
 +-------------------------+----------------+-------------------------+
 | [TERRAIN                | R              | Gets the terrain\'s Z   |
-| ](TERRAIN "wikilink").Z |                | level at the location.  |
+| ](./TERRAIN.md).Z |                | level at the location.  |
 +-------------------------+----------------+-------------------------+
-| [TYPE](TYPE "wikilink") | R              | Gets the terrain\'s     |
+| [TYPE](./TYPE.md) | R              | Gets the terrain\'s     |
 |                         |                | TYPE at the location.   |
 +-------------------------+----------------+-------------------------+
-| [X](X "wikilink")       | R              | Gets the X coordinate   |
+| [X](./X.md)       | R              | Gets the X coordinate   |
 |                         |                | of the location.        |
 +-------------------------+----------------+-------------------------+
-| [Y](Y "wikilink")       | R              | Gets the Y coordinate   |
+| [Y](./Y.md)       | R              | Gets the Y coordinate   |
 |                         |                | of the location.        |
 +-------------------------+----------------+-------------------------+
-| [Z](Z "wikilink")       | R              | Gets the Z coordinate   |
+| [Z](./Z.md)       | R              | Gets the Z coordinate   |
 |                         |                | of the location.        |
 +-------------------------+----------------+-------------------------+
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Objects](Category:_Objects "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Objects](./_Objects.md)

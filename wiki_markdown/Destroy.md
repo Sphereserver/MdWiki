@@ -4,8 +4,8 @@ This trigger fires when an object is deleted from the world.
 
 Fires on:
 
--   [Characters](Characters "wikilink")
--   [Items](Items "wikilink")
+-   [Characters](./Characters.md)
+-   [Items](./Items.md)
 
 ## References
 
@@ -14,7 +14,7 @@ trigger:
 
   ------------------- -----------------------------------------------------------------------------------
   **Name**            **Description**
-  [I](I "wikilink")   The [character](Characters "wikilink") or [item](Items "wikilink") being deleted.
+  [I](./I.md)   The [character](./Characters.md) or [item](./Items.md) being deleted.
   ------------------- -----------------------------------------------------------------------------------
 
 ## Arguments
@@ -36,5 +36,5 @@ The following return values are explicitly defined for this trigger:
   ------------------ -----------------------------------------
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md)

@@ -4,7 +4,7 @@ This trigger fires when someone is being added to my attacker list.
 
 Fires on:
 
--   [Characters](Characters "wikilink")
+-   [Characters](./Characters.md)
 
 ## References
 
@@ -13,8 +13,8 @@ trigger:
 
   ----------------------- --------------------------------------------------------------------------------------
   **Name**                **Description**
-  [I](I "wikilink")       Myself, someone is being entering in combat with me (or I am entering in combat with
-  [SRC](SRC "wikilink")   The character entering in my list.
+  [I](./I.md)       Myself, someone is being entering in combat with me (or I am entering in combat with
+  [SRC](./SRC.md)   The character entering in my list.
   ----------------------- --------------------------------------------------------------------------------------
 
 ## Arguments
@@ -40,7 +40,7 @@ The following return values are explicitly defined for this trigger:
   ------------------ ----------------------------------------------------------------------------------------
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink") [Category:
-Characters](Category:_Characters "wikilink") [Category:
-Combat](Category:_Combat "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md) [Category:
+Characters](./_Characters.md) [Category:
+Combat](./_Combat.md)

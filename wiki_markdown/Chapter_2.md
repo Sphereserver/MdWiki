@@ -71,7 +71,7 @@ your server WILL NOT RUN. Only change them.
 These sections define the commands available to the various account
 plevels. Any command not listed is automatically assumed to be in the
 plevel 4 category. This includes self-defined functions (see [Chapter
-6](Chapter_6 "wikilink")). As you can see, there is quite an extensive
+6](./Chapter_6.md)). As you can see, there is quite an extensive
 list of functions and commands.
 
 **Note**: *You don\'t have to put every function you make in this
@@ -834,7 +834,7 @@ be used as an event here.). Besides the resources gatherable it\'ll also
 show sphere what triggers to call from the events (you\'ve probably
 realized now that the REGIONTYPE section is an event for regions :P),
 like the \@Enter trigger and the others (see
-[Triggers](Triggers "wikilink")).
+[Triggers](./Triggers.md)).
 
 **Group**: This is just an axis setting, this separates the regions in
 groups (duh) when you go to the Travel Menu.
@@ -893,7 +893,7 @@ There you go. Your
 06000. \"But.. but..\" you\'re saying. \"Didn\'t you tell me that
 `<font color="darkgreen">`{=html}DEFNAMEs`</font>`{=html} were supposed
 to prevent me from working with scary numbers?\" (See [Chapter
-1](Chapter_1 "wikilink").) Of course I did! And there\'s a way to do
+1](./Chapter_1.md).) Of course I did! And there\'s a way to do
 this without using any scary number at all. Here it is:
 
 `<font color="darkblue">`{=html}`FLAGS=region_flag_safe|region_flag_guarded``</font>`{=html}
@@ -1132,6 +1132,6 @@ This function is called before an account is being deleted.
 
 **f_onserver_blockip**
 
-[Chapter 3](Chapter_3 "wikilink")
+[Chapter 3](./Chapter_3.md)
 
-[Category:Tutorials](Category:Tutorials "wikilink")
+[Category:Tutorials](./Tutorials.md)

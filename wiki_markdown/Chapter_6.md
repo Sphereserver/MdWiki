@@ -513,4 +513,4 @@ prefer the . method.
 `<font color="darkgreen">`{=html}layer_backpack`</font>`{=html}
 defname\]*
 
-[Category:Tutorials](Category:Tutorials "wikilink")
+[Category:Tutorials](./Tutorials.md)

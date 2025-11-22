@@ -1,40 +1,40 @@
 ## Description
 
-This trigger fires when a character enters a region\'s boundaries.
+This trigger fires when a character enters a region's boundaries.
 
 Fires on:
 
--   [Regions](Regions "wikilink")
+- [Regions](./Regions.md)
 
 ## References
 
 The following object references are explicitly available for this
 trigger:
 
-  ----------------------- -------------------------------------------------------------
-  **Name**                **Description**
-  [I](I "wikilink")       The [region](Regions "wikilink") being entered.
-  [SRC](SRC "wikilink")   The [character](Characters "wikilink") entering the region.
-  ----------------------- -------------------------------------------------------------
+|  |  |
+|----|----|
+| **Name** | **Description** |
+| [I](./I.md) | The [region](./Regions.md) being entered. |
+| [SRC](./SRC.md) | The [character](./Characters.md) entering the region. |
 
 ## Arguments
 
 The following arguments are set for this trigger. If an argument is
-marked as \"In\" then a value will be passed in to the trigger, if an
-argument is marked as \"Out\" then it can be set to a value to affect
-Sphere\'s behaviour:
+marked as "In" then a value will be passed in to the trigger, if an
+argument is marked as "Out" then it can be set to a value to affect
+Sphere's behaviour:
 
 *No arguments are set for this trigger.*
 
-## Return Values {#return_values}
+## Return Values
 
 The following return values are explicitly defined for this trigger:
 
-  ------------------ --------------------------------------------------
-  **Return Value**   **Description**
-  1                  Prevents the character from entering the region.
-  ------------------ --------------------------------------------------
+|                  |                                                  |
+|------------------|--------------------------------------------------|
+| **Return Value** | **Description**                                  |
+| 1                | Prevents the character from entering the region. |
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md)

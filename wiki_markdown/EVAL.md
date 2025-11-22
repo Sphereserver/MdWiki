@@ -1,14 +1,13 @@
 # Description
 
 The main purpose of EVAL is to retrieve the specified number as Decimal,
-usefull for tags/vars/locals\... wich gives results as Hex by default.
+usefull for tags/vars/locals... wich gives results as Hex by default.
 There is an example:
 
 # Usage
 
-\<spherescript \"darkblue\"\>\[Function test\] local.value=10 say
-Default:\<local.value\>, Eval: \<eval
-\<local.value\>\>`</spherescript>`{=html}
+\<spherescript "darkblue"\>\[Function test\] local.value=10 say
+Default:\<local.value\>, Eval: \<eval \<local.value\>\></spherescript>
 
 # Notes
 

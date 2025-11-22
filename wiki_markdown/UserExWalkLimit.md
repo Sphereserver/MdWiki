@@ -8,39 +8,39 @@ server and client.
 
 Fires on:
 
--   [Players](Characters#Players "wikilink")
+- [Players](./CharactersPlayers.md)
 
 ## References
 
 The following object references are explicitly available for this
 trigger:
 
-  ----------------------- -----------------------------------------------------------------------
-  **Name**                **Description**
-  [I](I "wikilink")       The [player](Characters#Players "wikilink") exceeding the walk limit.
-  [SRC](SRC "wikilink")   The [player](Characters#Players "wikilink") exceeding the walk limit.
-  ----------------------- -----------------------------------------------------------------------
+|  |  |
+|----|----|
+| **Name** | **Description** |
+| [I](./I.md) | The [player](./CharactersPlayers.md) exceeding the walk limit. |
+| [SRC](./SRC.md) | The [player](./CharactersPlayers.md) exceeding the walk limit. |
 
 ## Arguments
 
 The following arguments are set for this trigger. If an argument is
-marked as \"In\" then a value will be passed in to the trigger, if an
-argument is marked as \"Out\" then it can be set to a value to affect
-Sphere\'s behaviour:
+marked as "In" then a value will be passed in to the trigger, if an
+argument is marked as "Out" then it can be set to a value to affect
+Sphere's behaviour:
 
 *No arguments are set for this trigger.*
 
-## Return Values {#return_values}
+## Return Values
 
 The following return values are explicitly defined for this trigger:
 
-  ------------------ ----------------------------------------------------------------
-  **Return Value**   **Description**
-  1                  Allows the player to continue moving without being restricted.
-  ------------------ ----------------------------------------------------------------
+|  |  |
+|----|----|
+| **Return Value** | **Description** |
+| 1 | Allows the player to continue moving without being restricted. |
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink") [Category:
-Characters](Category:_Characters "wikilink") [Category:
-Players](Category:_Players "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md) [Category:
+Characters](./_Characters.md) [Category:
+Players](./_Players.md)

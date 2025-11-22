@@ -93,4 +93,4 @@ this naming scheme was established.
   \'\'\'TAG.OVERRIDE.PORTCULISSOUND     PORTCULISSOUND     Overrides the sound that will be played for a portcullis when it is used.
   ------------------------------------- ------------------ ---------------------------------------------------------------------------------------------------------------------------
 
-[Category: Articles](Category:_Articles "wikilink")
+[Category: Articles](./_Articles.md)

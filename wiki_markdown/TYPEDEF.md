@@ -2,20 +2,20 @@
 {{Languages|TYPEDEF}}
 ```
 \_\_FORCETOC\_\_ Type definitions are the equivalent of
-[EVENTS](EVENTS "wikilink") that can be attached to
-[items](Items "wikilink"). There are different properties that can be
+[EVENTS](./EVENTS.md) that can be attached to
+[items](./Items.md). There are different properties that can be
 used to attach a type block to an item or set of items:
 
--   [item definitions](ITEMDEF "wikilink") via their
-    [TYPE](TYPE "wikilink") and/or [TEVENTS](TEVENTS "wikilink")
+-   [item definitions](./ITEMDEF.md) via their
+    [TYPE](./TYPE.md) and/or [TEVENTS](./TEVENTS.md)
     property.
--   [items](Items "wikilink") via their [TYPE](TYPE "wikilink") and/or
+-   [items](./Items.md) via their [TYPE](./TYPE.md) and/or
     [EVENTS](EVENTS_(Property) "wikilink") property.
 
 In addition to handling triggers, type definitions can also be used to
 define different types of terrain. This can be used to affect the return
-value of the [TYPE](TYPE "wikilink") property on [map
-points](Map_points "wikilink"), or for some hardcoded types such as
+value of the [TYPE](./TYPE.md) property on [map
+points](./Map_points.md), or for some hardcoded types such as
 t_rock it can be used to define which terrain IDs Sphere should consider
 to be rock when the mining skill is used.
 
@@ -2258,18 +2258,18 @@ The syntax for defining a type is:
 \
 
 Any number of triggers can be handled by one
-[TYPEDEF](TYPEDEF "wikilink") definition, however it is not possible to
+[TYPEDEF](./TYPEDEF.md) definition, however it is not possible to
 handle the same trigger twice without using multiple definitions.
 
 The trigger name can be the name of any [item
-trigger](Items#Triggers "wikilink"). The return value from the script
+trigger](./ItemsTriggers.md). The return value from the script
 can affect Sphere\'s hardcoded behaviour in different ways. See the
 documentation for the trigger to discover what parameters are passed in
 to each trigger and what the return values do.
 
 **Note:** If the *defname* matches any of Sphere\'s hardcoded types (see
 \'typedefs\' block in sphere_defs.scp), then the
-[TYPEDEF](TYPEDEF "wikilink") can be used to override the behaviours of
+[TYPEDEF](./TYPEDEF.md) can be used to override the behaviours of
 items of that type.
 
 ## Examples
@@ -2287,5 +2287,5 @@ items of that type.
 `</spherescript>`{=html}
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Definitions](Category:_Definitions "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Definitions](./_Definitions.md)

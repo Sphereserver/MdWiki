@@ -57,8 +57,8 @@ conjunction with Sphere commands.
 
 In Sphere, all MySQL commands will begin with the **DB** object. You can
 view a full list of all the properties and functions of the DB object in
-the [Database](Database "wikilink") object page of the [Reference
-Compendium](:Category:Reference_Compendium "wikilink").
+the [Database](./Database.md) object page of the [Reference
+Compendium](./CategoryReference_Compendium.md).
 
 ### DB Properties {#db_properties}
 
@@ -272,4 +272,4 @@ online interactive control panel for your shard administrators, a duel
 system that shows scores online, or any number of things. Where there\'s
 a will there\'s a way, and with this article you now have both.
 
-[Category:Articles](Category:Articles "wikilink")
+[Category:Articles](./Articles.md)

@@ -3,8 +3,8 @@ it\'s designed in a way so that you can intercept it at any stage to
 implement your own code.
 
 About how to activate and configure the experience and level system
-you\'ll find further information [here](Triggers "wikilink") and
-[here.](Configuring_Sphere.ini "wikilink")
+you\'ll find further information [here](./Triggers.md) and
+[here.](./Configuring_Sphereini.md)
 
 But at least you should know what amount of experience the system will
 give to your characters on what occasions.
@@ -78,4 +78,4 @@ different levelling modes:
 | 5                    | 5000            | 15000           |
 +----------------------+-----------------+-----------------+
 
-[Category: Articles](Category:_Articles "wikilink")
+[Category: Articles](./_Articles.md)

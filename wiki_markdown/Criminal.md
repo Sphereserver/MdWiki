@@ -4,7 +4,7 @@ This trigger fires when a character is going to become criminal.
 
 Fires on:
 
--   [Characters](Characters "wikilink")
+-   [Characters](./Characters.md)
 
 ## References
 
@@ -13,8 +13,8 @@ trigger:
 
   ----------------------- ----------------------------------------------------------
   **Name**                **Description**
-  [I](I "wikilink")       The [criminal](Characters "wikilink").
-  [SRC](SRC "wikilink")   The [character](Characters "wikilink") seeing the crime.
+  [I](./I.md)       The [criminal](./Characters.md).
+  [SRC](./SRC.md)   The [character](./Characters.md) seeing the crime.
   ----------------------- ----------------------------------------------------------
 
 ## Arguments
@@ -39,5 +39,5 @@ The following return values are explicitly defined for this trigger:
   ------------------ -----------------------------------------
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md)

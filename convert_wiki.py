@@ -2,287 +2,216 @@ import re
 import subprocess
 import os
 import requests
-from urllib.parse import quote
+from urllib.parse import quote, unquote
+import concurrent.futures
+import shutil
+import threading
+from pathlib import Path
 
 BASE_URL = "https://wiki.spherecommunity.net/index.php"
-OUTPUT_DIR = "wiki_markdown"
+OUTPUT_DIR = Path("wiki_markdown")
+OLD_OUTPUT_DIR = Path("wiki_markdown_v1")
+MAX_WORKERS = 10
+
+# Thread-safe set to keep track of pages being processed or queued
+processed_pages = set()
+processed_pages_lock = threading.Lock()
+
+def sanitize_title(title):
+    """Sanitizes a title to be a valid filename."""
+    # Remove namespace prefixes if present (e.g., "Category:")
+    if ':' in title:
+        title = title.split(':', 1)[1]
+    
+    # Basic sanitization
+    sanitized = re.sub(r'[^\w\s-]', '', title).strip().replace(' ', '_')
+    
+    # Avoid creating files with names that are too long
+    return sanitized[:100]
 
 def get_wikitext(page_title):
     """Fetches the raw wikitext for a given page title."""
-    # URL-encode the page title to handle spaces and special characters
     encoded_title = quote(page_title)
     url = f"{BASE_URL}?title={encoded_title}&action=raw"
     try:
-        response = requests.get(url)
-        response.raise_for_status()  # Raise an exception for bad status codes
+        response = requests.get(url, timeout=15)
+        response.raise_for_status()
         return response.text
     except requests.exceptions.RequestException as e:
-        print(f"Error fetching page {page_title}: {e}")
+        print(f"  -> Error fetching '{page_title}': {e}", flush=True)
         return None
 
 def find_links(wikitext):
-    """Finds all MediaWiki links in the given wikitext."""
-    # This regex handles standard links, links with display text, and category links
-    links = re.findall(r'\[\[:?([^\]|]+)(?:\|[^\]]+)?\]\]', wikitext)
-    # Filter out anchor links
-    return [link for link in links if not link.startswith('#')]
+    """Finds all unique MediaWiki links in the given wikitext."""
+    # This regex captures the link target, which is the first part before a '|'
+    links = re.findall(r'\[\[:?([^|\]]+)(?:\|[^\]]*)?\]\]', wikitext)
+    
+    # Filter out links to sections on the same page and external-like links
+    unique_links = {link.strip() for link in links if not link.startswith('#') and '://' not in link}
+    return list(unique_links)
 
-def convert_to_markdown(wikitext, page_title):
-    """Converts wikitext to Markdown using pandoc."""
-    # Sanitize the page title to create a valid filename
-    sanitized_title = re.sub(r'[^\w\s-]', '', page_title).strip().replace(' ', '_')
-    if not sanitized_title:
-        sanitized_title = "untitled"
-    
-    markdown_filename = os.path.join(OUTPUT_DIR, f"{sanitized_title}.md")
-    
-    # Use pandoc to convert the wikitext
+def convert_and_save(wikitext, page_title):
+    """Converts wikitext to Markdown using pandoc and saves it."""
+    sanitized_name = sanitize_title(page_title)
+    if not sanitized_name:
+        return False
+        
+    markdown_path = OUTPUT_DIR / f"{sanitized_name}.md"
+
     try:
         process = subprocess.run(
-            ['pandoc', '-f', 'mediawiki', '-t', 'markdown'],
+            ['pandoc', '-f', 'mediawiki', '-t', 'gfm'], # Using GitHub-Flavored Markdown
             input=wikitext,
             text=True,
             capture_output=True,
-            check=True
+            check=True,
+            timeout=30
         )
-        with open(markdown_filename, 'w', encoding='utf-8') as f:
-            f.write(process.stdout)
-        print(f"Converted '{page_title}' to '{markdown_filename}'")
+        
+        # Post-process links after pandoc conversion
+        markdown_content = post_process_pandoc_links(process.stdout)
+
+        with open(markdown_path, 'w', encoding='utf-8') as f:
+            f.write(markdown_content)
+        
         return True
-    except (subprocess.CalledProcessError, FileNotFoundError) as e:
-        print(f"Error converting page {page_title}: {e}")
+    except FileNotFoundError:
+        print("FATAL: `pandoc` command not found. Please install pandoc and ensure it's in your PATH.", flush=True)
+        return False
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as e:
+        print(f"  -> Error converting '{page_title}' with pandoc: {e}", flush=True)
         return False
 
-def main():
-    """Main function to crawl the wiki and convert pages."""
-    to_visit = ["Main_Page"]
-    visited = set()
+def run_pandoc(wikitext):
+    """Runs pandoc to convert wikitext to markdown."""
+    try:
+        process = subprocess.run(
+            ['pandoc', '-f', 'mediawiki', '-t', 'gfm'],
+            input=wikitext,
+            text=True,
+            capture_output=True,
+            check=True,
+            timeout=30
+        )
+        return process.stdout
+    except FileNotFoundError:
+        print("FATAL: `pandoc` command not found. Please install pandoc and ensure it's in your PATH.", flush=True)
+        return None
+    except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as e:
+        print(f"  -> Error converting with pandoc: {e}", flush=True)
+        return None
 
-    # Initial wikitext for the main page, which we already fetched
-    main_page_wikitext = """
-<div style="background-color:#a7bcdc; color:#000; min-width:650px; padding:1px; text-align:center; width:100%;">
-'''Starting with SphereServer'''
-</div>
-<div style="min-width:650px; width:100%;">
-	<div style="border-right:1px solid #a7bcdc; float:left; height:100%; margin-right:-1px; width:33%;">
-		<div style="border-bottom:1px solid #a7bcdc; color:#a7bcdc; font-size:18px; padding-left:10px;">
-			'''Setup of Sphere'''
-		</div>
-		<div style="border-bottom:1px solid #a7bcdc; padding:0px 0px 5px 10px;">
-* [[Where to get Sphere]]
-* [[Installing Sphere]]
-* [[Configuring Sphere.ini]]
-		</div>
-		<div style="border-bottom:1px solid #a7bcdc; color:#a7bcdc; font-size:18px; padding-left:10px;">
-			'''Sphere 101'''
-		</div>		
-		<div style="padding:0px 0px 5px 10px;">
-* [[Chapter 1]] ''(Numbers, DEFNAME, ITEMDEF, CHARDEF)''
-* [[Chapter 2]] ''(Sphere files explained)''
-* [[Chapter 3]] ''(Scripting NPC's and items, Cool commands)''
-* [[Chapter 4]] ''(Objects, operators, speech)''
-* [[Chapter 5]] ''(Tags, Vars, Locals, Functions)''
-* [[Chapter 6]] ''(LINKs, TIMERs, TARGETs)''
-* [[Chapter 7]] ''(Loops and powerful functions)''
-* [[Chapter 8]] ''(SKILLMENUs, MENUs, Gumps)''
-* [[Chapter 9]] ''(Events)''
-* [[Chapter 10]] ''(String Handling)''
-		</div>
-	</div>
-	<div style="border-left:1px solid #a7bcdc; float:left; height:100%; margin-right:-1px; width:67%;">
-		<div style="border-bottom:1px solid #a7bcdc; color:#a7bcdc; font-size:18px; padding-left:10px;">
-			'''Extra Tutorials'''
-		</div>
-		<div style="border-bottom:1px solid #a7bcdc; padding:0px 0px 5px 10px;">
-* [[Common Mistakes|Common Mistakes Explained]] ''(A revision of Maximus's tutorial on the forums, and continuation of Taran's Misconceptions tutorial)''
-* [[Internet and Sphere]] ''(And how to make the right use of them)''
-* [[Languages Tutorial]] ''(How to script your own language system)''
-* [[Making your own Skills]] ''(How to make and customize your skill)''
-* [[Mul Patching Tutorial|Nazghul's Mul Patching Tutorial]] [http://sorea.profitux.cz/patching/ external link] ''(A document about mul patching and customizing your server)''
-* [[Overriding Hardcoded Commands]] ''(How to override hardcoded commands and functions)''
-* [[Scheduled Reboot]] ''(How to schedule system reboots)''
-* [[Using MySQL]] ''(How to use MySQL)''
-* [[Bitwise Operations]] ''(How to work with FLAGS/ATTR)''
-* [[Script Debugging]] ''(How to fix your scripts)''
-		</div>
-		<div style="border-bottom:1px solid #a7bcdc; color:#a7bcdc; font-size:18px; padding-left:10px;">
-			'''IMPORTANT LINKS'''
-		</div>
-		<div style="padding:0px 0px 5px 10px;">
-* [https://github.com/Sphereserver SphereServer Official Github]
-* [https://forum.spherecommunity.net/sshare.php?srt=4 Download Nightly Builds] ''(Plus! Extra downloads, like tools and scripts!)''
-* [https://github.com/Sphereserver/Source-X/blob/master/Changelog.txt SphereX Changelog] | [https://github.com/Sphereserver/Source/blob/master/changelog.txt 56d Changelog] | [https://github.com/Sphereserver/Source-X/tree/master/docst Older Changelog]
-* [https://discord.gg/BZj2fEA Join us at Discord] ''(We will solve most of your doubts over there)''
-		</div>		
-	</div>
-</div>
-.
+def post_process_pandoc_links(markdown_text):
+    """Adjusts pandoc-generated links to be relative file links."""
+    
+    # Pandoc creates links like: [link text](Title "wikilink")
+    # We need to convert "Title" into "./Sanitized_Title.md"
+    def replace_func(match):
+        text = match.group(1)
+        url = match.group(2)
+        title = match.group(3)
 
-<div style="background-color:#a7bcdc; color:#000; min-width:650px; padding:1px; text-align:center; width:100%;">
-'''Reference Compendium'''
-</div>
-<div style="min-width:650px; width:100%;">
-	<div style="border-right:1px solid #a7bcdc; float:left; height:100%; margin-right:-1px; width:33%;">
-		<div style="border-bottom:1px solid #a7bcdc; color:#a7bcdc; font-size:18px; padding-left:10px;">
-[[:Category:Definitions|'''Definitions''']]
-		</div>		
-		<div style="padding:0px 0px 5px 10px;">
-* [[CHARDEF|Chardef]] | [[Characters|Characters]]
-* [[DIALOG|Dialogs]]
-* [[EVENTS|Events]]
-* [[ITEMDEF|Itemdef]] | [[Items|Items]]
-* [[MENU|Menus]]
-* [[REGIONRESOURCE|Region Resources]]
-* [[REGIONTYPE|Region Types]]
-* [[AREADEF|Regions]]
-* [[ROOMDEF|Rooms]]
-* [[SKILLCLASS|Skill Classes]]
-* [[SKILLMENU|Skill Menus]]
-* [[SKILL|Skills]]
-* [[SPAWN|Spawn Groups]]
-* [[SPELL|Spells]]
-* [[TYPEDEF|Types]]
-		</div>
-	</div>
-	<div style="border-left:1px solid #a7bcdc; float:left; height:100%; margin-right:-1px; width:67%;">
-		<div style="border-bottom:1px solid #a7bcdc; color:#a7bcdc; font-size:18px; padding-left:10px;">
-[[:Category:Objects|'''Objects''']]
-		</div>
-		<div style="border-bottom:1px solid #a7bcdc; padding:0px 0px 5px 10px;">
-* [[Accounts]]
-* [[Characters]]
-* [[Database]]
-* [[Files]]
-* [[GM Pages]]
-* [[Items]]
-** ''[[Special Items]]''
-* [[Map Points]]
-* [[Parties]]
-* [[Regions]]
-* [[Rooms]]
-* [[Sectors]]
-* [[Server]]
-		</div>
-		<div style="border-bottom:1px solid #a7bcdc; color:#a7bcdc; font-size:18px; padding-left:10px;">
-[[:Category:Scripts|'''Scripts''']]
-		</div>
-		<div style="padding:0px 0px 5px 10px;">
-* [[:Category:Functions|Functions and Triggers]]
-* [[:Category:Variables|General Functions, Properties and References]]
-* [[Intrinsic Functions]]
-* [[:Category:Statements|Statements]]
-* [[:Category:Triggers|Triggers]]
-</div>
-</div>
-.
-----
+        if title == "wikilink" and '://' not in url:
+            # This is an internal link, format it correctly
+            sanitized_link = sanitize_title(unquote(url))
+            if not sanitized_link:
+                return text # Return just text if link is invalid
+            return f'[{text}](./{sanitized_link}.md)'
+        else:
+            # Keep external links or other links as is
+            return match.group(0)
 
-.
-
-==Useful Links==
-* Modern SphereServer Nightly Downloads (Server) https://forum.spherecommunity.net/sshare.php?srt=4
-* Older/Classic SphereServer downloads (Server) https://forum.spherecommunity.net/sshare.php?srt=4&prj=7
-* Sphere-X Script Pack (Scripts) https://github.com/Sphereserver/Scripts-X
-* Julians Script Vault (Scripts) https://github.com/JulianUO/SphereX-ScriptsVault
-* List of UO Packets (Info) https://docs.polserver.com/packets/index.php
-* Scripts https://mirror.ashkantra.de/scripts/Sphere/
-* GM Commands (Commands) https://wiki.spherecommunity.net/index.php?title=GM_Commands
-* Axis 2 Downloads (GM Tool) https://forum.spherecommunity.net/sshare.php?srt=4&prj=1 
-* Leviathan (GM tool) https://github.com/cbnolok/Leviathan/releases
-* Ultima Online Downloads (Clients) https://mega.nz/folder/6uYxnIpY#tahGzzz_yOkLgNM1c_DxdQ
-* Client 7.0.20 https://mirror.ashkantra.de/fullclients/
-* ClassicUO (Third Party Client) https://www.classicuo.eu/
-* OrionUO (Third Party Client) http://orionuo.online/
-* CentrED (Worldbuilding)  https://uo.wzk.cz/centred/
-* UO-Pixel (Graphics) http://www.uo-pixel.de/
-* UO Fiddler ( MUL Viewer) http://uofiddler.polserver.com/
-* UO Grafiken by Nyray (Graphics) https://nyray.wordpress.com/
-* Vestimisu (Graphics) http://vestimisu.blogspot.com/
-* Ultima Online Graphics By Rubra (Graphcs) http://uographicsrubra.blogspot.com/
-* Isis‘ UO Grafiken (Graphics) https://isispixel.wordpress.com/
-* ServUO (Graphics) https://www.servuo.com/archive/categories/assets.13/
-* UOGateway (Shard Listing) https://uogateway.com/ 
-
-==Sphere 3rd Party Tools==
-* [http://forum.spherecommunity.net/sshare.php?srt=4&uid=603 Axis II] - GM Tool for Sphere that will allow you to place objects in-game, spawns, traveling and many other useful functions for shard admins and GMs.
-* [http://forum.spherecommunity.net/sshare.php?srt=4&prj=3 vSCP] - vSCP is the most complete and up-to-date syntax editor for sphere scripting. It does contain syntax highlighting, autocomplete, folding markers to specify blocks of code that can expand or collapse, bookmarks, autoindent, find/replace/gotoline, help guide for all the sphere elements added to your code, and more! 
-* [http://forum.spherecommunity.net/sshare.php?srt=4&prj=2 vServerLauncher] - Install and run the latest build of sphereserver in a few clicks with vServerLauncher. It's pretty quick and simple!
-* [http://forum.spherecommunity.net/sshare.php?srt=4&prj=5 SphereService] - Relaunch SphereSvr.exe everytime it closes/crashes. Automatically runs at windows startup and works in a silent mode minimized to Tray.
-* [http://forum.spherecommunity.net/sshare.php?srt=4&prj=4 vCrypter] - Type the client version and the tool will calculate the correct UO login keys for classic or enhanced clients.
+    # Regex to find [text](url "wikilink") - allowing for optional space before "wikilink"
+    processed_text = re.sub(r'\[([^\]]+)\]\(([^)]+)\s?"([^"]+)"\)', replace_func, markdown_text)
+    return processed_text
 
 
-==Other Articles==
+def process_page(page_title):
+    """
+    Processes a single wiki page.
+    1. Checks if a pre-converted file exists and uses it (cache).
+    2. If not, fetches the wikitext from the web and converts it.
+    3. Fixes internal links.
+    4. Finds all new links on the page to be processed next.
+    Returns a list of new page titles to crawl.
+    """
+    sanitized_name = sanitize_title(page_title)
+    if not sanitized_name:
+        print(f"Skipping '{page_title}' due to empty sanitized name.", flush=True)
+        return []
+        
+    print(f"Processing: '{page_title}' -> '{sanitized_name}.md'", flush=True)
+    
+    old_file_path = OLD_OUTPUT_DIR / f"{sanitized_name}.md"
+    new_file_path = OUTPUT_DIR / f"{sanitized_name}.md"
+    
+    markdown_content = None
+    wikitext = None
 
-* [[Armor Calculation]]
-* [[Client Changes]]
-* [[Common Scripting Misconceptions]]
-* [[Custom Object Properties]]
-* [[Error Codes]]
-* [[Experience System]]
-* [[How Combat Works]]
-* [[Occam's Razor]]
-* [[Optimization|Optimization Theory]]
-* [[Override TAGs]]
-* [[Revisions Changelog]]
-* [[Sendpacket]]
-* [[Skill Gain Theory]]
-* [[The Process of Scripting]]
-* [[Building Component Reference]]
-
-==Credits==
-
-'''Special thanks to:'''
-
-[[WhoIsWho|XuN, Nolok, Ben, and Drk]], for their hard work on the X branch taking Sphere into the next decade.
-
-[[WhoIsWho|Ben, Cloud_Br, Ellessar, Jdog, Lord Zerofiz, Mordaunt, Nazghul-ll, RanXerox, Rattlehead, Sandman, Sharlenwar, ShiryuX, thelegbra, Maximus, WarAngel and Valios]], for helping to add content.
-
-[[WhoIsWho|Daleth]], for writing the Sphere Reference Project, and [[WhoIsWho|Mordaunt]] for converting it to .chm format.
-
-[[WhoIsWho|Tracker]], for writing the Sphere 56 Tracking Changes in Sphereserver.net
-
-[[WhoIsWho|Taran]], for writing the original and now famous Sphere Scripting for Dummies tutorials, and [[WhoIsWho|MrSugarCube]] for bringing it up-to-date directly from source.
-
-[[WhoIsWho|Ben, Khaos, Ranxerox, Shiryux, Furio, Radiant, Vjaka, Nazghul-ll, Ellessar, Torfo, Shadow Dragon, MrSugarCube and coruja747]] for continuing to develop Sphere into a powerful and very customizable Ultima Online emulator.
-
-[[WhoIsWho|Crius]], for providing hosting for the original SphereWiki, and [[WhoIsWho|Torfo]] for providing the current hosting.
-
-==External Links==
-
-* [[Useful Links]] ''(An ongoing list of useful links for community members)''
-* [http://www.spherecommunity.net/ Official SphereServer Website]
-* [https://forum.spherecommunity.net/sshare.php?srt=4 Nightly builds]
-* [http://nightly.prerelease.sphere.torfo.org/ Nightly builds - OUTDATED, use the link above]
-* [http://spherepack.codeplex.com/ Sphere Community Pack 2.0]
-* [http://uo.torfo.org/packetguide/ Jerrith's UO Packet Guide]
-* [http://uo.torfo.org/packetguideKR/ Wyatt&Kons's UOKR Packet Guide]
-
-
-[[Category: Navigation]]
-"""
-    # Process the main page first
-    convert_to_markdown(main_page_wikitext, "Main_Page")
-    links = find_links(main_page_wikitext)
-    to_visit.extend(links)
-    visited.add("Main_Page")
-
-    # Now, process the rest of the pages
-    while to_visit:
-        page_title = to_visit.pop(0)
-        if page_title in visited:
-            continue
-
-        print(f"Processing page: {page_title}")
-        visited.add(page_title)
-
+    if old_file_path.exists():
+        with open(old_file_path, 'r', encoding='utf-8') as f:
+            markdown_content = f.read()
+        print(f"  -> Found in cache: {old_file_path}", flush=True)
+    else:
         wikitext = get_wikitext(page_title)
         if wikitext:
-            if convert_to_markdown(wikitext, page_title):
-                new_links = find_links(wikitext)
-                # Add new, unvisited links to the queue
-                for link in new_links:
-                    if link not in visited and link not in to_visit:
-                        to_visit.append(link)
+            markdown_content = run_pandoc(wikitext)
+
+    if markdown_content:
+        fixed_content = post_process_pandoc_links(markdown_content)
+        with open(new_file_path, 'w', encoding='utf-8') as f:
+            f.write(fixed_content)
+
+    # if wikitext is not fetched yet, fetch it for links
+    if wikitext is None:
+        wikitext = get_wikitext(page_title)
+
+    if wikitext:
+        return find_links(wikitext)
+    return []
+
+
+def main():
+    """Main function to crawl and convert the wiki."""
+    OUTPUT_DIR.mkdir(exist_ok=True)
+    
+    # A queue for pages to visit
+    pages_to_visit = ["Main_Page"]
+    
+    print(f"Starting wiki conversion. Initial pages to visit: {pages_to_visit}", flush=True)
+    
+    with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        while pages_to_visit:
+            current_batch = pages_to_visit[:] # Take a snapshot of current pages to visit
+            pages_to_visit = [] # Clear the queue for the next iteration
+            print(f"Batch size: {len(current_batch)}. Total processed so far: {len(processed_pages)}", flush=True)
+
+            future_to_page = {
+                executor.submit(process_page, page): page for page in current_batch
+            }
+            
+            for future in concurrent.futures.as_completed(future_to_page):
+                page_title = future_to_page[future]
+                try:
+                    new_links = future.result()
+                    
+                    # For each new link, add it to the queue if not already processed
+                    with processed_pages_lock:
+                        for link in new_links:
+                            if link not in processed_pages:
+                                pages_to_visit.append(link)
+                                processed_pages.add(link)
+
+                except Exception as e:
+                    print(f"!! Exception processing '{page_title}': {e}", flush=True)
+    
+    print("\n--------------------", flush=True)
+    print("Wiki conversion complete.", flush=True)
+    print(f"Total pages processed: {len(processed_pages)}", flush=True)
+    print("--------------------", flush=True)
 
 if __name__ == "__main__":
+    # Add the initial page to the set of processed pages
+    with processed_pages_lock: # Ensure thread safety even for initial add
+        processed_pages.add("Main_Page")
     main()

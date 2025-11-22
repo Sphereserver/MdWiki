@@ -5,7 +5,7 @@ criminal.
 
 Fires on:
 
--   [Characters](Characters "wikilink")
+-   [Characters](./Characters.md)
 
 ## References
 
@@ -14,10 +14,10 @@ trigger:
 
   ------------------------- ---------------------------------------------------------------------------------------------------------------
   **Name**                  **Description**
-  [ARGO](ARGO "wikilink")   The guard [character](Characters "wikilink") who is going to attack the criminal (if one exists in the area).
-  [I](I "wikilink")         The [character](Characters "wikilink") calling for guards.
-  [REF1](REF1 "wikilink")   The [criminal](Characters "wikilink") who the guards are being called upon.
-  [SRC](SRC "wikilink")     The [criminal](Characters "wikilink") who the guards are being called upon.
+  [ARGO](./ARGO.md)   The guard [character](./Characters.md) who is going to attack the criminal (if one exists in the area).
+  [I](./I.md)         The [character](./Characters.md) calling for guards.
+  [REF1](./REF1.md)   The [criminal](./Characters.md) who the guards are being called upon.
+  [SRC](./SRC.md)     The [criminal](./Characters.md) who the guards are being called upon.
   ------------------------- ---------------------------------------------------------------------------------------------------------------
 
 ## Arguments
@@ -29,7 +29,7 @@ Sphere\'s behaviour:
 
   -------------- ------------ ------------------------------------------------------------------------------------------------
   **Argument**   **In/Out**   **Description**
-  ARGN1          IO           The [BASEID](BASEID "wikilink") of the [character](Characters "wikilink") to spawn as a guard.
+  ARGN1          IO           The [BASEID](./BASEID.md) of the [character](./Characters.md) to spawn as a guard.
   ARGN2          O            If set to 1, a new guard will be spawned regardless of whether a nearby guard is available.
   -------------- ------------ ------------------------------------------------------------------------------------------------
 
@@ -43,7 +43,7 @@ The following return values are explicitly defined for this trigger:
   ------------------ ---------------------------------------------------------------------------------------------------------------------------
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink") [Category:
-Characters](Category:_Characters "wikilink") [Category:
-Combat](Category:_Combat "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md) [Category:
+Characters](./_Characters.md) [Category:
+Combat](./_Combat.md)

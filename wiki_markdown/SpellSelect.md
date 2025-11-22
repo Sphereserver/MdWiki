@@ -5,77 +5,107 @@ multiple times during the different stages of a spell being cast.
 
 Fires on:
 
--   [Characters](Characters "wikilink")
+- [Characters](./Characters.md)
 
 ## References
 
 The following object references are explicitly available for this
 trigger:
 
-  ------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  **Name**                  **Description**
-  [ARGO](ARGO "wikilink")   The source of the spell. Could be the [item](Items "wikilink") used to cast the spell (e.g. a wand or scroll) or the [character](Characters "wikilink") casting the spell.
-  [I](I "wikilink")         The [character](Characters "wikilink") casting the spell.
-  [SRC](SRC "wikilink")     The [character](Characters "wikilink") casting the spell.
-  ------------------------- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+|  |  |
+|----|----|
+| **Name** | **Description** |
+| [ARGO](./ARGO.md) | The source of the spell. Could be the [item](./Items.md) used to cast the spell (e.g. a wand or scroll) or the [character](./Characters.md) casting the spell. |
+| [I](./I.md) | The [character](./Characters.md) casting the spell. |
+| [SRC](./SRC.md) | The [character](./Characters.md) casting the spell. |
 
 ## Arguments
 
 The following arguments are set for this trigger. If an argument is
-marked as \"In\" then a value will be passed in to the trigger, if an
-argument is marked as \"Out\" then it can be set to a value to affect
-Sphere\'s behaviour:
+marked as "In" then a value will be passed in to the trigger, if an
+argument is marked as "Out" then it can be set to a value to affect
+Sphere's behaviour:
 
-+--------------+------------+----------------------------------------+
-| **Argument** | **In/Out** | **Description**                        |
-+--------------+------------+----------------------------------------+
-| ARGN1        | IO         | The spell being cast.                  |
-+--------------+------------+----------------------------------------+
-| ARGN2        | IO         | The amount of mana needed to cast the  |
-|              |            | spell.                                 |
-+--------------+------------+----------------------------------------+
-| ARGN3        | I          | Flags representing what stage of the   |
-|              |            | casting process the trigger is being   |
-|              |            | used at.                               |
-|              |            |                                        |
-|              |            |   ---------- --------------            |
-|              |            | -------------------------------------- |
-|              |            |   **Flag**   **Meaning**               |
-|              |            |   01         Just a test               |
-|              |            | (no reagents or mana will be consumed) |
-|              |            |   02                                   |
-|              |            | Display fail message if unable to cast |
-|              |            |   ---------- --------------            |
-|              |            | -------------------------------------- |
-|              |            |                                        |
-|              |            |   ----------------------               |
-|              |            | ----------------- -------------------- |
-|              |            |   **Spell Casting Stag                 |
-|              |            | e**                 **Expected Flags** |
-|              |            |   Spel                                 |
-|              |            | l selected for casting              01 |
-|              |            |   Spel                                 |
-|              |            | l is about to start casting         03 |
-|              |            |   Spel                                 |
-|              |            | l is about to finish casting        03 |
-|              |            |   Spel                                 |
-|              |            | l casting finished successfully     02 |
-|              |            |   Spel                                 |
-|              |            | l casting finished unsuccessfully   00 |
-|              |            |   ----------------------               |
-|              |            | ----------------- -------------------- |
-+--------------+------------+----------------------------------------+
+<table>
+<tbody>
+<tr>
+<td><p><strong>Argument</strong></p></td>
+<td><p><strong>In/Out</strong></p></td>
+<td><p><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td><p>ARGN1</p></td>
+<td><p>IO</p></td>
+<td><p>The spell being cast.</p></td>
+</tr>
+<tr>
+<td><p>ARGN2</p></td>
+<td><p>IO</p></td>
+<td><p>The amount of mana needed to cast the spell.</p></td>
+</tr>
+<tr>
+<td><p>ARGN3</p></td>
+<td><p>I</p></td>
+<td><p>Flags representing what stage of the casting process the trigger
+is being used at.</p>
+<table>
+<tbody>
+<tr>
+<td><p><strong>Flag</strong></p></td>
+<td><p><strong>Meaning</strong></p></td>
+</tr>
+<tr>
+<td><p>01</p></td>
+<td><p>Just a test (no reagents or mana will be consumed)</p></td>
+</tr>
+<tr>
+<td><p>02</p></td>
+<td><p>Display fail message if unable to cast</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td><p><strong>Spell Casting Stage</strong></p></td>
+<td><p><strong>Expected Flags</strong></p></td>
+</tr>
+<tr>
+<td><p>Spell selected for casting</p></td>
+<td><p>01</p></td>
+</tr>
+<tr>
+<td><p>Spell is about to start casting</p></td>
+<td><p>03</p></td>
+</tr>
+<tr>
+<td><p>Spell is about to finish casting</p></td>
+<td><p>03</p></td>
+</tr>
+<tr>
+<td><p>Spell casting finished successfully</p></td>
+<td><p>02</p></td>
+</tr>
+<tr>
+<td><p>Spell casting finished unsuccessfully</p></td>
+<td><p>00</p></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table>
 
-## Return Values {#return_values}
+## Return Values
 
 The following return values are explicitly defined for this trigger:
 
-  ------------------ -------------------------------------
-  **Return Value**   **Description**
-  1                  Prevents the spell from being cast.
-  6                  Allows the spell to be cast.
-  ------------------ -------------------------------------
+|                  |                                     |
+|------------------|-------------------------------------|
+| **Return Value** | **Description**                     |
+| 1                | Prevents the spell from being cast. |
+| 6                | Allows the spell to be cast.        |
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md)

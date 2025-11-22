@@ -9,7 +9,7 @@ who will receive this trigger by adding or removing attackers.
 
 Fires on:
 
--   [Characters](Characters "wikilink")
+-   [Characters](./Characters.md)
 
 ## References
 
@@ -18,9 +18,9 @@ trigger:
 
   ------------------------- -------------------------------------------------------------
   **Name**                  **Description**
-  [ARGO](ARGO "wikilink")   The [character](Characters "wikilink") who has been killed.
-  [I](I "wikilink")         The [character](Characters "wikilink") doing the killing.
-  [SRC](SRC "wikilink")     The [character](Characters "wikilink") doing the killing.
+  [ARGO](./ARGO.md)   The [character](./Characters.md) who has been killed.
+  [I](./I.md)         The [character](./Characters.md) doing the killing.
+  [SRC](./SRC.md)     The [character](./Characters.md) doing the killing.
   ------------------------- -------------------------------------------------------------
 
 ## Arguments
@@ -45,7 +45,7 @@ The following return values are explicitly defined for this trigger:
   ------------------ ---------------------------------------------------------
 
 [Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink") [Category:
-Characters](Category:_Characters "wikilink") [Category:
-Combat](Category:_Combat "wikilink")
+Compendium](./_Reference_Compendium.md) [Category:
+Triggers](./_Triggers.md) [Category:
+Characters](./_Characters.md) [Category:
+Combat](./_Combat.md)

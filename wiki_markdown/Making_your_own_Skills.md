@@ -97,4 +97,4 @@ MANAUSE=4`</spherescript>`{=html}
 `</font>`{=html}
 `<spherescript>`{=html}INTERRUPT=100.0,100.0`</spherescript>`{=html}
 
-[Category:Articles](Category:Articles "wikilink")
+[Category:Articles](./Articles.md)
