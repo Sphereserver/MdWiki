@@ -1,28 +1,55 @@
 # About the repo
-We are porting an old mediawiki for SphereServer main features and scripting language (SphereScript).
-We already fetched the old content, converted it with pandoc to Github flavored Markdown, linked the pages between them, through some python scripts we written.
-Since the old wiki was not updated often, and for sure most of the features and commits slipped away, in this folder you have our Changelog.txt. It contains the changes to the c++ core and SphereScript features that are relevant to the end users, the game masters, scripters, admins. Informations relevant for maintainers of SphereServer are stored elsewhere.
+We are porting an old mediawiki for **SphereServer** main features and scripting language (**SphereScript**).
+We have fetched and converted the old content to **GitHub Flavored Markdown (GFM)** and linked the pages.
+The **Changelog.txt** contains changes to the C++ core and SphereScript features relevant to end-users (game masters, scripters, admins). Information relevant for maintainers is stored elsewhere.
 
-# General rules
-- Do not add informations about implementation details or inner workings relevant only to contributors of the c++ source code.
-- Preserve case. Most of SphereScript short keywords/acronyms are UPPERCASE, but something else could be in PascalCase for better readability (often for long keywords, especially if long and containing more english words together).
-- Before performing any edit on @filename, please print the block of code you intend to replace (your old_string) to ensure you have the correct, current content.
-- When using the edit tool, if the edit fails, do not try to correct the old_string and retry. Instead, immediately read the entire file content using the read_file tool and ask me for a new plan or confirmation.
-- Everytime you log a block of output (an answer of yours), execute the following shell command, in order to print the time at which each answer was provided: `(Current time is $(date +%T.%3N))`
+---
 
+# General Rules
+
+- Do not add information about implementation details or inner workings relevant only to C++ source code contributors.
+- **Preserve Case:** SphereScript keywords/acronyms are often **UPPERCASE** or **PascalCase**.
+- **(NEW) Tool Parameter Constraint:** When using any file manipulation tool (like `WriteFile`, `ReadFile`, or `EditFile`), you **must** explicitly include the `file_path` argument, even if the file is already referenced in context.
+- **Progress Tracking:**
+    - Every time you log a block of output (an answer of yours), execute the following shell command **immediately before the output** to print the time: `(Current time is $(date +%T.%3N))`
+
+### ⚠️ File Handling & Context Management (Critical)
+
+- **(NEW) Context Isolation & Token Management:** **NEVER** read an entire file unless absolutely necessary. After successfully performing an edit on a file, **do not read that file again** in the current batch unless it is the explicit target of a subsequent operation. Assume the change was successful and avoid polluting the context with redundant file content.
+- **Edit Tool Reliability:**
+    - Before performing any edit on `@filename`, use the **most scoped method possible** (e.g., `grep` or a targeted `read_file` with line/range parameters, if available) to fetch **only the specific block** containing your intended `old_string`. Only fall back to reading the entire file if a targeted search fails.
+    - When using the edit tool, if the edit fails (e.g., "0 occurrences found"), **do not try to correct the `old_string` and retry.** Instead, immediately read the entire file content using the `read_file` tool and ask me for a new plan or confirmation.
+
+---
 
 # Tasks
-Task 1) Create another python script, starting from 'convert_wiki.py', to download the mediawiki files from the old wiki, and put them into the folder 'wiki_mediawiki_orig'
-Task 2) You did most of the pandoc conversion and md linking correctly, a little issue is that you removed root pages (like Category*.md files), but those are still in the wiki_markdown_old/ folder, so you can take them from there and expand if needed with the child pages.
-Task 3) We are working on updating the wiki with the informations on the changelog.
-Do not add the raw changelog data. i need you to expand the wiki entries/tables/infos to add the new features you see in the changelog, or reflect the changes that affect the correctness of what is already written in the wiki (i.e. for trigger 'xx' now ARGN2 does not contain the current world timestamp, but now it's stored in ARGN3).
-If a page doesn't exist, you are free to create and link it to the parent one, provided you have sufficient/a relevant quantity of informations to add about that command/topic. Do not add pages and leave them mostly empty. They need to have at least one parameter table and 1 to 2 paragraphs of useful informations.
-Check if the reason your find/replace tools are failing is simply because a file does not exist.
-Don't add the date a feature was fixed. we are under the assumpion that the wiki is always updated to the last build/commit/change.
-Ignore vague fixes. integrate only change of functionalities or new or removal or functionalities, not bugfixes
-Process changelog entries in 5 entries batches. Doing that one entry at a time will bee too expensive and inefficient.
-You need to process every changelog entry
-Make sure that the files you are adding new links to, if actually needed, do really exist and have the correct, not hallucinated content.
-I don't want to supervise you. Continue with every changelog entry (if not yet addressed), take the time you need and proceed, even if it takes hours.
-Task 4) Please note that most of the links you inserted between pages have a broken format (ie. an unnecessary leading ':'). Review and fix them.
-Task 5) Read every Sphere.ini setting and add it to the wiki in the relevant page, if missing.
+
+Task 1) Create a **new Python script**, starting from 'convert_wiki.py', to download the mediawiki files from the old wiki and put them into the folder `wiki_mediawiki_orig`. Old wiki address: `https://wiki.spherecommunity.net/index.php?title=Main_Page`
+
+Task 2) Review the pandoc conversion. The conversion correctly created the main wiki pages but **removed root pages** (e.g., `Category*.md`). Retrieve these missing root pages from the `wiki_markdown_old/` folder and expand them if needed, linking to their child pages.
+
+Task 3) **Update the wiki content using the `Changelog.txt`** (Long-Running Task).
+
+- **Work Folder**: `wiki_markdown`.
+- **Goal:** Expand wiki entries/tables/infos to incorporate new features or reflect changes that affect correctness (e.g., parameter shifts like ARGN2 to ARGN3).
+- **Tool for Progress & Batching:** You must use the existing Python script **`process_changelog.py`** for all changelog management.
+    - **Initial Setup:** The script is responsible for creating and maintaining `changelog_progress.txt`.
+    - **Batch Selection:** Use a command-line argument (e.g., `--start-point-header`) to instruct the script to find the next uncompleted entry and output a batch of **5 entries** to integrate into the wiki.
+    - **Progress Tracking:** After successfully integrating a batch, use another command-line argument to instruct the script to apply **strike-through formatting** to those completed entries in the **`changelog_progress.txt`** file.
+- **Content Creation:**
+    - Only integrate changes of **functionalities** (new, removal, or change) that are relevant to end-users; ignore vague fixes or simple bugfixes.
+    - If a page doesn't exist, **create and link it to the relevant parent page** only if you have sufficient, relevant information. New pages must contain **at least one parameter table and 1-2 paragraphs** of useful information. Do not create mostly empty pages.
+- **Verification & Constraint:**
+    - Do not add the date a feature was fixed. Assume the wiki is always updated to the latest build.
+    - Check if the reason your file manipulation tools are failing is simply because a file **does not exist**.
+    - Make sure that any files you are adding new links to **do really exist** and have the correct, non-hallucinated content.
+- **Execution Plan:** **Continue with every unaddressed changelog entry** (as indicated by `changelog_progress.txt`), taking the time you need and proceeding without supervision.
+
+Task 4) Review and fix the links you inserted between pages, as most have a **broken format** (e.g., an unnecessary leading `:`).
+
+Task 5) Read every **Sphere.ini** setting and add it to the wiki in the relevant page, if missing.
+
+Task 6) **Post-Processing Pass:** After all other tasks are complete, perform a single, full review of all modified/created files to ensure:
+1. **Consistent Markdown Headings** (e.g., no excessive deep nesting like `#######`).
+2. **Consistent Use of SphereScript/C++ Terminology** (e.g., `SphereScript` is correctly capitalized).
+3. **No Redundant or Repetitive Information** was added during the batch processing of Task 3.

@@ -8,7 +8,9 @@
         "mv",
         "cp",
         "mkdir",
-        "grep"
+        "grep",
+        "python3",
+        "ls"
       ]
     }
   },

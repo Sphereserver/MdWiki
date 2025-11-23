@@ -1,0 +1,79 @@
+==Description==
+This trigger fires when a player submits a bug report.
+
+
+Fires on:
+* [[Characters#Players|Players]]
+
+
+==References==
+The following object references are explicitly available for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Description'''
+|-
+| [[I]] || The [[Characters#Players|player]] submitting the report.
+|-
+| [[SRC]] || The [[Characters#Players|player]] submitting the report.
+|}
+
+
+==Arguments==
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Argument''' || '''In/Out''' || '''Description'''
+|-
+| ARGN1 || I || The report category code. Expected codes are:
+{| cellpadding="2"
+| '''Code''' || '''Meaning'''
+|-
+| 1 || Environment
+|-
+| 2 || Wearables
+|-
+| 3 || Combat
+|-
+| 4 || UI
+|-
+| 5 || Crash
+|-
+| 6 || Stuck
+|-
+| 7 || Animations
+|-
+| 8 || Performance
+|-
+| 9 || NPCs
+|-
+| 10 || Creatures
+|-
+| 11 || Pets
+|-
+| 12 || Housing
+|-
+| 13 || Lost Item
+|-
+| 14 || Exploit
+|-
+| 15 || Other
+|}
+
+|-
+| ARGS || I || The report text.
+|-
+| LOCAL.LANG || I || The language the report was submitted in.
+|}
+
+
+==Return Values==
+The following return values are explicitly defined for this trigger:
+
+
+''No return values are handled this trigger.''
+
+
+[[Category: Reference Compendium]]
+[[Category: Triggers]]
+[[Category: Characters]]
+[[Category: Players]]

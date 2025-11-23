@@ -1,0 +1,375 @@
+{{Languages|Special_Items}}
+
+Certain types of items have extended functionality, and therefore have additional properties, functions or references to the ones already listed on the [[Items]] page. The following sections describe what these are.
+
+
+==Multis==
+Multis have a TYPE t_multi, t_multi_custom or t_ship. These are multi-piece items that are usually stored in the client's multi.mul file, but are only considered to be one item to both the server and client (so when you approach a castle, there is a significant reduction in lag since the server doesn't have to tell the client to display thousands of wall pieces).
+
+===Properties and Functions===
+Here is a list of all multi properties and functions. If a function is marked as readable then it can return a value when used as &lt;KEY&gt;. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[COMPS]] || R || Gets the number of components defined in the [[ITEMDEF]].
+|-
+| [[COMP]]''.n.key'' || R || Gets the KEY (ID,DX,DY,DZ,D) of the nth component defined in the [[ITEMDEF]].
+|-
+| [[MULTICREATE]] ''owner_uid'' || W || When a multi is created via SERV.[[NEWITEM]], this function must be used to initialise the multi-region.
+|}
+
+
+==Customizable Multis==
+Customizable multis are represented by the TYPE of t_multi_custom. These are designed to be used with the AOS House Designer tool that is present since the 4.0.0 series of UO clients.
+
+===References===
+References return pointers to other objects (e.g. the REGION reference allows you to access the REGION that an object is in). These can either be accessed by using ''&lt;REFNAME&gt;'' to return the [[UID]] (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using ''&lt;REFNAME.KEY&gt;'' where KEY is a valid property/function/reference for the ''REFNAME'' object. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[DESIGNER]] || R || Gets the [[Characters|character]] currently modifying the house design.
+|}
+
+
+===Properties and Functions===
+Here is a list of all custom multi properties and functions. If a function is marked as readable then it can return a value when used as &lt;KEY&gt;. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[ADDITEM]] ''item_id, dx, dy, dz'' || W || Adds an item to the house design.
+|-
+| [[ADDMULTI]] ''multi_id, dx, dy, dz'' || W || Adds a multi to the house design.
+|-
+| [[CLEAR]] || W || Removes all items from the house design.
+|-
+| [[COMMIT]] || W || Commits all changes that have been made to the house design, updating the state of the building.
+|-
+| [[COMPS]] || R || Gets the number of components in the house design.
+|-
+| [[CUSTOMIZE]] ''character_uid'' || W || Enters the building into edit mode for the specified character (or SRC).
+|-
+| [[DESIGN]]''.n.KEY'' || R || Gets a property (ID,DX,DY,DZ,D,FIXTURE) from the nth component in the house design.
+|-
+| [[EDITAREA]] || R || Gets the designable area rectangle of the multi (left,top,right,bottom)
+|-
+| [[ENDCUSTOMIZE]] || W || Exits the current designer from edit mode.
+|-
+| [[FIXTURES]] || R || Gets the number of fixtures in the house design.
+|-
+| [[REMOVEITEM]] ''item_id, dx, dy, dz'' || W || Removes an item from the house design.
+|-
+| [[RESET]] || W || Resets the house design back to the house foundation.
+|-
+| [[RESYNC]] ''character_uid'' || W || Resends the current building state to the specified character (or SRC).
+|-
+| [[REVERT]] || W || Undoes all of the changes made to the house design since the last commit.
+|-
+| [[REVISION]] || R || Gets the revision number of the house design.
+|}
+
+
+==Ships==
+Ships have the TYPE t_ship, and are another extended version of multis that are designed to be used to sail around the world.
+
+===References===
+References return pointers to other objects (e.g. the REGION reference allows you to access the REGION that an object is in). These can either be accessed by using ''&lt;REFNAME&gt;'' to return the [[UID]] (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using ''&lt;REFNAME.KEY&gt;'' where KEY is a valid property/function/reference for the ''REFNAME'' object. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[HATCH]] || R || Gets the ship's [[Items|hatch]].
+|-
+| [[TILLER]] || R || Gets the ship's [[Items|tiller]].
+|-
+| [[PLANK]]''.n'' || R || Gets the nth ship [[Items|plank]]. (zero-based)
+|}
+
+
+===Properties and Functions===
+Here is a list of all ship properties and functions. If a function is marked as readable then it can return a value when used as &lt;KEY&gt;. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[PLANKS]] || R || Gets the number of planks on the ship.
+|-
+| [[SHIPANCHORDROP]] || W || Drops the ship's anchor, preventing it from moving.
+|-
+| [[SHIPANCHORRAISE]] || W || Raises the ship's anchor, allowing it to move.
+|-
+| [[SHIPBACK]] || W || Begins moving the ship backwards.
+|-
+| [[SHIPBACKLEFT]] || W || Begins moving the ship backwards and to its left.
+|-
+| [[SHIPBACKRIGHT]] || W || Begins moving the ship backwards and to its right.
+|-
+| [[SHIPDOWN]] || W || Begins moving the ship downards, if ATTR_MAGIC is set.
+|-
+| [[SHIPDRIFTLEFT]] || W || Begins moving the ship to its left.
+|-
+| [[SHIPDRIFTRIGHT]] || W || Begins moving the ship to its right.
+|-
+| [[SHIPFACE]] ''direction'' || W || Sets the direction of the ship.
+|-
+| [[SHIPFORE]] || W || Begins moving the ship forwards.
+|-
+| [[SHIPFORELEFT]] || W || Begins moving the ship forwards and to its left.
+|-
+| [[SHIPFORERIGHT]] || W || Begins moving the ship forwards and to its right.
+|-
+| [[SHIPGATE]] ''location'' || W || Moves the entire ship and its contents to a specified location.
+|-
+| [[SHIPLAND]] || W || Moves the ship to ground level, if ATTR_MAGIC is set.
+|-
+| [[SHIPMOVE]] ''direction'' || W || Begins moving the ship in the specified direction.
+|-
+| [[SHIPSPEED]].TILES || R || Gets the number of tiles that ths ship moves in one step.
+|-
+| [[SHIPSPEED]].PERIOD || R || Gets the length of time between each step, in tenths of a second.
+|-
+| [[SHIPSTOP]] || W || Stops the ship.
+|-
+| [[SHIPTURN]] || W || Turns the ship to face the opposite direction.
+|-
+| [[SHIPTURNLEFT]] || W || Rotates the ship to its left.
+|-
+| [[SHIPTURNRIGHT]] || W || Rotates the ship to its right.
+|-
+| [[SHIPUP]] || W || Begins moving the ship upwards, if ATTR_MAGIC is set.
+|}
+
+
+==Maps==
+The TYPEs t_map and t_map_blank are used to represent maps. These display a map to the player when used, that can be marked with a series of pins (markers) to plot a route.
+
+===Properties and Functions===
+Here is a list of all map properties and functions. If a function is marked as readable then it can return a value when used as &lt;KEY&gt;. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[PIN]]''.n'' <br /> [[PIN]] ''x, y'' || RW || Gets the position of the ''nth'' pin (zero-based), or adds a pin to the map at the specified location.
+|-
+| [[MORE1H]],[[MORE1L]] || RW || Gets the top left coordinates (x,y) of the area displayed on t_map.
+|-
+| [[MORE2H]],[[MORE2L]] || RW || Gets the bottom right coordinates (x,y) of the area displayed on t_map.
+|}
+
+==Messages / Books==
+Messages (t_message) and books (t_book) possess a range of properties and functions that are used to store their title, author and body text.
+
+===Properties and Functions===
+Here is a list of all message properties and functions. If a function is marked as readable then it can return a value when used as &lt;KEY&gt;. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[AUTHOR]] || RW || Gets or sets the author of the message.
+|-
+| [[BODY]]''.n'' || RW || Gets the nth line of text from the message, or appends a new line of text to the message.
+|-
+| [[ERASE]] ''page_num'' || W || Removes all lines of text from the message, or if a page number (one-based) if supplied erases just a single line.
+|-
+| [[PAGE]]''.n'' || W || Sets the text of the nth single line of the message. (zero-based)
+|-
+| [[PAGES]] || R || Gets the number of lines of text in the message.
+|-
+| [[TITLE]] || RW || Gets or sets the title of message.
+|}
+
+
+==Communication Crystals==
+Communication crystals have the TYPE of t_comm_crystal.
+
+===Properties and Functions===
+Here is a list of all communication crystal properties and functions. If a function is marked as readable then it can return a value when used as &lt;KEY&gt;. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[SPEECH]] ''-/+speech_defname'' || RW || Gets a list of attached SPEECH blocks, or adds to or removes from the attached speech..
+|}
+
+
+==Guild/Town Stones==
+Guild and Town stones are defined by the types t_stone_guild and t_stone_town. Whilst a lot of functionality has been moved into the script pack, there are still some special properties, functions and references that can be used.
+
+===References===
+References return pointers to other objects (e.g. the REGION reference allows you to access the REGION that an object is in). These can either be accessed by using ''&lt;REFNAME&gt;'' to return the [[UID]] (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using ''&lt;REFNAME.KEY&gt;'' where KEY is a valid property/function/reference for the ''REFNAME'' object. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[GUILD]]''.n || R || Gets the nth linked [[#Guild.2FTown_Members|guild or town]]. (zero-based)
+|-
+| [[GUILDFROMUID]]''stone_uid || R || Gets the linked [[#Guild.2FTown_Members|guild or town]] with a specified UID.
+|-
+| [[MEMBER]]''.n || R || Gets the nth member of the [[#Guild.2FTown_Members|guild or town]]. (zero-based)
+|-
+| [[MEMBERFROMUID]].''character_uid || R || Gets the [[#Guild.2FTown_Members|member]] of the guild with a specified UID.
+|}
+
+
+===Properties and Functions===
+Here is a list of all guild/town stone properties and functions. If a function is marked as readable then it can return a value when used as &lt;KEY&gt;. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[ABBREV]]  || RW || Gets or sets the guild/town abbreviation.
+|-
+| [[ABBREVIATIONTOGGLE]] || R || Returns one of the ''STONECONFIG_VARIOUSNAME_*'' defnames depending on whether SRC has their abbreviation showing or not.
+|-
+| [[ALIGN]] || RW || Gets or sets the alignment of the guild/town.
+|-
+| [[ALIGNTYPE]] || R || Returns the name of the guild or town's alignment.
+|-
+| [[ALLGUILDS]] ''flags, command'' || W || Performs the given comamnd on all linked guilds or towns based on flags. (0 = All, 1 = War Declared by 'Us' only, 2 = War Declared by 'Them' only, 3 = War Declayed by both)
+|-
+| [[ALLMEMBERS]] ''priv, command'' || W || Performs the given command on all guild or town members with the specified privelege level. (-1 = All)
+|-
+| [[APPLYTOJOIN]] ''character_uid'' || W || Adds a character as a candidate to the guild or town.
+|-
+| [[CHANGEALIGN]] ''alignment'' || W || Changes the guild or town alignment.
+|-
+| [[DECLAREPEACE]] ''stone_uid'' || W || Declares peace towards another guild or town.
+|- 
+| [[DECLAREWAR]] ''stone_uid'' || W || Declares war towards another guild or town.
+|-
+| [[ELECTMASTER]] || W || Selects a new guild or town master based on which member has the most votes.
+|-
+| [[GUILD]].COUNT || R || Gets the number linked guilds or towns.
+|-
+| [[INVITEWAR]] ''stone_uid, who_declared'' || W || Invites another guild or town to go to war (''who_declared'', 0 = They declared, 1 = We declared)
+|-
+| [[JOINASMEMBER]] ''character_uid'' || W || Adds a character as a full member of the guild or town.
+|-
+| [[LOYALTO]] || R || Returns the name of the guild or town member that SRC has declared fealty to.
+|-
+| [[MASTER]] || R || Returns the name of the guild or town master.
+|-
+| [[MASTERGENDERTITLE]] || R || Returns the gender of the guild or town mastser.
+|-
+| [[MASTERTITLE]] || R || Returns the title of the guild or town master.
+|-
+| [[MASTERUID]] || RW || Gets the UID of the guild/town master, or sets it to the UID of a new master.
+|-
+| [[MEMBER]].COUNT ''priv'' || R || Gets the number of members in the guild/town with at least the given privileges (or all if not supplied).
+|-
+| [[RESIGN]] ''character_uid'' || W || Removes a character from the guild or town.
+|-
+| [[TOGGLEABBREVIATION]] ''character_uid'' || W || Toggles the display of guild/town abbreviation for a member or SRC.
+|-
+| [[WEBPAGE]] || RW || Gets or sets the guild or town's webpage.
+|-
+| [[CHARTER]]''.n'' || EW || Gets or sets the nth line of the guild/town charter. (zero-based)
+|}
+
+
+==Guild/Town Members==
+When accessing a member of a guild or town via the [[MEMBER]].x,r [[MEMBERFROMUID]].uid, [[GUILD]].x, or [[GUILDFROMUID]].uid references, you access a special "Guild/Town Member" object which has specific properties, references and functions available. If you attempt to access something that doesn't exist in any of the following tables then the command is 'redirected' to the actual character or item the member object is linked to (so something like ''&lt;MEMBER.x.STR&gt;'' would work because the STR property exists on the [[Characters|character]]).
+
+===Properties and Functions===
+Here is a list of all guild/town member properties and functions. If a function is marked as readable then it can return a value when used as &lt;KEY&gt;. Click on the name for more detailed information such as usage and examples.
+
+====Character Members====
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[ACCOUNTGOLD]]  || RW || Gets or sets the amount of gold the member has in their guild/town account.
+|-
+| [[ISCANDIDATE]] || R || Returns 1 if the member is a candidate of the guild/town.
+|-
+| [[ISMASTER]] || R || Returns 1 if the member is a guild/town master.
+|-
+| [[LOYALTO]] || RW || Gets or sets the UID of who the member has declared fealty towards.
+|-
+| [[PRIV]] || RW || Gets or sets the member's privilege level within the guild/town.
+|-
+| [[PRIVNAME]] || R || Returns the name of the member's privilege level within the guild/town.
+|-
+| [[TITLE]] || RW || Gets or sets the member's title within the guild/town.
+|-
+| [[SHOWABBREV]] || RW || Gets or sets whether or not the member's abbreviation is shown.
+|}
+
+
+====Item Members====
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[ISENEMY]] || R || Returns 1 if the other guild/town is considered an enemy.
+|-
+| [[THEYALLIANCE]]  || RW || Gets or sets whether or not the other guild/town has declared an alliance with the guild/town.
+|-
+| [[THEYWAR]]  || RW || Gets or sets whether or not the other guild/town has declared war.
+|-
+| [[WEALLIANCE]]  || RW || Gets or sets whether or not the guild/town has declared an alliance with the other guild/town.
+|-
+| [[WEWAR]]  || RW || Gets or sets whether or not the guild/town has declared war with the other guild/town.
+|}
+
+
+==Containers==
+Container items (backpacks, bankboxes, bags, etc) can be used to hold other items. These items have the [[TYPE]] of t_container.
+
+===References===
+References return pointers to other objects (e.g. the REGION reference allows you to access the REGION that an object is in). These can either be accessed by using ''&lt;REFNAME&gt;'' to return the [[UID]] (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using ''&lt;REFNAME.KEY&gt;'' where KEY is a valid property/function/reference for the ''REFNAME'' object. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[FINDCONT]]''.n'' || R || Gets the nth [[Items|item]] from inside the container. (zero-based)
+|-
+| [[FINDID]]''.item_id'' || R || Gets the first [[Items|item]] found inside the container with the matching [[BASEID]].
+|-
+| [[FINDTYPE]]''.type'' || R || Gets the first [[Items|item]] found inside the container with the matching [[TYPE]].
+|}
+
+
+===Properties and Functions===
+Here is a list of all custom multi properties and functions. If a function is marked as readable then it can return a value when used as &lt;KEY&gt;. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[COUNT]] || R || Returns the number of items inside the container.
+|-
+| [[DELETE]] ''nth'' || W || Deletes the nth item from inside the container. (1-based)
+|-
+| [[EMPTY]] || W || Deletes all items inside the container.
+|-
+| [[FCOUNT]] || R || Returns the total number of items inside the container, including subcontainers.
+|-
+| [[FIXWEIGHT]] || W || Recalculates the total weight of the container and its contained items.
+|-
+| [[OPEN]] || W || Opens the container, for SRC to view its contents.
+|-
+| [[RESCOUNT]] ''item_defname'' || R || Returns the total amount of a specific item inside the container, including subcontainers.
+|-
+| [[RESTEST]] ''item_list'' || R || Returns 1 if all of the items in the list can be found inside the container, including subcontainers.
+|}
+
+
+==Vendable Items==
+When an item has value, either explicitly in the ITEMDEF's [[VALUE]] property or implicity in the ITEMDEF's [[RESOURCES]] property, it is considered a "Vendable Item" that can be sold on vendors.
+
+===Properties and Functions===
+Here is a list of all vendable item properties and functions. If a function is marked as readable then it can return a value when used as &lt;KEY&gt;. Click on the name for more detailed information such as usage and examples.
+
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[PRICE]] || RW || Gets or sets the price of the item. (affect only the sell/buy price on player vendor. NPC use the value)
+|-
+| [[QUALITY]] || RW || Gets or sets the quality of the item.
+|}
+
+[[Category: Reference Compendium]]
+[[Category: Objects]]

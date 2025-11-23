@@ -521,12 +521,14 @@ details on this`</spherescript>`{=html}
 `// EF_DamageTools = 00002000 // damage tools (and fire @damage on them) while mining or lumberjacking`\
 `// EF_PetSlots = 00004000 // INCOMPLETE YET! DO NOT USE until this warning is removed!`\
 `// EF_UsePingServer = 00008000 // Enable the experimental Ping Server (for showing pings on the server list, uses UDP port 12000)`\
-`// EF_NPCAct_Triggers = 00010000 // Enable @NPCSpecialAction and @NPCAction triggers (mutual exclusive with EF_Minimize_Triggers)`\
+`// EF_NPCAct_Triggers = 00010000 // Enable @NPCSpecialAction and @NPCAction triggers (mutual exclusive with EF_Minimize_Triggers)
+// EF_WalkCheckHeightMounted = 00020000 // When enabled, assume a mounted character is taller for walkchecks (+4 z points).`\
 `// EF_UseNetworkMultiVersion = 00400000 // Modify EF_UseNetworkMulti so clients prior to 4.0.0 are unaffected (try this if you find EF_UseNetworkMulti negatively affects older clients). - Do not set while server is running !!!`\
 `// EF_UseNetworkMulti = 00800000 // Enable optimized network routines (better) - Do not set while server is running !!!`\
 `// EF_Specific = 01000000 // Specific behaviour, not completly tested`\
 `</font>`{=html}
-`<spherescript color="darkgreen">`{=html}Experimental=00000
+`<spherescript color="darkgreen">`{=html}// EF_WalkCheckHeightMounted = 00020000 // When enabled, assume a mounted character is taller for walkchecks (+4 z points).
+Experimental=00000
 
 // Option flags // Flags for options that affect server behaviour but
 not compatibility // See the revisions.txt file for more details on

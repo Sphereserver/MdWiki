@@ -1,0 +1,39 @@
+==Description==
+This trigger fires when a resource is being gathered and Sphere is determining which resource to spawn. This trigger fires on every region resource attached to the region that Sphere is selecting from.
+
+
+Fires on:
+* [[REGIONRESOURCE|Region Resources]]
+
+
+==References==
+The following object references are explicitly available for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Description'''
+|-
+| [[I]] || The [[REGIONRESOURCE|region resource]] being gathered.
+|-
+| [[SRC]] || The [[Characters|character]] gathering the resource.
+|}
+
+
+==Arguments==
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
+
+
+''No arguments are set for this trigger.''
+
+
+==Return Values==
+The following return values are explicitly defined for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Return Value''' || '''Description'''
+|-
+| 1 || Prevents Sphere from selecting the resource.
+|}
+
+
+[[Category: Reference Compendium]]
+[[Category: Triggers]]

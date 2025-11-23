@@ -1,0 +1,1160 @@
+{{Languages|Characters}}
+
+__FORCETOC__
+A character can be either a player or an NPC.
+
+==References==
+References return pointers to other objects (e.g. the REGION reference allows you to access the REGION that an object is in). These can either be accessed by using ''&lt;REFNAME&gt;'' to return the [[UID]] (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using ''&lt;REFNAME.KEY&gt;'' where KEY is a valid property/function/reference for the ''REFNAME'' object. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description''' || '''Sphere X only?'''
+|-
+| [[Accounts|ACCOUNT]] || RW || Gets or sets the [[Accounts|account]] that the character belongs to.
+|-
+| [[ACT]] || RW || Gets or sets the [[Characters|character]] or [[Items|item]] that is related to the action the character is performing.
+|-
+| [[FINDCONT]]''.n'' || R || Gets the nth [[Items|item]] equipped to the character. (zero-based)
+|-
+| [[FINDID]]''.item_id'' || R || Gets the first [[Items|item]] found equipped to the character or inside their backpack, with the matching [[BASEID]].
+|-
+| [[FINDLAYER]]''.layer'' || R || Gets the [[Items|item]] that the character has equipped in a specified layer.
+|-
+| [[FINDTYPE]]''.type'' || R || Gets the first [[Items|item]] found equipped to the character or inside their backpack, with the matching [[TYPE]].
+|-
+| [[MEMORYFINDTYPE]]''.memory_flags'' || R || Gets a [[Items|memory item]] with the specified flags.
+|-
+| [[MEMORYFIND]].''object_uid'' || R || Gets a [[Items|memory item]] that is linked to the given object.
+|-
+| [[OWNER]] || R || Gets the character that owns this character. (RW in SphereServer-X Build)
+|-
+| [[SPAWNITEM]] || R || Gets the [[Items|spawn item]] (t_spawn_char) that this character originated from.
+|-
+| [[WEAPON]] || R || Gets the [[Items|weapon]] that the character currently has equipped.
+|-
+| [[P]] || RW || Gets or sets the [[Map Points|position]] that the character is at.
+|-
+| [[Regions|REGION]] || R || Gets the [[Regions|region]] that the character is currently located in.
+|-
+| [[Rooms|ROOM]] || R || Gets the [[Rooms|room]] that the character is in.
+|-
+| [[Sectors|SECTOR]] || R || Gets the [[Sectors|sector]] that the character is in.
+|-
+| [[TOPOBJ]] || R || Gets the top-most [[Characters|character]] or [[Items|item]] in the world that contains the character.
+|-
+| [[TYPEDEF  (Reference)|TYPEDEF]] || R || Gets the [[CHARDEF]] that defines the character.
+|}
+
+==Properties and Functions==
+Here is a list of all character properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples. If an attempt is made to access a property that does not exist on the character, the property from the [[CHARDEF]] will be accessed instead.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description''' || '''Sphere X only?'''
+|-
+| [[AC]] || R || Returns the character's total defense.
+|-
+| [[ACTARG1]] || RW || Gets or sets the character's ACTARG1 value. X branch only: for skills Enticement, Peacemaking and Provocation, if ACTARG1 is set to the UID of the instrument to play, it will be played the sound of that instrument.
+|-
+| [[ACTARG2]] || RW || Gets or sets the character's ACTARG2 value.
+|-
+| [[ACTARG3]] || RW || Gets or sets the character's ACTARG3 value.
+|-
+| [[ACTDIFF]] || RW || Gets or sets the difficulty of the character's current action.
+|-
+| [[ACTION]] || RW || Gets or sets the skill that the character is currently using.
+|-
+| [[ACTP]] || RW || Gets or sets the character's ACTP value. Can get x,y,z,position of the point in X branch.
+|-
+| [[ACTPRV]] || RW || Gets or sets the character's ACTPRV value.
+|-
+| [[ADDHOUSE uid]] || W || X branch only. Adds the given uid to the player's house. If the player current count of houses is greater than the limit he has, the house will be redeeded.
+|-
+| [[ADDSHIP uid]] || W || X branch only. Adds the given uid to the player's ship. If the player current count of ships is greater than the limit he has, the ship will be redeeded.
+|-
+| [[AFK]] || W || Gets or sets whether or not the character is in AFK mode.
+|-
+| [[AGE]] || R || Returns the age of the character since its creation, in seconds.
+|-
+| [[ALLSKILLS]] ''amount'' || W || Sets all of the character's skills to the specified amount.
+|-
+| [[ANIM]] ''anim_id'' || W || Plays the specified animation on the character.
+|-
+| [[ATTACKER]]''.properties'' || R || Gets the number of opponents who have damaged the character.
+|-
+| [[BANK]] ''layer'' || W || Opens the character's bank (or the container at the specified layer) for SRC to view.
+|-
+| [[BANKBALANCE]] || R || Returns the total amount of gold in the character's bankbox.
+|-
+| [[BARK]] ''sound_id'' || W || Plays the specified sound (or the character's generic sound if not specified) to nearby clients from this character.
+|-
+| [[BODY]] || RW || Gets or sets the character's body.
+|-
+| [[BOUNCE]] ''item_uid'' || W || Places a specified item in the character's backpack.
+|-
+| [[BOW]] || W || Makes the character bow to SRC.
+|-
+| [[CAN (Characters)|CAN]] || RW || Gets or Sets the Can flags for this chardef. Only readable in X branch.
+|-
+| [[CANCAST]] ''spell_id, check_antimagic'' || R || Returns 1 if the character can cast a given spell, bypassing anti-magic field tests if ''check_antimagic'' set to 0.
+|-
+| [[CANMAKE]] ''item_id'' || R || Returns 1 if the character has the skills and resources to craft a certain item.
+|-
+| [[CANMAKESKILL]] ''item_id'' || R || Returns 1 if the character has the skills to craft a certain item.
+|-
+| [[CANMASK (Characters)|CANMASK]] || RW || X branch only. Stores the CAN flags to be dynamically switched on or off from the base CAN property.
+|-
+| [[CANMOVE]] ''direction'' || R || Returns 1 if the character can move in the given direction.
+|-
+| [[CANSEE]] || R || Returns 1 if SRC can see the character.
+|-
+| [[CANSEELOS]] || R || Returns 1 if SRC has line of sight to the character.
+|-
+| [[CANSEELOSFLAG]] ''flags'' || R || Returns 1 if SRC has line of sight to the character, with flags to modify what tests take place.
+|-
+| [[COLOR]] || RW || Gets or sets the character's hue.
+|-
+| [[CONSUME]] ''resource_list'' || W || Removes specified resources from SRC's backpack.
+|-
+| [[COUNT]] || R || Returns the number of items equipped to the character.
+|-
+| [[CREATE]] || RW (R only on X)|| Gets or sets the character's age since creation, in seconds (Tenth of seconds on X).
+|-
+| [[CRIMINAL]] || W || Sets whether or not the character is a criminal.
+|-
+| [[CURFOLLOWER]] || RW || Gets or sets the number of current followers the character has,
+|-
+| [[DAMAGE]] ''amount, type, source'' || W || Inflicts damage upon the character.
+
+ When using COMBAT_ELEMENTAL_ENGINE add the following parameters after ''source'': ''physical'',''fire'',''cold'',''poison'',''energy''. All the values are in %.
+
+
+|-
+| [[DELHOUSE uid]] || W || X branch only. Deletes the given uid from the player's list (Will not delete the house)(-1 clears the whole list).
+|-
+| [[DELSHIP uid]] || W || X branch only. Deletes the given uid from the player's list (Will not delete the ship)(-1 clears the whole list).
+|-
+| [[DESTROY]] || W || Deletes the object, not stopped by a return 1 in [[@Destroy]]
+|-
+| [[DEX]] || RW || Gets or sets the character's total dexterity.
+|-
+| [[DIALOG (Function)|DIALOG]] ''dialog_id, page, parameters'' || W || Displays a dialog to SRC.
+|-
+| [[DIALOGCLOSE]] ''dialog_id button'' || W || Closes a dialog that SRC has open, simulating a button press.
+|-
+| [[DIALOGLIST]]''.COUNT'' || R || Gets the number of number of dialogs currently considered to be visible on SRC's screen.
+|-
+| [[DIALOGLIST]]''.n.ID'' || R || Gets the ID of the nth dialog that SRC has open (zero-based).
+|-
+| [[DIALOGLIST]]''.n.COUNT'' || R || Gets the number of instances of nth dialog SRC has open (zero-based).
+|-
+| [[DIR]] || RW || Gets or setes the direction that the character is facing.
+|-
+| [[DISCONNECT]] || W || Disconnects the character.
+|-
+| [[DISMOUNT]] || W || Dismounts the character from their ride.
+|-
+| [[DISPIDDEC]] || R || Gets the ID of the character as a decimal number.
+|-
+| [[DISTANCE]] ''point_or_uid'' || R || Gets the distance between this object and either SRC, a map location or another object.
+|-
+| [[DCLICK]] || W || Double clicks the character, with SRC as the source of the event.
+|-
+| [[DCLICK]] ''object_uid'' || W || Double clicks an object, with the character as SRC.
+|-
+| [[DRAWMAP]] ''radius'' || W || Starts the cartography skill, drawing a map of the local area up to ''radius'' tiles.
+|-
+| [[DROP]] ''item_uid'' || W || Drops a specified item at the character's feet.
+|-
+| [[DUPE]] || W || Creates a clone of the character.
+|-
+| [[EDIT]] || W || Displays an editing dialog for the character to SRC.
+|-
+| [[EFFECT]] ''type, item_id, speed, loop, explode, color, rendermode'' || W || Displays an effect to nearby clients.
+|-
+| [[EFFECTLOCATION]] ''x,y,z,type,itemid,speed,loop,explode,color,render'' || W || Similar to the EFFECT command but instead of an object it takes a terrain location as a target. || X
+|-
+| [[EMOTE]] ''message'' || W || Displays a *You see* message to all nearby clients.
+|-
+| [[EMOTEACT]] || RW || Gets, sets or toggles whether or not the character will emote all of its actions.
+|-
+| [[EQUIP]] ''item_uid'' || W || Equips an item to the character.
+|-
+| [[EQUIPARMOR]] || W || Equips the character with the best armour in their backpack.
+|-
+| [[EQUIPHALO]] ''timeout'' || W || Equips a halo light to the character, lasting for ''timeout'' tenths of a second.
+|-
+| [[EQUIPWEAPON]] || W || Equips the character with the best weapon in their backpack.
+|-
+| [[EVENTS (Property)|EVENTS]] ''event_defname'' || RW || Gets a list of events attached to the object, or adds or removes an event to or from the object.
+|-
+| [[EXP]] || RW || Gets or sets the character's experience points.
+|-
+| [[FACE]] ''object_uid'' (P coords in X branch) || W || Turns the character to face a specified object or SRC. Admits coordinates instead uid in X branch.
+|-
+| [[FAME]] || RW || Gets or sets the character's fame.
+|-
+| [[FAME]]''.fame_group'' || R || Returns 1 if the character's fame falls within the specified fame group.
+|-
+| [[FCOUNT]] || R || Returns the total number of items equipped to the character, including subitems
+|-
+| [[FLAGS]] || RW || Gets or sets the character's flags.
+|-
+| [[FIX]] || W || Re-aligns the character's Z level to ground level.
+|-
+| [[FIXWEIGHT]] || W || Recalculates the character's total weight.
+|-
+| [[FLIP]] || W || Rotates the character.
+|-
+| [[FONT]] || RW || Gets or sets the character's speech font.
+|-
+| [[FOOD]] || RW || Gets or sets the character's food level.
+|-
+| [[FORGIVE]] || W || Revokes the character's jailed status.
+|-
+| [[GETHOUSEPOS uid]] || R || Returns the position of the given UID on the houses list (-1 if not found).
+|-
+| [[GETSHIPPOS uid]] || R || Returns the position of the given UID on the ships list (-1 if not found).
+|-
+| [[GO]] ''location'' || W || Teleports the character to the specified location.
+|-
+| [[GOCHAR]] ''n'' || W || Teleports the character to the nth character in the world.
+|-
+| [[GOCHARID]] ''character_defname'' || W || Teleports the character to the next characer in the world with the specified [[BASEID]]
+|-
+| [[GOCLI]] ''n'' || W || Teleports the character to the nth online player. (zero-based)
+|-
+| [[GOITEMID]] ''item_defname'' || W || Teleports the character to the next item in the world with the specified [[BASEID]].
+|-
+| [[GOLD]] || RW || Gets or sets the amount of gold the character has.
+|-
+| [[GONAME]] ''name'' || W || Teleports the character to the next character or item in the world with the specified name, accepts wildcards (*).
+|-
+| [[GOSOCK]] ''socket'' || W || Teleports the character to the online player with the specified socket number.
+|-
+| [[GOTYPE]] ''item_type'' || W || Teleports the character to the next item in the world with the specified [[TYPE]].
+|-
+| [[GOUID]] ''object_uid'' || W || Teleports the character to the object with the specified [[UID]].
+|-
+| [[GUILDABBREV]] || R || Returns the character's guild abbreviation.
+|-
+| [[HEAR]] ''text'' || W || For NPCs, acts as if SRC had spoken the specified ''text''. For players, displays ''text'' as a system message.
+|-
+| [[HEIGHT]] || R || Gets the character's height.
+|-
+| [[HITS]] || RW || Gets or sets the character's hitpoints.
+|-
+| [[HOME]] || RW || Gets or sets the character's home location.
+|-
+| [[HOUSE.n]] || R || X branch only.Access the house in the Nth position, eg: house.3.Redeed
+|-
+| [[HOUSES]] ||R || X branch only. Returns the number of houses on the player's list.
+|-
+| [[HUNGRY]] || W || Displays this character's hunger level to SRC.
+|-
+| [[ID]] || R || Gets the character's ID.
+|-
+| [[INFO]] || W || Displays an information dialog about the character to SRC.
+|-
+| [[INT]] || RW || Gets or sets the character's total intelligence.
+|-
+| [[INVIS]] || W || Sets whether or not the character is invisible.
+|-
+| [[INVUL]] || W || Sets whether or not the character is invulnerable.
+|-
+| [[ISARMOR]] ''object_uid'' || R || Returns 1 if the object is armour.
+|-
+| [[ISCHAR]] || R || Returns 1 if the object is a character.
+|-
+| [[ISCONT]] || R || Returns 1 if the object is a container.
+|-
+| [[ISDIALOGOPEN]] ''dialog_id'' || R || Returns 1 if SRC has the specified dialog visible on their screen.
+|-
+| [[ISEVENT]]''.event_defname'' || R || Returns 1 if the object has an event attached to it.
+|-
+| [[ISGM]] || R || Returns 1 if the character is in GM mode.
+|-
+| [[ISINPARTY]] || R || Returns 1 if the player is in a [[party]].
+|-
+| [[ISITEM]] || R || Returns 1 if the object is an item.
+|-
+| [[ISMYPET]] || R || Returns 1 if the character belongs to SRC.
+|-
+| [[ISNEARTYPE]] ''type, distance, flags'' || R || Returns 1 if a nearby item has the given TYPE.
+|-
+| [[ISNEARTYPETOP]] ''type, distance, flags'' || R || Returns a nearby world location of a nearby item which has the given TYPE.
+|-
+| [[ISONLINE]] || R || Returns 1 if the character is considered to be online.
+|-
+| [[ISPLAYER]] || R || Returns 1 if the object is a player.
+|-
+| [[ISSTUCK]] || R || Returns 1 if the character cannot walk in any direction.
+|-
+| [[ISTEVENT]]''.event_defname'' || R || Returns 1 if the object has an event attached to its [[CHARDEF]].
+|-
+| [[ISTIMERF]]''.function'' || R || Returns the number of seconds left on the specified timerf if it exists.
+|-
+| [[ISVENDOR]] || R || Returns 1 if the character is a vendor.
+|-
+| [[ISVERTICALSPACE]] ''location'' || R || Returns 1 if the ceiling at the given location is high enough for the character to fit under.
+|-
+| [[ISWEAPON]] ''object_uid'' || R || Returns 1 if the object is a weapon.
+|-
+| [[JAIL]] ''cell'' || W || Sends the character to jail, to a specified jail cell.
+|-
+| [[KARMA]] || RW || Gets or sets the character's karma.
+|-
+| [[KARMA]]''.karma_group'' || R || Returns 1 if the character's karma falls within the specified karma group.
+|-
+| [[KILL]] || W || Kills the character.
+|-
+| [[LEVEL]] || RW || Gets or sets the character's experience level.
+|-
+| [[LIGHT]] || RW || Gets or sets the character's personal light level.
+|-
+| [[LUCK]] || RW || Gets or sets the luck value for the character.
+|-
+| [[MAKEITEM]] ''item_defname, amount'' ||| W || Begins an attempt to craft the specified quantity of the given item.
+|-
+| [[MANA]] || RW || Gets or sets the character's mana.
+|-
+| [[MAP]] || RW || Gets or sets the map that this object is located.
+|-
+| [[MAPWAYPOINT]] "ObjectUID, WaypointType" || W || Add/remove waypoints on client radar map (enhanced clients only).
+|-
+| [[MAXFOLLOWER]] || RW || Gets or sets the maximum number of followers the character can have.
+|-
+| [[MAXHITS]] || RW || Gets or sets the character's maximum hitpoints.
+|-
+| [[MAXHOUSES]] || RW || Added to Accounts and Chars, when created they read this setting from the sphere.ini (if values on sphere.ini change, they will not reflect on already created accounts/chars). || X
+|-
+| [[MAXMANA]] || RW || Gets or sets the character's maximum mana.
+|-
+| [[MAXSHIPS]] || RW || Added Accounts and Chars, when created they read this new setting from the sphere.ini (if values on sphere.ini change, they will not reflect on already created accounts/chars). || X
+|-
+| [[MAXSTAM]] || RW || Gets or sets the character's maximum stamina.
+|-
+| [[MAXWEIGHT]] || R || Returns the maximum weight that the character can carry.
+|-
+| [[MEMORY]]''.object_uid'' || RW || Gets or sets the memory flags the character has for the given object.
+|-
+| [[MENU (Function)|MENU]] ''menu_defname'' || W || Displays a menu to SRC.
+|-
+| [[MESSAGE]] ''message'' || W || Displays a message above this character to SRC.
+|-
+| [[MESSAGEUA]] ''colour, talkmode, font, lang_id, message'' || W || Displays a UNICODE message above this character to SRC.
+|-
+| [[MODAR]] || RW || Gets or sets a modifier for the character's armour rating.
+|-
+| [[MODDEX]] || RW || Gets or sets the character's dexterity modifier.
+|-
+| [[MODINT]] || RW || Gets or sets the character's intelligence modifier.
+|-
+| [[MODMAXWEIGHT]] || RW || Gets or sets the character's maximum weight modifier.
+|-
+| [[MODSTR]] || RW || Gets or sets the character's strength modifier.
+|-
+| [[MOUNT]] || R || Gets the UID of the character's mount.
+|-
+| [[MOUNT]] ''mount_uid'' || W || Attempts to mount the character on to the specified mount.
+|-
+| [[MOVE]] ''direction'' || R || Returns the movement flags for the tile in the given direction (see can_flags in sphere_defs.scp).
+|-
+| [[MOVE]] ''direction, amount''<br /> [[MOVE]] ''x y'' || W || Moves the object relative to its current position.
+|-
+| [[MOVENEAR]] ''object_uid, distance'' || W || Moves the character to a random location near another object within a certain distance.
+|-
+| [[MOVETO]] ''location'' || W || Moves the character to a specific location.
+|-
+| [[NAME]] || RW || Gets or sets the character's name.
+|-
+| [[NEWBIESKILL]] ''skill_id'' || W || Distributes items that are associated with the specified skill, to the character.
+|-
+| [[NEWGOLD]] ''amount'' || W || Generates ''amount'' gold in the character's backpack.
+|-
+| [[NEWLOOT]] ''item_or_template_defname'' || W || Generates the specified item or template into the character's backpack, providing that they are an NPC that hasn't been summoned.
+|-
+| [[NIGHTSIGHT]] || RW || Gets or sets whether or not the character has nightsight enabled.
+|-
+| [[NOTOGETFLAG]] ''viewer_uid, allow_incognito'' || RW || Gets the character's notoriety flags as seen by the specified viewer.
+|-
+| [[NPC]] || RW || Gets or sets the character's AI type.
+|-
+| [[NUDGEDOWN]] ''amount'' || W || Decreases the character's Z level.
+|-
+| [[NUDGEUP]] ''amount'' || W || Increases the characer's Z level.
+|-
+| [[OBODY]] || RW || Gets or sets the character's original body.
+|-
+| [[OPENPAPERDOLL]] || W || Displays the character's paperdoll to SRC.
+|-
+| [[OPENPAPERDOLL]] ''character_uid'' || W || Displays a specified character's paperdoll to this character.
+|-
+| [[OSKIN]] || RW || Gets or sets the character's original colour.
+|-
+| [[ODEX]] || RW || Gets or sets the character's base dexterity (without modifiers).
+|-
+| [[OINT]] || RW || Gets or sets the character's base intelligence (without modifiers).
+|-
+| [[OSTR]] || RW || Gets or sets the character's base strength (without modifiers).
+|-
+| [[PACK]] || W || Opens the character's backpack for SRC to view.
+|-
+| [[POISON]] ''strength'' || W || Poisons the character, with the specified poison strength.
+|-
+| [[POLY]] ''character_id'' || W || Begins casting the polymorph spell, with ''character_id'' being the character to turn into.
+|-
+| [[PROMPTCONSOLE]] ''function, prompt_message'' || W || Displays a prompt message to SRC and passes their response into a specified function.
+|-
+| [[PROMPTCONSOLEU]] ''function, prompt_message'' || W || Displays a prompt message to SRC and passes their response into a specified function, supporting UNICODE response.
+|-
+| [[PRIVSET]] ''plevel'' || W || Sets the PLEVEL of the character.
+|-
+| [[RANGE]] || R || Gets the combat range of the character.
+|-
+| [[RELEASE]] || W || Clears the character's owners.
+|-
+| [[REMOVE]] ''allow_player_removal'' || W || Deletes the character.
+|-
+| [[REMOVEFROMVIEW]] || W || Removes the object from nearby clients' screens.
+|-
+| [[RESCOLD]] || RW || Gets or sets the character's resistance to cold.
+|-
+| [[RESCOLDMAX]] || RW || Gets or sets the character's maximum resistance to cold.
+|-
+| [[RESCOUNT]] ''item_defname'' || R || Returns the total amount of a specific item equipped to the character or inside their baackpack.
+|-
+| [[RESENDTOOLTIP]] ''sendfull'',''usecache'' || W || Forces Sphere to update the tooltips for nearby clients.  If sendfull is 1 the entire tooltip is sent and if 0 then just the header is sent.  If usecache is 1 then the cached version (if found) will be sent and if 0 then the cached version (if found) will be replaced and sent
+|-
+| [[RESENERGY]] || RW || Gets or sets the character's resistance to energy.
+|-
+| [[RESENERGYMAX]] || RW || Gets or sets the character's maximum resistance to energy.
+|-
+| [[RESFIRE]] || RW || Gets or sets the character's resistance to fire.
+|-
+| [[RESFIREMAX]] || RW || Gets or sets the character's maximum resistance to fire.
+|-
+| [[RESPOISON]] || RW || Gets or sets the character's resistance to poison.
+|-
+| [[RESPOISONMAX]] || RW || Gets or sets the character's maximum resistance to poison.
+|-
+| [[RESTEST]] ''item_list'' || R || Returns 1 if all of the items in the list can be found equipped to the character or inside their backpack.
+|-
+| [[RESURRECT]] ''force'' || W || Resurrects the character. If ''force'' is 1 then usual anti-magic checks are bypasses.
+|-
+| [[SALUTE]] ''object_uid'' || W || Makes the character salute a specified object or SRC.
+|-
+| [[SAY]] ''message'' || W || Makes the character speak a message.
+|-
+| [[SAYU]] ''message'' || W || Makes the character speak a UTF-8 message
+|-
+| [[SAYUA]] ''colour, talkmode, font, lang_id, text'' || W || MAkes the character speak a UNICODE message.
+|-
+| [[SDIALOG]] ''dialog_id, page, parameters'' || W || Displays a dialog to SRC, providing that it is not already open.
+|-
+| [[SERIAL]] || R || Gets the item's unique ID in the world.
+|-
+| [[SEX]] ''value_male:value_female'' || R || Returns ''value_male'' or ''value_female'' depending on the character's gender.
+|-
+| [[SEXTANTP]] ''location'' || R || Converts the character's location or a specified location into sextant coordinates.
+|-
+| ''skill_name'' || RW || Gets or sets the character's skill level in ''skill_name''.
+|-
+| [[SHIP.n]] || R || X branch only. Added to access the ship in the Nth position, eg: ship.3.Redeed
+|-
+| [[SHIPS]] || R || X branch only. Return the ships on the player's list.
+|-
+| [[SKILL (Function)|SKILL]] || W || Begins using a skill.
+|-
+| [[SKILLADJUSTED]]."number or skill_name" (X branch only) || R || Returns the skill value adjusted by the stat bonus. Example “SkillAdjusted.1” or “SkillAdjusted.Anatomy”.
+|-
+| [[SKILLCHECK]] ''skill_id, difficulty'' || R || Performs a check for skill success, returning 1 if the attempt was successful.
+|-
+| [[SKILLBEST]]''.n'' || R || Returns the ID of the character's nth highest skill (0 = Highest)
+|-
+| [[SKILLGAIN]] ''skill, difficulty'' || W || Invokes Sphere's skill gain for the specified skill, with the given difficulty (0-100)
+|-
+| [[SKILLTEST]] ''skill_list'' || R || Returns 1 if the character possess all of the skills in the list.
+|-
+| [[SKILLTOTAL]] || R || Returns the total value of all the character's skills.
+|-
+| [[SKILLTOTAL]] ''skill_group'' || R || Returns the total value of all the character's skills with the specified group flag(s).
+|-
+| [[SKILLTOTAL]] ''-amount'' || R || Returns the total value of all the character's skills that are under ''amount''.
+|-
+| [[SKILLTOTAL]] ''+amount'' || R || Returns the total value of all the character's skills that are over ''amount''.
+|-
+| [[SKILLUSEQUICK]] ''skill_id, difficulty'' || R || Quickly uses a skill, returning 1 if the attempt was successful.
+|-
+| [[SLEEP]] ''fall_forwards'' || W || Makes the character appear to sleep.
+|-
+| [[SOUND]] ''sound_id, repeat'' || W || Plays a sound from this character.
+|-
+| [[SPELLEFFECT]] ''spell_id, strength, source_character_uid, source_item_uid'' || W || Causes the character to be affected by a spell.
+|-
+| [[SPEECHCOLOROVERRIDE]] ''value'' || RW || Override client speech hue. 
+|-
+| [[STAM]] || RW || Gets or sets the character's stamina.
+|-
+| [[STEPSTEALTH]] || RW || Gets or sets the amount of steps a character can do while using the Stealth skill.
+|-
+| [[STONE]] || RW || Gets or sets whether or not the character is trapped in stone.
+|-
+| [[STR]] || RW || Gets or sets the character's total strength.
+|-
+| [[SUICIDE]] || W || Forces the character to commit suicide.
+|-
+| [[SUMMONCAGE]] || W || Teleports the character to SRC's, surrounded by a cage multi.
+|-
+| [[SUMMONTO]] || W || Teleports the character to SRC's position.
+|-
+| [[TAG]]''.name'' || RW || Gets or sets the value of a TAG.
+|-
+| [[TAGAT]]''.index'' || R || Gets a TAG at the given zero-based index.
+|-
+| [[TAGAT]]''.index''.KEY || R || Gets the name of the TAG at the given zero-based index.
+|-
+| [[TAGAT]]''.index''.VAL || R || Gets the value of the TAG at the given zero-based index.
+|-
+| [[TAGCOUNT]] || R || Gets the number of TAGs stored on the item.
+|-
+| [[TAGLIST]] || W || Outputs a list of the object's TAGs.
+|-
+| [[TARGET]]''FGMW'' ''function'' || W || Displays a targeting cursor to SRC.
+|-
+| [[TIMER]] || RW || Gets or sets the length of time before the item's timer expires, in seconds.
+|-
+| [[TIMERD]] || RW || Gets or sets the length of time before the item's timer expires, in tenths of a second.
+|-
+| [[TIMERF]] ''time, function'' || W || Scheduled a function to be executed on this object in ''time'' seconds.
+|-
+| [[TIMERF]] ''CLEAR'' || W || Clears all scheduled functions from the character.
+|-
+| [[TIMERF]] ''STOP, function'' || W || Stops the specified function from the character. (On X version wild character * is available for defining the function name or the argument)
+|-
+| [[TIMERMS]] || W || Set an object timer to elapse after the given number of milliseconds.
+|-
+| [[TITHING]] || RW || Gets or sets the number of tithing points the character has.
+|-
+| [[TITLE]] || RW || Gets or sets the character's title.
+|-
+| [[TOWNABBREV]] || R || Returns the character's town abbreviation.
+|-
+| [[TRIGGER]] ''trig_name, trig_type'' || R || Fires a custom trigger and returns the RETURN value.
+|-
+| [[UID]] || R || Gets the item's unique ID in the world.
+|-
+| [[UNDERWEAR]] || W || Toggles the display of underwear on the character.
+|-
+| [[UNEQUIP]] ''item_uid'' || W || Unequips an item from the character, placing it in their backpack.
+|-
+| [[UPDATE]] || W || Updates the state of the character to nearby clients.
+|-
+| [[UPDATEX]] || W || Updates the state of the character to nearby clients, removing it from their view first to ensure a full refresh.
+|-
+| [[USEITEM]] || W || Double clicks the character, with SRC as the source of the event, without checking for line of sight.
+|-
+| [[USEITEM]] ''object_uid'' || W || Double clicks an object, with the character as SRC.
+|-
+| [[VISUALRANGE]] || RW || Gets or sets the character's sight range.
+|-
+| [[WEIGHT]] || R || Gets the weight of the character.
+|-
+| [[WHERE]] || W || Describes the character's location to SRC.
+|-
+| [[Z]] || R || Gets the Z position of the character.
+|}
+
+==Triggers==
+Here is a list of all character triggers. Click on the trigger name for more detailed information such as arguments and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Description''' || '''Sphere X only?'''
+|-
+| [[@AfterClick]] || Fires when the object has been single-clicked, just before the overhead name is shown.
+|-
+| [[@Attack]] || Fires when the character begins attacking another.
+|-
+| [[@CallGuards]] || Fires when the character calls for guards.
+|-
+| [[@CharAttack]] || Fires when the character is attacked by another character.
+|-
+| [[@CharClick]] || Fires when the character is clicked by another character.
+|-
+| [[@CharClientTooltip]] || Fires when the tooltips are about to be sent to the character.
+|-
+| [[@CharDClick]] || Fires when the character double clicks another character.
+|-
+| [[@CharTradeAccepted]] || Fires when another character accepts trade with the character.
+|-
+| [[@Click]] || Fires when the object has been single-clicked.
+|-
+| [[@ClientTooltip]] || Fires when tooltips for this character are about to be sent to a client.
+|-
+| [[@CombatAdd]] || Fires when someone is being added to my attacker list.
+|-
+| [[@CombatDelete]] || Fires when someone is deleted from my attacker list.
+|-
+| [[@CombatEnd]] || Fires when someone is being deleted from my attacker list and I don't have any more viable targets.
+|-
+| [[@CombatStart]] || Fires when adding first attacker to my list.
+|-
+| [[@ContextMenuRequest]] || Fires when a client requests the context menu options for the object.
+|-
+| [[@ContextMenuSelect]] || Fires when a client selects a context menu option for the object.
+|-
+| [[@Create]] || Fires when the object is initially created, before it is placed in the world.
+|-
+| [[@Criminal]] || Fires when the character becomes a criminal.
+|-
+| [[@DClick]] || Fires when the object is double-clicked.
+|-
+| [[@Death]] || Fires when the character's hitpoints reaches zero.
+|-
+| [[@DeathCorpse]] || Fires when a corpse is created for the character.
+|-
+| [[@Destroy]] || Fires when the object is being deleted.
+|-
+| [[@Dismount]] || Fires when the character dismounts their ride.
+|-
+| [[@Dye]] || Fires when the character is about to change their color or the color of an object.
+|-
+| [[@Eat]] || Fires when the character eats something.
+|-
+| [[@EnvironChange]] || Fires when the environment changes for the character.
+|-
+| [[@ExpChange]] || Fires when the character's experience points change.
+|-
+| [[@ExpLevelChange]] || Fires when the character's experience level changes.
+|-
+| [[@FameChange]] || Fires when the character's fame changes.
+|-
+| [[@GetHit]] || Fires when the character receives damage.
+|-
+| [[@Hit]] || Fires when the character hits another in combat.
+|-
+| [[@HitMiss]] || Fires when the character fails to hit another in combat.
+|-
+| [[@HitParry]] || X branch only. Fires when the character is attempting to parry a hit. || X
+|-
+| [[@HitTry]] || Fires when the character tries to hit another in combat.
+|-
+| [[@HouseDesignCommit]] || Fires when the character commits a new house design.
+|-
+| [[@HouseDesignExit]] || Fires when the character exits house design mode.
+|-
+| [[@Hunger]] || Fires when the character's food level decreases.
+|-
+| [[@ItemAfterClick]] || Fires when the character single-clicks an item, just before the overhead name is shown.
+|-
+| [[@ItemBuy]] || Fires when the character buys an item from a vendor.
+|-
+| [[@ItemClick]] || Fires when the character single-clicks an item.
+|-
+| [[@ItemClientTooltip]] || Fires when the tooltips are about to be sent to the client for an item.
+|-
+| [[@ItemContextMenuRequest]] || Fires when the character requests the context menu options for an item.
+|-
+| [[@ItemContextMenuSelect]] || Fires when the character selects a context menu option for an item.
+|-
+| [[@ItemCreate]] || Fires when an item is initially created, before it is placed in the world, and the character is in some way responsible for it.
+|-
+| [[@ItemDamage]] || Fires when the character damages an item.
+|-
+| [[@ItemDClick]] || Fires when the character double-clicks an item.
+|-
+| [[@ItemDropOn_Char]] || Fires when the character drops an item on to a character.
+|-
+| [[@ItemDropOn_Ground]] || Fires when the character drops an item on to the ground.
+|-
+| [[@ItemDropOn_Item]] || Fires when the character drops an item on to another item.
+|-
+| [[@ItemDropOn_Self]] || Fires when the character drops an item inside another item.
+|-
+| [[@ItemEquip]] || Fires when the character equips an item.
+|-
+| [[@ItemEquipTest]] || Fires when the characer is about to equip an item.
+|-
+| [[@ItemPickUp_Ground]] || Fires when the character picks an item up from the ground.
+|-
+| [[@ItemPickUp_Pack]] || Fires when the character picks an item up from inside a container.
+|-
+| [[@ItemPickUp_Self]] || Fires when the character picks an item up from inside another item.
+|-
+| [[@ItemPickUp_Stack]] || Fires when the character picks up an item from a stack.
+|-
+| [[@ItemSell]] || Fires when the character sells an item to a vendor.
+|-
+| [[@ItemSmelt]] || Fires when the character smelt an item. || X
+|-
+| [[@ItemSpellEffect]] || Fires when the character hits an item with a spell.
+|-
+| [[@ItemStep]] || Fires when the character steps on an item.
+|-
+| [[@ItemTargOn_Cancel]] || Fires when the character cancels an item's target cursor.
+|-
+| [[@ItemTargOn_Char]] || Fires when the character targets a character with an item's target cursor.
+|-
+| [[@ItemTargOn_Ground]] || Fires when the character targets the ground with an item's target cursor.
+|-
+| [[@ItemTargOn_Item]] || Fires when the character targets an item with an item's target cursor.
+|-
+| [[@ItemToolTip]] || Fires when the character requests old-style tooltips for an item.
+|-
+| [[@ItemUnEquip]] || Fires when the character unequips an item.
+|-
+| [[@Jailed]] || Fires when the character is sent to jail.
+|-
+| [[@KarmaChange]] || Fires when the character's karma changes.
+|-
+| [[@Kill]] || Fires when the character kills another character.
+|-
+| [[@Login]] || Fires when the character logs in.
+|-
+| [[@Logout]] || Fires when the character logs out.
+|-
+| [[@Mount]] || Fires when the character mounts a ride.
+|-
+| [[@MurderDecay]] || Fires when one of the character's kills is about to decay.
+|-
+| [[@MurderMark]] || Fires when the character is about to gain a kill.
+|-
+| [[@NotoSend]] || Fires the status bar/character notoriety color is sent to another players.
+|-
+| [[@NPCAcceptItem]] || Fires when the NPC receives an item.
+|-
+| [[@NpcActCast]] || Fires when the NPC is selecting the spell to cast. || X
+|-
+| [[@NPCActFight]] || Fires when the NPC makes a combat decision.
+|-
+| [[@NPCActFollow]] || Fires when the NPC follows another character.
+|-
+| [[@NPCAction]] || Fires when the NPC is about to perform an AI action.
+|-
+| [[@NPCActWander]] || X branch only. Fires each step an NPC does while wandering.
+|-
+| [[@NPCHearGreeting]] || Fires when the NPC hears a character for the first time.
+|-
+| [[@NPCHearUnknown]] || Fires when the NPC hears something they don't understand.
+|-
+| [[@NPCLookAtChar]] || Fires then the NPC looks at a character.
+|-
+| [[@NPCLookAtItem]] || Fires when the NPC looks at an item.
+|-
+| [[@NPCLostTeleport]] || Fires when the NPC is lost and is about to be teleported back to their [[HOME]].
+|-
+| [[@NPCRefuseItem]] || Fires when the NPC refuses an item being given to them.
+|-
+| [[@NPCRestock]] || Fires when the NPC is having their items restocked.
+|-
+| [[@NPCSeeNewPlayer]] || Fires when the NPC first sees a player.
+|-
+| [[@NPCSeeWantItem]] || Fires when the NPC sees an item they want.
+|-
+| [[@NPCSpecialAction]] || Fires when the NPC is about to perform a special action (leaving fire trail, dropping web).
+|-
+| [[@PayGold]] || Fires when the character receives a payment. (Experimental Build Only)
+|-
+| [[@PersonalSpace]] || Fires when the character is stepped on.
+|-
+| [[@PetDesert]] || Fires when the character deserts its owner.
+|-
+| [[@Profile]] || Fires when a player attempts to read the character's profile from the paperdoll.
+|-
+| [[@ReceiveItem]] || Fires when the NPC receives an item from another character, before they decide if they want it or not.
+|-
+| [[@RegenStat]] || Fires when a character is going to regenerate any stat point.
+|-
+| [[@RegionEnter]] || Fires when the character enters a region.
+|-
+| [[@RegionLeave]] || Fires when the character leaves a region.
+|-
+| [[@RegionResourceFound]] || Fires after a resource has been selected and the resource bit has been created.
+|-
+| [[@Rename]] || Fires when the character renames another.
+|-
+| [[@Resurrect]] || Fires when the character is being resurrected.
+|-
+| [[@SeeCrime]] || Fires when the character sees a crime take place.
+|-
+| [[@SeeHidden]] || Fires when this character is about to see a hidden character.
+|-
+| [[@SkillAbort]] || Fires when the character aborts a skill.
+|-
+| [[@SkillChange]] || Fires when the character's skill level changes.
+|-
+| [[@SkillFail]] || Fires when the character fails a skill.
+|-
+| [[@SkillGain]] || Fires when the character has a chance to gain in a skill.
+|-
+| [[@SkillMakeItem]] || Fires when the character crafts an item.
+|-
+| [[@SkillMenu]] || Fires when a skill menu is shown to the character.
+|-
+| [[@SkillPreStart]] || Fires when the character starts a skill, before any hardcoded action takes place.
+|-
+| [[@SkillSelect]] || Fires when the character selects a skill on their skill menu.
+|-
+| [[@SkillStart]] || Fires when the character starts a skill.
+|-
+| [[@SkillSuccess]] || Fires when the character succeeds at a skill.
+|-
+| [[@SkillUseQuick]] || Fires when the character quickly uses a skill.
+|-
+| [[@SkillWait]] || Fires when Sphere wants to check if a character must wait before starting a skill.
+|-
+| [[@SpellBook]] || Fires when the character opens their spellbook.
+|-
+| [[@SpellCast]] || Fires when the character casts a spell.
+|-
+| [[@SpellEffect]] || Fires when the character is hit by the effects of a spell.
+|-
+| [[@SpellEffectAdd]] || Fires when a spell memory is added to the character. || X
+|-
+| [[@SpellEffectRemove]] || Fires the spell memory is removed from the character. || X
+|-
+| [[@SpellEffectTick]] || Fires when the character is hit the effect of a periodic spell (like Poison spell).|| X
+|-
+| [[@SpellFail]] || Fires when the character fails to cast a spell.
+|-
+| [[@SpellSelect]] || Fires when the character selects a spell to cast.
+|-
+| [[@SpellSuccess]] || Fires when the character successfully casts a spell.
+|-
+| [[@SpellTargetCancel]] || Fires when the character cancels target selection for a spell they have just cast.
+|-
+| [[@StatChange]] || Fires when the character's STR, DEX or INT is changed through skill gain.
+|-
+| [[@StepStealth]] || Fires when the character takes a step whilst hidden.
+|-
+| [[@ToggleFlying]] || Fires when a Gargoyle Player is going to Fly or to Land.
+|-
+| [[@ToolTip]] || Fires when a player requests old-style tooltips for this character.
+|-
+| [[@TradeAccepted]] || Fires when the character accepts a trade with another player.
+|-
+| [[@TradeClose]] || Fires when a trade window is closed.
+|-
+| [[@TradeCreate]] || Fires when a player begins a trade with another player.
+|-
+| [[@UserBugReport]] || Fires when the player submits a bug report.
+|-
+| [[@UserChatButton]] || Fires when the player presses the Chat button on the paperdoll.
+|-
+| [[@UserExtCmd]] || Fires when the player sends an extended command packet. (used by some macros)
+|-
+| [[@UserExWalkLimit]] || Fires when the player's movement is restricted by the movement speed settings in Sphere.ini
+|-
+| [[@UserGuildButton]] || Fires when the player presses the Guild button on the paperdoll.
+|-
+| [[@UserKRToolbar]] || Fires when the player presses a button on the toolbar.
+|-
+| [[@UserMailBag]] || Fires when the player drags the mail bag on to another character.
+|-
+| [[@UserQuestArrowClick]] || Fires when the player clicks the quest arrow.
+|-
+| [[@UserQuestButton]] || Fires when the player presses the Quest button on the paperdoll.
+|-
+| [[@UserSkills]] || Fires when the player opens their skill menu, or a skill update is sent to the player.
+|-
+| [[@UserSpecialMove]] || Fires when the player uses a special move.
+|-
+| [[@UserStats]] || Fires when the player opens the status window.
+|-
+| [[@UserUltimaStoreButton]] || Fires when click on 'Ultima Store' button on new clients 7.0.62+
+|-
+| [[@UserVirtue]] || Fires when the player presses on the Virtue button.
+|-
+| [[@UserVirtueInvoke]] || Fires when the player invokes a virtue through macros.
+|-
+| [[@UserWarmode]] || Fires when the player switches between war and peace mode.
+|}
+
+==Players==
+Characters that are attached to an account become Player Characters. In addition to the basic character references, properties and functions they also receive the following:
+
+===References===
+References return pointers to other objects (e.g. the REGION reference allows you to access the REGION that an object is in). These can either be accessed by using ''&lt;REFNAME&gt;'' to return the [[UID]] (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using ''&lt;REFNAME.KEY&gt;'' where KEY is a valid property/function/reference for the ''REFNAME'' object. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[GUILD]] || R || Gets the [[Special Items#Guild.2FTown_Stones|guild stone]] that the player belongs to.
+|-
+| [[SKILLCLASS (Reference)|SKILLCLASS]] || RW || Gets or sets the player's [[SKILLCLASS|skillclass]].
+|-
+| [[TOWN]] || R || Gets the [[Special Items#Guild.2FTown_Stones|town stone]] that the player belongs to.
+|}
+
+
+===Properties and Functions===
+Here is a list of all player properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description''' || '''Sphere X only?'''
+|-
+| [[DEATHS]] || RW || Gets or sets the number of times the player has died.
+|-
+| [[DSPEECH]] ''+/-speech_id'' || RW || Gets a list of attached speech handlers, or adds or removes a speech handler to or from the player.
+|-
+| [[GMPAGE]]''.n.DELETE'' || W || Deletes the nth GM page. (zero-based)
+|-
+| [[GMPAGE]]''.n.HANDLE'' || W || Sets the player as the handler for the nth GM page. (zero-based)
+|-
+| [[GMPAGE]]''.n.key'' || W || Executes the .page command with ''key'' as the arguments.
+|-
+| [[ISDSPEECH]]''.speech_id'' || R || Returns 1 if the player has the given speech handler attached.
+|-
+| [[KICK]] || W || Disconnects and blocks the player's account.
+|-
+| [[KILLS]] || RW || Gets the number of murders the player has committed.
+|-
+| [[KRTOOLBARSTATUS]] || RW || Gets or sets whether or not the KR toolbar is enabled for this player.
+|-
+| [[LASTUSED]] || RW || Gets the length of time since the player was last attached to a client, in seconds.
+|-
+| [[PASSWORD]] || W || Sets or clears the player's password.
+|-
+| [[PFLAG]] || RW || Gets or sets the player's PFLAG value.
+|-
+| [[PROFILE]] || RW || Gets or sets the text to display on the player's profile.
+|-
+| [[SKILLLOCK]]''.skill_id'' || RW || Gets or sets the lock state of the player's skill. 0 is Up. 1 is Down. 2 is Locked.
+|-
+| [[SPEEDMODE]] || RW || Gets or sets the speed that the player moves at. (0=Normal, 1=Double Speed on Foot, 2=Always walk, 3=Always Run on Foot/Always Walk on Mount, 4=Can not Walk or Run)
+|-
+| [[STATLOCK]]''.stat_id || RW || Gets or sets the lock state of the player's STR (0), DEX (2) or INT (1). [0 = up, 1 = down, 2 = locked]
+|}
+
+==NPCs==
+Characters that are not attached to an account are NPCs and are controlled by Sphere's AI. In addition to the basic character references, properties and functions they also receive the following:
+
+===Properties and Functions===
+Here is a list of all NPC properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description''' || '''Sphere X only?'''
+|-
+| [[ACTPRI]] || RW || Gets or sets the NPC's motivation towards their current action.
+|-
+| [[BUY]] || W || Displays the shop window to SRC, in buy mode.
+|-
+| [[BYE]] || W || Ends the NPC's current action.
+|-
+| [[FLEE]] ''distance'' || W || Begins moving the NPC away from its current location.
+|-
+| [[GOTO]] ''location'' || W || Begins moving the NPC towards the specified location.
+|-
+| [[HIRE]] || W || Begins the hiring process between the NPC and SRC.
+|-
+| [[LEAVE]] ''distance'' || W || Begins moving the NPC away from its current location.
+|-
+| [[NPC]] || RW || Gets or sets the NPC's AI type.
+|-
+| [[HOMEDIST]] || RW || Gets or sets the distance that the NPC can wander from its [[HOME]] position.
+|-
+| [[PETRETRIEVE]] || W || Enables SRC to retrieve their stabled pets from the NPC.
+|-
+| [[PETSTABLE]] || W || Enables SRC to stable their pet with the NPC.
+|-
+| [[RESTOCK]] ''force'' || W || Clears all of the NPC's stock, repopulating it when it is next accessed (or immediately if ''force''=1)
+|-
+| [[RUN]] ''direction'' || W || Forces the NPC to run one tile in the specified direction.
+|-
+| [[SELL]] || W || Displays the shop window to SRC, in sell mode.
+|-
+| [[SHRINK]] || W || Shrinks the NPC into a figurine item.
+|-
+| [[SPEECH]] ''+/-speech_id'' || RW || Gets the list of speech handlers attached to the NPC, or adds or removes a speech handler to or from the NPC.
+|-
+| [[SPEECHCOLOR]] || RW || Gets or sets the colour of the NPC's speech.
+|-
+| [[THROWDAM]] ''min,max'' || RW || Gets or sets a range of damage used for thrown objects. (overrides chardef property)
+|-
+| [[THROWDAM]] ''dam'' || RW || Gets or sets the constant damage used for thrown objects. (overrides chardef property)
+|-
+| [[THROWDAMTYPE]] ''damage flags'' || RW || y || Gets or sets the damage flags used for thrown objects. (overrides chardef property)
+|-
+| [[THROWOBJ]] ''id'' || RW || Gets or sets the ID of an object to be thrown by NPCs. (overrides chardef property)
+|-
+| [[THROWRANGE]] ''min,max'' || RW || Gets or sets the range that an object can be thrown at. (overrides chardef property)
+|-
+| [[THROWRANGE]] ''max'' || RW || Gets or sets the range that an object can be thrown at with a default min of 2. (overrides chardef property)
+|-
+| [[TRAIN]] ''skill'' || W || Initiates training between the NPC and SRC.
+|-
+| [[VENDCAP]] || RW || Gets or sets the amount of gold a vendor will restock to.
+|-
+| [[VENDGOLD]] || RW || Gets or sets the amount of gold a vendor has.
+|-
+| [[WALK]] ''direction'' || W || Forces the NPC to walk one tile in the specified direction.
+|}
+
+==Clients==
+When a client is controlling a character, the following references, properties and functions will be available:
+
+===References===
+References return pointers to other objects (e.g. the REGION reference allows you to access the REGION that an object is in). These can either be accessed by using ''&lt;REFNAME&gt;'' to return the [[UID]] (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using ''&lt;REFNAME.KEY&gt;'' where KEY is a valid property/function/reference for the ''REFNAME'' object. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description''' || '''Sphere X only?'''
+|-
+| [[GMPAGEP]] || R || Gets the [[GM Pages|GM page]] that the client is currently handling.
+|-
+| [[HOUSEDESIGN]] || R || Gets the [[Special Items#Customizable Multis|building]] that is currently being designed by the client.
+|-
+| [[PARTY]] || R || Gets the [[Parties|party]] that the client is a member of.
+|-
+| [[TARG]] || RW || Gets or sets the [[Characters|character]] or [[Items|item]] that the client has targeted.
+|-
+| [[TARGP]] || RW || Gets or sets the [[Map Points|location]] that the client has targeted.
+|-
+| [[TARGPROP]] || RW || Gets or sets the character whose skills are shown in the client's skill menu.
+|-
+| [[TARGPRV]] || RW || Gets or sets the [[Characters|character]] or [[Items|item]] that the client previously targeted.
+|}
+
+
+===Properties and Functions===
+Here is a list of all client properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description''' || '''Sphere X only?'''
+|-
+| [[ADD]] ''item_defname'' || W || Prompts the client to target a location to add the specified item at.
+|-
+| [[ADDBUFF]] ''icon, cliloc1, cliloc2, time, arg1, arg2, arg3'' || W || Displays a buff icon in the client's buff icon bar.
+|-
+| [[ADDCLILOC]] ''cliloc, args'' || W || Adds a cliloc to the tooltip being sent to the client. Only valid in @ClientTooltip triggers.
+|-
+| [[ADDCONTEXTENTRY]] ''entry_id, cliloc, flags, colour'' || W || Adds an entry to the context menu being sent to the client. Only valid in @ContextMenuRequest triggers.
+|-
+| [[ALLMOVE]] || RW || Gets or sets whether or not the client has ALLMOVE privileges.
+|-
+| [[ALLSHOW]] || RW || Gets or sets whether or not the client is able to see disconnected characters.
+|-
+| [[ARROWQUEST]] ''x, y, id'' || W || Displays an arrow on the client's screen that points to the specified world coordinates. If id is supplied multiple arrows can be displayed on the client at once (Newer clients only - 3.x+ clients confirm?).  You can cancel the arrow by passing 0 for x and y and your id.  Using ARROWQUEST without any arguments will cancel arrow with id 0 if present.
+|-
+| [[BADSPAWN]] || W || Teleports the client to the first invalid spawn point in the world.
+|-
+| [[BANKSELF]] || W || Opens up the client's bankbox.
+|-
+| [[CAST]] ''spell_id' || W || Begins casting a spell.
+|-
+| [[CHARLIST]] || W || Displays the client's character list screen.
+|-
+| [[CLEARCTAGS]] || W || Removes all of the client's CTAGs.
+|-
+| [[CLIENTIS3D]] || R || Returns 1 if the client is using the 3D client.
+|-
+| [[CLIENTISKR]] || R || Returns 1 if the client is using the KR client.
+|-
+| [[CLIENTVERSION]] || R || Gets the client version the client is using, based on the encryption keys being used (unencrypted clients return 0).
+|-
+| [[CTAG]] || RW || Gets or sets the value of a CTAG.
+|-
+| [[CTAGCOUNT]] || R || Gets the number of CTAGs stored on the client.
+|-
+| [[CTAGLIST]] || W || Displays a list of the client's CTAGs to SRC.
+|-
+| [[CTAGLIST]] LOG || W || Displays a list of the client's CTAGs on the server console.
+|-
+| [[DEBUG]] || RW || Gets or sets whether or not the client is in debug mode.
+|-
+| [[DETAIL]] || RW || Gets or sets whether or not the client receives additional detail, such as combat messages.
+|-
+| [[EVERBTARG]] ''command'' || W || Prompts the client to enter a command, or arguments to the command if specified. The complete command with arguments is then executed on TARG.
+|-
+| [[EXTRACT]] ''file, template_id'' || W || Extracts static items from a targeted area on the map and saves them into the specified file.
+|-
+| [[FLUSH]] || W || Forces queued network data to be immediately sent to the client.
+|-
+| [[GM]] || RW || Gets or sets whether or not the client is in GM mode.
+|-
+| [[GMPAGE]] ''ADD message'' || W || Sends a GM page from the client with the specified message, or if no arguments provided will prompt the client for a message.
+|-
+| [[GOTARG]] || W || Teleports the client to their targeted item.
+|-
+| [[HEARALL]] || RW || Gets or sets whether or not the client can hear all player speech regardless of location.
+|-
+| [[INFO]] || W || Displays an information dialog to the client for an object they target.
+|-
+| [[INFORMATION]] || W || Displays server information to the client.
+|-
+| [[LAST]] || W || Forces the client to target the object referenced by [[ACT]].
+|-
+| [[LASTEVENT]] || RW || Returns the time when data was last received from the client.
+|-
+| [[LINK]] || W || Allows the client to target two objects to link them together.
+|-
+| [[MENU (Function)|MENU]] ''menu_id'' || W || Displays a menu to the client.
+|-
+| [[MIDILIST]] ''music1, music2, ...'' || W || Selects a random music id from the given list and tells the client to play it.
+|-
+| [[NUDGE]] ''dx, dy, dz'' || W || Allows the client to nudge an area of items by the given coordinates, relative to the items' position.
+|-
+| [[NUKE]] ''command'' || W || Allows the client to execute ''command'' on all items in a targeted area.
+|-
+| [[NUKECHAR]] ''command'' || W || Allows the client to execute ''command'' on all NPCs in a targeted area.
+|-
+| [[PAGE]] || W || Displays the GM page menu to the client.
+|-
+| [[PRIVSHOW]] || W || Gets or sets whether or not the client's privilege level should show in their name.
+|-
+| [[REMOVEBUFF]] ''icon'' || W || Removes a buff icon from the client's buff icon bar.
+|-
+| [[REPAIR]] || W || Prompts the client to target an item for them to repair.
+|-
+| [[REPORTEDCLIVER]] || R || Gets the client version the client is using, based on what it has identified itself as to the server.
+|-
+| [[REPORTEDCLIVER]].FULL || R || Gets the client version the client is using, based on what it has identified itself as to the server, including the 4th digit.
+|-
+| [[RESEND]] || W || Forces a full refresh of the client's screen.
+|-
+| [[SAVE]] ''immediate'' || W || Begins a world save. If background saving is enabled then ''[[SAVE]] 1'' will force a foreground save.
+|-
+| [[SCREENSIZE]] || R || Gets the client's screen size. (width,height)
+|-
+| [[SCREENSIZE]].X || R || Gets the width of the client's screen size.
+|-
+| [[SCREENSIZE]].Y || R || Gets the height of the client's screen size.
+|-
+| [[SCROLL]] ''scroll_id'' || W || Displays a message scroll to the client.
+|-
+| [[SELF]] || W || Forces the client to target itself.
+|-
+| [[SENDPACKET]] ''data'' || W || Sends a raw data packet to the client.
+|-
+| [[SET]] ''command'' || W || Prompts the client to target an object to execute ''command'' on.
+|-
+| [[SHOWSKILLS]] || W || Refreshes the client's skills for the skill menu.
+|-
+| [[SKILLMENU (Function)|SKILLMENU]] ''skillmenu_id'' || W || Displays a skillmenu to the client.
+|-
+| [[SKILLSELECT]] ''skill_id'' || W || Simulates the client selecting a skill from their skill menu.
+|-
+| [[SUMMON]] ''character_id'' || W || Casts the summon spell, with ''character_id'; being the character to summon.
+|-
+| [[SYSMESSAGE]] ''text'' || W || Displays a system message to the client.
+|-
+| [[SYSMESSAGELOC]] ''hue, cliloc, args'' || W || Displays a localized system message to the client.
+|-
+| [[SYSMESSAGELOCEX]] ''hue, cliloc, flags, affix, args'' || W || Displays a localized system message to the client with affixed text.
+|-
+| [[SYSMESSAGEUA]] ''hue, font, mode, language, text'' || W || Displays a UNICODE system message to the client.
+|-
+| [[TARGETTEXT]] || RW || Gets or sets the client's target text.
+|-
+| [[TELE]] || W || Casts the teleport spell.
+|-
+| [[TILE]] ''z, item1, item2, ...'' || W || Tiles the ground within a targeted area with the listed items, at the given Z level.
+|-
+| [[UNEXTRACT]] ''file'' || W || Unextracts previously extracted statics, as dynamic items at a targeted location.
+|-
+| [[VERSION]] || W || Displays the server description to the client.
+|-
+| [[WEBLINK]] ''url'' || W || Opens the client's web browser to send them to the specified url.
+|-
+| [[X]]''command'' || W || Prompts the client to target an object to execute ''command'' on.
+|}
+
+[[Category: Reference Compendium]]
+[[Category: Objects]]

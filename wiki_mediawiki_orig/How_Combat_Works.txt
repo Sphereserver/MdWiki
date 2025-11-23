@@ -1,0 +1,23 @@
+{{Languages|How_Combat_Works}}
+
+The following diagram shows when combat triggers are triggered. See the [[Triggers]] page for more information on each trigger.
+
+
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[[@HitTry]] (attacker)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<br />
+[[@Hit]] (attacker)&nbsp;&nbsp;&nbsp;&nbsp;[[@HitMiss]] (attacker)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
+[[@Damage]] (weapon)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
+[[@HitParry]] (victim)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
+[[@GetHit]] (victim)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
+[[@Damage]] (armor)<br /></tt>
+
+
+Thanks to Moe for posting this.
+
+NOTE: HITCHECK was added too. page need to be create
+
+[[Category:Articles]]

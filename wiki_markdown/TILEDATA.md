@@ -23,8 +23,9 @@
 - `WEIGHT`
 - `LAYER`
 - `UNK11`
-- `ANIM`: Can be used with an offset (e.g., `50000` for male gumps, `60000` for female gumps) to retrieve the paperdoll gump ID.
-- `UNK19`
+- `ANIM`: Originally considered a 4-bit field, it's actually a 2-bit number related to animation. Can be used with an offset (e.g., `50000` for male gumps, `60000` for female gumps) to retrieve the paperdoll gump ID.
+- `LIGHT`: Represents the light value of the item.
+- `HUE`: Represents the hue value of the item.
 - `HEIGHT`
 - `NAME`
 

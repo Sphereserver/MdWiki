@@ -1,0 +1,49 @@
+==Description==
+This trigger fires when someone is eating something.
+
+
+Fires on:
+* [[Characters]]
+
+
+==References==
+The following object references are explicitly available for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Description'''
+|-
+| [[ARGO]] || The [[Items|item]] being ate (X ONLY).
+|-
+| [[I]] / [[SRC]] || The [[Characters|character]] doing the clicking.
+|}
+
+==Arguments==
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
+
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Argument''' || '''In/Out''' || '''Description'''
+|-
+| Argn1 || I/O || Set to 1 to let it pass your MaxStats, ie: MaxHits=100 and local.hits + hits = 150, having it to 1 will set hits to 150 and setting it to 0 will raise hits up to MaxHits only.
+|-
+| local.hits || I/O || Amount of HitPoints to regenerate.
+|-
+| local.mana || I/O || Amount of Mana to regenerate.
+|-
+| local.stam || I/O || Amount of Stamina to regenerate.
+|-
+| local.food || I/O || Amount of Food to regenerate.
+|}
+
+==Return Values==
+The following return values are explicitly defined for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Return Value''' || '''Description'''
+|-
+| 1 || Prevents the gain of stats but not the eating.
+|}
+
+
+[[Category: Reference Compendium]]
+[[Category: Triggers]]

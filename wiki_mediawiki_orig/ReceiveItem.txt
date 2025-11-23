@@ -1,0 +1,41 @@
+==Description==
+This trigger fires when an NPC is given an item from another character, before they have decided whether or not to accept it.
+
+
+Fires on:
+* [[Characters#NPCs|NPCs]]
+
+
+==References==
+The following object references are explicitly available for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Description'''
+|-
+| [[ARGO]] || The [[Items|item]] the NPC is being given.
+|-
+| [[I]] || The [[Characters#NPCs|NPC]] receiving the item.
+|-
+| [[SRC]] || The [[Characters|character]] giving the item away.
+|}
+
+
+==Arguments==
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
+
+
+''No arguments are set for this trigger.''
+
+
+==Return Values==
+The following return values are explicitly defined for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Return Value''' || '''Description'''
+|-
+| 1 || Returns the item to SRC.
+|}
+
+
+[[Category: Reference Compendium]]
+[[Category: Triggers]]

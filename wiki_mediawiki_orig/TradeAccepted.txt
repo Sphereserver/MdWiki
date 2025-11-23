@@ -1,0 +1,53 @@
+==Description==
+This trigger fires when two players have accepted a trade agreement. The trigger will be fired on both characters.
+
+
+Fires on:
+* [[Characters#Players|Players]]
+
+
+==References==
+The following object references are explicitly available for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Description'''
+|-
+| [[ARGO]] || The [[Characters#Players|player]] accepting the trade.
+|-
+| [[I]] || The [[Characters#Players|player]] accepting the trade.
+|-
+| [[REF]]1 to [[REF]]&lt;ARGN1&gt; || The [[Items|items]] that the player is receiving.
+|-
+| [[SRC]] || The [[Characters#Players|player]] they are trading with.
+|}
+
+
+==Arguments==
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Argument''' || '''In/Out''' || '''Description'''
+|-
+| ARGN1 || I || The number of items that the player is receiving.
+|-
+| ARGN2 || I || The number of items that the other player is receiving.
+|}
+
+
+==Return Values==
+The following return values are explicitly defined for this trigger:
+
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Return Value''' || '''Description'''
+|-
+| 1 || Prevents the transaction to take place.
+|}
+
+
+
+
+[[Category: Reference Compendium]]
+[[Category: Triggers]]
+[[Category: Characters]]
+[[Category: Players]]

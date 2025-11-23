@@ -1,0 +1,43 @@
+==Description==
+This trigger fires when a character is about to be resurrected.
+
+
+Fires on:
+* [[Characters]]
+
+
+==References==
+The following object references are explicitly available for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Description'''
+|-
+| [[I]] || The [[Characters|character]] being resurrected.
+|-
+| [[SRC]] || The [[Characters|character]] being resurrected.
+|-
+| [[ARGO]] || The corpse (If any is near) (Readable only).
+|}
+
+==Arguments==
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Argument''' || '''In/Out''' || '''Description'''
+|-
+| ARGN1 || IO || Hit point value when resurrected.
+|}
+
+
+==Return Values==
+The following return values are explicitly defined for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Return Value''' || '''Description'''
+|-
+| 1 || Stops resurrection from occurring.
+|}
+
+
+[[Category: Reference Compendium]]
+[[Category: Triggers]]

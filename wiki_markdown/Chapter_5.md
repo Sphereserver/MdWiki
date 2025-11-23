@@ -187,6 +187,7 @@ write **SERV.VARLIST LOG** (this will not be saved into logfile).
 
 If you want to remove all server variables (VARs) type
 **SERV.CLEARVARS**.
+**Note:** As of 06-07-2019, `SERV.CLEARVARS`, `CLEARTAGS`, and `CLEARCTAGS` now correctly work with masks for targeted removal of variables/tags.
 
 And that\'s your entire lesson on the VAR feature. I told you it would
 be short. As with TAG0 and CTAG0, you can also do VAR0. It works just

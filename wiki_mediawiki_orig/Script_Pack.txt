@@ -1,0 +1,3 @@
+Script pack for Sphere X version (recommended) [https://github.com/Sphereserver/Scripts-X Github] [https://github.com/Sphereserver/Scripts-X/archive/refs/heads/main.zip File]
+
+Script pack for Sphere 56d version [https://github.com/Sphereserver/Scripts Github] [https://github.com/Sphereserver/Scripts/archive/refs/heads/master.zip File]

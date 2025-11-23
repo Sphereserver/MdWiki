@@ -1,0 +1,39 @@
+==Description==
+This trigger fires when a character witnesses a crime taking place.
+
+
+Fires on:
+* [[Characters]]
+
+
+==References==
+The following object references are explicitly available for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Description'''
+|-
+| [[ARGO]] || The [[Characters|victim]] of the crime.
+|-
+| [[I]] || The [[Characters|character]] witnessing the crime.
+|-
+| [[SRC]] || The [[Characters|character]] performing the criminal action.
+|}
+
+
+==Arguments==
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Argument''' || '''In/Out''' || '''Description'''
+|-
+| ARGN1 || I ||  If ARGN1 this character will add MEMORY_SAWCRIME to SRC's memory, so SRC will be flagged as criminal for this character.
+|-
+|}
+
+
+==Return Values==
+There are no return values related to this trigger.
+
+
+[[Category: Reference Compendium]]
+[[Category: Triggers]]

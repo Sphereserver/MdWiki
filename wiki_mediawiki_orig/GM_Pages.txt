@@ -1,0 +1,27 @@
+{{Languages|GM_Pages}}
+
+__FORCETOC__
+When a client submits a GM page, these pages can be accessed through scripts using the ''GMPAGE.n'' reference from the [[Server|server]] object. The following table details the various properties of GM pages in SphereServer:
+
+
+==Properties and Functions==
+Here is a list of all GM page properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[ACCOUNT]] || R || Gets the name of the account that sent the page.
+|-
+| [[HANDLED]] || R || Gets the [[UID]] of the character currently handling the page.
+|-
+| [[P]] || RW || Gets or sets the location that the page was sent from.
+|-
+| [[REASON]] || RW || Gets or sets the reason for the page.
+|-
+| [[STATUS]] || R || Gets the status of the page sender (OFFLINE, LOGIN or character name).
+|-
+| [[TIME]] || RW || Gets the time since the page was originally sent in seconds.
+|}
+
+[[Category: Reference Compendium]]
+[[Category: Objects]]
