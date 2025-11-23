@@ -15,5 +15,11 @@ scripts, such as global properties and functions that are available from
 any script in Sphere, as well as the arguments that are available when
 creating scripting functions and triggers.
 
-[Category: Reference
-Compendium](./_Reference_Compendium.md)
+## Scripts
+
+[Category: Reference Compendium](./CategoryReference_Compendium.md)
+
+## Notes
+- Hardcoded speech commands such as 'I must consider my sins', 'I resign from my guild', and 'I resign from my town' have been moved to scripts. It is highly recommended to update your scripts accordingly, or these commands will cease to function.
+- The `ADD` command no longer displays a console error when provided with an invalid argument; however, the sysmessage is still displayed.
+- The `.ADD` command now accepts a second parameter to specify the amount of the item to create (e.g., `.add i_gold, 500`).

@@ -33,7 +33,7 @@ Sphere's behaviour:
 | ARGN3 | I | The revision number of the house design being committed. |
 | LOCAL.FIXTURES.NEW | I | The total number of fixtures in the house design being committed. |
 | LOCAL.FIXTURES.OLD | I | The total number of fixtures in the current house design. |
-| LOCAL.MAXZ | I | The value of the top placed item |
+| LOCAL.MAXZ | I | The value of the top placed item. (Read Only) |
 
 ## Return Values
 

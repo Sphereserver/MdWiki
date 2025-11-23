@@ -1,7 +1,7 @@
 ## Description
 
 This trigger fires when a player presses a button on a Kingdom Reborn
-toolbar.
+toolbar. This includes 'combat ability' (@UserSpecialMove) and 'virtue' (@UserVirtue) slots.
 
 Fires on:
 

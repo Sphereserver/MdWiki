@@ -1,0 +1,1 @@
+Loads a database file into the database object (LDB or MDB).

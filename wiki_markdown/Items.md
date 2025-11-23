@@ -1,7 +1,7 @@
 ```{=mediawiki}
 {{Languages|Items}}
 ```
-\_\_FORCETOC\_\_ Generally speaking, there are two types of \"things\"
+__FORCETOC__ Generally speaking, there are two types of "things"
 in the game; characters and items. Compared to characters, items are
 very complex. Items have a number of different uses, for example a sword
 is an item that players can see and equip to increase the damage they
@@ -16,15 +16,15 @@ tables detail the various properties of items in SphereServer:
 
 References return pointers to other objects (e.g. the REGION reference
 allows you to access the REGION that an object is in). These can either
-be accessed by using *\<REFNAME\>* to return the [UID](./UID.md)
+be accessed by using *<REFNAME>* to return the [UID](./UID.md)
 (1 for object types that don\'t have UIDs) of the object or 0 if it
-doesn\'t exist, or by using *\<REFNAME.KEY\>* where KEY is a valid
+doesn\'t exist, or by using *<REFNAME.KEY>* where KEY is a valid
 property/function/reference for the *REFNAME* object. Click on the name
 for more detailed information such as usage and examples.
 
   ------------------------------------------- ---------------- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   **Name**                                    **Read/Write**   **Description**
-  [CONT](./CONT.md)                     RW               Gets or sets the [character](./Characters.md) or [container item](./Special_ItemsContainers.md) that the object is inside. When an item\'s CONT is changed, it bypasses the typical behavior (for example, you can force an item to be \"in\" a container and bypass \@dropon triggers, or force an item to be equipped to a player and bypass \@equiptest and \@equip triggers \-- but be careful, because in this second scenario it may end up in an invalid layer.)
+  [CONT](./CONT.md)                     RW               Gets or sets the [character](./Characters.md) or [container item](./Special_ItemsContainers.md) that the object is inside. When an item\'s CONT is changed, it bypasses the typical behavior (for example, you can force an item to be "in" a container and bypass \@dropon triggers, or force an item to be equipped to a player and bypass \@equiptest and \@equip triggers -- but be careful, because in this second scenario it may end up in an invalid layer.)
   [LINK](./LINK.md)                     RW               Gets or sets the [character](./Characters.md) or [item](./Items.md) that the item is linked to. Note, you can make circular LINK\'s, but a single item cannot be linked to more than one other item.
   [REGION](./Regions.md)                R                Gets the [region](./Regions.md) that the object is in.
   [ROOM](./ROOM.md)                     R                Gets the [room](./Rooms.md) that the object is in.
@@ -48,12 +48,14 @@ not exist on the item, the property from the
 +=========================+================+=========================+
 | [ADDCIRCLE              | W              | Adds all of the spells  |
 | ](./ADDCIRCLE.md) |                | in the given Magery     |
-| *spell_circle*          |                | circle to the           |
+| *spell_circle*          |                |                         |
+|                         |                | circle to the           |
 |                         |                | spellbook.              |
 +-------------------------+----------------+-------------------------+
 | [ADDSPEL                | RW             | Gets whether or not a   |
 | L](./ADDSPELL.md) |                | spell exists in the     |
-| *spell_id*              |                | spellbook, or adds a    |
+| *spell_id*              |                |                         |
+|                         |                | spellbook, or adds a    |
 |                         |                | spell to the spellbook. |
 +-------------------------+----------------+-------------------------+
 | [AMMOANI                | RW             | Overrides TDATA4 for    |
@@ -91,6 +93,15 @@ _MOSOUNDMISS.md) |                | sound on weapons.       |
 |                         |                | represents (e.g. a pile |
 |                         |                | of gold or any stacked  |
 |                         |                | item).                  |
++-------------------------+----------------+-------------------------+
+| [AR](./AR.md)     | R              | Gets the total          |
+|                         |                | protection given by an  |
+|                         |                | armor piece.            |
++-------------------------+----------------+-------------------------+
+| [AC](./AC.md)     | R              | Gets the total          |
+|                         |                | protection given by an  |
+|                         |                | armor piece (Alias for  |
+|                         |                | AR).                    |
 +-------------------------+----------------+-------------------------+
 | [ATTR](./ATTR.md) | RW             | Gets or sets the        |
 |                         |                | item\'s attribute       |
@@ -165,7 +176,7 @@ _CONTCONSUME.md) |                | inside the container.   |
 +-------------------------+----------------+-------------------------+
 | [DAM                    | W              | If *chance* is greater  |
 | AGE](./DAMAGE.md) |                | than                    |
-| *chance, type, source*  |                | (Rand(maxhits\*16)),    |
+| *chance, type, source*  |                | (Rand(maxhits*16)),    |
 |                         |                | inflicts damage of      |
 |                         |                | *type* (the damage type |
 |                         |                | flags are defined in    |
@@ -243,16 +254,18 @@ _CONTCONSUME.md) |                | inside the container.   |
 | loop, explode, colour,  |                |                         |
 | rendermode*             |                |                         |
 +-------------------------+----------------+-------------------------+
-| [E                      | W              | Displays a \*You see\*  |
+| [E                      | W              | Displays a *You see*  |
 | MOTE](./EMOTE.md) |                | message to all nearby   |
-| *message*               |                | clients.                |
+| *message*               |                |                         |
+|                         |                | clients.                |
 +-------------------------+----------------+-------------------------+
 | [E                      | W              | Equips the item to SRC. |
 | QUIP](./EQUIP.md) |                |                         |
 +-------------------------+----------------+-------------------------+
 | [EVENTS](EVENTS         | RW             | Gets a list of events   |
 | _(Property) "wikilink") |                | attached to the object, |
-| *event_defname*         |                | or adds or removes an   |
+| *event_defname*         |                |                         |
+|                         |                | or adds or removes an   |
 |                         |                | event to or from the    |
 |                         |                | object.                 |
 +-------------------------+----------------+-------------------------+
@@ -357,7 +370,7 @@ _NEARTYPETOP.md) |                | location of a nearby    |
 +-------------------------+----------------+-------------------------+
 | [MESSAGEUA              | W              | Displays a UNICODE      |
 | ](./MESSAGEUA.md) |                | message above this item |
-| *colour, talkmode,      |                | to SRC.                 |
+| *colour, talkmode,      |                |                         |
 | font, lang_id, message* |                |                         |
 +-------------------------+----------------+-------------------------+
 | [M                      | RW             | Gets or sets a modifier |
@@ -374,18 +387,18 @@ _NEARTYPETOP.md) |                | location of a nearby    |
 +-------------------------+----------------+-------------------------+
 | [MOR                    | RW             | Gets or sets the upper  |
 | E1H](./MORE1H.md) |                | 4 bytes of the item\'s  |
-|                         |                | MORE1 value.            |
+|                         |                | MORE1 value. For items with a health bar, `MORE1H` holds the maximum hitpoints. |
 +-------------------------+----------------+-------------------------+
 | [MOR                    | RW             | Gets or sets the lower  |
 | E1L](./MORE1L.md) |                | 4 bytes of the item\'s  |
-|                         |                | MORE1 value.            |
+|                         |                | MORE1 value. For items with a health bar, `MORE1L` holds the current hitpoints. |
 +-------------------------+----------------+-------------------------+
 | [M                      | RW             | Gets or sets the MORE2  |
 | ORE2](./MORE2.md) |                | value for the item.     |
 +-------------------------+----------------+-------------------------+
 | [MOR                    | RW             | Gets or sets the upper  |
 | E2H](./MORE2H.md) |                | 4 bytes of the item\'s  |
-|                         |                | MORE2 value.            |
+|                         |                | MORE2 value. For items with a health bar, `MORE1H` holds the maximum hitpoints. |
 +-------------------------+----------------+-------------------------+
 | [MOR                    | RW             | Gets or sets the lower  |
 | E2L](./MORE2L.md) |                | 4 bytes of the item\'s  |
@@ -439,13 +452,13 @@ _NEARTYPETOP.md) |                | location of a nearby    |
 | UP](./NUDGEUP.md) |                | Z level.                |
 | *amount*                |                |                         |
 +-------------------------+----------------+-------------------------+
-| [PROMPTCONSOLE](./PR_______W_______________Displays_a_prompt_______
+| [PROMPTCONSOLE](./PR_______W_______________Displays_a_prompt_______|
 _OMPTCONSOLE.md) |                | message to SRC and      |
 | *function,              |                | passes their response   |
 | prompt_message*         |                | into a specified        |
 |                         |                | function.               |
 +-------------------------+----------------+-------------------------+
-| [PROMPTCONSOLEU](./PRO_____W_______________Displays_a_prompt_______
+| [PROMPTCONSOLEU](./PRO_____W_______________Displays_a_prompt_______|
 _MPTCONSOLEU.md) |                | message to SRC and      |
 | *function,              |                | passes their response   |
 | prompt_message*         |                | into a specified        |
@@ -455,7 +468,7 @@ _MPTCONSOLEU.md) |                | message to SRC and      |
 | [REM                    | W              | Deletes the object.     |
 | OVE](./REMOVE.md) |                |                         |
 +-------------------------+----------------+-------------------------+
-| [REMOVEFROMVIEW](./REM_____W_______________Removes_the_object_from_
+| [REMOVEFROMVIEW](./REM_____W_______________Removes_the_object_from_|
 _OVEFROMVIEW.md) |                | nearby clients\'        |
 |                         |                | screens.                |
 +-------------------------+----------------+-------------------------+
@@ -464,7 +477,7 @@ _OVEFROMVIEW.md) |                | nearby clients\'        |
 | *item_defname*          |                | item inside a           |
 |                         |                | container.              |
 +-------------------------+----------------+-------------------------+
-| [RESENDTOOLTIP](./RE_______W_______________Forces_Sphere_to_update_
+| [RESENDTOOLTIP](./RE_______W_______________Forces_Sphere_to_update_|
 _SENDTOOLTIP.md) |                | the tooltips for nearby |
 |                         |                | clients.                |
 +-------------------------+----------------+-------------------------+
@@ -505,7 +518,7 @@ _SPELLEFFECT.md) |                | affected by a spell.    |
 | [TAG]                   | RW             | Gets or sets the value  |
 | (TAG "wikilink")*.name* |                | of a TAG.               |
 +-------------------------+----------------+-------------------------+
-| [TAGAT](./TA_______________R_______________Gets_a_TAG_at_the_given_
+| [TAGAT](./TA_______________R_______________Gets_a_TAG_at_the_given_|
 _GAT.md)*.index* |                | zero-based index.       |
 +-------------------------+----------------+-------------------------+
 | [TAGAT](./TAGAT____________R_______________Gets_the_name_of_the.md)*.index*.KEY |                | TAG at the given        |
@@ -520,9 +533,10 @@ _GAT.md)*.index* |                | zero-based index.       |
 | [TAGLI                  | W              | Outputs a list of the   |
 | ST](./TAGLIST.md) |                | object\'s TAGs.         |
 +-------------------------+----------------+-------------------------+
-| [TARGET](./T_______________W_______________Displays_a_targeting____
+| [TARGET](./T_______________W_______________Displays_a_targeting____|
 _ARGET.md)*FGMW* |                | cursor to SRC. *F*      |
-| *function*              |                | makes the *function*    |
+| *function*              |                |                         |
+|                         |                | makes the *function*    |
 |                         |                | available, and when     |
 |                         |                | added, the function     |
 |                         |                | name must be the 1st    |
@@ -561,7 +575,7 @@ _ARGET.md)*FGMW* |                | cursor to SRC. *F*      |
 | [TIM                    | W              | Stops the specified     |
 | ERF](./TIMERF.md) |                | function from the item. |
 | *STOP, function*        |                | (On X version wild      |
-|                         |                | character \* is         |
+|                         |                | character * is         |
 |                         |                | available for defining  |
 |                         |                | the function name or    |
 |                         |                | the argument)           |
@@ -571,16 +585,15 @@ _ARGET.md)*FGMW* |                | cursor to SRC. *F*      |
 | *trig_name,             |                | you to define the       |
 | trigger_argtype,        |                | behavior of the         |
 | argument1, argument2,   |                | arguments (the types    |
-| \...*                   |                | are defined under       |
+| ...*                   |                | are defined under       |
 |                         |                | trigger_argtype in the  |
 |                         |                | sphere_defs.scp file).  |
 |                         |                | The result of the       |
 |                         |                | trigger\'s RETURN value |
 |                         |                | is returned. For        |
 |                         |                | example:                |
-|                         |                |                         |
 |                         |                | `LOCAL.result=<TR       |
-|                         |                | IGGER @CustomTrigger,<D |
+|                         |                | IGGER @CustomTrigger,<D |
 |                         |                | EF.tat_as_argn>,1,2,3>` |
 +-------------------------+----------------+-------------------------+
 | [TYPE](./TYPE.md) | RW             | Gets or sets the item   |
@@ -633,12 +646,77 @@ _ARGET.md)*FGMW* |                | cursor to SRC. *F*      |
 +-------------------------+----------------+-------------------------+
 | [Z](./Z.md)       | R              | Gets the Z position of  |
 |                         |                | the item.               |
+| `Altered`               |                | (Keyword only)           | X |
+| `Antique`               |                | (Keyword only)           | X |
+| `AssassinHoned`         |                | (Keyword only)           | X |
+| `Bane`                  |                | (Keyword only)           | X |
+| `Battlelust`            |                | (Keyword only)           | X |
+| `Blodddrinker`          |                | (Keyword only)           | X |
+| `BoneBreaker`           |                | (Keyword only)           | X |
+| `BonusBerserk`          |                | (Keyword only)           | X |
+| `Brittle`               |                | (Keyword only)           | X |
+| `CastingFocus`          |                | (Keyword only)           | X |
+| `DurabilityBonus`       |                | (Keyword only)           | X |
+| `EaterCold`             |                | (Keyword only)           | X |
+| `EaterEnergy`           |                | (Keyword only)           | X |
+| `EaterFire`             |                | (Keyword only)           | X |
+| `EaterKinetic`          |                | (Keyword only)           | X |
+| `EaterPoison`           |                | (Keyword only)           | X |
+| `Ephemeral`             |                | (Keyword only)           | X |
+| `HitFatigue`            |                | (Keyword only)           | X |
+| `HitManaDrain`          |                | (Keyword only)           | X |
+| `HitSparks`             |                | (Keyword only)           | X |
+| `HitSpell`              |                | (Keyword only)           | X |
+| `HitSwarm`              |                | (Keyword only)           | X |
+| `Imbued`                |                | (Keyword only)           | X |
+| `IncreaseGold`          |                | (Keyword only)           | X |
+| `LavaInfused`           |                | (Keyword only)           | X |
+| `LowerAmmoCost`         |                | (Keyword only)           | X |
+| `Massive`               |                | (Keyword only)           | X |
+| `MysticWeapon`          |                | (Keyword only)           | X |
+| `Prized`                |                | (Keyword only)           | X |
+| `ReactiveParalyze`      |                | (Keyword only)           | X |
+| `Searing`               |                | (Keyword only)           | X |
+| `ShipwreckItem`         |                | (Keyword only)           | X |
+| `SoulCharge`            |                | (Keyword only)           | X |
+| `SoulChargeCold`        |                | (Keyword only)           | X |
+| `SoulChargeEnergy`      |                | (Keyword only)           | X |
+| `SoulChargeFire`        |                | (Keyword only)           | X |
+| `SoulChargeKinetic`     |                | (Keyword only)           | X |
+| `SoulChargePoison`      |                | (Keyword only)           | X |
+| `Splintering`           |                | (Keyword only)           | X |
+| `Unlucky`               |                | (Keyword only)           | X |
+| `Unwieldly`             |                | (Keyword only)           | X |
+| `UseBestWeaponSkill`    |                | (Keyword only)           | X |
+| [ISLEEPING](./SECTOR.md) | R          | Returns 1 if the item is sleeping, 0 otherwise. | X |
+| [SLEEP](./SECTOR.md) | W          | Puts the item to sleep. | X |
+| [AWAKE](./SECTOR.md) | W          | Wakes the item up.      | X |
++-------------------------+----------------+-------------------------+
 +-------------------------+----------------+-------------------------+
 
-## Triggers
-
-Here is a list of all item triggers. Click on the trigger name for more
-detailed information such as arguments and examples.
+## Notes
+- The `<VAR.VARNAME>` syntax now works from an item, allowing direct access to VAR variables.
+- Properties `Only<Race/Sex>` have been removed as they are no longer used.
+- The `NoDropTrade` property has been split into separate flags.
+- Properties `Balanced`, `Battle_Lust`, `Blood_Drinker`, `SplinteringWeapon`, and `Bane` are now checked as item attributes (`ATTR_*`).
+- When a player attempts to equip non-equippable items, they are now bounced to the pack.
+- New item properties `PICKUPSOUND` and `DROPSOUND` have been added to override default pickup and drop sounds for items.
+- The `CHARGESCUR` and `CHARGESMAX` item properties have been removed and are replaced by `USESCUR` and `USESMAX` respectively.
+- For spawn items (`t_spawn_item`, `t_spawn_char`), the following properties are available:
+    - `SpawnID`/`MORE`/`MORE1` (R/W): Spawn\'s ID (item/template or char/template).
+    - `MORE2`/`COUNT` (R): For `t_spawn_char`, returns total spawned characters.
+    - `MORE2`/`PILE` (R/W): For `t_spawn_item`, total items generated at once.
+    - `MOREX`/`TimeLo` (R/W): Minimum spawn time in minutes.
+    - `MOREY`/`TimeHi` (R/W): Maximum spawn time in minutes.
+    - `MOREZ`/`MaxDist` (R/W): Maximum spawn distance.
+    - `MOREP` (R/W): Groups `MOREX`, `MOREY`, `MOREZ`.
+    - `AT*` (R/W): Accesses objects at position `n`.
+    - `AMOUNT` (R/W): Total objects spawn can have.
+    - `ADDOBJ` (W): Adds object by UID to spawn.
+    - `DELOBJ` (W): Deletes object by UID from spawn.
+    - `START` (W): Forces spawn to start.
+    - `STOP` (W): Stops spawn and removes creations.
+    - `RESET` (W): Forces an STOP and then START it again.
 
   -------------------------------------------------------------- ---------------------------------------------------------------------------------------- --------------------
   **Name**                                                       **Description**                                                                          **Sphere X Only?**
@@ -655,7 +733,7 @@ detailed information such as arguments and examples.
   [\@Destroy](./Destroy.md)                               Fires when the object is being deleted.                                                  
   [\@DropOn_Char](./DropOn_Char.md)                       Fires when the item has been dropped on to a character.                                  
   [\@DropOn_Ground](./DropOn_Ground.md)                   Fires when the item has been dropped on to the ground.                                   
-  [\@DropOn_Item](./DropOn_Item.md)                       Fires when the item is dropped on to another item.                                       
+  [\@DropOn_Item](./DropOn_Item.md)                       Fires when an item is dropped on to another item.                                       
   [\@DropOn_Self](./DropOn_Self.md)                       Fires when an item has been dropped on to this item.                                     
   [\@DropOn_Trade](./DropOn_Trade.md)                     Fires when an item is being dropped on a Trade Window.                                   
   [\@Dye](./Dye.md)                                       Fires when an item is having its colored changed.                                        
@@ -679,6 +757,8 @@ detailed information such as arguments and examples.
   [\@Timer](./Timer.md)                                   Fires when the item\'s timer expires.                                                    
   [\@ToolTip](./ToolTip.md)                               Fires when old-style tooltips are requested for the item.                                
   [\@UnEquip](./UnEquip.md)                               Fires when the item is unequipped.                                                       
+  [\@Update](./Update.md)                                 Fires when an item is updated on a client (either by moving it or by updating its properties). | X |
+  [\@UpdateX](./UpdateX.md)                               Fires when an item is updated on a client (either by moving it or by updating its properties), but removes it from the view first to ensure a full refresh. | X |
   -------------------------------------------------------------- ---------------------------------------------------------------------------------------- --------------------
 
 [Category: Reference

@@ -32,7 +32,7 @@ Sphere's behaviour:
 | ARGN2 | IO | The type(s) of damage. |
 | LOCAL.ARROW | I | UID of the arrow used (Archery only) |
 | LOCAL.ARROWHANDLED | IO | if set to !=0, you can do whatever you want with local.arrow |
-| LOCAL.ITEMDAMAGECHANCE | IO | Sets the chance for the weapon to be damaged (Default: 40). |
+| LOCAL.ITEMDAMAGECHANCE | IO | Sets the chance for the weapon to be damaged (Default: 25). |
 
 ## Return Values
 

@@ -21,6 +21,14 @@ examples.
   --------------------------- ---------------- ---------------------------------------------------------------------------------------
   **Name**                    **Read/Write**   **Description**
   [CHAR](./CHAR.md).n   R                Gets the nth [character](./Characters.md) attached to the account. (zero-based)
+  [HOUSE](./House_multi.md).x R Gets the house in the Nth position.
+  [OWNER](./Owner.md) R Gets the owner of the house.
+  [COOWNER.x](./Coowners.md) R Gets the Coowner in the Xth position.
+  [FRIEND.x](./Friends.md) R Gets the Friend in the Xth position.
+  [BAN.x](./Bans.md) R Gets the Banned character in the Xth position.
+  [LOCKDOWN.x](./Lockdowns.md) R Gets the locked down item in the Xth position.
+  [VENDOR.x](./Vendors.md) R Gets the vendor in the Xth position.
+  [COMPONENT.x](./Comps.md) R Gets the comp in the Xth position.
   --------------------------- ---------------- ---------------------------------------------------------------------------------------
 
 ## Properties and Functions {#properties_and_functions}
@@ -29,6 +37,9 @@ Here is a list of all account properties and functions. If a function is
 marked as readable then it can return a value when used as
 `<KEY>`{=html}. Click on the name for more detailed information such as
 usage and examples.
+
+## Notes
+- Clients with an account `PLEVEL` of 2 or greater (starting from Counselor priv) now log out instantly. Previously, this only occurred if GM mode was activated, regardless of `PLEVEL`.
 
   ------------------------------------------------- ---------------- ------------------------------------------------------------------------------------------
   **Name**                                          **Read/Write**   **Description**

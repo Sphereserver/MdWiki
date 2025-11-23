@@ -54,7 +54,7 @@ internally used layers - don't bother sending these to client.
 
 |  |  |  |
 |----|----|----|
-| 32 | layer_spell_stats | stats effecting spell. these cancel each other out |
+| 32 | layer_spell_stats | stats effecting spell. these cancel each other out. Spells with this LAYER property (or higher) will automatically equip the spell memory item found in the RUNE_ITEM property. |
 | 33 | layer_spell_reactive |  |
 | 34 | layer_spell_night_sight |  |
 | 35 | layer_spell_protection |  |

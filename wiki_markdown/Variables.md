@@ -323,6 +323,10 @@ integer.</p></td>
 </tbody>
 </table>
 
-[Category: Reference
-Compendium](./_Reference_Compendium.md) [Category:
-Scripts](./_Scripts.md)
+## Notes
+
+- The `<VAR.VARNAME>` syntax now works from an item, allowing direct access to VAR variables associated with items.
+
+
+
+[Category: Reference Compendium](./CategoryReference_Compendium.md) [Category: Scripts](./CategoryScripts.md)

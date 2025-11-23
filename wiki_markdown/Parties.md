@@ -52,3 +52,6 @@ usage and examples.
 [Category: Reference
 Compendium](./_Reference_Compendium.md) [Category:
 Objects](./_Objects.md)
+
+## Notes
+- The PARTY.CREATE function was fixed on 12-05-2017 to work properly.

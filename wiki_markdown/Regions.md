@@ -57,8 +57,10 @@ called on all sectors that touch the region area.
   [RECT](./RECT.md)*.n*                                      R                Gets the nth rectangle that this region is made from.
   [RAINCHANCE](./RAINCHANCE.md)                              W                Sets the RainChance for all sectors inside this region.
   [RESOURCES](./RESOURCES.md) *+/-regiontype_defname*        RW               Gets a list of attached region events, or adds or removes a region event to or from the region.
-  [SAFE](./SAFE.md)                                          RW               Get or Set Safe flag for this region.
-  [TAGAT](./TAGAT.md)*.index*                                R                Gets a TAG at the given zero-based index.
+| [SAFE](./SAFE.md)                                          RW               Get or Set Safe flag for this region.                                                                       |
+| [TAG](./TAG.md)*.name*                                          | RW               | Gets or sets the value of a TAG.                                                                            |
+| [TAG.REGION](./TAG.md)*.name*                                          | RW               | Accesses TAGs from regions. KEY/VAL can be used to retrieve the name/value of a TAG by index.                                                                            |
+| [TAGAT](./TAGAT.md)*.index*                                | R                | Gets a TAG at the given zero-based index.                                                                   |
   [TAGAT](./TAGAT.md)*.index*.KEY                            R                Gets the name of the TAG at the given zero-based index.
   [TAGAT](./TAGAT.md)*.index*.VAL                            R                Gets the value of the TAG at the given zero-based index.
   [TAGCOUNT](./TAGCOUNT.md)                                  R                Gets the number of TAGs stored on the region.
@@ -72,6 +74,9 @@ called on all sectors that touch the region area.
 
 Here is a list of all region triggers. Click on the trigger name for
 more detailed information such as arguments and examples.
+
+## Notes
+- All properties from region types (`<P.REGION.DEF.KEY/VAL>`) can now be read.
 
   ------------------------------------------------ -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   **Name**                                         **Description**

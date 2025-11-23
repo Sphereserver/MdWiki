@@ -15,6 +15,8 @@ for returning a value from an instrinsic function is:
 
 `FUNCTION(`*`args`*`)`\
 
+Arguments for intrinsic functions are now recognized even if separated by a whitespace from the function, in addition to being enclosed by parentheses. For example, `MIN(1, 2)` and `MIN 1, 2` are both valid.
+
 The following table details all of the intrinsic functions in
 SphereServer:
 

@@ -1,7 +1,8 @@
 ```{=mediawiki}
 {{Languages|TYPEDEF}}
 ```
-\_\_FORCETOC\_\_ Type definitions are the equivalent of
+
+__FORCETOC__ Type definitions are the equivalent of
 [EVENTS](./EVENTS.md) that can be attached to
 [items](./Items.md). There are different properties that can be
 used to attach a type block to an item or set of items:
@@ -19,22 +20,24 @@ points](./Map_points.md), or for some hardcoded types such as
 t_rock it can be used to define which terrain IDs Sphere should consider
 to be rock when the mining skill is used.
 
+**Note:** According to the new X scriptpack naming convention for TYPEDEFs, if a TYPEDEF is meant to be used as a TEVENT or an EVENT, use the prefix "ei_"; if the TYPEDEF is meant to be used as a base TYPE, use the classic prefix "t_", as always. Examples: `ei_house_component`, `ei_house_lockdown`, `ei_house_secure`.
+
 ## Built-in Types {#built_in_types}
 
 The built-in types are all listed in the sphere_defs.scp file. The table
 below only lists some of the built-in types and it is VERY weak on
-actual details\...so use with care.
+actual details...so use with care.
 
 +---------------------------+-----------+---------------------------+
 | DEFNAME                   | Number    | Description               |
-+===========================+===========+===========================+
++===========================+======================================+
 | t_normal                  | 0         | No built-in behavior.     |
 +---------------------------+-----------+---------------------------+
 | t_container and           | 1 and 2   | These types are used for  |
 | t_container_locked        |           | containers. They leverage |
 |                           |           | the following properties: |
 |                           |           |                           |
-|                           |           | -   MORE1 = \"ID\" from   |
+|                           |           | -   MORE1 = "ID" from   |
 |                           |           |     the key that can      |
 |                           |           |     unlock this item (If  |
 |                           |           |     the MORE1 of the key  |
@@ -54,7 +57,7 @@ actual details\...so use with care.
 |                           |           | -   TDATA3/4: Defines     |
 |                           |           |     rectangle, where you  |
 |                           |           |     can place items (so   |
-|                           |           |     they won\'t end up    |
+|                           |           |     they won't end up    |
 |                           |           |     out of gump)          |
 |                           |           | -   TDATA3 = top left     |
 |                           |           |     corner. Hexadecimal   |
@@ -75,17 +78,18 @@ actual details\...so use with care.
 |                           |           | following properties:     |
 |                           |           |                           |
 |                           |           | -   MORE1 = UID of this   |
-|                           |           |     door\'s key (if it    |
+|                           |           |     door's key (if it    |
 |                           |           |     has one)              |
 |                           |           | -   TDATA1 = ID for the   |
 |                           |           |     sound it makes when   |
 |                           |           |     double clicked        |
+|                           |           | -   Can be opened/closed using the [UseDoor](./UseDoor.md) function. |
 +---------------------------+-----------+---------------------------+
 | t_key                     | 5         | This type is used for     |
 |                           |           | keys. It leverages the    |
 |                           |           | following properties:     |
 |                           |           |                           |
-|                           |           | -   MORE1 = \"ID\" of the |
+|                           |           | -   MORE1 = "ID" of the |
 |                           |           |     item(s) this key can  |
 |                           |           |     unlock (if the MORE1  |
 |                           |           |     of the key matches    |
@@ -94,7 +98,7 @@ actual details\...so use with care.
 |                           |           |     they are linked)      |
 |                           |           | -   LINK = If this is set |
 |                           |           |     to the UID of a       |
-|                           |           |     \"multi\" object      |
+|                           |           |     "multi" object      |
 |                           |           |     (like a house) the    |
 |                           |           |     key can open all      |
 |                           |           |     doors/containers in   |
@@ -152,8 +156,8 @@ actual details\...so use with care.
 |                           |           |     creature that this    |
 |                           |           |     came from             |
 |                           |           | -   MOREM = Is the amount |
-|                           |           |     (0 to 127) of \"food  |
-|                           |           |     units\" that will be  |
+|                           |           |     (0 to 127) of "food  |
+|                           |           |     units" that will be  |
 |                           |           |     gained when the item  |
 |                           |           |     is used (eaten)       |
 |                           |           | -   MOREZ = Is the poison |
@@ -185,8 +189,8 @@ actual details\...so use with care.
 |                           |           |     creature that this    |
 |                           |           |     came from             |
 |                           |           | -   MOREM = Is the amount |
-|                           |           |     (0 to 127) of \"food  |
-|                           |           |     units\" that will be  |
+|                           |           |     (0 to 127) of "food  |
+|                           |           |     units" that will be  |
 |                           |           |     gained when the item  |
 |                           |           |     is used (eaten)       |
 |                           |           | -   MOREZ = Is the poison |
@@ -349,25 +353,19 @@ actual details\...so use with care.
 |                           |           |                           |
 |                           |           | -                         |
 |                           |           |   TAG.OVERRIDE.DAMAGETYPE |
-|                           |           |     = can be used on a    |
-|                           |           |     per item basis to     |
-|                           |           |     override the types of |
-|                           |           |     damage this weapon    |
-|                           |           |     does                  |
+|                           |           |     = to override the     |
+|                           |           |     types of damage this  |
+|                           |           |     weapon does           |
 |                           |           | -                         |
 |                           |           |    TAG.OVERRIDE.SOUND_HIT |
-|                           |           |     = can be used on a    |
-|                           |           |     per item basis to     |
-|                           |           |     override the sound    |
-|                           |           |     this weapon makes     |
-|                           |           |     when it hits          |
+|                           |           |     = to override the     |
+|                           |           |     sound this weapon     |
+|                           |           |     makes when it hits          |
 |                           |           | -                         |
 |                           |           |   TAG.OVERRIDE.SOUND_MISS |
-|                           |           |     = can be used on a    |
-|                           |           |     per item basis to     |
-|                           |           |     override the sound    |
-|                           |           |     this weapon makes     |
-|                           |           |     when it misses        |
+|                           |           |     = to override the     |
+|                           |           |     sound this weapon     |
+|                           |           |     makes when it misses        |
 +---------------------------+-----------+---------------------------+
 | t_weapon_fence            | 14        | This type is used for     |
 |                           |           | fencing weapons. It       |
@@ -389,25 +387,19 @@ actual details\...so use with care.
 |                           |           |                           |
 |                           |           | -                         |
 |                           |           |   TAG.OVERRIDE.DAMAGETYPE |
-|                           |           |     = can be used on a    |
-|                           |           |     per item basis to     |
-|                           |           |     override the types of |
-|                           |           |     damage this weapon    |
-|                           |           |     does                  |
+|                           |           |     = to override the     |
+|                           |           |     types of damage this  |
+|                           |           |     weapon does           |
 |                           |           | -                         |
 |                           |           |    TAG.OVERRIDE.SOUND_HIT |
-|                           |           |     = can be used on a    |
-|                           |           |     per item basis to     |
-|                           |           |     override the sound    |
-|                           |           |     this weapon makes     |
-|                           |           |     when it hits          |
+|                           |           |     = to override the     |
+|                           |           |     sound this weapon     |
+|                           |           |     makes when it hits          |
 |                           |           | -                         |
 |                           |           |   TAG.OVERRIDE.SOUND_MISS |
-|                           |           |     = can be used on a    |
-|                           |           |     per item basis to     |
-|                           |           |     override the sound    |
-|                           |           |     this weapon makes     |
-|                           |           |     when it misses        |
+|                           |           |     = to override the     |
+|                           |           |     sound this weapon     |
+|                           |           |     makes when it misses        |
 +---------------------------+-----------+---------------------------+
 | t_weapon_bow              | 15        | This type is used for     |
 |                           |           | archery weapons (bow or   |
@@ -432,7 +424,7 @@ actual details\...so use with care.
 |                           |           |     item that will be     |
 |                           |           |     fired (and must       |
 |                           |           |     therefore be on the   |
-|                           |           |     player\'s person)     |
+|                           |           |     player's person)      |
 |                           |           | -   TDATA4 = ID of the    |
 |                           |           |     arrow animation (for  |
 |                           |           |     bows it is usually    |
@@ -452,12 +444,12 @@ actual details\...so use with care.
 |                           |           |    TAG.OVERRIDE.SOUND_HIT |
 |                           |           |     = to override the     |
 |                           |           |     sound this weapon     |
-|                           |           |     makes when it hits    |
+|                           |           |     makes when it hits          |
 |                           |           | -                         |
 |                           |           |   TAG.OVERRIDE.SOUND_MISS |
 |                           |           |     = to override the     |
 |                           |           |     sound this weapon     |
-|                           |           |     makes when it misses  |
+|                           |           |     makes when it misses        |
 |                           |           | -   AMMOANIMRENDER = to   |
 |                           |           |     override the          |
 |                           |           |     rendermode of the     |
@@ -534,7 +526,7 @@ actual details\...so use with care.
 |                           |           | switches. The way these   |
 |                           |           | things work is, when      |
 |                           |           | used, they trigger        |
-|                           |           | \@DCLICK on the LINK      |
+|                           |           | @DCLICK on the LINK      |
 |                           |           | object. It leverages the  |
 |                           |           | following properties:     |
 |                           |           |                           |
@@ -580,7 +572,7 @@ actual details\...so use with care.
 |                           |           |                           |
 |                           |           | **Note:** we need more    |
 |                           |           | information on those      |
-|                           |           | flags\...                 |
+|                           |           | flags...                  |
 +---------------------------+-----------+---------------------------+
 | t_rune                    | 20        | This type is used for     |
 |                           |           | recall runes. It          |
@@ -650,9 +642,9 @@ actual details\...so use with care.
 |                           |           | time (game time, not real |
 |                           |           | time) when double         |
 |                           |           | clicked. The result comes |
-|                           |           | out something like \"half |
-|                           |           | past eleven o\'clock at   |
-|                           |           | night\". From what I can  |
+|                           |           | out something like "half |
+|                           |           | past eleven o'clock at   |
+|                           |           | night". From what I can  |
 |                           |           | tell there are no MORE or |
 |                           |           | TDATA modifiers that      |
 |                           |           | affect the result.        |
@@ -805,54 +797,54 @@ actual details\...so use with care.
 |                           |           | -   AMOUNT = The maximum  |
 |                           |           |     amount of NPCs the    |
 |                           |           |     spawner should create |
-|                           |           | -   MORE1/SPAWNID\* = The |
+|                           |           | -   MORE1/SPAWNID* = The  |
 |                           |           |     creature ID or spawn  |
 |                           |           |     template ID for what  |
 |                           |           |     you want to spawn     |
-|                           |           | -   MORE2/COUNT\* = The   |
+|                           |           | -   MORE2/COUNT* = The    |
 |                           |           |     current number of     |
 |                           |           |     creatures spawned     |
 |                           |           |     from this point       |
-|                           |           | -   MOREX/TIMELO\* = The  |
+|                           |           | -   MOREX/TIMELO* = The   |
 |                           |           |     minimum time between  |
 |                           |           |     spawns (in minutes)   |
-|                           |           | -   MOREY/TIMEHI\* = The  |
+|                           |           | -   MOREY/TIMEHI* = The   |
 |                           |           |     maximum time between  |
 |                           |           |     spawns (in minutes)   |
-|                           |           | -   MOREZ/MAXDIST\* = The |
+|                           |           | -   MOREZ/MAXDIST* = The  |
 |                           |           |     maximum distance away |
 |                           |           |     from the spawn to     |
 |                           |           |     create the spawned    |
 |                           |           |     NPC (this is also the |
 |                           |           |     maximum wander        |
 |                           |           |     distance for the NPC) |
-|                           |           | -   AT\*(R/W) = Access    |
+|                           |           | -   AT*(R/W) = Access    |
 |                           |           |     the object in the N   |
 |                           |           |     position and          |
 |                           |           |     reads/writes/executes |
 |                           |           |     the given text, eg:   |
 |                           |           |     at.0.remove,          |
-|                           |           |     \<at.0.str\>\...      |
-|                           |           | -   ADDOBJ\*(W) = Adds to |
+|                           |           |     <at.0.str>...      |
+|                           |           | -   ADDOBJ*(W) = Adds to |
 |                           |           |     the spawn an object   |
 |                           |           |     with the given uid    |
 |                           |           |     (must be a valid uid) |
-|                           |           | -   DELOBJ\*(W) = Deletes |
+|                           |           | -   DELOBJ*(W) = Deletes |
 |                           |           |     from the spawn an     |
 |                           |           |     object with the given |
 |                           |           |     uid (must be a valid  |
 |                           |           |     uid)                  |
-|                           |           | -   START\*(W) = Forces   |
+|                           |           | -   START*(W) = Forces   |
 |                           |           |     the spawn to start    |
 |                           |           |     spawning              |
-|                           |           | -   STOP\*(W) = Stops the |
+|                           |           | -   STOP*(W) = Stops the |
 |                           |           |     spawn and removes     |
 |                           |           |     everything it created |
-|                           |           | -   RESET\*(W) = Froces   |
+|                           |           | -   RESET*(W) = Froces   |
 |                           |           |     an STOP and then      |
 |                           |           |     START it again        |
 |                           |           |                           |
-|                           |           | `  *X branch only`        |
+|                           |           | ` *X branch only`        |
 |                           |           |                           |
 |                           |           | **Note:** The spawn is    |
 |                           |           | considered active if the  |
@@ -896,7 +888,7 @@ actual details\...so use with care.
 | t_figurine                | 37        | This type is used for     |
 |                           |           | shrunk NPCs (essentially  |
 |                           |           | magic figurines), that    |
-|                           |           | turn into a \"pet\"       |
+|                           |           | turn into a "pet"       |
 |                           |           | creature when double      |
 |                           |           | clicked. It leverages the |
 |                           |           | following properties:     |
@@ -907,7 +899,7 @@ actual details\...so use with care.
 |                           |           |     double clicked.       |
 |                           |           | -   MORE2 = The UID of    |
 |                           |           |     the off-line creature |
-|                           |           |     (in \"stable master\" |
+|                           |           |     (in "stable master" |
 |                           |           |     inventory)            |
 |                           |           | -   TDATA2 = The required |
 |                           |           |     strength to mount the |
@@ -942,13 +934,13 @@ actual details\...so use with care.
 +---------------------------+-----------+---------------------------+
 | t_chair                   | 40        | This type is used for any |
 |                           |           | sort of a chair item and  |
-|                           |           | it\'s only purpose is to  |
+|                           |           | it's only purpose is to  |
 |                           |           | trigger a sitting         |
 |                           |           | animation.                |
 +---------------------------+-----------+---------------------------+
 | t_forge                   | 41        | This type is used by      |
 |                           |           | blacksmiths to smelt      |
-|                           |           | ore\....                  |
+|                           |           | ore....                   |
 +---------------------------+-----------+---------------------------+
 | t_ore                     | 42        | This type is harvested by |
 |                           |           | miners, and converted by  |
@@ -957,10 +949,13 @@ actual details\...so use with care.
 |                           |           | else. It leverages the    |
 |                           |           | following properties:     |
 |                           |           |                           |
-|                           |           | -   TDATA1 = ID of item   |
-|                           |           |     created when the ore  |
-|                           |           |     is smelted (usually   |
-|                           |           |     ingots)               |
+|                           |           | -   TDATA1 = The skill    |
+|                           |           |     required to smelt     |
+|                           |           |     this                  |
+|                           |           | -   TDATA2 = The skill    |
+|                           |           |     required to get the   |
+|                           |           |     maximum yield when    |
+|                           |           |     smelting              |
 +---------------------------+-----------+---------------------------+
 | t_log                     | 43        | This type is a raw        |
 |                           |           | material resource usually |
@@ -995,7 +990,7 @@ actual details\...so use with care.
 | t_carpentry_chop          | 46        | A carpentry tool that can |
 |                           |           | be used to craft          |
 |                           |           | carpentry objects as well |
-|                           |           | as used to \"chop\" trees |
+|                           |           | as used to "chop" trees |
 |                           |           | (like a saw?)             |
 +---------------------------+-----------+---------------------------+
 | t_multi                   | 47        | Multi part object like    |
@@ -1078,7 +1073,7 @@ actual details\...so use with care.
 |                           |           |     uidLink is set.       |
 |                           |           | -   LINK = If this is set |
 |                           |           |     to the UID of a       |
-|                           |           |     \"multi\" object      |
+|                           |           |     "multi" object      |
 |                           |           |     (like a house) the    |
 |                           |           |     key can open all      |
 |                           |           |     doors/containers in   |
@@ -1108,8 +1103,8 @@ actual details\...so use with care.
 |                           |           | window.                   |
 +---------------------------+-----------+---------------------------+
 | t_fish                    | 55        | Fish can be cut up.       |
-|                           |           | Yields 4 \*               |
-|                           |           | `<Amount>`{=html} when a  |
+|                           |           | Yields 4 *               |
+|                           |           | <Amount>{=html} when a  |
 |                           |           | bladed object is used on  |
 |                           |           | it.                       |
 +---------------------------+-----------+---------------------------+
@@ -1130,7 +1125,7 @@ actual details\...so use with care.
 |                           |           |     uidLink is set.       |
 |                           |           | -   LINK = If this is set |
 |                           |           |     to the UID of a       |
-|                           |           |     \"multi\" object      |
+|                           |           |     "multi" object      |
 |                           |           |     (like a house) the    |
 |                           |           |     key can open all      |
 |                           |           |     doors/containers in   |
@@ -1169,20 +1164,20 @@ actual details\...so use with care.
 |                           |           |     account               |
 +---------------------------+-----------+---------------------------+
 |                           |           | `t_a                      |
-|                           |           | nim_active            58  |
-|                           |           |   // = active anium that  |
-|                           |           | will recycle when done.`\ |
+|                           |           | nim_active              58 |
+|                           |           |  // = active anium that |
+|                           |           | will recycle when done.` \
 |                           |           | `t_sa                     |
-|                           |           | nd                   59   |
-|                           |           |  // = sand on the beach`\ |
+|                           |           | nd              59  |
+|                           |           |  // = sand on the beach` \
 |                           |           | `t_cloth                  |
-|                           |           |                   60   // |
-|                           |           |  = bolt or folded cloth`\ |
-|                           |           | `t_hair                   |
-|                           |           |                 61   //`\ |
-|                           |           | `t_beard                  |
-|                           |           |             62   // = jus |
-|                           |           | t for grouping purposes.` |
+|                           |           |        60   // |
+|                           |           |  = bolt or folded cloth` \
+|                           |           | `t_hair                  |
+|                           |           |        61   //` \
+|                           |           | `t_beard                 |
+|                           |           |        62   // = jus|
+|                           |           | t for grouping purposes.` |
 +---------------------------+-----------+---------------------------+
 | t_ingot                   | 63        | This type is used for     |
 |                           |           | ingots (when a blacksmith |
@@ -1265,11 +1260,11 @@ actual details\...so use with care.
 |                           |           | consumed (like T_FOOD     |
 |                           |           | does)                     |
 +---------------------------+-----------+---------------------------+
-|                           |           | `t_anvil                  |
-|                           |           |   67   // = for repair.`\ |
-|                           |           | `t_port_locked            |
-|                           |           |      68   // = this portc |
-|                           |           | ullis must be triggered.` |
+|                           |           | `t_anvil                 |
+|                           |           |        67   // = for repair.` \
+|                           |           | `t_port_locked           |
+|                           |           |         68   // = this portc|
+|                           |           | ullis must be triggered.` |
 +---------------------------+-----------+---------------------------+
 | t_spawn_item              | 69        | This type is used to      |
 |                           |           | spawn items. Once it      |
@@ -1283,54 +1278,54 @@ actual details\...so use with care.
 |                           |           | -   AMOUNT = The maximum  |
 |                           |           |     amount of items the   |
 |                           |           |     spawner should create |
-|                           |           | -   MORE1/SPAWNID\* = The |
+|                           |           | -   MORE1/SPAWNID* = The  |
 |                           |           |     item ID or spawn      |
 |                           |           |     template ID for what  |
 |                           |           |     you want to spawn     |
-|                           |           | -   MORE2/PILE\* = The    |
+|                           |           | -   MORE2/PILE* = The     |
 |                           |           |     current number of     |
 |                           |           |     items spawned from    |
 |                           |           |     this point            |
-|                           |           | -   MOREX/TIMELO\* = The  |
+|                           |           | -   MOREX/TIMELO* = The   |
 |                           |           |     minimum time between  |
 |                           |           |     spawns (in minutes)   |
-|                           |           | -   MOREY/TIMEHI\* = The  |
+|                           |           | -   MOREY/TIMEHI* = The   |
 |                           |           |     maximum time between  |
 |                           |           |     spawns (in minutes)   |
-|                           |           | -   MOREZ/MAXDIST\* = The |
+|                           |           | -   MOREZ/MAXDIST* = The  |
 |                           |           |     maximum distance away |
 |                           |           |     from the spawn to     |
 |                           |           |     create the spawned    |
 |                           |           |     item (this is also    |
 |                           |           |     the maximum wander    |
 |                           |           |     distance for the NPC) |
-|                           |           | -   AT\*(R/W) = Access    |
+|                           |           | -   AT*(R/W) = Access    |
 |                           |           |     the object in the N   |
 |                           |           |     position and          |
 |                           |           |     reads/writes/executes |
 |                           |           |     the given text, eg:   |
 |                           |           |     at.0.remove,          |
-|                           |           |     \<at.0.str\>\...      |
-|                           |           | -   ADDOBJ\*(W) = Adds to |
+|                           |           |     <at.0.str>...      |
+|                           |           | -   ADDOBJ*(W) = Adds to |
 |                           |           |     the spawn an object   |
 |                           |           |     with the given uid    |
 |                           |           |     (must be a valid uid) |
-|                           |           | -   DELOBJ\*(W) = Deletes |
+|                           |           | -   DELOBJ*(W) = Deletes |
 |                           |           |     from the spawn an     |
 |                           |           |     object with the given |
 |                           |           |     uid (must be a valid  |
 |                           |           |     uid)                  |
-|                           |           | -   START\*(W) = Forces   |
+|                           |           | -   START*(W) = Forces   |
 |                           |           |     the spawn to start    |
 |                           |           |     spawning              |
-|                           |           | -   STOP\*(W) = Stops the |
+|                           |           | -   STOP*(W) = Stops the |
 |                           |           |     spawn and removes     |
 |                           |           |     everything it created |
-|                           |           | -   RESET\*(W) = Froces   |
+|                           |           | -   RESET*(W) = Froces   |
 |                           |           |     an STOP and then      |
 |                           |           |     START it again        |
 |                           |           |                           |
-|                           |           | `  *X branch only`        |
+|                           |           | ` *X branch only`        |
 |                           |           |                           |
 |                           |           | **Note:** The spawn is    |
 |                           |           | considered active if the  |
@@ -1342,8 +1337,8 @@ actual details\...so use with care.
 |                           |           | between MOREX and MOREY.  |
 +---------------------------+-----------+---------------------------+
 |                           |           | `t_te                     |
-|                           |           | lescope              70   |
-|                           |           |  // = big telescope pic.` |
+|                           |           | lescope             70  |
+|                           |           |  // = big telescope pic.` |
 +---------------------------+-----------+---------------------------+
 | t_bed                     | 71        | This type is used to      |
 |                           |           | indicate the item is a    |
@@ -1403,9 +1398,9 @@ actual details\...so use with care.
 |                           |           |     the memory occurred.  |
 +---------------------------+-----------+---------------------------+
 |                           |           | `t_weapon                 |
-|                           |           | _mace_staff      75   //  |
-|                           |           | = staff type of mace. or  |
-|                           |           | just other type of mace.` |
+|                           |           | _mace_staff         75  // |
+|                           |           | = staff type of mace. or |
+|                           |           | just other type of mace.` |
 +---------------------------+-----------+---------------------------+
 | t_eq_horse                | 76        | This type is used for     |
 |                           |           | equipped horse object.    |
@@ -1417,8 +1412,8 @@ actual details\...so use with care.
 |                           |           | -   MORE1 = The creature  |
 |                           |           |     ID                    |
 |                           |           | -   MORE2 = The UID of    |
-|                           |           |     the offline creature  |
-|                           |           |     (in \"stable master\" |
+|                           |           |     the off-line creature |
+|                           |           |     (in "stable master" |
 |                           |           |     inventory)            |
 |                           |           | -   TDATA2 = The required |
 |                           |           |     strength to mount it  |
@@ -1437,7 +1432,7 @@ actual details\...so use with care.
 |                           |           | -   MORE1 = The type of   |
 |                           |           |     pieces to use         |
 |                           |           |     (0=chess, 1=checkers, |
-|                           |           |     2=none\... presumably |
+|                           |           |     2=none... presumably |
 |                           |           |     this is hard-coded)   |
 |                           |           | -   TDATA2 = The gumpID   |
 |                           |           |     of the container      |
@@ -1457,8 +1452,6 @@ actual details\...so use with care.
 |                           |           |                           |
 |                           |           | -   TDATA2 = The gumpID   |
 |                           |           |     of the container      |
-|                           |           |     (this is not an       |
-|                           |           |     ITEMDEF)              |
 |                           |           | -   TDATA3 = The minimum  |
 |                           |           |     gump size             |
 |                           |           | -   TDATA4 = The maximum  |
@@ -1481,9 +1474,9 @@ actual details\...so use with care.
 | t_cannon_ball             | 82        | This is ammo for a        |
 |                           |           | t_cannon.                 |
 +---------------------------+-----------+---------------------------+
-|                           |           | `t_armor_leather          |
-|                           |           |         83   // = non met |
-|                           |           | allic armor (t_clothing)` |
+|                           |           | `t_armor_leather         |
+|                           |           |        83   // = non met |
+|                           |           | allic armor (t_clothing)` |
 +---------------------------+-----------+---------------------------+
 | t_seed                    | 84        | This type is used for     |
 |                           |           | seeds. A seed can be      |
@@ -1509,14 +1502,14 @@ actual details\...so use with care.
 |                           |           |     copper coin is        |
 |                           |           |     default.              |
 +---------------------------+-----------+---------------------------+
-|                           |           | `t_junk                   |
-|                           |           |    85   // = never used`\ |
+|                           |           | `t_junk                  |
+|                           |           |        85   // = never used` \
 |                           |           | `t_cryst                  |
-|                           |           | al_ball           86   // |
-|                           |           |  = Has no internal use.`\ |
+|                           |           | al_ball           86   // |
+|                           |           | = Has no internal use.` \
 |                           |           | `                         |
-|                           |           | t_swamp                   |
-|                           |           | 87   // = swamp (smelly)` |
+|                           |           | t_swamp                 |
+|                           |           | 87   // = swamp (smelly)` |
 +---------------------------+-----------+---------------------------+
 | t_message                 | 88        | This type is used for     |
 |                           |           | bulletin board messages.  |
@@ -1530,7 +1523,7 @@ actual details\...so use with care.
 |                           |           |     gump size             |
 +---------------------------+-----------+---------------------------+
 | t_reagent_raw             | 89        | Freshly grown             |
-|                           |           | reagents\...not processed |
+|                           |           | reagents...not processed |
 |                           |           | yet. A seed can be        |
 |                           |           | created by using a dagger |
 |                           |           | on a raw reagent          |
@@ -1559,8 +1552,8 @@ actual details\...so use with care.
 +---------------------------+-----------+---------------------------+
 | t_snow                    | 91        | Snow                      |
 +---------------------------+-----------+---------------------------+
-| t_it_stone                | 92        | This type is an \"item    |
-|                           |           | stone\" that is used to   |
+| t_it_stone                | 92        | This type is an "item    |
+|                           |           | stone" that is used to   |
 |                           |           | generate items when the   |
 |                           |           | object is double clicked. |
 |                           |           | It has the following      |
@@ -1598,10 +1591,10 @@ actual details\...so use with care.
 |                           |           | script NPC actions (in    |
 |                           |           | the form of a book). The  |
 |                           |           | sphere_defs.scp file says |
-|                           |           | \"get rid of this in      |
+|                           |           | "get rid of this in      |
 |                           |           | favor of waiting on       |
-|                           |           | m_events\" but it may     |
-|                           |           | still exist\... if so, it |
+|                           |           | m_events" but it may     |
+|                           |           | still exist... if so, it |
 |                           |           | leverages the following   |
 |                           |           | properties:               |
 |                           |           |                           |
@@ -1615,7 +1608,7 @@ actual details\...so use with care.
 |                           |           |     for this script (as a |
 |                           |           |     percent, this is the  |
 |                           |           |     chance they want to   |
-|                           |           |     \"do\" this task)     |
+|                           |           |     "do" this task)     |
 +---------------------------+-----------+---------------------------+
 | t_web                     | 96        | Walk on this and          |
 |                           |           | transform into some other |
@@ -1658,17 +1651,17 @@ actual details\...so use with care.
 |                           |           |     gold in the town bank |
 |                           |           |     account               |
 +---------------------------+-----------+---------------------------+
+|                           |           | `t_weapon                 |
+|                           |           | mace_crook          102  //` \
 |                           |           | `t_weapon_                |
-|                           |           | mace_crook     102   //`\ |
-|                           |           | `t_weapon_                |
-|                           |           | mace_pick      103   //`\ |
+|                           |           | mace_pick           103  //` \
 |                           |           | `t_leat                   |
-|                           |           | her               104   / |
-|                           |           | / = leather or skins of s |
-|                           |           | ome sort.(not wearable)`\ |
-|                           |           | `t_ship_other             |
-|                           |           |             105   // = so |
-|                           |           | me other part of a ship.` |
+|                           |           | her               104  / |
+|                           |           | / = leather or skins of s |
+|                           |           | ome sort.(not wearable)` \
+|                           |           | `t_ship_other            |
+|                           |           |         105   // = so |
+|                           |           | me other part of a ship.` |
 +---------------------------+-----------+---------------------------+
 | t_bboard                  | 106       | This type is a bulleting  |
 |                           |           | board container that      |
@@ -1677,7 +1670,6 @@ actual details\...so use with care.
 |                           |           | properties:               |
 |                           |           |                           |
 |                           |           | -   TDATA2 = The gumpID   |
-|                           |           |     of the container      |
 |                           |           | -   TDATA3 = The minimum  |
 |                           |           |     gump size             |
 |                           |           | -   TDATA4 = The maximum  |
@@ -1705,7 +1697,7 @@ actual details\...so use with care.
 |                           |           | add additional spells     |
 |                           |           | (necro, etc), but         |
 |                           |           | recently these concepts   |
-|                           |           | may have been removed\... |
+|                           |           | may have been removed...  |
 |                           |           | same with these TDATA     |
 |                           |           | settings:                 |
 |                           |           |                           |
@@ -1767,23 +1759,23 @@ actual details\...so use with care.
 |                           |           | -   TAG.MAXBLOOD = Not    |
 |                           |           |     certain about this    |
 |                           |           |     one, but it is likely |
-|                           |           |     related\... perhaps   |
+|                           |           |     related... perhaps   |
 |                           |           |     it is set on the      |
 |                           |           |     CHARDEF?              |
 +---------------------------+-----------+---------------------------+
-|                           |           | `t_track_item             |
-|                           |           |           109   // - trac |
-|                           |           | k a id or type of item.`\ |
-|                           |           | `t_track_char             |
-|                           |           |    110   // = track a cha |
-|                           |           | r or range of char id's`\ |
+|                           |           | `t_track_item            |
+|                           |           |         109   // - trac |
+|                           |           | k a id or type of item.` \
+|                           |           | `t_track_char            |
+|                           |           |         110   // = track a cha |
+|                           |           | r or range of char id's` \
+|                           |           | `t_weapon                 |
+|                           |           | arrow           111  //` \
 |                           |           | `t_weapon_                |
-|                           |           | arrow          111   //`\ |
-|                           |           | `t_weapon_                |
-|                           |           | bolt           112   //`\ |
+|                           |           | bolt            112  //` \
 |                           |           | `t_eq_ven                 |
-|                           |           | dor_box         113   //  |
-|                           |           | = an equipped vendor box` |
+|                           |           | dor_box           113  // |
+|                           |           | = an equipped vendor box` |
 +---------------------------+-----------+---------------------------+
 | t_eq_bank_box             | 114       | This type is a container  |
 |                           |           | that is used for the      |
@@ -1877,32 +1869,32 @@ actual details\...so use with care.
 |                           |           |     target                |
 +---------------------------+-----------+---------------------------+
 |                           |           | `t_eq_murder_c            |
-|                           |           | ount       119   // = my  |
-|                           |           | murder count flag.  MORE1 |
-|                           |           |  contains the amount of t |
-|                           |           | ime before it expires. `\ |
+|                           |           | ount           119  // = my |
+|                           |           | murder count flag.  MORE1 |
+|                           |           | contains the amount of t |
+|                           |           | ime before it expires. ` \
 |                           |           | `t_eq_s                   |
-|                           |           | tuck              120   / |
-|                           |           | / we are stuck in a web`\ |
+|                           |           | tuck           120  // we |
+|                           |           | are stuck in a web` \
 |                           |           | `                         |
-|                           |           | t_trap_inactive         1 |
-|                           |           | 21   //  = a safe trap.`\ |
+|                           |           | t_trap_inactive         1 |
+|                           |           | 21   //  = a safe trap.` \
 |                           |           | `//t_                     |
-|                           |           | unused_122          122`\ |
-|                           |           | `t_bandage                |
-|                           |           |             123   //  = c |
-|                           |           | an be used for healing.`\ |
-|                           |           | `t_campfire               |
-|                           |           |      124   //  = this is  |
-|                           |           | a fire but a small one.`\ |
+|                           |           | unused_122          122` \
+|                           |           | `t_bandage               |
+|                           |           |         123   //  = c |
+|                           |           | an be used for healing.` \
+|                           |           | `t_campfire             |
+|                           |           |         124   //  = this is |
+|                           |           | a fire but a small one.` \
 |                           |           | `t_ma                     |
-|                           |           | p_blank             125`\ |
+|                           |           | p_blank             125` \
 |                           |           | `t_sp                     |
-|                           |           | y_glass             126`\ |
+|                           |           | y_glass             126` \
 |                           |           | `t_se                     |
-|                           |           | xtant               127`\ |
-|                           |           | `t_s                      |
-|                           |           | croll_blank          128` |
+|                           |           | xtant               127` \
+|                           |           | `t_s                      | 
+|                           |           | croll_blank         128` |
 +---------------------------+-----------+---------------------------+
 | t_fruit                   | 129       | This type is used for     |
 |                           |           | fruit. When double        |
@@ -1920,24 +1912,24 @@ actual details\...so use with care.
 |                           |           |     use zero to be        |
 |                           |           |     certain)              |
 |                           |           | -   MOREM = Is the amount |
-|                           |           |     (0 to 127) of \"food  |
-|                           |           |     units\" that will be  |
+|                           |           |     (0 to 127) of "food  |
+|                           |           |     units" that will be  |
 |                           |           |     gained when the item  |
 |                           |           |     is used (eaten)       |
 |                           |           | -   MOREZ = Is the poison |
 |                           |           |     level of the fruit    |
 +---------------------------+-----------+---------------------------+
-|                           |           | `t_water_wash             |
-|                           |           |         130   // water th |
-|                           |           | at will not contain fish. |
-|                           |           |  (for washing or drinking |
-|                           |           | )  TDATA1 is a flag that  |
-|                           |           | indicates whether the con |
-|                           |           | tainer is empty or not `\ |
+|                           |           | `t_water_wash            |
+|                           |           |         130   // water th |
+|                           |           | at will not contain fish. |
+|                           |           |  (for washing or drinking |
+|                           |           | )  TDATA1 is a flag that |
+|                           |           | indicates whether the con |
+|                           |           | tainer is empty or not ` \
 |                           |           | `t_weapon_axe             |
-|                           |           |             131   // not  |
-|                           |           | the same as a sword. but  |
-|                           |           | uses swordsmanship skill` |
+|                           |           |         131   // not  |
+|                           |           | the same as a sword. but |
+|                           |           | uses swordsmanship skill` |
 +---------------------------+-----------+---------------------------+
 | t_weapon_xbow             | 132       | This type is used for     |
 |                           |           | crossbow weapons. It is   |
@@ -1945,15 +1937,15 @@ actual details\...so use with care.
 |                           |           | t_weapon_bow.             |
 +---------------------------+-----------+---------------------------+
 |                           |           | `t_sp                     |
-|                           |           | ellicon             133`\ |
+|                           |           | ellicon             133` \
 |                           |           | `t_do                     |
-|                           |           | or_open             134`\ |
+|                           |           | or_open             134` \
 |                           |           | `t_meat                   |
-|                           |           | _raw              135   / |
-|                           |           | / just a meaty part of a  |
-|                           |           | corpse. (uncooked meat)`\ |
+|                           |           | _raw           135   / |
+|                           |           | / just a meaty part of a |
+|                           |           | corpse. (uncooked meat)` \
 |                           |           | `t_g                      |
-|                           |           | arbage               136` |
+|                           |           | arbage               136` |
 +---------------------------+-----------+---------------------------+
 | t_keyring                 | 137       | This type is a container  |
 |                           |           | used to store keys. It    |
@@ -1966,7 +1958,7 @@ actual details\...so use with care.
 |                           |           | -   TDATA4 = The maximum  |
 |                           |           |     gump size             |
 +---------------------------+-----------+---------------------------+
-| t_table                   | 138       | doesn\'t really do        |
+| t_table                   | 138       | doesn't really do        |
 |                           |           | anything.                 |
 +---------------------------+-----------+---------------------------+
 | t_floor                   | 139       |                           |
@@ -1976,6 +1968,14 @@ actual details\...so use with care.
 | t_feather                 | 141       | a birds feather           |
 +---------------------------+-----------+---------------------------+
 | t_wool                    | 142       | wool cut from a sheep.    |
+|                           |           |                           |
+|                           |           | -   TDATA1 = The skill    |
+|                           |           |     required to smelt     |
+|                           |           |     this                  |
+|                           |           | -   TDATA2 = The skill    |
+|                           |           |     required to get the   |
+|                           |           |     maximum yield when    |
+|                           |           |     smelting              |
 +---------------------------+-----------+---------------------------+
 | t_fur                     | 143       |                           |
 +---------------------------+-----------+---------------------------+
@@ -1998,8 +1998,12 @@ actual details\...so use with care.
 |                           |           |     server defined        |
 |                           |           |     number)               |
 |                           |           | -   TDATA1 = Is the ID of |
-|                           |           |     the first stage of    |
-|                           |           |     the crop (the sprout) |
+|                           |           |     t_crop item that this |
+|                           |           |     fruit comes from (If  |
+|                           |           |     not set, this fruit   |
+|                           |           |     may not have a seed,  |
+|                           |           |     use zero to be        |
+|                           |           |     certain)              |
 |                           |           | -   TDATA2 = Is the ID of |
 |                           |           |     the next stage of the |
 |                           |           |     crop (or zero if this |
@@ -2020,34 +2024,34 @@ actual details\...so use with care.
 |                           |           | reaches zero.             |
 +---------------------------+-----------+---------------------------+
 |                           |           | `t_gr                     |
-|                           |           | ain                 146`\ |
+|                           |           | ain               146` \
 |                           |           | `t_sc                     |
-|                           |           | issors              147`\ |
+|                           |           | issors              147` \
 |                           |           | `t_th                     |
-|                           |           | read                148`\ |
+|                           |           | read              148` \
 |                           |           | `t_ya                     |
-|                           |           | rn                  149`\ |
+|                           |           | rn              149` \
 |                           |           | `t_sp                     |
-|                           |           | inwheel             150`\ |
+|                           |           | inwheel             150` \
 |                           |           | `t_bandage_bloo           |
-|                           |           | d         151   //  = can |
-|                           |           | 't be used for healing.`\ |
+|                           |           | d           151   //  = can |
+|                           |           | 't be used for healing.` \
 |                           |           | `t_fi                     |
-|                           |           | sh_pole             152`\ |
-|                           |           | `t_shaft                  |
-|                           |           | 153   // bolt or arrow.`\ |
+|                           |           | sh_pole             152` \
+|                           |           | `t_shaft                 |
+|                           |           |         153   // bolt or arrow.` \
 |                           |           | `t_lo                     |
-|                           |           | ckpick              154`\ |
+|                           |           | ckpick              154` \
 |                           |           | `t_ki                     |
-|                           |           | ndling              155`\ |
+|                           |           | ndling              155` \
 |                           |           | `t_tr                     |
-|                           |           | ain_dummy           156`\ |
+|                           |           | ain_dummy           156` \
 |                           |           | `t_tr                     |
-|                           |           | ain_pickpocket      157`\ |
+|                           |           | ain_pickpocket      157` \
 |                           |           | `t_be                     |
-|                           |           | droll               158`\ |
+|                           |           | droll               158` \
 |                           |           | `t_b                      |
-|                           |           | ellows               159` |
+|                           |           | ellows              159` |
 +---------------------------+-----------+---------------------------+
 | t_hide                    | 160       | Made into leather.        |
 |                           |           |                           |
@@ -2091,7 +2095,7 @@ actual details\...so use with care.
 +---------------------------+-----------+---------------------------+
 | t_sewing_kit              | 170       | Tailoring sewing kit.     |
 +---------------------------+-----------+---------------------------+
-| t_tinker_tools            | 171       | Tinker\'s tools.          |
+| t_tinker_tools            | 171       | Tinker's tools.          |
 +---------------------------+-----------+---------------------------+
 | t_wall                    | 172       | Wall of a structure.      |
 +---------------------------+-----------+---------------------------+
@@ -2107,7 +2111,7 @@ actual details\...so use with care.
 |                           |           | and can be equipped.      |
 |                           |           | Possibly used for memory  |
 |                           |           | objects that leverage     |
-|                           |           | \@Equip and \@UnEquip     |
+|                           |           | @Equip and @UnEquip     |
 |                           |           | triggers.                 |
 +---------------------------+-----------+---------------------------+
 | t_ship_hold               | 177       | A ships hold.             |
@@ -2127,7 +2131,7 @@ actual details\...so use with care.
 |                           |           |     unlock. (conflict     |
 |                           |           |     with door ?)          |
 +---------------------------+-----------+---------------------------+
-| t_ship_hold_lock          | 178       | A locked ship\'s hold.    |
+| t_ship_hold_lock          | 178       | A locked ship's hold.     |
 |                           |           |                           |
 |                           |           | -   MORE1 = the lock      |
 |                           |           |     code. normally this   |
@@ -2239,23 +2243,23 @@ actual details\...so use with care.
 ## Scripted TYPEDEFs {#scripted_typedefs}
 
   DEFNAME          File                                                Description
-  ---------------- --------------------------------------------------- -------------
+  ---------------- ---------------------------------------------------
   t_advance_gate   ??.scp \|\| MORE = ID of character to change into   
 
 ## Syntax
 
 The syntax for defining a type is:
 
-`[TYPEDEF `*`defname`*`]`\
-`TERRAIN=`*`id`*\
-`TERRAIN=`*`start_id`*`, `*`end_id`*\
-\
-`ON=`*`trigger_name`*\
-`    `*`script`*\
-\
-`ON=`*`trigger_name`*\
-`    `*`script`*\
-\
+`[TYPEDEF `*`defname`*`]`
+`TERRAIN=`*`id`*`
+`TERRAIN=`*`start_id`*`, `*`end_id`*`
+
+`ON=`*`trigger_name`*`
+`    `*`script`*
+
+`ON=`*`trigger_name`*`
+`    `*`script`*
+
 
 Any number of triggers can be handled by one
 [TYPEDEF](./TYPEDEF.md) definition, however it is not possible to
@@ -2263,26 +2267,26 @@ handle the same trigger twice without using multiple definitions.
 
 The trigger name can be the name of any [item
 trigger](./ItemsTriggers.md). The return value from the script
-can affect Sphere\'s hardcoded behaviour in different ways. See the
+can affect Sphere's hardcoded behaviour in different ways. See the
 documentation for the trigger to discover what parameters are passed in
 to each trigger and what the return values do.
 
-**Note:** If the *defname* matches any of Sphere\'s hardcoded types (see
-\'typedefs\' block in sphere_defs.scp), then the
+**Note:** If the *defname* matches any of Sphere's hardcoded types (see
+'typedefs' block in sphere_defs.scp), then the
 [TYPEDEF](./TYPEDEF.md) can be used to override the behaviours of
 items of that type.
 
 ## Examples
 
 `<spherescript>`{=html} // // Water definition from default script pack.
-// \[TYPEDEF t_water\] TERRAIN = 0a8 0ab TERRAIN = 0136 0137
+// [TYPEDEF t_water] TERRAIN = 0a8 0ab TERRAIN = 0136 0137
 `</spherescript>`{=html}
 
 `<spherescript>`{=html} // // Makes an item speak when double clicked.
-// \[TYPEDEF t_exampletype\] ON=@DClick
+// [TYPEDEF t_exampletype] ON=@DClick
 
-` SAY I have been double clicked!`\
-` RETURN 2`
+` SAY I have been double clicked!`
+` RETURN 2`
 
 `</spherescript>`{=html}
 

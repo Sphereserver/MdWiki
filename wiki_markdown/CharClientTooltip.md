@@ -1,8 +1,7 @@
 ## Description
 
 This trigger fires when a client requests tooltips for another
-character. the [ADDCLILOC](./ADDCLILOC.md) function can be called
-on the [I](./I.md) object to send custom tooltips to the client.
+character. Due to recent changes, tooltips are now cached on the character. This means the [ADDCLILOC](./ADDCLILOC.md) function needs to be called directly on the character (e.g., using `ACT.ADDCLILOC`), rather than on the player.
 
 Fires on:
 
@@ -23,9 +22,9 @@ trigger:
 ## Arguments
 
 The following arguments are set for this trigger. If an argument is
-marked as \"In\" then a value will be passed in to the trigger, if an
-argument is marked as \"Out\" then it can be set to a value to affect
-Sphere\'s behaviour:
+marked as "In" then a value will be passed in to the trigger, if an
+argument is marked as "Out" then it can be set to a value to affect
+Sphere's behaviour:
 
 *No arguments are set for this trigger.*
 

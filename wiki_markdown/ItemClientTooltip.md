@@ -1,8 +1,7 @@
 ## Description
 
 This trigger fires when tooltips for an item are about to be sent to a
-client. the [ADDCLILOC](./ADDCLILOC.md) function can be called on
-the [I](./I.md) object to send custom tooltips to the client.
+client. Due to recent changes, tooltips are now cached on the item. This means the [ADDCLILOC](./ADDCLILOC.md) function needs to be called directly on the item (e.g., using `ACT.ADDCLILOC`), rather than on the player.
 
 Fires on:
 

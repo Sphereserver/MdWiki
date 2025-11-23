@@ -44,3 +44,6 @@ The following return values are explicitly defined for this trigger:
 [Category: Reference
 Compendium](./_Reference_Compendium.md) [Category:
 Triggers](./_Triggers.md)
+
+## Notes
+- Vendors can now re-sell items previously bought from players.

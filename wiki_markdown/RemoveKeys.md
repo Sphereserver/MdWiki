@@ -1,0 +1,1 @@
+Removes all the keys linked to a house for the character with the given UID. Passing `-1` clears the whole list of keys.

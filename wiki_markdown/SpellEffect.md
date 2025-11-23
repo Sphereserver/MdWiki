@@ -113,6 +113,7 @@ The following return values are explicitly defined for this trigger:
 
 **Note:** For the recall and gate travel spells, returning 0 prevents
 the spell from proceeding and returning 1 has no effect.
+**Note:** Spells with the `LAYER` property set to `>= LAYER_SPELL_STATS` will automatically equip the spell memory item found in the `RUNE_ITEM` property.
 
 [Category: Reference
 Compendium](./_Reference_Compendium.md) [Category:

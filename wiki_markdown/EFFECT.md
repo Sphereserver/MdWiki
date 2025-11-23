@@ -21,7 +21,13 @@ means the item will always move from SRC to it\'s target.) That means
 any reference you put in front of EFFECT (for example: OBJ.EFFECT,
 REF1.EFFECT, TARG.EFFECT, ec\...) is ignored. To force a type 0
 animation to go *to* the SRC, you need to use TRYSRC (which lets you
-alter SRC temporarily) to reverse the direction.
+alter SRC temporarily) to reverse the direction. You can also use
+[EFFECTLOCATION](./EFFECTLOCATION.md) to target a specific terrain
+location instead of an object.
+
+## Notes
+- For Enhanced Client, the duration of the effect is multiplied by 3 to compensate for the shorter effect display time compared to the Classic Client.
+
 
 # Effect Types {#effect_types}
 
@@ -59,71 +65,10 @@ alter SRC temporarily) to reverse the direction.
 |                   |                       | somewhere around the  |
 |                   |                       | character\'s knees.   |
 +-------------------+-----------------------+-----------------------+
-| 4                 | Flash effect          | (New 6+ (needs        |
-|                   |                       | verification))        |
-|                   |                       | Clients Only)         |
-|                   |                       | Provides a            |
-|                   |                       | screen-wide effect.   |
-|                   |                       | All other parameters  |
-|                   |                       | besides Item Id is    |
-|                   |                       | ignored. Item Id      |
-|                   |                       | controls the flash    |
-|                   |                       | type:                 |
-|                   |                       |                       |
-|                   |                       |   -------------       |
-|                   |                       |  -------------------- |
-|                   |                       | ------------- ------- |
-|                   |                       | --------------------- |
-|                   |                       | --------------------- |
-|                   |                       | --------------------- |
-|                   |                       | --------------------- |
-|                   |                       | --------------------- |
-|                   |                       |                       |
-|                   |                       | **Item Id**   **Effec |
-|                   |                       | t**                   |
-|                   |                       |       **Description** |
-|                   |                       |   0                   |
-|                   |                       |    Fade to Black (Slo |
-|                   |                       | w)              Fades |
-|                   |                       |  the screen to black  |
-|                   |                       | before returning to n |
-|                   |                       | ormal similar to the  |
-|                   |                       | death effect found on |
-|                   |                       |  some client versions |
-|                   |                       |   1             F     |
-|                   |                       | ade to White (Slow)   |
-|                   |                       |             Fades the |
-|                   |                       |  screen slowly to com |
-|                   |                       | plete white followed  |
-|                   |                       | by a return to normal |
-|                   |                       |   2                   |
-|                   |                       |           Fade to whi |
-|                   |                       | te (Fast)             |
-|                   |                       |   Fades the screen qu |
-|                   |                       | ickly to complete whi |
-|                   |                       | te followed by a retu |
-|                   |                       | rn to normal (lightni |
-|                   |                       | ng flash type effect) |
-|                   |                       |   3                   |
-|                   |                       |         Fade to White |
-|                   |                       |  then Black (Slow)    |
-|                   |                       | Fades to complete whi |
-|                   |                       | te then to black. Beh |
-|                   |                       | aves as if effect 1 i |
-|                   |                       | s played immediately  |
-|                   |                       | followed by effect 0. |
-|                   |                       |   4             Fa    |
-|                   |                       | de to Black (Fast)    |
-|                   |                       |            Fades the  |
-|                   |                       | screen quickly to com |
-|                   |                       | plete black followed  |
-|                   |                       | by a return to normal |
-|                   |                       |   -------------       |
-|                   |                       |  -------------------- |
-|                   |                       | ------------- ------- |
-|                   |                       | --------------------- |
-|                   |                       | --------------------- |
-|                   |                       | --------------------- |
-|                   |                       | --------------------- |
-|                   |                       | --------------------- |
+| 4                 | Flash effect          | Provides a screen-wide effect. Can be used only directly on client chars and requires client >= 6x. All other parameters besides Item Id are ignored. Item Id controls the flash type:
+|                   |                       |   -   `0`: Fade to Black (Slow)
+|                   |                       |   -   `1`: Fade to White (Slow)
+|                   |                       |   -   `2`: Fade to White (Fast)
+|                   |                       |   -   `3`: Fade to White then Black (Slow)
+|                   |                       |   -   `4`: Fade to Black (Fast)
 +-------------------+-----------------------+-----------------------+

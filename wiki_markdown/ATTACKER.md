@@ -37,6 +37,9 @@ go [Examples](./Examples.md).
 The following examples are about
 [attacker](./Properties_and_Functions.md).
 
+## Notes
+- `MEMORY_WAR_TARG` is no longer used for handling targets; instead, targets are now managed by the `Attacker` system.
+
 **ATTACKER**
 
 ------------------------------------------------------------------------

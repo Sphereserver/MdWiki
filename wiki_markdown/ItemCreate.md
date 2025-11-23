@@ -35,6 +35,9 @@ The following return values are explicitly defined for this trigger:
 
 *No return values are handled for this trigger.*
 
+## Notes
+- The ID of an item can now be overridden after its creation by a random template (which must return a non-container type item).
+
 [Category: Reference
 Compendium](./_Reference_Compendium.md) [Category:
 Triggers](./_Triggers.md)

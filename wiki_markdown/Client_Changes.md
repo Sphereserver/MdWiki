@@ -156,7 +156,10 @@ version 6.0.6.2. Notes after the jump:
 
 -   Fixed several areas where players might get stuck
 -   Fixed a client crash
--   Removed the \"2d/3d\" client picker
+- Removed the \"2d/3d\" client picker
+
+## Notes
+- On the Enhanced Client (blue UI), a fix was implemented for the missing vendor paperdoll in the buy gump.
 
 ## KR Client Updates {#kr_client_updates}
 

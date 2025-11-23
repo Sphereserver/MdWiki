@@ -1,7 +1,7 @@
 ## Description
 
 This trigger fires when a client attempts to access the virtue dialog
-for a character, or double clicks a virtue icon on the dialog.
+for a character, or double clicks a virtue icon on the dialog. It also fires when a player presses a 'virtue' slot on the KR toolbar.
 
 Fires on:
 

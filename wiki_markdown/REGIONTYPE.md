@@ -1,4 +1,4 @@
-\_\_FORCETOC\_\_ A REGIONTYPE definition contains a set of trigger
+__FORCETOC__ A REGIONTYPE definition contains a set of trigger
 scripts which can be attached to [regions](./Regions.md). A region
 type can also define which resources can be found inside the region.
 There are different properties that can be used to attach an region type
@@ -33,7 +33,7 @@ definitions.
 
 The trigger name can be the name of any [region
 trigger](./RegionsTriggers.md). The return value from the script
-can affect Sphere\'s hardcoded behaviour in different ways. See the
+can affect Sphere's hardcoded behaviour in different ways. See the
 documentation for the trigger to discover what parameters are passed in
 to each trigger and what the return values do.
 
@@ -57,7 +57,7 @@ The following properties are available when defining a region type:
   **Name**                                                        **Read/Write**   **Description**
   [CALCMEMBERINDEX](./CALCMEMBERINDEX.md)                   R                Selects a resource from the region type at random, and returns its zero-based index.
   [CALCMEMBERINDEX](./CALCMEMBERINDEX.md) *character_uid*   R                Selects a resource from the region type at random based on the resource available to the specified character, and returns its zero-based index.
-  [DEFNAME](./DEFNAME.md)                                   W                Sets the region type\'s defname.
+  [DEFNAME](./DEFNAME.md)                                   W                Sets the region type's defname.
   [RESOURCES](./RESOURCES.md) *weight* *resource_defname*   W                Adds a region resource to the region type. Accepts a comma-separated list of resources.
   [RESOURCES](./RESOURCES.md)                               R                Gets a list of resources attached to the region type.
   [RESOURCES](./RESOURCES.md).COUNT                         R                Gets the number of different resources attached to the region type.
@@ -69,7 +69,7 @@ The following properties are available when defining a region type:
 ## Examples
 
 `<spherescript>`{=html} // // Default region type from default script
-pack. // \[REGIONTYPE r_default\] ON=@Enter
+pack. // [REGIONTYPE r_default] ON=@Enter
 
 `   SRC.MUSIC = midi_britain1,midi_ForestA,midi_JungleA,midi_MountainA,midi_Plains,midi_Victory`
 
@@ -80,7 +80,7 @@ ON=@CliPeriodic
 `</spherescript>`{=html}
 
 `<spherescript>`{=html} // // Default rock resources from default script
-pack. // \[REGIONTYPE r_default_rock t_rock\] // Random rocks
+pack. // [REGIONTYPE r_default_rock t_rock] // Random rocks
 RESOURCES=420.0 mr_iron RESOURCES=8.5 mr_copper RESOURCES=8.0 mr_bronze
 RESOURCES=7.5 mr_stagmite RESOURCES=7.0 mr_arcanium RESOURCES=6.5
 mr_gold RESOURCES=6.0 mr_shadow RESOURCES=5.5 mr_phoenix RESOURCES=5.0
@@ -99,6 +99,9 @@ mr_vulcan RESOURCES=0.1 mr_titanium RESOURCES=0.1 mr_dragon
 RESOURCES=0.1 mr_bloodsteel RESOURCES=0.1 mr_sacratus RESOURCES=0.1
 mr_blackrock RESOURCES=0.1 mr_lothlorien RESOURCES=0.1 mr_diamond
 `</spherescript>`{=html}
+
+## Notes
+- The REGIONTYPE section can now accept landtile types with index up to 65534, extended from a previous limit of 255. This also extends the maximum number of pages in a book by the same amount.
 
 [Category: Reference
 Compendium](./_Reference_Compendium.md) [Category:

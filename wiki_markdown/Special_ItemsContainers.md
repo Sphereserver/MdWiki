@@ -323,6 +323,12 @@ Container items (backpacks, bankboxes, bags, etc) can be used to hold
 other items. These items have the [TYPE](./TYPE.md) of
 t_container.
 
+## Notes
+- For items with TYPE `t_container`, `TDATA3` and `TDATA4` can be used to define the minimum and maximum X/Y coordinates for objects placed inside:
+    - `TDATA3` stores the minimum X (first 16 bits) and minimum Y (last 16 bits).
+    - `TDATA4` stores the maximum X (first 16 bits) and maximum Y (last 16 bits).
+    This functionality was fixed to work correctly.
+
 ### References
 
 References return pointers to other objects (e.g. the REGION reference

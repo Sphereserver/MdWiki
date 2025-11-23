@@ -1,11 +1,11 @@
 ## Description
 
 This trigger fires when a character calls for the guards to attack a
-criminal.
+criminal. The delay between guard calls has been increased to 2.5 seconds to prevent excessive spamming.
 
 Fires on:
 
--   [Characters](./Characters.md)
+- [Characters](./Characters.md)
 
 ## References
 

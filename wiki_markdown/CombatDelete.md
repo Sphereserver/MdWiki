@@ -39,7 +39,7 @@ Sphere\'s behaviour:
 |              |            | default uncategorized actions\...)   0 |
 |              |            |   Max fight time has reach             |
 |              |            | ed (Elapsed)                         1 |
-|              |            |   Distance/LOS                         |
+|              |            |   Distance/LOS (When an NPC's target is too far, this trigger is called with ARGN2=2)                         |
 |              |            |                                      2 |
 |              |            |   The character is no long             |
 |              |            | er existing                          3 |
@@ -65,3 +65,8 @@ Compendium](./_Reference_Compendium.md) [Category:
 Triggers](./_Triggers.md) [Category:
 Characters](./_Characters.md) [Category:
 Combat](./_Combat.md)
+
+---
+**AUTO-UPDATE:** From 15-05-2016 by XuN:
+
+- Fixed: NPCs not ending combat when their target is far away from them and calling Attacker_Delete() @wiki_markdown/CombatDelete.md with argn=2 (Distance) to give control over it.

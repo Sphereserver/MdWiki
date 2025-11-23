@@ -1,0 +1,1 @@
+Works on `t_door` and `t_door_locked` items, ignoring default key checks.

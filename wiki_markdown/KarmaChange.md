@@ -42,3 +42,6 @@ The following return values are explicitly defined for this trigger:
 [Category: Reference
 Compendium](./_Reference_Compendium.md) [Category:
 Triggers](./_Triggers.md)
+
+## Notes
+- This trigger can be used to control karma gain from pets, including killing pets and/or bonded pets.

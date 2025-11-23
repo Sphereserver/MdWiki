@@ -78,6 +78,12 @@ regenerating, or limit it lower.</p></td>
 
 ## Aditional Notes
 
+Stat regens checks now work on a tenth-second basis instead of a second basis.
+
+Mounted characters now receive stat regens. To prevent this, add an event with `ON=@RegenStat return 1` when mounting them.
+
+`RegenHitsD`, `RegenManaD`, `RegenStamD`, and `RegenFoodD` are new properties that accept values in tenths of seconds.
+
 local.Value: It can be set to negative values, 0 will stop any default
 action like return 1. By default its set to RegenValStatID (ie:
 RegenValHits)

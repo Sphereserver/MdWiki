@@ -34,7 +34,10 @@ The following return values are explicitly defined for this trigger:
 |                  |                                        |
 |------------------|----------------------------------------|
 | **Return Value** | **Description**                        |
-| 1                | Prevents the item from being equipped. |
+| 1                | Prevents the item from being equipped. For NPCs, if this trigger returns 1, the item is automatically bounced into their pack. |
+
+## Notes
+- This trigger is now only called when attempting to equip equippable items.
 
 [Category: Reference
 Compendium](./_Reference_Compendium.md) [Category:

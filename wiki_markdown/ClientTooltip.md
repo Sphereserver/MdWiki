@@ -1,13 +1,12 @@
 ## Description
 
-This trigger fires when tooltips are about to be sent to a client. the
-[ADDCLILOC](./ADDCLILOC.md) function can be called on the
-[SRC](./SRC.md) object to send custom tooltips to the client.
+This trigger fires when tooltips are about to be sent to a client. Due to recent changes, tooltips are now cached on the character or item. This means the
+[ADDCLILOC](./ADDCLILOC.md) function needs to be called directly on the object (e.g., using `ADDCLILOC`), rather than on the player.
 
 Fires on:
 
--   [Characters](./Characters.md)
--   [Items](./Items.md)
+- [Characters](./Characters.md)
+- [Items](./Items.md)
 
 ## References
 
@@ -38,8 +37,12 @@ The following return values are explicitly defined for this trigger:
   1                  Prevents Sphere from sending its own tooltips.
   ------------------ ------------------------------------------------
 
+## Notes
+- `@ClientTooltip` now correctly receives ARGS in all circumstances.
+
 [Category: Reference
 Compendium](./_Reference_Compendium.md) [Category:
 Triggers](./_Triggers.md) [Category:
 Characters](./_Characters.md) [Category:
 Items](./_Items.md)
+

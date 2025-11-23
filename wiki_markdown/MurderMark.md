@@ -30,6 +30,7 @@ Sphere's behaviour:
 | **Argument** | **In/Out** | **Description** |
 | ARGN1 | IO | The new murder count that will be set. |
 | ARGN2 | IO | If non-zero, the character will be flagged as a criminal. |
+| ARGN3 | I | If set to 1 (or anything but zero), it will skip murder count and criminal flag. |
 
 ## Return Values
 

@@ -1,0 +1,1 @@
+Saves the database object's (LDB or MDB) database to a file.

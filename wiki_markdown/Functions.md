@@ -32,6 +32,7 @@ on will be accessed instead.
 | [RETURN](./RETURN.md) *value* | W | Exits the function, passing *value* back to whatever called it (if the function was used as *\<FUNCTION\>*. *value* can be either a string or numeric value. |
 | [TRY](./TRY.md) *command* | W | Executes *command*. |
 | [TRYSRV](./TRYSRV.md) *command* | W | Executes *command*, with the [SERV](./Servers.md) object as SRC. |
+| [f_get_region_flags](./f_get_region_flags.md) *x,y,z* | R | Returns the region flags from a given point. |
 
 [Category: Reference
 Compendium](./_Reference_Compendium.md) [Category:

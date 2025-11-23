@@ -1,46 +1,29 @@
 ## Description
 
-This trigger fires when a character pays to train, buy something, or
-hire them.
+This method allows control over payment values using a dedicated trigger.
 
-Fires on:
+## Ficha
 
-- [Characters](./Characters.md)
+|              |               |
+|--------------|---------------|
+| **Method**   | **PayGold()** |
+| **Type**     | Character     |
+| **Access**   | Write         |
+| **Sphere X** | Yes           |
 
-## References
+## Syntax
 
-The following object references are explicitly available for this
-trigger:
+`[char].PayGold()`
 
-|  |  |
-|----|----|
-| **Name** | **Description** |
-| [I](./I.md) | The [character](./Characters.md) paying for the service. |
-| [SRC](./SRC.md) | The [character](./Characters.md) receiving the gold.. |
-| [ARGO](./ARGO.md) | The stack of gold used to pay (if any) (ie training). |
+## Trigger
 
-## Arguments
+The `ON=@PayGold` trigger fires when this method is called.
 
-The following arguments are set for this trigger. If an argument is
-marked as "In" then a value will be passed in to the trigger, if an
-argument is marked as "Out" then it can be set to a value to affect
-Sphere's behaviour:
+### Arguments for `@PayGold`
 
-|  |  |  |
-|----|----|----|
-| **Argument** | **In/Out** | **Description** |
-| ARGN1 | IO | Gold to pay. |
-| ARGN2 | IO | Payment type ( 0 = training, 1 = buying something, 2 = hiring the NPC) |
+- `Argn1`: Gold to pay.
+- `Argn2`: Payment type (0 = Train, 1 = Buy, 2 = Hire).
+- `src`: The NPC receiving the money.
+- `argo` (if any): The stack of gold used to pay (e.g., for training).
 
-## Return Values
-
-The following return values are explicitly defined for this trigger:
-
-|                  |                                   |
-|------------------|-----------------------------------|
-| **Return Value** | **Description**                   |
-| 1                | Stops the payment from occurring. |
-
-[Category: Reference
-Compendium](./_Reference_Compendium.md) [Category:
-Triggers](./_Triggers.md)
+[Category: Reference Compendium](./CategoryReference_Compendium.md) [Category: Functions](./CategoryFunctions.md)

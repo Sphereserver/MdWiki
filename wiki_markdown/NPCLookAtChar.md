@@ -36,6 +36,10 @@ The following return values are explicitly defined for this trigger:
 | 0 | Prevents the NPC from seeing the character, allows it to look at other characters. |
 | 1 | Prevents the NPC from seeing the character, does not allow it to look at other characters. |
 
+## Notes
+- This trigger now fires more frequently due to NPCs performing AI checks ("look around") while wandering.
+- NPCs can now play different sounds depending on their AI choices when looking around.
+
 [Category: Reference
 Compendium](./_Reference_Compendium.md) [Category:
 Triggers](./_Triggers.md) [Category:

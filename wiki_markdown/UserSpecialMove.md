@@ -1,6 +1,6 @@
 ## Description
 
-This trigger fires when a player attempts to use a special move.
+This trigger fires when a player attempts to use a special move. It also fires when a player presses a 'combat ability' slot on the KR toolbar.
 
 Fires on:
 

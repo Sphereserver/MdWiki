@@ -23,7 +23,13 @@ for more detailed information such as usage and examples.
   [FINDTYPE](./FINDTYPE.md)*.type*                       R                Gets the first [item](./Items.md) found equipped to the character or inside their backpack, with the matching [TYPE](./TYPE.md).       
   [MEMORYFINDTYPE](./MEMORYFINDTYPE.md)*.memory_flags*   R                Gets a [memory item](./Items.md) with the specified flags.                                                                                   
   [MEMORYFIND](./MEMORYFIND.md).*object_uid*             R                Gets a [memory item](./Items.md) that is linked to the given object.                                                                         
-  [OWNER](./OWNER.md)                                    R                Gets the character that owns this character. (RW in SphereServer-X Build)                                                                          
+  [OWNER](./Owner.md)                                    R                Gets the character that owns this character. (RW in SphereServer-X Build)                                                                          
+  [COOWNER.x](./Coowners.md)                             R                Gets the Coowner in the Xth position.
+  [FRIEND.x](./Friends.md)                               R                Gets the Friend in the Xth position.
+  [BAN.x](./Bans.md)                                     R                Gets the Banned character in the Xth position.
+  [LOCKDOWN.x](./Lockdowns.md)                           R                Gets the locked down item in the Xth position.
+  [VENDOR.x](./Vendors.md)                               R                Gets the vendor in the Xth position.
+  [COMPONENT.x](./Comps.md)                         R                Gets the comp in the Xth position.
   [SPAWNITEM](./SPAWNITEM.md)                            R                Gets the [spawn item](./Items.md) (t_spawn_char) that this character originated from.                                                        
   [WEAPON](./WEAPON.md)                                  R                Gets the [weapon](./Items.md) that the character currently has equipped.                                                                     
   [P](./P.md)                                            RW               Gets or sets the [position](./Map_Points.md) that the character is at.                                                                       
@@ -1752,6 +1758,9 @@ _RE.md) |                | character\'s   |                |
 | [Z]            | R              | Gets the Z     |                |
 | (Z "wikilink") |                | position of    |                |
 |                |                | the character. |                |
+| [ISLEEPING](./SECTOR.md) | R          | Returns 1 if the char is sleeping, 0 otherwise. | X |
+| [SLEEP](./SECTOR.md) | W          | Puts the char to sleep. | X |
+| [AWAKE](./SECTOR.md) | W          | Wakes the char up.      | X |
 +----------------+----------------+----------------+----------------+
 
 ## Triggers
@@ -1993,7 +2002,8 @@ usage and examples.
   [SELL](./SELL.md)                                  W                Displays the shop window to SRC, in sell mode.                                                                  
   [SHRINK](./SHRINK.md)                              W                Shrinks the NPC into a figurine item.                                                                           
   [SPEECH](./SPEECH.md) *+/-speech_id*               RW               Gets the list of speech handlers attached to the NPC, or adds or removes a speech handler to or from the NPC.   
-  [SPEECHCOLOR](./SPEECHCOLOR.md)                    RW               Gets or sets the colour of the NPC\'s speech.                                                                   
+| [SPEECHCOLOR](./SPEECHCOLOR.md)                    | RW             | For NPCs, gets or sets the colour of their speech. For players, it is read-only and contains the last speech hue sent by the client. This can be overridden by SPEECHCOLOROVERRIDE. |                |
+| [SPEECHCOLOROVERRIDE](./SPEECHCOLOROVERRIDE.md) | RW             | Overrides the speech color for both NPCs and players.                                                          | X              |                                                                   
   [THROWDAM](./THROWDAM.md) *min,max*                RW               Gets or sets a range of damage used for thrown objects. (overrides chardef property)                            
   [THROWDAM](./THROWDAM.md) *dam*                    RW               Gets or sets the constant damage used for thrown objects. (overrides chardef property)                          
   [THROWDAMTYPE](./THROWDAMTYPE.md) *damage flags*   RW               y                                                                                                               Gets or sets the damage flags used for thrown objects. (overrides chardef property)

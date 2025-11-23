@@ -5,6 +5,7 @@ This trigger fires when a character exits a region.
 Fires on:
 
 - [Characters](./Characters.md)
+- [Ships](./Ship.md)
 
 ## References
 

@@ -36,7 +36,7 @@ The following return values are explicitly defined for this trigger:
 |  |  |
 |----|----|
 | **Return Value** | **Description** |
-| 1 | Prevents the item from being dropped on to the item. If no CONT is set, item will drop on ground |
+| 1 | Prevents the item from being dropped on to the item. If a new (different) CONT has not been set via scripts on the trigger call, the item drop event fails, otherwise the item is left in the new CONT. |
 
 [Category: Reference
 Compendium](./_Reference_Compendium.md) [Category:

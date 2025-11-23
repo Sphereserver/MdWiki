@@ -31,7 +31,8 @@ Sphere's behaviour:
 |  |  |  |
 |----|----|----|
 | **Argument** | **In/Out** | **Description** |
-| ARGN1 | IO | The time, in tenths of a second, until the swing will complete. |
+| ARGN1 | IO | The time, in tenths of a second, until the swing will complete. Now represents the recoil time. |
+| LOCAL.AnimDelay | IO | The duration of the combat swing animation, in tenths of a second (default 1 second). |
 
 ## Return Values
 

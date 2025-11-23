@@ -26,3 +26,10 @@ usage and examples.
 [Category: Reference
 Compendium](./_Reference_Compendium.md) [Category:
 Objects](./_Objects.md)
+
+## GM Commands
+
+[Category: Reference Compendium](./CategoryReference_Compendium.md) [Category: GM](./CategoryGM.md)
+
+## Notes
+- Food level will not decrease on GM characters.

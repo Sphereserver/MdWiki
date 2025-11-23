@@ -30,7 +30,7 @@ Sphere's behaviour:
 | ARGN1 | IO | The amount of damage being applied. (Before Slayer calulation if applicable) |  |
 | ARGN2 | IO | The type of damage being applied. |  |
 | ARGN3 | IO | Hits will be fixed to this amount after the hit if the value is greater than it, default = maxhits. |  |
-| LOCAL.ITEMDAMAGECHANCE | IO | Sets the chance for the hitted part of the body (Armor or shield, if any) to be damaged (Default: 40% in Sphere D, 25% in Sphere X). |  |
+| LOCAL.ITEMDAMAGECHANCE | IO | Sets the chance for the hitted part of the body (Armor or shield, if any) to be damaged (Default: 25). |  |
 | LOCAL.DAMAGEPERCENTPHYSICAL | I | The amount in % of the physical damage received, only set if Elemental Engine is enabled. | X |
 | LOCAL.DAMAGEPERCENTFIRE | I | The amount in % of the fire damage received, only set if Elemental Engine is enabled. | X |
 | LOCAL.DAMAGEPERCENTCOLD | I | The amount in % of the cold damage received, only set if Elemental Engine is enabled. | X |

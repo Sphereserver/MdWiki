@@ -29,3 +29,6 @@ ON=@TargOn_Ground
 ` SRC.SYSMESSAGE @032 That location is not within line of sight`\
 ` RETURN 1`\
 `ENDIF``</spherescript>`{=html}
+
+## See Also
+- [CANSEELOSFLAG](./CANSEELOSFLAG.md)

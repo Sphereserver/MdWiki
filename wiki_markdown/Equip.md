@@ -47,6 +47,9 @@ blocking the equip action.</p></td>
 </tbody>
 </table>
 
+## Notes
+- When a player attempts to equip non-equippable items, they are now bounced to the pack.
+
 [Category: Reference
 Compendium](./_Reference_Compendium.md) [Category:
 Triggers](./_Triggers.md)
