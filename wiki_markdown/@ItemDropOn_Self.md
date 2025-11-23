@@ -1,26 +1,36 @@
-## Description
+# @ItemDropOn_Self
 
-This trigger fires when a character drops an item inside another item (e.g. a backpack).
+This trigger fires when an item has been dropped on to this item.
 
-## References
+## Ficha
 
-| Name | Description |
-| --- | --- |
-| ACT | The item that is being dropped on to. |
-| ARGO | The item being dropped on to the item. |
-| I | The character dropping the item. |
+|              |             |
+|--------------|-------------|
+| **Trigger**  | **@ItemDropOn_Self** |
+| **Type**     | Item        |
+| **Access**   | Read        |
+| **Sphere X** | Yes         |
 
 ## Arguments
 
-No arguments are set for this trigger.
+The following arguments are set for this trigger. If an argument is
+marked as "In" then a value will be passed in to the trigger, if an
+argument is marked as "Out" then it can be set to a value to affect
+Sphere's behaviour:
+
+| Argument | In/Out | Description |
+|----------|--------|-------------|
+| ARGO     | I      | The item being dropped. |
 
 ## Return Values
 
+The following return values are explicitly defined for this trigger:
+
 | Return Value | Description |
-| --- | --- |
-| 1 | Prevents the item from being dropped on to the item. If no CONT is set, item will drop on ground. If a RETURN 1 is performed and a new CONT has not been set via scripts on the trigger call, the item is dropped on ground, otherwise the item is left in the new CONT. |
+|--------------|-------------|
+| 1            | Prevents the item from being dropped. |
 
 ## Notes
-- `BOUNCE` now calls this trigger.
+- This trigger is now called by the `BOUNCE` function. If a `RETURN 1` is performed and a new `CONT` has not been set via scripts on the trigger call, the item is dropped on the ground, otherwise the item is left in the new `CONT`.
 
-[Category: Reference Compendium](./CategoryReference_Compendium.md) [Category: Triggers](./CategoryTriggers.md)
+[Category: Triggers](CategoryTriggers.md)

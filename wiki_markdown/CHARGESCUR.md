@@ -1,17 +1,17 @@
-## Description
+# CHARGESCUR
 
-This item property was used to get or set the current number of charges on an item. It has been removed and superseded by `USESCUR`.
+This item property previously stored the current number of charges an item had. It has been removed and replaced by `USESCUR`.
 
 ## Ficha
 
-|              |             |
-|--------------|-------------|
-| **Property** | **CHARGESCUR** |
-| **Type**     | Item        |
-| **Access**   | Read/Write  |
-| **Sphere X** | Removed     |
+|              |                 |
+|--------------|-----------------|
+| **Property** | **CHARGESCUR**  |
+| **Type**     | Item            |
+| **Access**   | Read/Write      |
+| **Sphere X** | No (Removed)    |
 
 ## Notes
-- `CHARGESCUR` has been removed and should no longer be used. Please use `USESCUR` instead.
+- This property was only partially supported and has been removed. Use `USESCUR` instead.
 
-[Category: Reference Compendium](./CategoryReference_Compendium.md) [Category: Properties](./CategoryProperties.md)
+[Category: Removed Properties](CategoryRemoved_Properties.md)

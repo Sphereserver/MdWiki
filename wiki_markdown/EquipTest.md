@@ -38,6 +38,9 @@ The following return values are explicitly defined for this trigger:
 | **Return Value** | **Description**                        |
 | 1                | Prevents the item from being equipped. |
 
+## Notes
+- This trigger is now called only when trying to equip equippable items. Previously, it was also called when dropping or creating an item to be equipped or bounced to an NPC's pack.
+
 [Category: Reference
 Compendium](./_Reference_Compendium.md) [Category:
 Triggers](./_Triggers.md)

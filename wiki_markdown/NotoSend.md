@@ -61,7 +61,3 @@ always be sent.*
 Compendium](./_Reference_Compendium.md) [Category:
 Triggers](./_Triggers.md)
 
----
-**AUTO-UPDATE:** From 18-04-2016 by XuN:
-
-- Updated checks on @wiki_markdown/NotoSend.md trigger: it will not check anymore if ARGN1 > NOTO_INVUL, so you can create custom notoriety.

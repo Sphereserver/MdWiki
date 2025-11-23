@@ -20,36 +20,14 @@ trigger:
 ## Arguments
 
 The following arguments are set for this trigger. If an argument is
-marked as \"In\" then a value will be passed in to the trigger, if an
-argument is marked as \"Out\" then it can be set to a value to affect
-Sphere\'s behaviour:
+marked as "In" then a value will be passed in to the trigger, if an
+argument is marked as "Out" then it can be set to a value to affect
+Sphere's behaviour:
 
-+--------------+------------+----------------------------------------+
-| **Argument** | **In/Out** | **Description**                        |
-+--------------+------------+----------------------------------------+
-| ARGN1        | I          | Shows if the deletion was forced by    |
-|              |            | your scripts (1) or called by Sphere   |
-|              |            | (0)                                    |
-+--------------+------------+----------------------------------------+
-| ARGN2        | I          |   -----------------------------------  |
-|              |            | ------------------------- ------------ |
-|              |            |   **Type description**                 |
-|              |            |                             **Values** |
-|              |            |   Forced (Blocked attack,              |
-|              |            | default uncategorized actions\...)   0 |
-|              |            |   Max fight time has reach             |
-|              |            | ed (Elapsed)                         1 |
-|              |            |   Distance/LOS (When an NPC's target is too far, this trigger is called with ARGN2=2)                         |
-|              |            |                                      2 |
-|              |            |   The character is no long             |
-|              |            | er existing                          3 |
-|              |            |   Forced via attacker.dele             |
-|              |            | te methods (ingame/script)           4 |
-|              |            |   -----------------------------------  |
-|              |            | ------------------------- ------------ |
-+--------------+------------+----------------------------------------+
-|              |            |                                        |
-+--------------+------------+----------------------------------------+
+| Argument | In/Out | Description |
+|----------|--------|-------------|
+| ARGN1    | I      | Shows if the deletion was forced by your scripts (1) or called by Sphere (0). |
+| ARGN2    | I      | The reason for the deletion: <ul><li>0: Forced (Blocked attack, default uncategorized actions...)</li><li>1: Max fight time has been reached (Elapsed)</li><li>2: Distance/LOS (When an NPC's target is too far, this trigger is called with ARGN2=2)</li><li>3: The character is no longer existing</li><li>4: Forced via attacker.delete methods (ingame/script)</li></ul> |
 
 ## Return Values {#return_values}
 
@@ -66,7 +44,3 @@ Triggers](./_Triggers.md) [Category:
 Characters](./_Characters.md) [Category:
 Combat](./_Combat.md)
 
----
-**AUTO-UPDATE:** From 15-05-2016 by XuN:
-
-- Fixed: NPCs not ending combat when their target is far away from them and calling Attacker_Delete() @wiki_markdown/CombatDelete.md with argn=2 (Distance) to give control over it.

@@ -698,7 +698,7 @@ _ARGET.md)*FGMW* |                | cursor to SRC. *F*      |
 - The `<VAR.VARNAME>` syntax now works from an item, allowing direct access to VAR variables.
 - Properties `Only<Race/Sex>` have been removed as they are no longer used.
 - The `NoDropTrade` property has been split into separate flags.
-- Properties `Balanced`, `Battle_Lust`, `Blood_Drinker`, `SplinteringWeapon`, and `Bane` are now checked as item attributes (`ATTR_*`).
+
 - When a player attempts to equip non-equippable items, they are now bounced to the pack.
 - New item properties `PICKUPSOUND` and `DROPSOUND` have been added to override default pickup and drop sounds for items.
 - The `CHARGESCUR` and `CHARGESMAX` item properties have been removed and are replaced by `USESCUR` and `USESMAX` respectively.

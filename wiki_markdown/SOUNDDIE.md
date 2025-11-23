@@ -1,14 +1,18 @@
-## Description
+# SOUNDDIE
 
-This `CharDef` property gets or sets the sound ID for a creature's death action. If set, this sound will override the generic `SOUND` property for death actions. Setting the value to -1 will prevent any action-related death sound from being played.
+This CharDef property defines the sound ID for a character's death action.
 
 ## Ficha
 
-|              |               |
-|--------------|---------------|
-| **Property** | **SOUNDDIE** |
+|              |                   |
+|--------------|-------------------|
+| **Property** | **SOUNDDIE**      |
 | **Type**     | Character (CharDef) |
-| **Access**   | Read/Write    |
-| **Sphere X** | Yes           |
+| **Access**   | Read/Write        |
+| **Sphere X** | Yes               |
 
-[Category: Reference Compendium](./CategoryReference_Compendium.md) [Category: Properties](./CategoryProperties.md)
+## Notes
+- If set, this property overrides the generic `SOUND` property for death actions.
+- Set to `-1` to prevent this action-related sound from being played.
+
+[Category: Properties](CategoryProperties.md)

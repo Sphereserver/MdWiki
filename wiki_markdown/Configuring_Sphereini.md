@@ -139,6 +139,9 @@ specified. // To enable auto account you must set this to 2 AccApp=0
 // Default number of chars allowed per account (maximum value is 7)
 MaxCharsPerAccount=5
 
+// Max houses an account can have (default 1).
+MaxHousesAccount=1
+
 // Min time for a char to exist before delete allowed (in seconds)
 MinCharDeleteTime=3\*24\*60
 
@@ -174,6 +177,28 @@ clients`</spherescript>`{=html}
 
 // Maximum total simultaneous (not-in-game) connections to server per IP
 ConnectingMaxIp=8
+
+// Network threads to use (0 = disabled, use only main thread)
+NetworkThreads=0
+
+// Priority of the dedicated networking threads (default = 0)
+// -1 = THREAD_PRIORITY_LOWEST, -2 = THREAD_PRIORITY_BELOW_NORMAL, 0 = THREAD_PRIORITY_NORMAL, 1 = THREAD_PRIORITY_ABOVE_NORMAL, 2 = THREAD_PRIORITY_HIGHEST
+NetworkThreadPriority=0
+
+// Enable/disable asynchronous packet sending (0 = disabled, 1 = enabled)
+UseAsyncNetwork=0
+
+// Maximum distance to hear char whispering
+// -1 = never heard, 0 = heard if distance <= listener's VisualRange
+DistanceWhisper=3
+
+// Maximum distance to hear char talking
+// -1 = never heard, 0 = heard if distance <= listener's VisualRange
+DistanceTalk=18
+
+// Maximum distance to hear char yelling
+// -1 = never heard, 0 = heard if distance <= listener's VisualRange
+DistanceYell=31
 
 // How long logged out clients linger in seconds ClientLinger=15
 
@@ -229,6 +254,17 @@ Game Mechanics
 
 // Maximum Distance for Archery ArcheryMaxDist=15
 
+// Combat archery movement delay (in seconds)
+CombatArcheryMovementDelay=0
+
+// Combat parrying era flag. It controls the parrying behavior.
+// 01 = pre-SE parrying chance formula (not using the Bushido skill). Mutually exclusive with 02 flag.
+// 02 = SE parrying chance formula (using the Bushido skill). Mutually exclusive with 01 flag.
+// 010 = can parry with a shield
+// 020 = can parry with a one-handed weapon without a shield
+// 040 = can parry with two handed weapons
+CombatParryingEra=0
+
 // Speed scale factor for weapons`</spherescript>`{=html}
 `<font color="darkblue">`{=html}**`// The formula is DELAY = SPEEDSCALEFACTOR / ((DEX + 100) * SPEED)`**\
 `</font>`{=html}
@@ -244,6 +280,9 @@ RunningPenalty=50
 only. ArriveDepartMsg=1
 
 // Are house and boat keys newbied automatically AutoNewbieKeys=1
+
+// Auto generate keys for multis on creation (1 = yes, 0 = no)
+AutoHouseKeys=1
 
 // Maximum number of items allowed in bank BankMaxItems=1000
 
@@ -501,6 +540,7 @@ this`</spherescript>`{=html}
 `// OF_Flood_Protection = 00001000`\
 `// OF_Buffs = 00002000`\
 `// OF_NoPrefix = 00004000 // Add prefix "A" and "An" to itemnames or not`\
+`// OF_NoPaperdollTradeTitle = 00000001 // If set, the trade title will not be shown on the paperdoll`\
 `// OF_DyeType = 00008000 // if set allows using i_dye on all t_dye_vat instead of only i_dye_tub`\
 `// OF_DrinkIsFood = 00010000 // type T_DRINK will increase FOOD lvl like T_FOOD`\
 `// OF_Specific = 01000000 // Specific behaviour, not completly tested`\
@@ -527,7 +567,8 @@ Ninja and Samurai FeatureSE = 0
 
 // FeatureML, used to control ML expansion features ( default 0 ) //
 FEATURE_ML_UPDATE 01 // Basic ML features // FEATURE_ML_NINTHAGE 02 //
-Unlocks ninth age house designer items FeatureML = 0
+Unlocks ninth age house designer items // FEATURE_EXTRA_ROLEPLAYFACES 04 // Enable extra roleplay face styles on character creation
+FeatureML = 0
 
 // FeatureKR, used to control KR expansion features ( default 0 ) (still
 not complete but usable) // FEATURE_KR_UPDATE 01 // Basic KR features
@@ -616,8 +657,14 @@ resurrecting. HitPointPercentOnRez=33
 // How many % of hits will the character loose when starving. 0 disables
 //HitsHungerLoss=0
 
+// Update period of item's health bars (in seconds).
+RegenItemHits=5
+
+// Max allowed amount for all stackable items (default is 60000)
+ItemsMaxAmount=60000
+
 // Amount of skill of lock picking needed to unlock a magically locked
-door MagicUnlockDoor=900
+// MagicUnlockDoor=900
 
 // Teleport effect for GMs and players. Setting 0 disables the effect
 TeleportEffectNPC=0372a TeleportEffectPlayers=0372a

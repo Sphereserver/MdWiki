@@ -36,7 +36,7 @@ this naming scheme was established.
   **TAG.OVERRIDE.DROPSOUND**                      Overrides the sound that will be played when the item is dropped somewhere.
   **TAG.OVERRIDE_LIGHTID**                        Overrides TDATA3 for lights (T_LIGHT_LIT, T_LIGHT_OUT). Take notice that there is an underscore in this TAG\'s name.
   **TAG.OVERRIDE.MAXITEMS**                       Overrides the maximum number of items that can be placed into a container (default: 255)
-  **TAG.OVERRIDE.MAXWEIGHT**                      Overrides the maximum total weight that can be placed into a container.
+  
   **TAG.OVERRIDE.PRACTICEMAX.SKILL\_\$skillid**   Overrides SKILLPRACTICEMAX setting from Sphere.ini for a particular skill. \$skillid is the numeric ID of the skill.
   **TAG.OVERRIDE.SKILL**                          Overrides the SKILL property of the ITEMDEF for a weapon.
   **TAG.OVERRIDE.SPEED**                          Overrides the SPEED for a weapon.

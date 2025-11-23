@@ -1,26 +1,21 @@
-## Description
+# ISALLY
 
-This function checks if a specified guild is an ally. It works similarly to `ISENEMY` but for alliances.
+This function checks if a guild is an ally. It works exactly in the same way as `ISENEMY` but used to set alliances instead of wars.
 
 ## Ficha
 
-|              |               |
-|--------------|---------------|
-| **Function** | **ISALLY**    |
-| **Type**     | Guild         |
-| **Access**   | Read          |
-| **Sphere X** | Yes           |
+|              |             |
+|--------------|-------------|
+| **Function** | **ISALLY**  |
+| **Type**     | Guild       |
+| **Access**   | Read        |
+| **Sphere X** | Yes         |
 
 ## Syntax
 
-`<GUILD.ISALLY(guild_uid)>`
+`[guild].ISALLY <guild_uid>`
 
-## Parameters
+## Notes
+- This function is similar to `ISENEMY` but specifically for checking alliances.
 
-- `guild_uid`: The UID of the guild to check for alliance status.
-
-## Return Values
-
-- Returns 1 if the specified guild is an ally, 0 otherwise.
-
-[Category: Reference Compendium](./CategoryReference_Compendium.md) [Category: Functions](./CategoryFunctions.md)
+[Category: Functions](CategoryFunctions.md)

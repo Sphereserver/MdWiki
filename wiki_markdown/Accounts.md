@@ -55,7 +55,8 @@ usage and examples.
   [LASTCHARUID](./LASTCHARUID.md)             RW               Gets the [UID](./UID.md) of the last character used on the account.
   [LASTCONNECTDATE](./LASTCONNECTDATE.md)     RW               Gets the date and time on which the account most recently connected.
   [LASTIP](./LASTIP.md)                       RW               Gets the IP address that the account most recently connected with.
-  [MAXCHARS](./MAXCHARS.md)                   RW               Gets or sets the maximum number of characters that the player can create on the account.
+| [MAXCHARS](./MAXCHARS.md)                   | RW               | Gets or sets the maximum number of characters that the player can create on the account.                   |
+| [MAXHOUSES](./MaxHouses.md)                  | RW               | Max houses an account can have.                                                            |
   [NAME](./NAME.md)                           R                Gets the name of the account.
   [NEWPASSWORD](./NEWPASSWORD.md)             RW               Gets or sets a new password that will be set on the account.
   [PASSWORD](./PASSWORD.md)                   RW               Gets or sets the current password for the account.

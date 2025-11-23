@@ -111,3 +111,8 @@ arguement\]
 1151763 //From: \[custom arguement\]
 
 1151764 //To: \[custom arguement\]
+
+## Notes
+- For Enhanced Clients using the new UI (blue), vendors require their name to include a title (e.g., "Greg the Butcher") for items to display correctly in the buy gump.
+- If you want a workaround for this requirement, you can leave the `NAME` property untouched and send a custom name cliloc that includes the work/trade title:
+  `ADDCLILOC 1042971, <NAME> The <QVAL <ISEMPTY <TITLE>> ? Vendor : <TITLE>>`

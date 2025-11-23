@@ -1,29 +1,22 @@
-## Description
+# BARK
 
-This command plays a specified sound from the character to nearby clients. It accepts a sound type, not a direct sound ID.
+This function plays the specified sound (or the character's generic sound if not specified) to nearby clients from this character.
 
 ## Ficha
 
 |              |             |
 |--------------|-------------|
-| **Command**  | **BARK**    |
+| **Function** | **BARK**    |
 | **Type**     | Character   |
 | **Access**   | Write       |
 | **Sphere X** | Yes         |
 
 ## Syntax
 
-`[character].BARK <sound_type>`
-
-## Parameters
-
-- `sound_type`: A specific sound type definition (e.g., `SOUNDACT_RAND`, `SOUNDACT_IDLE`, `SOUNDACT_NOTICE`, `SOUNDACT_HIT`, `SOUNDACT_GETHIT`, `SOUNDACT_DIE`). These are defined in scripts.
-
-## Example
-
-`BARK SOUNDACT_IDLE` - Plays the character's idle sound.
+`[char].BARK [sound_id]`
 
 ## Notes
-- `BARK` accepts a sound *type* as a parameter, not a direct sound ID. Use the `SOUND` command for specific sound IDs.
+- `BARK` accepts a sound type as a parameter, not a sound ID (use `SOUND` for sound IDs).
+- New sound types (`SOUNDACT_RAND`, `SOUNDACT_IDLE`, `SOUNDACT_NOTICE`, `SOUNDACT_HIT`, `SOUNDACT_GETHIT`, `SOUNDACT_DIE`) are available for use with `BARK`.
 
-[Category: Reference Compendium](./CategoryReference_Compendium.md) [Category: Commands](./CategoryCommands.md)
+[Category: Functions](CategoryFunctions.md)

@@ -1,4 +1,4 @@
-## Description
+# ACTDIFF
 
 This property holds the difficulty of the character's current action.
 
@@ -12,6 +12,6 @@ This property holds the difficulty of the character's current action.
 | **Sphere X** | Yes         |
 
 ## Notes
-- `ACTDIFF` is now set and cleared in the same situations as `ACTARG`s.
+- `ACTDIFF` is now set and cleared in the same situations as `ACTARG1/2/3`, which is at the end of a skill (success, abort, or failure).
 
-[Category: Reference Compendium](./CategoryReference_Compendium.md) [Category: Properties](./CategoryProperties.md)
+[Category: Properties](CategoryProperties.md)

@@ -1,6 +1,6 @@
-## Description
+# GetHousePos
 
-This function returns the position of a given house UID within a player's list of owned houses.
+This function returns the position of a given house UID in the player's house list.
 
 ## Ficha
 
@@ -13,15 +13,13 @@ This function returns the position of a given house UID within a player's list o
 
 ## Syntax
 
-`<[char].GetHousePos <uid>>`
+`[char].GetHousePos <house_uid>`
 
 ## Parameters
+- `house_uid`: The UID of the house to search for in the list.
 
--   `<uid>`: The UID of the house to find in the list.
+## Return Value
+- Returns the position of the house in the list (0-based index).
+- Returns `-1` if the house UID is not found in the list.
 
-## Return Values
-
--   Returns the 0-based position of the house in the list.
--   Returns -1 if the house is not found.
-
-[Category: Reference Compendium](./CategoryReference_Compendium.md) [Category: Functions](./CategoryFunctions.md)
+[Category: Functions](CategoryFunctions.md)

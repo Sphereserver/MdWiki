@@ -1,5 +1,6 @@
-## Description
-This property holds the action point of a character. It can be set and its X, Y, Z coordinates can be retrieved.
+# ACTP
+
+This property refers to the `ACTP` value of the character.
 
 ## Ficha
 
@@ -11,7 +12,8 @@ This property holds the action point of a character. It can be set and its X, Y,
 | **Sphere X** | Yes         |
 
 ## Notes
-- Can get x,y,z,position of the point in X branch.
-- ACT and ACTP are now stored in the save files.
 
-[Category: Reference Compendium](./CategoryReference_Compendium.md) [Category: Properties](./CategoryProperties.md)
+- `ACTP` is now stored in save files to ensure actions are not broken during server restarts.
+- `ACTP` now behaves like any other point, meaning you can extract its x, y, z, and other static properties (X branch only).
+
+[Category: Properties](CategoryProperties.md)

@@ -1,74 +1,34 @@
-\_\_FORCETOC\_\_ Instead of setting the MORE1 property of a spawn to a
-single [character](./Characters.md) defname, a spawn group can be
-used instead so that a random character is spawned. A spawn group
-contains a set of character defnames, with optional weights to affect
-their chances of spawning.
+# SPAWN
 
-## Syntax
+This page describes the mechanics of spawn groups and their associated properties and functions for controlling item and character spawning.
 
-The syntax for defining a spawn group is:
+## Types
+- `t_spawn_item`: Generates items.
+- `t_spawn_char`: Generates characters.
 
-`[SPAWN `*`defname`*`]`\
-`ID=`*`character_defname_1`*` `*`weight`*\
-`ID=`*`character_defname_2`*` `*`weight`*\
-`ID=`*`character_defname_3`*` `*`weight`*\
-*`etc..`*\
+## Properties and Functions
 
-The weight parameter can be used to make a defname more likely to be
-selected than the other defnames in the group. With a weight of 10 for
-example, a defname would be 10 times more likely to be selected.
+- `SPAWNID`/`MORE`/`MORE1` (R/W): ID of the spawn (item/template for `t_spawn_item` or char/template for `t_spawn_char`).
+- `MORE2`/`COUNT` (R): For `t_spawn_char`, returns the total spawned characters.
+- `MORE2`/`PILE` (R/W): For `t_spawn_item`, total amount of items that may be generated at once.
+- `MOREX`/`TIMELO` (R/W): Minimum spawn time in minutes.
+- `MOREY`/`TIMEHI` (R/W): Maximum spawn time in minutes.
+- `MOREZ`/`MAXDIST` (R/W): Maximum spawn distance (for distance away from spawn when created, and max distance to wander from spawn for NPCs).
+- `MOREP` (R/W): Groups `MOREX`, `MOREY`, `MOREZ` as one property.
+- `AT*` (R/W): Accesses the object at the N position and reads/writes/executes the given text (e.g., `at.0.remove`, `<at.0.str>`).
+- `AMOUNT` (R/W): Total amount of objects this spawn can have at the same time.
+- `ADDOBJ` (W): Adds an object with the given UID to the spawn (must be a valid UID).
+- `DELOBJ` (W): Deletes an object with the given UID from the spawn (must be a valid UID).
+- `START` (W): Forces the spawn to start spawning.
+- `STOP` (W): Stops the spawn and removes everything it created.
+- `RESET` (W): Forces a `STOP` and then `START` again.
 
-## Properties
+## Basic Explanation
+1.  When double-clicking on a STOPPED spawn (nothing has yet spawned from it), `START` is called.
+2.  One object is generated within a distance of `MOREZ`/`MAXDIST`.
+    -   For `t_spawn_item`, the amount of items generated each time is a random value between 1 and `PILE`.
+    -   For `t_spawn_char`, the maximum distance the NPC can wander away is set equal to `MAXDIST`.
+3.  The spawn's timer is set to a value (in minutes) between `MOREX` and `MOREY` (`TIMELO` and `TIMEHI`).
+4.  Steps 2 and 3 are repeated while `COUNT < AMOUNT`. When `COUNT` reaches or surpasses `AMOUNT`, only step 3 will be repeated.
 
-The following properties are available when defining a spawn group:
-
-  ----------------------------------------------- ---------------- -------------------------------------------------------------------------------------
-  **Name**                                        **Read/Write**   **Description**
-  [CALCMEMBERINDEX](./CALCMEMBERINDEX.md)   R                Selects a defname from the spawn group at random, and returns its zero-based index.
-  [DEFNAME](./DEFNAME.md)                   W                Sets the spawn group\'s defname.
-  [ID](./ID.md) *defname* *weight*          W                Adds a defname to the spawn group with the specified weight.
-  [RESOURCES](./RESOURCES.md)               R                Gets a list of defnames contained in the spawn group.
-  [RESOURCES](./RESOURCES.md).COUNT         R                Gets the number of defnames in the spawn group.
-  [RESOURCES](./RESOURCES.md)*.n*.KEY       R                Gets the *nth* defname in the spawn group. *(1-based)*
-  [RESOURCES](./RESOURCES.md)*.n*.VAL       R                Gets the weight of the *nth* defname in the spawn group. *(1-based)*
-  ----------------------------------------------- ---------------- -------------------------------------------------------------------------------------
-
-## Examples
-
-`<spherescript>`{=html} // // Undead spawn from default script pack. //
-\[SPAWN 08001\] DEFNAME=SPAWN_Undead_Weak ID=c_spectre,2
-ID=c_skeleton_w_axe ID=c_skeleton_w_sword ID=c_skeleton,5 ID=c_zombie,10
-`</spherescript>`{=html}
-
-`<spherescript>`{=html} // // Lists the characters of a spawn in the
-console, and picks one at random. // Usage: DescribeSpawn
-`<spawn_defname>`{=html} // \[FUNCTION describespawn\] // validate args
-IF !(\<SERV.SPAWN.`<ARGS>`{=html}\>)
-
-`   SERV.LOG Spawn '``<ARGS>`{=html}`' does not exist.`\
-`   RETURN`
-
-ELSEIF !(\<SERV.SPAWN.`<ARGS>`{=html}.RESOURCES.COUNT\>)
-
-`   SERV.LOG Spawn '``<ARGS>`{=html}`' has no contents.`\
-`   RETURN`
-
-ENDIF
-
-// list characters SERV.LOG Spawn
-\'\<SERV.SPAWN.`<ARGS>`{=html}.DEFNAME\>\',
-\<SERV.SPAWN.`<ARGS>`{=html}.RESOURCES.COUNT\> characters) FOR 1
-\<SERV.SPAWN.`<ARGS>`{=html}.RESOURCES.COUNT\>
-
-`   SERV.LOG Character <dLOCAL._FOR>: <dSERV.SPAWN.``<ARGS>`{=html}`.RESOURCES.<LOCAL._FOR>.VAL>x <SERV.SPAWN.``<ARGS>`{=html}`.RESOURCES.<LOCAL._FOR>.KEY>`
-
-ENDFOR
-
-// pick character (obeying weights) LOCAL.INDEX = \<EVAL
-\<SERV.SPAWN.`<ARGS>`{=html}.CALCMEMBERINDEX\> + 1\> SERV.LOG Picked
-\'\<SERV.SPAWN.`<ARGS>`{=html}.RESOURCES.\<LOCAL.INDEX\>.KEY\>\'. RETURN
-`</spherescript>`{=html}
-
-[Category: Reference
-Compendium](./_Reference_Compendium.md) [Category:
-Definitions](./_Definitions.md)
+[Category: Game Mechanics](CategoryGame_Mechanics.md)

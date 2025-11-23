@@ -1,22 +1,21 @@
-## Description
+# CLIENTISENHANCED
 
-This command is used to check if the client is an Enhanced Client. It was previously known as `CLIENTISSA`.
+This command checks if the client is an Enhanced Client. It was previously named `CLIENTISSA`.
 
 ## Ficha
 
-|              |             |
-|--------------|-------------|
+|              |                     |
+|--------------|---------------------|
 | **Command**  | **CLIENTISENHANCED** |
-| **Type**     | Client      |
-| **Access**   | Read        |
-| **Sphere X** | Yes         |
+| **Type**     | Client              |
+| **Access**   | Read                |
+| **Sphere X** | Yes                 |
 
 ## Syntax
 
-`<CLIENTISENHANCED>`
+`[client].CLIENTISENHANCED`
 
-## Return Values
+## Notes
+- This command was previously named `CLIENTISSA`.
 
-- Returns 1 if the client is an Enhanced Client, 0 otherwise.
-
-[Category: Reference Compendium](./CategoryReference_Compendium.md) [Category: Commands](./CategoryCommands.md)
+[Category: Commands](CategoryCommands.md)

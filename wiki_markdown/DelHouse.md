@@ -1,6 +1,6 @@
-## Description
+# DelHouse
 
-This function deletes a house from a player's list of owned houses.
+This function deletes a house UID from the player's house list. This does not delete the house itself.
 
 ## Ficha
 
@@ -8,15 +8,17 @@ This function deletes a house from a player's list of owned houses.
 |--------------|---------------|
 | **Function** | **DelHouse**  |
 | **Type**     | Character     |
-| **Access**   | Write-Only    |
+| **Access**   | Write         |
 | **Sphere X** | Yes           |
 
 ## Syntax
 
-`[char].DelHouse <uid>`
+`[char].DelHouse <house_uid>`
 
 ## Parameters
+- `house_uid`: The UID of the house to delete from the list. Use `-1` to clear the entire list.
 
--   `<uid>`: The UID of the house to delete from the list. Use `-1` to clear the entire list (does not delete the physical house).
+## Notes
+- Deleting a house UID from the list does not delete the house itself.
 
-[Category: Reference Compendium](./CategoryReference_Compendium.md) [Category: Functions](./CategoryFunctions.md)
+[Category: Functions](CategoryFunctions.md)

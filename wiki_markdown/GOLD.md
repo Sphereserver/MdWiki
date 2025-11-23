@@ -1,4 +1,4 @@
-## Description
+# GOLD
 
 This property gets or sets the amount of gold a character has.
 
@@ -12,7 +12,6 @@ This property gets or sets the amount of gold a character has.
 | **Sphere X** | Yes         |
 
 ## Notes
-- The `GOLD` property now has an upper limit of 25,000,000 to prevent server hangs or crashes due to excessively high values.
-- When `FEATURE_TOL_VIRTUALGOLD` is enabled, `GOLD` and `<GOLD>` will function as `VirtualGold` and `<VirtualGold>`.
+- A limit of 25,000,000 has been added to `GOLD` to prevent server hangs or crashes with excessively high values.
 
-[Category: Reference Compendium](./CategoryReference_Compendium.md) [Category: Properties](./CategoryProperties.md)
+[Category: Properties](CategoryProperties.md)

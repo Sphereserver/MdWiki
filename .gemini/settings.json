@@ -1,0 +1,20 @@
+{
+  "tools": {
+    "file": {
+      "autoRead": false
+    },
+    "shell": {
+      "autoApprove": [
+        "mv",
+        "cp",
+        "mkdir",
+        "grep"
+      ]
+    }
+  },
+  "model": {
+    "disableLoopDetection": true,
+    "name": "gemini-2.5-flash",
+    "maxRetries": 1
+  }
+}

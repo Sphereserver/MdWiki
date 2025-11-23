@@ -1,10 +1,17 @@
-## Description
+# Incognito
 
-The Incognito spell has been enhanced with additional features for temporary disguise.
+This spell allows a character to temporarily disguise themselves.
+
+## Ficha
+
+|              |             |
+|--------------|-------------|
+| **Spell**    | **Incognito** |
+| **Type**     | Character   |
+| **Sphere X** | Yes         |
 
 ## Features
+- Changes character name to a random human/elf/gargoyle male/female name.
+- Changes character body, hair, and beard to a random color temporarily.
 
--   **Random Name Change**: The spell will now temporarily change the character's name to a random human, elf, or gargoyle (male/female) name, instead of always using "Man" or "Woman".
--   **Temporary Appearance Change**: The character's body, hair, and beard will temporarily change to a random color.
-
-[Category: Reference Compendium](./CategoryReference_Compendium.md) [Category: Spells](./CategorySpells.md)
+[Category: Spells](CategorySpells.md)
