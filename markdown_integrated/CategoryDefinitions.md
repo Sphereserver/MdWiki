@@ -13,6 +13,8 @@ exist in Sphere.
 * [ROOMDEF](ROOMDEF.md)
 * [MULTIDEF](MULTIDEF.md)
 * [AREADEF](AREADEF.md)
+* [Category: Dialog Elements](CategoryDialog_Elements.Elements.md)
+* [Magic Flags](Magic_Flags.md)
 
 [Category: Reference
 Compendium](Category_Reference_Compendium.md)

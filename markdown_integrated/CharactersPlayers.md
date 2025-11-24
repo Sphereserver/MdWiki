@@ -1580,6 +1580,18 @@ title="wikilink">SPEECHCOLOROVERRIDE</a> <em>value</em></p></td>
 <td></td>
 </tr>
 <tr>
+<td><p>EmoteColor</p></td>
+<td><p>R</p></td>
+<td><p>Client-Side emote color of the player.</p></td>
+<td></td>
+</tr>
+<tr>
+<td><p>EmoteColor</p></td>
+<td><p>R</p></td>
+<td><p>Client-Side emote color of the player.</p></td>
+<td></td>
+</tr>
+<tr>
 <td><p><a href="STAM" title="wikilink">STAM</a></p></td>
 <td><p>RW</p></td>
 <td><p>Gets or sets the character's stamina.</p></td>

@@ -16,6 +16,7 @@ This document details the mechanics and settings related to combat within Sphere
 -   **`COMBAT_ANIM_HIT_SMOOTH`**: Enables the old smooth combat animation. If enabled, there's no delay between hits (`LOCAL.AnimDelay` in `@HitTry` is 0), but the swing animation duration (`ARGN1` in `@HitTry`) equals the delay before a new swing could start.
 -   **`COMBAT_SWING_NORANGE`**: (Renamed from `COMBAT_PREHIT_NORANGE`) Allows starting a close-combat swing at a distance; the blow is landed only when entering range.
 -   **`COMBAT_FIRSTHIT_INSTANT`**: Makes the first hit in a combat instant (0 delay). To mimic OSI combat, both `COMBAT_PREHIT` and `COMBAT_FIRSTHIT_INSTANT` should be enabled.
+-   **`COMBATF_NOPETDESERT`**: Allows a pet owner to attack their own pet without the pet deserting them (OSI-like).
 
 ## Related Triggers
 

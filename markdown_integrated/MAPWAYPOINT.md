@@ -1,6 +1,6 @@
 ## Description
 
-This function allows adding or removing waypoints on the client's radar map. This functionality is supported only for enhanced clients.
+This function allows adding or removing waypoints on the client's radar map. This functionality is supported for enhanced clients, and for classic clients version 7.0.84.0 and newer.
 
 ## Ficha
 

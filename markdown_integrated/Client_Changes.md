@@ -158,6 +158,10 @@ version 6.0.6.2. Notes after the jump:
 -   Fixed a client crash
 - Removed the \"2d/3d\" client picker
 
+## General Client Updates
+
+-   Added support for 'front falling' when a character dies. (Issue #62)
+
 ## Notes
 - On the Enhanced Client (blue UI), a fix was implemented for the missing vendor paperdoll in the buy gump.
 

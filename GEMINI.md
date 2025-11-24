@@ -10,14 +10,16 @@ The `Changelog.txt` file contains changes to the C++ core and SphereScript featu
 
 - Do **not** add information about implementation details or inner workings relevant only to C++ source code contributors.
 - **Preserve Case:** SphereScript keywords/acronyms are often **UPPERCASE** or **PascalCase**.
+- **Markdown Files Case**: Always use PascalCase for markdown wiki file names.
+- Preserve **formatting**: use tables or bullet points as appropriate, keeping intact the style of the MediaWiki source.
 - **Tool Parameter Constraint:** When using any file manipulation tool (like `WriteFile`, `ReadFile`, or `EditFile`), you **must** explicitly include the `file_path` argument, even if the file is already referenced in context.
 - **Progress Tracking:**
     - Every time you log a block of output (an answer of yours), execute the following shell command **immediately before the output** to print the **client local time**: `(Current time is $(date +%T.%3N))`
 
 ## File Handling & Context Management (Critical)
 - **Mandatory Editing Tool Hierarchy:**
-     1.  **Priority 1 (High Efficiency Logic Offloading):** For implementing complex logic (like data processing or file organization), prefer using **dedicated Python scripts** in the `agent_helpers/` folder (e.g., `process_changelog.py`, `organize_wiki.py`) to handle the work on the client. For simple, atomic data queries (e.g., `grep` for context), use Unix shell commands.
-     2.  **Priority 2 (Reliability):** For **ALL** file content modifications (replacements, insertions, or deletions) that require precise string matching, you **MUST** use the dedicated Python script, **`agent_helpers/file_editor.py`**. Usage: `python3 agent_helpers/file_editor.py <filepath> --old "old_string" --new "new_string"`. If available features are not sufficient, stop and ask the user if you should expand it, informing also about how you will implement the script.
+     1.  **Priority 1 (High Efficiency Logic Offloading):** For implementing complex logic (like data processing or file organization), prefer using **dedicated Python scripts** in the `agent_helpers/` folder (e.g., `process_changelog.py`, `organize_wiki.py`) to handle the work on the client. For simple, atomic data queries (e.g., `grep` for context), use Unix shell commands. Prefer it to using your "SearchText" tool.
+     2.  **Priority 2 (Reliability):** For **ALL** file content modifications (replacements, insertions, or deletions) that require precise string matching, you **MUST** use the dedicated Python script, **`agent_helpers/file_editor.py`**. Usage: `python3 agent_helpers/file_editor.py <filepath> --old "old_string" --new "new_string"`. This is extremely beneficial because you won't need anymore to read the whole md file multiple times to edit it, so your context won't be polluted. If available features are not sufficient, stop and ask the user if you should expand it, informing also about how you will implement the script.
 - **Context Isolation & Token Management:** **NEVER** read an entire file unless absolutely necessary. After successfully performing an edit on a file, **do not read that file again** in the current batch unless it is the explicit target of a subsequent operation. Assume the change was successful and avoid polluting the context with redundant file content.
 - **Content Editing Workflow:**
     - **Step 1 (Find Context):** Before proposing an edit, use the most scoped method possible (e.g., grep or a targeted read_file) to fetch only the specific block containing your intended old_string. This step is for verifying context and generating the old_string argument for file_editor.py.

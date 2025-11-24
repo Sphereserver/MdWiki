@@ -1,5 +1,6 @@
 import argparse
 import os
+import sys
 
 def replace_in_file(filepath, old_string, new_string):
     """

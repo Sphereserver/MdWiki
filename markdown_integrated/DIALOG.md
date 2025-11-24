@@ -63,6 +63,7 @@ can be used:
   [page](./page.md) *num*                                                                                           Begins defining page *num* of the dialog. (page 0 content is shown on all pages)
   [radio](./radio.md) *x y gump_check gump_uncheck initial_state id*                                                Places a radio button on to the page.
   [resizepic](./resizepic.md) *x y gump width height*                                                               Places a multi-part *gump* on to the page, often used for dialog backgrounds.
+  [picinpic](./picinpic.md) *x y gump spritex spritey width height*                                                 Used to add sprites pictures on dialogs.
   [text](./text.md) *x y colour text_index*                                                                         Places some text on to the page.
   [textentry](./textentry.md) *x y width height colour id text_index*                                               Places a text entry field on to the page where the client can enter text.
   [textentrylimited](./textentrylimited.md) *x y width height colour id text_index limit*                           Places a text entry field on to the page where the client can enter a limited amount of text.
