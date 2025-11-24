@@ -1,0 +1,7 @@
+# Set the default behavior for all files.
+*       text=auto
+# Ignore all differences in line endings.
+*       -crlf
+
+# Normalize and convert to native line endings on checkout.
+*.md     text eol=lf

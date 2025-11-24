@@ -1,4 +1,9 @@
 .git/
 
-*.kate-swp
-.tmp
+*.bak
+*.log
+*.old
+*.tmp
+*.pid
+*.*swp*
+*.fuse*
