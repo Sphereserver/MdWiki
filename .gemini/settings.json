@@ -5,12 +5,15 @@
     },
     "shell": {
       "autoApprove": [
-        "mv",
+        "awk",
+        "cat",
         "cp",
-        "mkdir",
+        "diff",
+        "find",
         "grep",
-        "python3",
-        "ls"
+        "ls",
+        "mkdir",
+        "python3"
       ]
     }
   },
