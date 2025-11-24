@@ -15,40 +15,16 @@ The `Changelog.txt` file contains changes to the C++ core and SphereScript featu
     - Every time you log a block of output (an answer of yours), execute the following shell command **immediately before the output** to print the **client local time**: `(Current time is $(date +%T.%3N))`
 
 ## File Handling & Context Management (Critical)
-
-- Mandatory Editing Tool: For ALL file content modifications (replacements, insertions, or deletions), you MUST use the **dedicated Python script**, `agent_helpers/file_editor.py`, instead of the built-in Edit tool.
-Usage: `python3 file_editor.py <filepath> --old "old_string" --new "new_string"`
-- If appropriate, prefer using Unix shell commands to offload work to the client invoking the agent (awk, cat, diff, find, grep, etc)
-- Use your Replace tools **only** if you can't manage to make file_editor.py to work, or if more suitable shell commands didn't work.
+- **Mandatory Editing Tool Hierarchy:**
+     1.  **Priority 1 (High Efficiency Logic Offloading):** For implementing complex logic (like data processing or file organization), prefer using **dedicated Python scripts** in the `agent_helpers/` folder (e.g., `process_changelog.py`, `organize_wiki.py`) to handle the work on the client. For simple, atomic data queries (e.g., `grep` for context), use Unix shell commands.
+     2.  **Priority 2 (Reliability):** For **ALL** file content modifications (replacements, insertions, or deletions) that require precise string matching, you **MUST** use the dedicated Python script, **`agent_helpers/file_editor.py`**. Usage: `python3 agent_helpers/file_editor.py <filepath> --old "old_string" --new "new_string"`. If available features are not sufficient, stop and ask the user if you should expand it, informing also about how you will implement the script.
 - **Context Isolation & Token Management:** **NEVER** read an entire file unless absolutely necessary. After successfully performing an edit on a file, **do not read that file again** in the current batch unless it is the explicit target of a subsequent operation. Assume the change was successful and avoid polluting the context with redundant file content.
-- **Edit Tool Reliability:**
-    - Before performing any edit on `@filename`, use the **most scoped method possible** (e.g., `grep` or a targeted `read_file` with line/range parameters, if available) to fetch **only the specific block** containing your intended `old_string`. Only fall back to reading the entire file if a targeted search fails.
-    - When using the edit tool, if the edit fails (e.g., "0 occurrences found"), **do not try to correct the `old_string` and retry.** Instead, immediately read the entire file content using the `read_file` tool and ask me for a new plan or confirmation.
-
-## Essential SphereScript Grammar Rules
-
-1. Data Types and Variables
-SphereScript is weakly and dynamically typed, meaning variable types are determined at runtime, and you generally don't declare the type explicitly.
-    - Numeric: Integers (1, -500) are standard. SphereScript handles large numbers, often used for item IDs or world coordinates.
-    - String: Text data enclosed in single quotes ('text') or sometimes double quotes ("text"), though single quotes are most common for literal strings.
-    - References (Objects): Most powerful type. Variables often hold references to in-game entities like items (i_staff), characters (c_guard), or accounts. References allow you to access the properties and execute methods (commands) on those objects. Strings or numbers are not objects.
-    - Arrays: There is not the concept of arrays. As a workaround, one could use a comma separated value string, or the SERV.LIST object.
-
-2. Core Syntax and Execution
-    - Separators: All script commands, commands, and expressions are separated by a newline. There is typically no semicolon required at the end of a line.
-    - Comments: Comments are lines beginning with a double forward slash (//). Also C-style block comments (/* */) are valid.
-     - Script Labels (Triggers): Script execution is primarily driven by event labels or "triggers," which start with @. These define the entry points for the server to run custom code.
-    - Assignment: The = operator assigns a value to a variable or property.
-    - Expressions (Brackets): Expressions (calculations, data retrieval) must be enclosed in angle brackets (<>).
-
-3. Property and Method Access
-SphereScript uses dot notation (.) to access properties and execute methods (commands) on objects.
-    - Properties: Directly access object attributes (e.g., SRC.hp, TARG.p).
-    - Methods (Commands): Commands are functions executed on an object (e.g., SRC.say 'Hello', I.move 1).
-Understanding the grammar starts with knowing who the script is running on (SRC) and what other objects it can reference (TARG, I, etc.).
-
-### Handling SphereScript code by AI Agents
-- Do **NOT** assume, best guess or hallucinate language grammar or features. If not sure of the correctness of what you are writing, try to stick with the exact sentences the Changelog or the existing md wiki text are using for that topic. If still unsure, do not add *ex novo* (100% reasoned and produced by you) code or examples.
+- **Content Editing Workflow:**
+    - **Step 1 (Find Context):** Before proposing an edit, use the most scoped method possible (e.g., grep or a targeted read_file) to fetch only the specific block containing your intended old_string. This step is for verifying context and generating the old_string argument for file_editor.py.
+    - **Step 2 (Execute Edit):** Execute the required replacement using `python3 agent_helpers/file_editor.py`.
+    - **Step 3 (Failure Handling):** If `file_editor.py` reports "0 occurrences found", immediately read the entire file content using the read_file tool and ask me for a new plan or confirmation. Do not attempt to correct the old_string yourself.
+- **SphereScript Code Handling:**
+    - Do NOT assume, best guess or hallucinate language grammar or features. If not sure of the correctness of what you are writing, try to stick with the exact sentences the Changelog or the existing md wiki text are using for that topic. If still unsure, do not add ex novo (100% reasoned and produced by you) code or examples. 
     
 ---
 
@@ -60,7 +36,7 @@ Understanding the grammar starts with knowing who the script is running on (SRC)
 
 ## Task 2) Done
 
->! Convert the original mediawiki files from the `mediawiki_orig` folder into markdown files in the `mediawiki_orig_conv_markdown` folder through the python script `agent_helpers/convert_wiki.py`, which leverages `pandoc` for the conversion.
+>! Convert the original mediawiki files from the `mediawiki_orig` folder into markdown files in the `mediawiki_orig_conv_markdown` folder through the python script `agent_helpers/convert_mediawiki_to_md.py`, which leverages `pandoc` for the conversion.
 
 ## Task 3) Done
 
@@ -74,23 +50,28 @@ Understanding the grammar starts with knowing who the script is running on (SRC)
     - Expand wiki entries/tables/infos to incorporate new features or reflect changes that affect correctness (e.g., parameter shifts like ARGN2 to ARGN3).
     - Do **NOT** add informations about existing features fixes.
     - If there's a change on how a feature works, do not mention both the old and the new feature usage. Keep only the latest.
-- **Tool for Progress & Batching:** You must use the existing Python script `agent_helpers/process_changelog.py` for all changelog management.
+- **Tool for Progress & Batching:**
+    You must use the existing Python script `agent_helpers/process_changelog.py` for all changelog management.
     - **Initial Setup:** The script is responsible for creating and maintaining `agent_helpers/changelog_progress.txt`.
     - **Batch Selection:** Use a command-line argument (e.g., `--start-point-header`) to instruct the script to find the next uncompleted entry and output a batch of **5 entries** to integrate into the wiki.
     - **Progress Tracking:** After successfully integrating a batch, use another command-line argument to instruct the script to apply **strike-through formatting** to those completed entries in the **`changelog_progress.txt`** file.
+    - Usage:
+        - "--start-point-header": Changelog entry header (e.g., '01-06-2019, Nolok') to start processing from.
+        - ""--mark-as-processed": Mark the last processed batch of entries as complete in changelog_progress.txt.
 - **Content Creation:**
     - Only integrate changes of **functionalities** (new, removal, or change) that are relevant to end-users; ignore vague fixes or simple bugfixes.
     - If a page doesn't exist, **create and link it to the relevant parent page** only if you have sufficient, relevant information. New pages must contain **at least one parameter table and 1-2 paragraphs** of useful information. Do not create mostly empty pages.
 - **Verification & Constraint:**
-    - Do not add the date a feature was fixed. Assume the wiki is always updated to the latest build.
+    - Do not add the date a feature had changed. Assume the wiki is always updated to the latest build.
     - Check if the reason your file manipulation tools are failing is simply because a file **does not exist**.
     - Make sure that any files you are adding new links to **do really exist** and have the correct, non-hallucinated content.
 - **Execution Plan:** **Continue with every unaddressed changelog entry** (as indicated by `agent_helpers/changelog_progress.txt`), taking the time you need and proceeding without supervision.
 
 ## Task 5) TODO.
 
+Stop your actions and wait for user input. We will need to change the model (use here gemini-2.5-pro, for everything else continue using gemini-2.5-flash).
 Review and fix the links you inserted between pages, as most have a **broken format** (e.g., an unnecessary leading `:`). Moreover, for each markdown "root" file (has multiple links to other pages, and the other pages are "children" and do have only one root file), create a folder with the "root" markdown file name. Keep every child file in that folder. Subfolders are allowed.
-
+- **Mandatory Tool for Restructuring:** You MUST use the script `agent_helpers/organize_wiki.py` to perform the file restructuring (right now it is only a blueprint, you need to complete it). The script handles finding root files, creating folders named after the root file, and moving all child pages into that new folder structure.
 ## Task 6) TODO.
 
 Read every **Sphere.ini** setting and add it to the wiki in the relevant page, if missing.

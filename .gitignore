@@ -1,0 +1,4 @@
+.git/
+
+*.kate-swp
+.tmp
