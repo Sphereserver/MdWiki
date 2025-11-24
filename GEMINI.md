@@ -15,7 +15,10 @@ The **Changelog.txt** contains changes to the C++ core and SphereScript features
 
 ### ⚠️ File Handling & Context Management (Critical)
 
-- **(NEW) Context Isolation & Token Management:** **NEVER** read an entire file unless absolutely necessary. After successfully performing an edit on a file, **do not read that file again** in the current batch unless it is the explicit target of a subsequent operation. Assume the change was successful and avoid polluting the context with redundant file content.
+- Mandatory Editing Tool: For ALL file content modifications (replacements, insertions, or deletions), you MUST use the dedicated Python script, file_editor.py, instead of the built-in Edit tool.
+Usage: python file_editor.py <filepath> --old "old_string" --new "new_string"
+- Use your (gemini-cli) tools only if you can't manage to make file_editor.py to work.
+- **Context Isolation & Token Management:** **NEVER** read an entire file unless absolutely necessary. After successfully performing an edit on a file, **do not read that file again** in the current batch unless it is the explicit target of a subsequent operation. Assume the change was successful and avoid polluting the context with redundant file content.
 - **Edit Tool Reliability:**
     - Before performing any edit on `@filename`, use the **most scoped method possible** (e.g., `grep` or a targeted `read_file` with line/range parameters, if available) to fetch **only the specific block** containing your intended `old_string`. Only fall back to reading the entire file if a targeted search fails.
     - When using the edit tool, if the edit fails (e.g., "0 occurrences found"), **do not try to correct the `old_string` and retry.** Instead, immediately read the entire file content using the `read_file` tool and ask me for a new plan or confirmation.

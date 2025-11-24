@@ -18,14 +18,14 @@
 
 ### For `SERV.TILEDATA.ITEM(id)`:
 
-- `FLAGS`
+- `FLAGS`: Represents various properties of the item. For High Seas tiledata, this is now correctly read as a 64-bit number.
 - `UNK5`
 - `WEIGHT`
 - `LAYER`
 - `UNK11`
 - `ANIM`: Originally considered a 4-bit field, it's actually a 2-bit number related to animation. Can be used with an offset (e.g., `50000` for male gumps, `60000` for female gumps) to retrieve the paperdoll gump ID.
-- `LIGHT`: Represents the light value of the item.
-- `HUE`: Represents the hue value of the item.
+- `LIGHT`: Represents the light value of the item. Formerly known as `UNK19`.
+- `HUE`: Represents the hue value of the item, newly added to reflect the reinterpretation of the ANIM field.
 - `HEIGHT`
 - `NAME`
 

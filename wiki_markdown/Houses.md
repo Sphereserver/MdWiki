@@ -1,6 +1,6 @@
 ## Description
 
-This property returns the list of houses owned by a player. For more comprehensive information about the house system, including detailed properties, functions, and triggers, please refer to the [House System](./House_System.md) document.
+This property returns the list of houses owned by a player. The `HOUSES` command now functions correctly, addressing previous issues. For more comprehensive information about the house system, including detailed properties, functions, and triggers, please refer to the [House System](./House_System.md) document.
 
 ## Ficha
 

@@ -1,7 +1,7 @@
 ```{=mediawiki}
 {{Languages|Characters}}
 ```
-\_\_FORCETOC\_\_ A character can be either a player or an NPC.
+\_\_FORCETOC\_\_ A character can be either a player or an NPC. Safety checks and warnings are now in place to prevent setting invalid skill or stat values.
 
 ## References
 
@@ -1514,12 +1514,8 @@ _AL.md) |                | all the        |                |
 |                |                | are over       |                |
 |                |                | *amount*.      |                |
 +----------------+----------------+----------------+----------------+
-| [SKILLUSEQUIC  | R              | Quickly uses a |                |
-| K](./SKILLUSEQUI__________________skill_________________________
-_CK.md) |                | returning 1 if |                |
-| *skill_id,     |                | the attempt    |                |
-| difficulty*    |                | was            |                |
-|                |                | successful.    |                |
+| [SKILLUSEQUICK](./SKILLUSEQUICK.md) | R | Quickly uses a skill with optional parameters to control the check formula and script execution. It accepts: `skill_id` (the ID of the skill), `difficulty` (the difficulty of the skill attempt). The `linearcheck` parameter, when set to 1, makes Sphere perform a linear skill check (typically for combat-related checks, where a higher difficulty value makes it easier to pass). The `forcecheck` parameter, when set to 1, allows the execution of the Skill_UseQuick method by a skill with the SKF_SCRIPTED flag. Sphere internally utilizes quick checks for various actions including Camping, Mining, Musicianship, Parrying, Repairing Items, Resisting Spells, Tinkering, Training Dummies, and Tracking. |
+| *skill_id, difficulty, linearcheck, forcecheck* | | |
 +----------------+----------------+----------------+----------------+
 | [SLEEP](./SLE_____W_______________Makes_the______________________
 _EP.md) |                | character      |                |
@@ -2003,7 +1999,8 @@ usage and examples.
   [SHRINK](./SHRINK.md)                              W                Shrinks the NPC into a figurine item.                                                                           
   [SPEECH](./SPEECH.md) *+/-speech_id*               RW               Gets the list of speech handlers attached to the NPC, or adds or removes a speech handler to or from the NPC.   
 | [SPEECHCOLOR](./SPEECHCOLOR.md)                    | RW             | For NPCs, gets or sets the colour of their speech. For players, it is read-only and contains the last speech hue sent by the client. This can be overridden by SPEECHCOLOROVERRIDE. |                |
-| [SPEECHCOLOROVERRIDE](./SPEECHCOLOROVERRIDE.md) | RW             | Overrides the speech color for both NPCs and players.                                                          | X              |                                                                   
+| [SPEECHCOLOROVERRIDE](./SPEECHCOLOROVERRIDE.md) | RW | Overrides the speech color for both NPCs and players. | X |
+| EMOTECOLOROVERRIDE | RW | Overrides the default emote color for the character. |                                                                   
   [THROWDAM](./THROWDAM.md) *min,max*                RW               Gets or sets a range of damage used for thrown objects. (overrides chardef property)                            
   [THROWDAM](./THROWDAM.md) *dam*                    RW               Gets or sets the constant damage used for thrown objects. (overrides chardef property)                          
   [THROWDAMTYPE](./THROWDAMTYPE.md) *damage flags*   RW               y                                                                                                               Gets or sets the damage flags used for thrown objects. (overrides chardef property)

@@ -32,7 +32,7 @@ endif
 
 `<spherescript>`{=html} mt_male 00000 mt_nonmover 00000 mt_ghost 00001
 // Moves through doors mt_swim 00002 // Moves on water mt_walk 00004 //
-Can walk on land mt_passwalls 00008 // Walk through walls mt_fly 00010
+Can walk on land mt_passwalls 00008 // Walk through walls mt_fly 00010 // Allows flying movement, but NPCs can no longer fly over walls and drop through roofs.
 mt_fire_immune 00020 mt_indoors 00040 // Can go under roof mt_hover
 00080 // Hovers (can follow gargoyle flight paths) mt_equip 00100
 mt_usehands 00200 mt_mount 00400 // can ride mountables mt_female 00800

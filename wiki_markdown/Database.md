@@ -1,7 +1,7 @@
 ```{=mediawiki}
 {{Languages|Database}}
 ```
-\_\_FORCETOC\_\_ Using the [DB](./DB.md) object reference, scripts
+__FORCETOC__ Using the [DB](./DB.md) object reference, scripts
 can interact with an external MySQL database. The following table
 details the various properties of the database object in SphereServer:
 
@@ -28,7 +28,7 @@ not exist on the item, the property from the
   [EXECUTE](./EXECUTE.md) *command*               W                Exectutes an SQL command that doesn\'t return any result.
   [QUERY](./QUERY.md) *command*                   W                Executes an SQL command that returns results.
   [ROW](./ROW.md).NUMCOLS                         R                Returns the number of columns returned in the last query.
-  [ROW](./ROW.md).NUMROWS                         R                Returns the number of rows returned in the last query.
+  [ROW](./ROW.md).NUMROWS                         R                Returns the number of rows returned in the last query. This property returns `0` if the previous query did not yield any results.
   [ROW](./ROW.md)*.n.col_index*                   R                Returns the value of the column at index *col_index* in the nth row. (zero-based)
   [ROW](./ROW.md)*.n.col_name*                    R                Returns the value of the column named *col_name* in the nth row. (zero-based)
   ----------------------------------------------------- ---------------- ------------------------------------------------------------------------------------------------------------------------------------

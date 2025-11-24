@@ -13,5 +13,6 @@
 
 ## Notes
 - Removing multis now removes all of its components by default (doors, signs, tiller, etc), but not lockdowns or other personal items.
+- When placing a multi, key creation is now conditional and dependent on the multi's type, ensuring keys are only created when appropriate for the specific multi.
 
 [Category: Reference Compendium](./CategoryReference_Compendium.md) [Category: Definitions](./CategoryDefinitions.md)

@@ -19,6 +19,9 @@ This document describes the properties and functions available through the `SERV
 | `SERV.N.SAY` | W | Sends multiple-line messages (up to 4 lines) to the client. | X |
 | `SERV.N.SYSMESSAGE` | W | Sends multiple-line system messages (up to 4 lines) to the client. | X |
 | `SERV.LOG` | W | Supports writing a log (up to 4 lines) instead of one (client-like). | X |
-| `SERV.TIME` | R | Returns the internal time in tenths of seconds (for backwards compatibility). | X |
-| `SERV.TIMEHIRES` | R | Returns the internal timer in milliseconds. | X |
+| `SERV.TIME` | R | Returns the internal time in tenths of seconds (for backwards compatibility).
+| `SERV.TIMEHIRES` | R | Returns the internal timer in milliseconds. This value is now saved during world saves.
 | `SERV.TICKPERIOD` | R | Shows how much server ticks are in a real-world second. | X |
+| `SERV.CLEARVARS` | W | Clears local character variables. Now correctly works with a given mask. | X |
+| `SERV.CLEARTAGS` | W | Clears character tags. Now correctly works with a given mask. | X |
+| `SERV.CLEARCTAGS` | W | Clears character client tags. Now correctly works with a given mask. | X |

@@ -1,6 +1,6 @@
 ## Description
 
-This trigger fires when an item is dropped on to the ground.
+This trigger fires when an item is dropped on to the ground. The trigger now fires *before* the item's new position (`P`) is set. Within this trigger, scripts can now successfully overwrite an item's container.
 
 Fires on:
 
@@ -28,7 +28,8 @@ Sphere's behaviour:
 |--------------|------------|----------------------------------------------|
 | **Argument** | **In/Out** | **Description**                              |
 | ARGN1        | IO         | The decay time that will be set on the item. |
-| ARGS         | I          | The location that the item was dropped at.   |
+| ARGN2        | I          | Set to `1` if the trigger is called during a BOUNCE check (e.g., an overloaded character dropping the item). |
+| ARGS         | I          | The location ([P](./P.md)) that the item will be dropped at. |
 
 ## Return Values
 

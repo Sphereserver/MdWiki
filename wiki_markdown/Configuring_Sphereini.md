@@ -218,7 +218,7 @@ default. //CommandTrigger=f_oncommand
 
 // Use the built in http server // 0 - disable http server and webpage
 generation // 1 - disable http server and enable webpage generation //
-2 - enable http server and webpage generation (default) UseHttp=2
+2 - enable http server and webpage generation (default) UseHttp=2 // Legitimate connections to the HTTP server are now correctly processed when enabled. The HTTP server also correctly serves webpages by properly handling the "If-Modified-Since" HTTP header, or by serving them correctly if the header is absent.
 
 // Use the OSI AuthID to avoid possible hijack to game server.
 UseAuthID=0
@@ -443,12 +443,12 @@ the action. OverSkillMultiply=2
 
 // NPC AI settings // NPC_AI_PATH 0001 NPC pathfinding // NPC_AI_FOOD
 0002 NPC food search (objects + grass) // NPC_AI_EXTRA 0004 NPC magics,
-etc // NPC_AI_ALWAYSINT 0008 Always be as smart as possible with
-pathfinding // NPC_AI_INTFOOD 0010 NPC food search (more intelligent and
+etc // NPC_AI_ALWAYSINT 0008 Always use advanced pathfinding, ignoring the Intelligence (INT) threshold.
+// NPC_AI_INTFOOD 0010 NPC food search (more intelligent and
 trusworthy) // NPC_AI_COMBAT 0040 Look for friends in combat //
 NPC_AI_VEND_TIME 0080 vendors closing their shops at nighttime //
 NPC_AI_LOOTING 0100 loot corpses an the way // NPC_AI_MOVEOBSTACLES 0200
-if moveable items block my way, try to move them //NPCAI=0
+if moveable items block my way, try to move them //NPCAI=0 // NPCs require at least 30 INT for advanced pathfinding, unless NPC_AI_ALWAYSINT is enabled.
 
 /////////////////////////////////////////////////////////////// ////////
 Crime/Murder/Karma/Fame/Guard Settings
@@ -511,7 +511,8 @@ details on this`</spherescript>`{=html}
 `// EF_UNICODE = 00000002 // No on Linux. ``<font color="darkblue">`{=html}**`Enables UNICODE fixes`**\
 `</font>`{=html}` // EF_New_Triggers = 00000008 ``<font color="darkblue">`{=html}**`// Adds more triggers`**\
 `</font>`{=html}` // EF_Intrinsic_Locals = 00000020 ``<font color="darkblue">`{=html}**`// Locals can be reference differently. <LOCAL.X> can be referenced as <X>.`\
-`</font>`{=html}` // EF_Item_Strict_Comparison = 00000040`\
+`</font>`{=html}` // EF_ItemStacking = 00000010 // Enables correct item stacking for items dropped at Z-levels below zero.`\
+`// EF_Item_Strict_Comparison = 00000040`\
 `// EF_NewPositionChecks = 00000080 // Do not set while server is running !!!`\
 `// EF_WalkCheck = 00000100 ``<font color="darkblue">`{=html}**`// Fixes house looting bugs, and other walkchecking related problems.'''`\
 `</font>`{=html}` // EF_AllowTelnetPacketFilter = 00000200 // Enables packet filtering for telnet connections as well`\
@@ -543,6 +544,10 @@ this`</spherescript>`{=html}
 `// OF_Buffs = 00002000`\
 `// OF_NoPrefix = 00004000 // Add prefix "A" and "An" to itemnames or not`\
 `// OF_NoPaperdollTradeTitle = 00000001 // If set, the trade title will not be shown on the paperdoll`\
+`// REVEALF_SNOOPING = 0xXXXX // Reveals hidden characters when a snoop attempt occurs.`\
+`// REVEALF_STEALING = 0xXXXX // Reveals hidden characters when a stealing attempt occurs.`\
+`// REVEALF_STEALING_SUCCESS = 0xXXXX // Reveals hidden characters upon a successful stealing attempt.`\
+`// REVEALF_STEALING_FAIL = 0xXXXX // Reveals hidden characters upon a failed stealing attempt.`\
 `// OF_DyeType = 00008000 // if set allows using i_dye on all t_dye_vat instead of only i_dye_tub`\
 `// OF_DrinkIsFood = 00010000 // type T_DRINK will increase FOOD lvl like T_FOOD`\
 `// OF_Specific = 01000000 // Specific behaviour, not completly tested`\

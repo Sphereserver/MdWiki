@@ -1,4 +1,4 @@
-This function is called from CItemMulti::Multi_Create when multis do their checks to be placed.
+This function is called from CItemMulti::Multi_Create when multis do their checks to be placed. After these checks and the multi's successful placement, the `f_multi_setup` function is called for further setup.
 
 ## Parameters
 

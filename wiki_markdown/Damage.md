@@ -61,6 +61,11 @@ In a PickAxe with 45 Hits it will mean that a number higher than 720
 Here's a damage formula to force damage: <spherescript> damage=\<eval
 <maxhits>\*16\>,<src>,dam_physical </spherescript>
 
+
+## Damage Flags
+
+For a comprehensive list and descriptions of all available damage flags, see [Damage Flags](./Damage_Flags.md).
+
 [Category: Reference
 Compendium](./_Reference_Compendium.md) [Category:
 Triggers](./_Triggers.md)

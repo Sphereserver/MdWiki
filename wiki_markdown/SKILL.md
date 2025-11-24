@@ -173,6 +173,8 @@ _BONUS_STATS.md) |                | for gaining stats when  |
 |                         |                | to when using this      |
 |                         |                | skill.                  |
 +-------------------------+----------------+-------------------------+
+| TAMING_RANGE            | RW             | Customizes the range for the Animal Taming skill.
++-------------------------+----------------+-------------------------+
 | [PROMPT_MSG]            | RW             | Gets or sets the        |
 | (PROMPT_MSG "wikilink") |                | message shown when the  |
 |                         |                | character selects the   |

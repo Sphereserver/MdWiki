@@ -17,6 +17,8 @@ Here is a list of all character definition properties.
   [AVERSIONS](./AVERSIONS.md)                                                 RW               ??              Gets or sets a list of things that the character does not like.
   [BASEID](./BASEID.md)                                                       R                ??              Gets the defname of the character if set, otherwise the ID.
   [BLOODCOLOR](./BLOODCOLOR.md)                                               RW               ??              Gets or sets the character\'s blood colour (a value of -1 prevents the creature from bleeding at all.)
+| BREATH.DAMTYPE                                                RW               ??              Gets or sets the type of damage for the character\'s breath attack. Default value is: DAM_FIRE.
+| THROWDAMTYPE                                                RW               y               Gets or sets the damage flags used for thrown objects. Default value is: DAM_PHYSICAL.
   [CAN](./CAN.md)                                                             RW               ??              Gets or sets attributes for the character. See can_flags in sphere_defs.scp.
   [COLOR](./COLOR.md)                                                         RW               ??              Gets or sets the character colour.
   [DAM](./DAM.md) *min,max*                                                   RW               ??              Gets or sets the base damage that the character will deal without a weapon.
@@ -35,7 +37,8 @@ Here is a list of all character definition properties.
   [INT](./INT.md)                                                             RW               ??              Gets or sets the intelligence that is set when a character polymorphs into this character.
   [JOB](./JOB.md)                                                             R                ??              Gets the character\'s job title.
   [MAXFOOD](./MAXFOOD.md)                                                     R                ??              Gets the maximum food level that the character can have.
-  [MOVERATE](./MOVERATE.md)                                                   RW               Y               Boost or limit the movement speed (based on DEX) with the specified rate. The higher it is, the faster the NPC will be. 50 means 50% of speed, 200 means double speed.
+  [MOVERATE](./MOVERATE.md)                                                   RW               Y               Boost or limit the movement speed (based on DEX) with the specified rate. The higher it is, the faster the NPC will be.
+ 50 means 50% of speed, 200 means double speed.
   [NAME](./NAME.md)                                                           RW               ??              Gets or sets the name of the character.
   [RANGE](./RANGE.md) *min, max*                                              RW               Y               Gets or sets the attack range of the character.
   [RANGEH](./RANGEH.md)                                                       R                ??              Gets the maximum attack range of the character.
@@ -48,18 +51,22 @@ Here is a list of all character definition properties.
   [RESOURCES](./RESOURCES.md)*.n.KEY*                                         R                ??              Gets the [BASEID](./BASEID.md) of the nth resource that the character is made of. (zero-based)
   [RESOURCES](./RESOURCES.md)*.n.VAL*                                         R                ??              Gets the amount of the nth resource that the character is made of. (zero-based)
 | [SOUND](./SOUND.md)                                                         RW               ??              Gets or sets the generic sound that the character makes.
-| [SOUNDIDLE](./SOUNDIDLE.md)                                                 RW               ??              Gets or sets the idle sound that the character makes. If set, this overrides the generic SOUND property for idle actions. Set to -1 to prevent action-related sound.
-| [SOUNDNOTICE](./SOUNDNOTICE.md)                                             RW               ??              Gets or sets the notice sound that the character makes. If set, this overrides the generic SOUND property for notice actions. Set to -1 to prevent action-related sound.
-| [SOUNDHIT](./SOUNDHIT.md)                                                   RW               ??              Gets or sets the hit sound that the character makes. If set, this overrides the generic SOUND property for hit actions. Set to -1 to prevent action-related sound.
-| [SOUNDGETHIT](./SOUNDGETHIT.md)                                             RW               ??              Gets or sets the sound played when the character is hit. If set, this overrides the generic SOUND property for get hit actions. Set to -1 to prevent action-related sound.
-| [SOUNDDIE](./SOUNDDIE.md)                                                   RW               ??              Gets or sets the sound played when the character dies. If set, this overrides the generic SOUND property for death actions. Set to -1 to prevent action-related sound.
+| [SOUNDIDLE](./SOUNDIDLE.md)                                                 RW               ??              Gets or sets the idle sound that the character makes. If set, this overrides the generic SOUND property for idle actions.
+Set to -1 to prevent action-related sound.
+| [SOUNDNOTICE](./SOUNDNOTICE.md)                                             RW               ??              Gets or sets the notice sound that the character makes. If set, this overrides the generic SOUND property for notice actions.
+Set to -1 to prevent action-related sound.
+| [SOUNDHIT](./SOUNDHIT.md)                                                   RW               ??              Gets or sets the hit sound that the character makes. If set, this overrides the generic SOUND property for hit actions.
+Set to -1 to prevent action-related sound.
+| [SOUNDGETHIT](./SOUNDGETHIT.md)                                             RW               ??              Gets or sets the sound played when the character is hit. If set, this overrides the generic SOUND property for get hit actions.
+Set to -1 to prevent action-related sound.
+| [SOUNDDIE](./SOUNDDIE.md)                                                   RW               ??              Gets or sets the sound played when the character dies. If set, this overrides the generic SOUND property for death actions.
+Set to -1 to prevent action-related sound.
   [STR](./STR.md)                                                             RW               ??              Gets or sets the strength that is set when a character polymorphs into this character.
 | [TAG](./TAG.md)*.name*                                                      RW               ??              Gets or sets the value of a TAG.
 | [VAR.TAG](./VAR.TAG.md)*(x).KEY/VAL* | R | Easily access properties from a TAG saved on the CHARDEF. | X |
 | [TAG.BARDING.DIFF (X branch only)](TAG.BARDING.DIFF_(X_branch_only) "wikilink")   RW               ??              determine the difficulty of Enticement, Peacemaking and Provocation skills. If this tag isn\'t set, the old behaviour is used.
   [THROWDAM](./THROWDAM.md) *min,max*                                         RW               y               Gets or sets a range of damage used for thrown objects.
   [THROWDAM](./DAM.md) *dam*                                             RW               y               Gets or sets the constant damage used for thrown objects.
-  [THROWDAMTYPE](./THROWDAMTYPE.md) *damage flags*                            RW               y               Gets or sets the damage flags used for thrown objects.
   [THROWOBJ](./THROWOBJ.md) *id*                                              RW               y               Gets or sets the ID of an object to be thrown by NPCs.
   [THROWRANGE](./THROWRANGE.md) *min,max*                                     RW               y               Gets or sets the range that an object can be thrown at.
   [THROWRANGE](./THROWRANGE.md) *max*                                         RW               y               Gets or sets the range that an object can be thrown at with a default min of 2.

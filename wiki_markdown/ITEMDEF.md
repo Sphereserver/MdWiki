@@ -129,6 +129,9 @@ item COMPONENT=i_door_wood,0,3,7 // adds a door at 0,3,7 (relative to
 location of the item) COMPONENT=i_sign_brass_2,2,4,5 // adds a brass
 sign at 2,4,5 (relative to location of the item)`</spherescript>`{=html}
 
+## Notes
+- When creating a derived ITEMDEF (e.g., `[ITEMDEF i_something]` inheriting from another ID), if neither a `TYPE` nor a valid `ID` are explicitly set in the script, the item now correctly inherits or defaults its base properties such as type, layer, weight, tiledata flags, and CAN flags, avoiding random assignments.
+
 [Category: Reference
 Compendium](./_Reference_Compendium.md) [Category:
 Definitions](./_Definitions.md)

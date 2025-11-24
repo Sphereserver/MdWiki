@@ -1,7 +1,7 @@
 ## Description
 
 This trigger fires when a character sells an item to a vendor. The
-trigger fires for each item that is sold in the transaction.
+trigger fires for each item that is sold in the transaction. Gold received from sales is added to existing gold piles in the character's pack, rather than creating new piles for each transaction.
 
 Fires on:
 

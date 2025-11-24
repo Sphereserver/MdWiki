@@ -1,7 +1,7 @@
 ## Description
 
 This trigger fires when tooltips for an item are about to be sent to a
-client. Due to recent changes, tooltips are now cached on the item. This means the [ADDCLILOC](./ADDCLILOC.md) function needs to be called directly on the item (e.g., using `ACT.ADDCLILOC`), rather than on the player.
+client. Due to recent changes, tooltips are now cached on the item. This means the [ADDCLILOC](./ADDCLILOC.md) function needs to be called directly on the item (e.g., using `ACT.ADDCLILOC`), rather than on the player. Tooltip data is now correctly sent and displayed immediately after an item is added to a container, ensuring accurate information is always shown.
 
 Fires on:
 

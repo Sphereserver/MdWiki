@@ -31,7 +31,7 @@ for more detailed information such as usage and examples.
 | [TOPOBJ](./TOPOBJ.md) | R | Gets the top-most [character](./Characters.md) or [item](./Items.md) in the world that contains the character. |  |
 | [TYPEDEF](TYPEDEF_(Reference) "wikilink") | R | Gets the [CHARDEF](./CHARDEF.md) that defines the character. |  |
 
-## Properties and Functions
+### Properties and Functions
 
 Here is a list of all character properties and functions. If a function
 is marked as readable then it can return a value when used as <KEY>.
@@ -39,6 +39,14 @@ Click on the name for more detailed information such as usage and
 examples. If an attempt is made to access a property that does not exist
 on the character, the property from the [CHARDEF](./CHARDEF.md)
 will be accessed instead.
+
+### Poisoning
+
+- NPCs with a Poisoning skill above 0 can now apply poison if unarmed. Previously, this ability was restricted to creatures with `BRAIN_MONSTER`.
+
+### Throwing
+
+- The NPC `THROWING` action now has a 3-second timeout, preventing spamming of throwing actions.
 
 <table>
 <tbody>
@@ -2025,7 +2033,7 @@ on the name for more detailed information such as usage and examples.
 ## NPCs
 
 Characters that are not attached to an account are NPCs and are
-controlled by Sphere's AI. In addition to the basic character
+controlled by Sphere's AI. NPCs require an Intelligence (INT) value of at least 30 to utilize advanced pathfinding. This intelligence check can be bypassed by enabling the `NPC_AI_ALWAYSINT` flag in `sphere.ini`. NPC skill training now adheres to an upper limit, preventing unlimited skill gain even when the difference between teacher and scholar skill is high. In addition to the basic character
 references, properties and functions they also receive the following:
 
 ### Properties and Functions

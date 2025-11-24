@@ -6,6 +6,7 @@ attempts to display the menu through hardcoded behaviour, using the
 [SKILLMENU](./SKILLMENU.md) command will not cause this trigger to
 fire.
 
+- The training context menu now filters out and does not display disabled skills (those marked with the `SKF_DISABLED` flag).
 Fires on:
 
 - [Players](./CharactersPlayers.md)

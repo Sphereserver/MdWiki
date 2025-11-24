@@ -1,6 +1,6 @@
 ## Description
 
-This trigger fires when a character drops an item on to the ground.
+This trigger fires when a character drops an item on to the ground. The trigger now fires *before* the item's new position (`P`) is set.
 
 Fires on:
 
@@ -24,11 +24,12 @@ marked as "In" then a value will be passed in to the trigger, if an
 argument is marked as "Out" then it can be set to a value to affect
 Sphere's behaviour:
 
-|  |  |  |
-|----|----|----|
-| **Argument** | **In/Out** | **Description** |
-| ARGN1 | IO | The decay time, in tenths of a second, that will be set on the item. |
-| ARGS | I | The location that the item was dropped at. |
+|              |            |                                              |
+|--------------|------------|----------------------------------------------|
+| **Argument** | **In/Out** | **Description**                              |
+| ARGN1        | IO         | The decay time, in tenths of a second, that will be set on the item. |
+| ARGN2        | I          | Set to `1` if the trigger is called during a BOUNCE check (e.g., an overloaded character dropping the item). |
+| ARGS         | I          | The location ([P](./P.md)) that the item will be dropped at. |
 
 ## Return Values
 

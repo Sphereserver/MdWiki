@@ -698,6 +698,8 @@ _ARGET.md)*FGMW* |                | cursor to SRC. *F*      |
 - The `<VAR.VARNAME>` syntax now works from an item, allowing direct access to VAR variables.
 - Properties `Only<Race/Sex>` have been removed as they are no longer used.
 - The `NoDropTrade` property has been split into separate flags.
+- Items or item stacks that exceed a character's carrying capacity can no longer be picked up or moved.
+- Non-multi items can now be correctly placed using a deed without encountering errors.
 
 - When a player attempts to equip non-equippable items, they are now bounced to the pack.
 - New item properties `PICKUPSOUND` and `DROPSOUND` have been added to override default pickup and drop sounds for items.
