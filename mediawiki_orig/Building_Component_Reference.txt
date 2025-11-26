@@ -1,6 +1,0 @@
-{|class=wikitable
-|+Doors
-!Image !!DEFNAME
-|-
-|FIXME ||FIXME
-|}

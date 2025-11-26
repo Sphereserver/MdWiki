@@ -1,1 +1,0 @@
-Gets the total protection given by an armor piece (Alias for [AR](./AR.md)).

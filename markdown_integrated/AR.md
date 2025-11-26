@@ -1,1 +1,0 @@
-Gets the total protection given by an armor piece. This value is internally used when COMBAT_ELEMENTAL_ENGINE is off and its value depends on [ARMOR](./ARMOR.md), [MODAR](./MODAR.md), ATTR_MAGIC and OF_ScaleDamageByDurability.

@@ -1,1 +1,0 @@
-Returns the filename of the database connected to. Returns an empty string if there isn't an open connection.

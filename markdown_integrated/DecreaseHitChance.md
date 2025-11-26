@@ -1,1 +1,0 @@
-This property has been removed. Use a negative [IncreaseHitChance](./IncreaseHitChance.md) instead.

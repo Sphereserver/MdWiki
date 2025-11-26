@@ -171,22 +171,18 @@ def main():
                         help="Mark the last processed batch of entries as complete in changelog_progress.txt.")
     args = parser.parse_args()
 
-    changelog_filepath = 'Changelog.txt'
-    progress_filepath = 'changelog_progress.txt'
+    changelog_filepath = 'Changelog.txt' # Assuming Changelog.txt is in the root directory
+    progress_filepath = os.path.join(os.path.dirname(__file__), 'changelog_progress.txt')
 
     # --- Handle marking entries as processed ---
     if args.mark_as_processed:
-        # Load the headers of the last batch that was printed to the user.
-        # This assumes the user will run --mark-as-processed immediately after a batch is displayed.
-        # In a real scenario, this might need to be persisted (e.g., in a temp file).
-        # For this task, we will assume we retrieve the last batch from a temporary file.
-        # This part of the logic needs to be carefully designed to reflect the real interaction flow.
         try:
-            with open('.last_processed_batch_headers.tmp', 'r', encoding='utf-8') as f:
+            tmp_headers_filepath = os.path.join(os.path.dirname(__file__), '.last_processed_batch_headers.tmp')
+            with open(tmp_headers_filepath, 'r', encoding='utf-8') as f:
                 last_batch_headers = [line.strip() for line in f if line.strip()]
             if last_batch_headers:
                 mark_entries_as_processed(progress_filepath, last_batch_headers)
-                os.remove('.last_processed_batch_headers.tmp')
+                os.remove(tmp_headers_filepath)
             else:
                 print("No last processed batch found to mark.")
         except FileNotFoundError:

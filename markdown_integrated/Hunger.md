@@ -1,4 +1,0 @@
-## Description
-
-This trigger was removed and merged in
-[@RegenStat](./RegenStat.md)
