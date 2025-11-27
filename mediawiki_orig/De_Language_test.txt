@@ -1,3 +1,0 @@
-{{Languages|Language test}}
-
-Test der SPrachtoolbar auf Deutsch
