@@ -1,0 +1,1027 @@
+{{Languages|Chapter_2}}
+
+==spheretables.scp==
+
+Spheretables.scp  ist die allererste Datei, die beim Start von Sphere genau nach der Sphere.ini eingelesen wird. Deshalb ist sie äusserst wichtig. Viele weitere Einstellungen werden innerhalb dieser Datei vorgenommen und das macht sie so wichtig. Deshalb wird diese Datei hier nun erklärt und aufgeschlüsselt:
+
+
+<nowiki>==</nowiki> <font color="darkred">[RESOURCES]</font> ==
+
+Öffnet man diese Datei, fällt einem als erstes eine Liste von Dateien ins Auge. Diese Liste ist durch das [RESOURCE]-Tag markiert und sieht so aus:
+
+
+<tt><font color="darkblue">[RESOURCES]<br />
+scripts/sphere_defs.scp<br />
+scripts/sphere_book.scp<br />
+scripts/sphere_backward_compatibility.scp<br />
+scripts/sphere_events_human.scp<br />
+scripts/sphere_events_npcs.scp<br />
+scripts/npcs/<br />
+...<br /></font></tt>
+
+
+Hier wird eingestellt, welche und in welcher Reihenfolge Skriptdateien von Sphere geladen werden. Manchmal sollten hier Änderungen mit äusserster Vorsicht vorgenommen werden. Dateien mit DEFNAMES, REGIONS und anderen global benutzten Einstellungen sollten als erstes geladen werden, um Fehler beim Start von Sphere zu vermeiden (obgleich diese Fehler oftmals den Server nicht beeinträchtigen). Beispielsweise wurde in [[De:Chapter 1|Kapitel 1]] das Goldskript behandelt:
+
+<font color="darkred">TYPE=t_gold</font>
+
+
+Wurde die sphere_defs.scp nicht vor dem Goldskript geladen, weiss Sphere nicht was t_gold bedeutet, dann wird eine Fehlermeldung ausgegeben. Deshalb sollte vor dem Goldskript auf alle Fälle zuerst die sphere_defs.scp geladen werden, in der t_gold definiert wurde.
+
+
+Skripte mit Itemdefinitionen sollten vor Skripten mit Templatedefinitionen geladen werden und danach dann die Characterdefinitionen. Andere Dateien folgen danach, aber diese Dateien sollten auf jeden Fall in dieser Reihenfolge sein. Der Loot von Monstern benötigt Templates und die wiederum Items und solange Sphere keine Dateien mit Templates oder Items geladen hat, werden hunderte Fehler ausgegeben, die dann korrigiert werden müssen.
+
+
+'''Anmerkung''': ''Es können ganze Ordner angegeben werden, es muss nicht jede einzelne Datei in der Liste aufgeführt werden. Deshalb enthält die Liste beispielsweise <font color="darkred">scripts/</font> am ende von [RESOURCE], damit alle Skripte dieses Ordner geladen werden, die noch nicht aufgeführt wurden.''
+
+
+<nowiki>==</nowiki> <font color="darkred">[OBSCENE]</font> ==
+
+Die nächste Sektion ist selbsterklärend: [OBSCENE]. Hier werden unerlaubte Namen aufgeführt. Versucht ein Spieler seinem Charakter einen Namen aus der Liste zu geben, dann wird ihm mitgeteilt, dass er einen anderen wählen soll. 
+
+<nowiki>==</nowiki> <font color="darkred">[NOTOTITLES]</font> ==
+
+Hier werden Titel definiert, die basierend auf dem Karmawert eines Spielers angezeigt werden. Diese Sektion sollte nicht angerührt werden, denn fehlt hier eine Zeile wird Sphere nicht mehr starten - diese Zeilen sollten höchstens geändert werden.
+
+
+<nowiki>==</nowiki> <font color="darkred">[PLEVEL X]</font> ==
+
+Dieser Abschnitt legt fest, welche Befehle mit welchen Accountrechten (PLEVEL) ausgeführt werden können. Jeder nichtgelistete Befehl wird automatisch mit PLEVEL 4 eingeordnet. Das gilt auch für selbstgeschriebene Funktionen (siehe [[Chapter 6|Kapitel 6]]). Wie man sieht, gibt es eine große Liste an Befehlen und Funktionen.
+
+'''Anmerkung''': Es muss nicht jede selbstgeschriebene Funktion in diese Liste, da jederzeit weitere [PLEVEL]-Sektionen in anderen Skripten angelegt werden können, obgleich es natürlich organisatorisch besser wäre, diese würden zentral gehalten.
+
+
+
+<nowiki>==</nowiki> <font color="darkred">[RUNES]</font> ==
+
+Das ist die Liste der Worte, die gesagt werden, wenn ein Spruch gezaubert wird (An, Lor, In, usw.). Sie können geändert werden, aber das kann durchaus sehr verwirren. =P
+
+==Sphere.ini==
+
+Sphere.ini enthält alle internen Einstellungen des Sphere Emulators. Um einen Shard zu konfigurieren sollte hier begonnen werden. Um die Datei besser zu erklären, wurden Kommentare in '''fetter Schrift''' eingefügt.
+
+<tt><font color="darkred">//****************************************************************************<br />
+// SPHERE by : Menasoft 1997-2003<br />
+// www.sphereserver.com<br />
+// All SPHERE script files and formats are copyright Menasoft & Partners.<br />
+// This file may be freely edited for personal use, but may not be distributed<br />
+// in whole or in part, in any format without express written permission from<br />
+// Menasoft & Partners. All donations and contributions<br />
+// become the property of Menasoft & Partners.<br />
+//****************************************************************************<br /></font>
+<br />
+<font color="darkblue">///////////////////////////////////////////////////////////////<br />
+//////// General Information<br />
+///////////////////////////////////////////////////////////////<br /></font>
+<br />
+[SPHERE]<br />
+// Name of your Sphere shard<br />
+ServName='''WarAngel's Test Centre'''<br />
+// The IP of your server, this will be 127.0.0.1 almost always<br />
+ServIP=127.0.0.1<br />
+// The port of your server, this is 2593 by default<br />
+ServPort=2593<br />
+<br />
+// Admin's contact email<br />
+AdminEmail='''warangel999@msn.com'''<br />
+// Web page for this server<br />
+URL=www.myshard.com Replace www.myshard.com with your shard's URL'<br />
+// GMT offset, from -12 to +12 [London=0, EST=5, etc]<br />
+TimeZone='''-5 Östliche Zeitzone (US & Canada). Sollte passend eingestellt werden.'''<br />
+<br />
+// Official staff language<br />
+Lang=English<br />
+// Start this as a system service on Win2000, XP, NT<br />
+NTService=0 '''Wird diese Einstellung aktiviert, ist kein Zugriff auf die Konsole mehr möglich.'''<br />
+<br />
+// MySql configuration.<br />
+//MYSQL=0 '''Auf =1 wird MySQL aktiviert.'''<br />
+//MySqlHost='''localhost Wird fast immer localhost sein, ausser MySQL läuft auf einen anderen Rechner als der Shard.'''<br />
+//MySqlUser=<br />
+//MySqlPassword=<br />
+//MySqlDatabase=<br />
+<br />
+<font color="darkblue">///////////////////////////////////////////////////////////////<br />
+//////// File Locations<br />
+///////////////////////////////////////////////////////////////<br /></font>
+// Directory where spheretables.scp is located, from there we will<br />
+// load any additional scripts<br />
+ScpFiles=scripts/<br />
+<br />
+// Where your sphereworld.scp and spherechars.scp are located<br />
+WorldSave=save/<br />
+<br />
+// Where your sphereaccu.scp and sphereacct.scp is located<br />
+AcctFiles=accounts/<br />
+<br />
+// Where your UO installation is located. This need: map0.mul, statics0.mul,<br />
+// staidx0.mul, multi.mul, multi.idx, hues.mul, tiledata.mul.<br />
+// Optional files: verdata.mul, mapX.mul/staticsX.mul/staidxX.mul for higher<br />
+// maps support (Malas, etc).<br />
+//<br />
+// Note that if not set, sphere will scan windows registry to auto-detect it<br />
+//MulFiles=mul/<br />
+<br />
+// Where your log files will be saved by sphere<br />
+Log=logs/<br />
+<br />
+<font color="darkblue">///////////////////////////////////////////////////////////////<br />
+//////// World Save Information<br />
+///////////////////////////////////////////////////////////////<br /></font>
+// How often for Sphere to save your world (minutes)<br />
+SavePeriod=20<br />
+<br />
+// How many backup levels to keep. Each level means 7 backups done for it.<br />
+// So, 10*7 = 70 backup saves will be storied.<br />
+BackupLevels=10<br />
+<br />
+// On would save in the background quietly over a longer period of time, and not interrupt the game<br />
+// Off would notify "World save has been initiated" and save faster, but pause the game momentarily<br />
+SaveBackground=0<br />
+<br />
+<font color="darkblue">///////////////////////////////////////////////////////////////<br />
+//////// Account Management<br />
+///////////////////////////////////////////////////////////////<br /></font>
+//Code for servers account application process<br />
+// 0=Closed, // Closed. Not accepting more.<br />
+// 2=Free, // Anyone can just log in and create a full account.<br />
+// 3=GuestAuto, // You get to be a guest and are automatically sent email with u're new password.<br />
+// 4=GuestTrial, // You get to be a guest til u're accepted for full by an Admin.<br />
+// 6=Unspecified, // Not specified.<br />
+// To enable auto account you must set this to 2<br />
+AccApp=0<br />
+<br />
+// Store password hashed with MD5 '''MD5 ist eine Verschlüsselungsmethode zur Speicherung von Passwörtern. Mehr Information: [http://de.wikipedia.org/wiki/MD5 hier]'''<br />
+Md5Passwords=0<br />
+<br />
+// local ip is assumed to be the admin<br />
+LocalIPAdmin=1<br />
+<br />
+// Number of chars allowed per account<br />
+MaxCharsPerAccount=5<br />
+<br />
+// Min time for a char to exist before delete allowed (in seconds)<br />
+MinCharDeleteTime=3*24*60<br />
+<br />
+// Max number of Guest accounts allowed<br />
+GuestsMax=0<br />
+<br />
+<font color="darkblue">///////////////////////////////////////////////////////////////<br />
+//////// Client Management<br />
+///////////////////////////////////////////////////////////////<br /></font>
+// What client protocol version used<br />
+// Comment out the ClientVersion line to allow any client that is supported.<br />
+//ClientVersion=2.0.3<br />
+<br />
+// Set this to 0 to block login to encrypted clients '''Normalerweise benutzen Clients Verschlüsselung.'''<br />
+UseCrypt=1<br />
+<br />
+// Set this to 1 to allow login to unencrypted clients '''Klappt mit Tools wie bspw.: [http://stud4.tuwien.ac.at/~e9425109/UO_RICE.htm UO Rice] und [http://www.uogateway.com/ UOGateway] die Verschlüsselung eines Clients zu entfernen'''<br />
+UseNoCrypt=0<br />
+<br />
+// Maximum total open connections to server<br />
+ClientMax=256<br />
+<br />
+// Maximum open connections to server per IP<br />
+ClientMaxIP=16<br />
+<br />
+// Maximum total (not-in-game) connections to server <br />
+ConnectingMax=32<br />
+<br />
+// Maximum total simultaneous (not-in-game) connections to server per IP<br />
+ConnectingMax=8<br />
+<br />
+// How long logged out clients linger in seconds<br />
+ClientLinger=15<br />
+<br />
+// Walk limiting code: buffer size (in tenths of second)<br />
+WalkBuffer=75<br />
+<br />
+// Walk limiting code: regen speed (%)<br />
+WalkRegen=25<br />
+<br />
+// Only commands issued by this plevel and higher will be logged<br />
+CommandLog=0 '''0 bedeutet, dass alle Befehle geloggt werden.'''<br />
+<br />
+// Prefix for ingame commands<br />
+CommandPrefix=.<br />
+<br />
+// Use the built in http server<br />
+UseHttp=1<br />
+<br />
+// Use the built in god port<br />
+UseGodPort=0 '''This is for use with the God client'''<br />
+<br />
+// Default setting for all accounts specifying default resdisp. Recommended<br />
+// specifying at least 1 (T2A) here.<br />
+//AutoResDisp=0 '''0=autmatisch herausfinden, 1=T2A, 2=LBR, 3=AoS, 4=SE, 5=ML'''<br />
+<br />
+// Default setting for new accounts specifying default priv level<br />
+//AutoPrivFlags=010<br />
+<br />
+<font color="darkblue">///////////////////////////////////////////////////////////////<br />
+//////// Game Mechanics<br />
+///////////////////////////////////////////////////////////////<br /></font>
+// Do not allow entering under roof being on horse?<br />
+MountHeight=0<br />
+<br />
+// Archery does not work if too close (0 = not checked)<br />
+ArcheryMinDist=2<br />
+<br />
+// Maximum Distance for Archery<br />
+ArcheryMaxDist=15<br />
+<br />
+// Speed scale factor for weapons '''Formel ist: VERZÖGERUNG = SPEEDSCALEFACTOR /((DEX + 100) * SPEED)'''<br />
+SpeedScaleFactor=15000<br />
+<br />
+// This is the percent of max weight at which stamina is lost half the time<br />
+// (200 = no effect)<br />
+StaminaLossAtWeight=150<br />
+<br />
+// Weight penalty for running +N% of max carry weight (0 = no effect)<br />
+RunningPenalty=50<br />
+<br />
+// Show people joining/leaving the server<br />
+ArriveDepartMsg=1<br />
+<br />
+// Are house and boat keys newbied automatically<br />
+AutoNewbieKeys=1<br />
+<br />
+// Maximum number of items allowed in bank<br />
+BankMaxItems=1000<br />
+<br />
+// Maximum weight in stones allowed in bank<br />
+BankMaxWeight=1000<br />
+<br />
+// If 1 vendors will take gold only from backpack<br />
+PayFromPackOnly=0 '''Wenn 0, dann nehmen Händler auch Geld vom Bankfach.'''<br />
+<br />
+// Disable weather effects?<br />
+NoWeather=1<br />
+<br />
+// Default light level in dungeons<br />
+DungeonLight=27 '''0 ist am helssten, 30 ist am dunkelsten'''<br />
+<br />
+// Day light level 0-30 '''0 ist am helssten, 30 ist am dunkelsten'''<br />
+LightDay=0<br />
+<br />
+// Night light level 0-30<br />
+LightNight=25<br />
+<br />
+// Wool Regen Time (in minutes)<br />
+WoolGrowthTime=30<br />
+<br />
+// Suppress player speech with 75% of capital letters<br />
+SuppressCapitals=0<br />
+<br />
+// Extra combat flags to control the fight (default:0, 0.55i compatible)<br />
+// COMBAT_NODIRCHANGE 00001 // not rotate player when fighting (like was in 0.51a)<br />
+// COMBAT_FACECOMBAT 00002 // allow faced combat only (recommended)<br />
+//CombatFlags=0 '''Sind beide aktiviert, dann bedeutet das, dass der Spieler den Gegner ansehen muss, um ihn zu treffen.'''<br />
+<br />
+<font color="darkblue">///////////////////////////////////////////////////////////////<br />
+//////// NPC/Item/Player Management<br />
+///////////////////////////////////////////////////////////////<br /></font>
+// Distance in tiles before an NPC that's wandered too far from it's home will teleport back<br />
+LostNPCTeleport=50<br />
+<br />
+// Wether PCs get a resurrection robe when they get resurrected.<br />
+NoResRobe=0<br />
+<br />
+// Time for a NPC corpse to decay mins<br />
+CorpseNPCDecay=10<br />
+<br />
+// Time for a playercorpse to decay mins<br />
+CorpsePlayerDecay=15<br />
+<br />
+// Base decay time in minutes for items<br />
+DecayTimer=30<br />
+<br />
+// Put [NPC] tags over chars '''oder [TAME], wenn der NPC gezähmt wurde'''<br />
+CharTags=0<br />
+<br />
+// Flip dropped items<br />
+FlipDroppedItems=0<br />
+<br />
+// Monsters run when scared of death<br />
+MonsterFear=0<br />
+<br />
+// Monsters may fight each other<br />
+MonsterFight=0<br />
+<br />
+// Percent setting of the all NPC move rate, default 100<br />
+MoveRate=100<br />
+<br />
+// Do players receive sounds<br />
+GenericSounds=1<br />
+<br />
+// Max number of items to sell to one person at once<br />
+VendorMaxSell=255<br />
+<br />
+// Max level npc trainers can go<br />
+NPCTrainMax=300 '''300 ist 30.0 skill'''<br />
+<br />
+// Percent of own ability npcs can train to<br />
+NPCTrainPercent=30<br />
+<br />
+// Max level of skill trainable on dummies, archery butte ect..<br />
+SkillPracticeMax=300 '''300 ist 30.0 skill'''<br />
+<br />
+// Max skill player's will start with on skills they haven't chosen during char create<br />
+MaxBaseSkill=200 '''Hier eine 0, damit Spieler mit keinen Skills ausser den gewählten beginnen.'''<br />
+<br />
+// Time in seconds for hitpoint regeneration<br />
+Regen0=40<br />
+<br />
+// Time in seconds for mana regeneration<br />
+Regen1=20<br />
+<br />
+// Time in seconds for stamina regeneration<br />
+Regen2=10<br />
+<br />
+// Time in seconds for food degeneration<br />
+// 60*60*24 = 1 day of real life time<br />
+Regen3=60*60*24<br />
+<br />
+// Speech block associated to players<br />
+SpeechSelf=spk_player<br />
+<br />
+// Speech block associated to pets<br />
+SpeechPet=spk_pet<br />
+<br />
+// When player skills/stats goes this times more than skillclass allowed, drop<br />
+// them to skillclass level. Setting this to 0 disables the action.<br />
+OverSkillMultiply=2<br />
+<br />
+// NPC AI settings<br />
+// NPC_AI_PATH 0001 NPC pathfinding<br />
+// NPC_AI_FOOD 0002 NPC food search (objects + grass) '''Sorgt dafür, dass NPCs nach Essen bzw Gras suchen (siehe FOODTYPE)'''<br />
+// NPC_AI_EXTRA 0004 NPC magics, combat, etc<br />
+//NPCAI=0<br />
+<br />
+<font color="darkblue">///////////////////////////////////////////////////////////////<br />
+//////// Crime/Murder/Karma/Fame/Guard Settings<br />
+///////////////////////////////////////////////////////////////<br /></font>
+// Karma when player goes from good to neutral (from -10000 to 10000)<br />
+PlayerNeutral=-2000<br />
+<br />
+// How many minutes are criminals flagged for<br />
+CriminalTimer=3<br />
+<br />
+// Times a player can snoop before becoming a criminal<br />
+SnoopCriminal=20<br />
+<br />
+// Seconds time to decay a murder count (default 8*60*60 is 8 hours)<br />
+MurderDecayTime=8*60*60<br />
+<br />
+// Amount of murders before we get title<br />
+MurderMinCount=1<br />
+<br />
+// Looting or carving a blue player is a crime<br />
+LootingIsaCrime=1<br />
+<br />
+// Flag players criminal for helping criminals?<br />
+HelpingCriminalsIsaCrime=1<br />
+<br />
+// How long do guards linger about in minutes<br />
+GuardLinger=3<br />
+<br />
+// Will guards kill instantly or follow normal combat rules<br />
+GuardsInstantKill=1<br />
+<br />
+// Limits the MAXHITS/MAXMANA/MAXSTAM changes<br />
+// STAT_FLAG_NORMAL 0x00 // MAX* status allowed (default)<br />
+// STAT_FLAG_DENYMAX 0x01 // MAX* denied<br />
+// STAT_FLAG_DENYMAXP 0x02 // .. for players<br />
+// STAT_FLAG_DENYMAXN 0x04 // .. for npcs<br />
+StatsFlags=0<br />
+<br />
+<font color="darkblue">///////////////////////////////////////////////////////////////<br />
+//////// Server Mechanics<br />
+///////////////////////////////////////////////////////////////<br /></font>
+// Experimental flags<br />
+// Flags for options that affect server behaviour and which might affect compatibility<br />
+// See the revisions.txt file for more details on this<br />
+// EF_DiagonalWalkCheck = 00000001<br />
+// EF_UNICODE = 00000002 // No on Linux '''Bringt UNICODE Korrekturen'''<br />
+// EF_Scripts_Ret_Strings = 00000004<br />
+// EF_New_Triggers = 00000008<br />
+// EF_Scripts_Parse_Verbs = 00000010<br />
+// EF_Intrinsic_Locals = 00000020 //'''Erlaubt locals anders zu nutzen. Beispielsweise kann statt <local.x> auch nur <x> benutzt werden.'''<br />
+// EF_Item_Strict_Comparison = 00000040 //'''Sorgt dafür, dass gleiche Items nicht mehr verglichen werden, wie Stoff, Leder, Fell, Holz, Bretter, Pfeile und Bolzen.'''<br />
+// EF_WalkCheck = 00000100 '''//Behebt viele Hauseinbruchsbugs und ähnliche Probleme.'''<br />
+// EF_Script_Profiler = 00000400<br />
+// EF_Size_Optimise = 00000800<br />
+// EF_Minimize_Triggers = 00001000 //Minimize trigger calls (use only 0.51 triggers)<br />
+Experimental=00000<br />
+<br />
+// Option flags <br />
+// Flags for options that affect server behaviour but not compatibility<br />
+// See the revisions.txt file for more details on this<br />
+// OF_Magic_IgnoreAR = 00000001 //'''Magieschaden ignoriert Rüstung (AR)?'''<br />
+// OF_Magic_CanHarmSelf = 00000002 //'''Kann sich ein Spieler mit Magie selbst verletzen? (einen Magic Arrow auf sich abfeuern, um Lähmung (Paralyze) zu beenden?)'''<br />
+// OF_Magic_StackStats = 00000004<br />
+// OF_Archery_CanMove = 00000010 //'''Kann ein Spieler laufen und schiessen gleichzeitig?'''<br />
+// OF_Magic_PreCast = 00000020 //'''Funktionieren Zauber mit pre-cast oder ist der Spieler solange er zaubert unfähig herumzulaufen?'''<br />
+// OF_Items_AutoName = 00000040<br />
+// OF_FileCommands = 00000080 //'''Aktiviert Befehle zur Dateiverarbeitung, wie writefile usw'''<br />
+// OF_NoItemNaming = 00000100 //'''Verhindert die Benennung von Gegenständen mit "crafted by"'''<br />
+// OF_NoHouseMuteSpeech = 00000200 //'''Können sich spieler in und ausserhalb von Häusern gegenseitig hören?'''<br />
+// OF_Multithreaded = 00000400 //'''Nicht setzen, solange der Server läuft!!! (Macht *Nix Server instabil) Lässt die Verarbeitung von Accounts auf einem anderen Thread laufen'''<br />
+// OF_Advanced_LOS = 00000800<br />
+// OF_Flood_Protection = 00001000<br />
+OptionFlags=0200<br />
+<br />
+// FeatureT2A, used to control T2A expansion features ( default 03 )<br />
+// FEATURE_T2A_UPDATE 01 // Monster and Lost lands<br />
+// FEATURE_T2A_CHAT 02 // In game chat<br />
+FeatureT2A = 03<br />
+<br />
+// FeatureLBR, used to control LBR expansion features ( default 0 )<br />
+// FEATURE_LBR_UPDATE 01 // Lbr Monsters<br />
+// FEATURE_LBR_SOUND 02 // MP3 instead of MIDI<br />
+FeatureLBR = 0<br />
+<br />
+// FeatureAOS, used to control AOS expansion features ( default 0 )<br />
+// Enabling one of them automagically enables AoS basic features<br />
+// FEATURE_AOS_UPDATE 01 // Basic AoS feature<br />
+// FEATURE_AOS_POPUP 02 // Popup infos<br />
+// FEATURE_AOS_DAMAGE 04 // Damage shown on hit<br />
+// FEATURE_AOS_PALNECRO 08 // Fightbook and Paladin/Necro on char creation<br />
+// FEATURE_AOS_TOOLTIP 010 // Tooltips<br />
+FeatureAOS = 0<br />
+<br />
+// FeatureSE, used to control SE expansion features ( default 0 )<br />
+// FEATURE_SE_UPDATE 01 // Basic SE features<br />
+// FEATURE_SE_NINJASAM 02 // Ninja and Samurai<br />
+FeatureSE = 0<br />
+<br />
+// FeatureML, used to control ML expansion features ( default 0 )<br />
+// FEATURE_ML_UPDATE 01 // Basic ML features<br />
+FeatureML = 0<br />
+<br />
+// In game effects to turn on and off<br />
+// Messages echoed to the server console while in debug mode<br />
+// DEBUGF_NPC_EMOTE = 0x0001<br />
+// DEBUGF_ADVANCE_STATS = 0x0002<br />
+// DEBUGF_WALKCODES = 0x0080 // try the new walk code checking stuff<br />
+// DEBUGF_NPCAI = 0x0100 // some NPC AI debugging<br />
+// DEBUGF_EXP = 0x0200 // experience gain/loss<br />
+// DEBUGF_LEVEL = 0x0400 // experience level changes<br />
+DebugFlags=0<br />
+<br />
+// Console Hears all that is said on the server<br />
+HearAll=1<br />
+<br />
+// Secure mode attempts to ignore errors, protect from accidently shutdowns<br />
+Secure=1<br />
+<br />
+// Value from 1 to 32, set sectors inactive when unused to conserve resources<br />
+SectorSleep=10<br />
+<br />
+// Disconnect inactive socket in x min<br />
+DeadSocketTime=5<br />
+<br />
+// Always force a full garbage collection on save<br />
+ForceGarbageCollect=1<br />
+<br />
+// Time before restarting when server appears hung (in seconds)<br />
+FreezeRestartTime=60<br />
+<br />
+// Length of the game world minute in real world in seconds<br />
+GameMinuteLength=60<br />
+<br />
+// Bit Mask of the subjects you want to log when logging is on<br />
+// LOGM_ACCOUNTS 0x00080<br />
+// LOGM_SAVE 0x00200 // world save status.<br />
+// LOGM_CLIENTS_LOG 0x00400 // all clients as they log in and out.<br />
+// LOGM_GM_PAGE 0x00800 // player gm pages.<br />
+// LOGM_PLAYER_SPEAK 0x01000 // All that the players say.<br />
+// LOGM_GM_CMDS 0x02000 // Log all GM commands.<br />
+// LOGM_CHEAT 0x04000 // Probably an exploit !<br />
+// LOGM_KILLS 0x08000 // Log player combat results.<br />
+// LOGM_HTTP 0x10000<br />
+// 01ffff log everything<br />
+LogMask=01ec80<br />
+<br />
+// Amount of time to keep map data cached in sec<br />
+MapCacheTime=120<br />
+<br />
+// Max NPC chars for a sector to prevent lag<br />
+MaxComplexity=32<br />
+<br />
+// Amount of items in one tile so start showing "too many items here"<br />
+MaxItemComplexity=25<br />
+<br />
+// Amount of items in one sector to start showing "x items too complex"<br />
+MaxSectorComplexity=1024<br />
+<br />
+// Limit the number of cycles the while/for loop can proceed. Setting this to<br />
+// zero disables the limitation<br />
+MaxLoopTimes=0<br />
+<br />
+<font color="darkblue">///////////////////////////////////////////////////////////////<br />
+//////// Magic/Effects Settings<br />
+///////////////////////////////////////////////////////////////<br /></font>
+<br />
+// Allow casting while equipped<br />
+EquippedCast=1<br />
+<br />
+// Words of power for player using magic<br />
+WOPPlayer=1<br />
+<br />
+// Words of power for staff using magic<br />
+WOPStaff=0<br />
+<br />
+// Reagents lost if magic fails<br />
+ReagentLossFail=0<br />
+<br />
+// Magic requires reagents<br />
+ReagentsRequired=0<br />
+<br />
+// What % of hitpoints players will resurrect with. Note, that if you set this<br />
+// too low, people with little STR will have problems resurrecting.<br />
+HitPointPercentOnRez=33<br />
+<br />
+// How many % of hits will the character loose when starving. 0 disables<br />
+//HitsHungerLoss=0<br />
+<br />
+// Amount of skill of lock picking needed to unlock a magically locked door<br />
+MagicUnlockDoor=900<br />
+<br />
+// Teleport effect for GMs and players. Setting 0 disables the effect<br />
+TeleportEffectStaff=03709<br />
+TeleportEffectPlayers=0372a<br />
+<br />
+<font color="darkblue">///////////////////////////////////////////////////////////////<br />
+//////// Experience and Level system<br />
+///////////////////////////////////////////////////////////////<br /></font>
+<br />
+// Enable experience system<br />
+//ExperienceSystem=0<br />
+<br />
+// Experience system settings:<br />
+// 0001 gain experience in combat<br />
+// 0002 gain experience in crafts<br />
+// 0004 allow experience to go down<br />
+// 0008 limit experience decrease by a range witheen a current level<br />
+// 0010 auto-init EXP/LEVEL for NPCs if not set in @Create<br />
+// 0020 allow trigger @ExpChange<br />
+// 0040 allow trigger @ExpLevelChange<br />
+//ExperienceMode=0<br />
+<br />
+// If combat experience gain is allowed, use these percents for gaining exp in<br />
+// Player versus Monster and Player versus Player combats. Value 0 disables gain.<br />
+//ExperienceKoefPVM=100<br />
+//ExperienceKoefPVP=100<br />
+<br />
+// Enable levels system (as a part of experience system)<br />
+//LevelSystem=0<br />
+<br />
+// Level system settings:<br />
+// linear = 0 (each NextLevelAt exp will give a level up)<br />
+// double = 1 (you need (NextLevelAt * (level+1)) to get a level up)<br />
+//LevelMode=1<br />
+<br />
+// Amount of experience to raise to the next level<br />
+//LevelNextAt=0<br />
+<br />
+<font color="darkblue">///////////////////////////////////////////////////////////////<br />
+//////// Webpage Settings<br />
+///////////////////////////////////////////////////////////////<br /></font>
+<br />
+// Note, that you can catch error codes by creating sphere404.htm and so on<br />
+// for all HTTP error codes sphere support.<br />
+<br />
+[WEBPAGE 1]<br />
+// Determines what html file is used as base for the status page<br />
+WebPageSrc=scripts\web\spherestatusbase.html<br />
+// Determines where the status page is saved<br />
+WebPageFile=scripts\web\status.html<br />
+// In seconds, how often the status file is updated<br />
+WebPageUpdate=60<br />
+// Required PLevel to view this page (0 = anyone, 6 = admins only)<br />
+PLevel=0<br />
+<br />
+<font color="darkblue">///////////////////////////////////////////////////////////////<br />
+//////// Abuse Control<br />
+///////////////////////////////////////////////////////////////<br /></font>
+<br />
+// Block these ips from the server<br />
+// 255 is a wildcard, so 255.255.255.255 disables anyone connecting.<br />
+[BlockIP]<br />
+//123.34.45.56<br />
+//123.45.56.78<br />
+<br />
+<font color="darkblue">///////////////////////////////////////////////////////////////<br />
+//////// Connection Information<br />
+///////////////////////////////////////////////////////////////<br /></font>
+<br />
+//First line should be the name of your shard (this is what people see when they connect)<br />
+//Second line should be the IP of your shard (this is almost always 127.0.0.1)<br />
+//Third line should be the port of your shard (this should be whatever ServPort is set to)<br />
+<br />
+//Uncomment next 3 lines below this if you have a router<br />
+//First line should be a name different than your shard name above this<br />
+//Second line should be your real/external IP (www.whatismyip.com)<br />
+//Third line should be the shard port (this should be whatever ServPort is set to)<br />
+[SERVERS]<br />
+'''WarAngel's Test Centre'''<br />
+127.0.0.1<br />
+2593<br />
+<br />
+//External<br />
+//my.ip.goes.here<br />
+//2593<br />
+<br />
+[EOF]<br /></tt>
+
+
+
+'''MAPx''' Ist zwar nicht in sphere.ini, kann aber genutzt weden (siehe REVISIONS.txt). Und zwar so:
+
+
+MAPx=max_x,max_y,sector_size,real_map_number. 
+
+
+Beispiel: MAP1=7168,4096,512,-1 
+
+
+setzt die Größe von map1 auf 7168,4096, die Sektorgröße von map1 auf 512 und die -1 bedeutet, dass die Standarddatei für diese map benutzt wird.
+
+
+Anderes Beispiel: 
+
+
+MAP50=7168,4096,64,3 
+
+
+Aktiviert die Map mit nummer 50, die eine Größe von 7168,4096, eine Sektorgröße von 64 hat und map3.mul, statics3.mul und staidx3.mul als Dateien benutzt.
+
+==sphere_region.scp==
+
+Dieses Skript stellt Orte auf der Karte ein und defniert, was bspw. dort an Metallen oder Holz abgebaut werden kann, was passiert, wenn diese Orte betreten werden und weiteres. Es enthält zudem Resource-Sektionen, die so aufgebaut sind:
+
+
+<tt>[REGIONRESOURCE x]</tt>
+
+
+Diese Sektion enthält den Skill, der benötigt wird, um diese Resource abzubauen, welche Resource der Spieler erhält und wie lange es dauert, damit sie "nachwächst". Ein Beispiel hierfür (es gibt einen Kommentar mit "//t_tree", der aber klar sein sollte, wenn das vorherige Kapitel über defnames gelesen wurde).
+
+
+<tt><font color="darkgreen">[REGIONRESOURCE mr_tree]</font><br />
+// lumberjacking default<br />
+// t_tree<br />
+SKILL=1.0,80.0<br />
+AMOUNT=9,30<br />
+REAP=i_log<br />
+REGEN=60*60*10<br /></tt>
+
+
+Diese Sektion definiert eine Resource, etwas das gesammelt werden kann. Es vergleicht Skill und Menge. Das bedeutet, dass mit Skill 1.0 maximal 9 i_log und mit Skill 80.ß maximal 30 i_log gesammelt werden können. Alles danach ist nur eine Erhöhung der Chance auf 30 i_log. In der SKILL-Zeile wird also eine Unter- und eine Obergrenze festgelegt, die AMOUNT-Zeile macht selbiges für die Mengen.
+Was bringt uns das? Die Zeile: <font color="darkred">REAP=i_log</font>. Das sagt dem Server, er soll i_log Items erstellen, wenn diese Resource gebraucht wird. Es kann hier alles stehen, was man auf seinem Shard sammelbar machen möchte.
+Die nächste Zeile, REGEN, legt in Sekunden fest, wie lange es dauert, damit diese Resource wieder neu abgebaut werden kann. In diesem Beispiel sind das 60*60*10 Sekunden, also 10 Stunden. Als GM können die Punkte wahrgenommen werden, an denen Spieler geschürft oder abgeholz haben, denn dort liegen kleine Kristalle am Boden. Sie sehen wie Spawnpunkte aus, aber sind in Wahrheit Resourcenmarkierungen. Sie markieren, wo eine spezielle Resource geholt werden kann, wie viel geholt werden kann und welchen Typ die Resource hat. Sie haben zudem einen TIMER, der runterzählt (von bspw 36000) und der dann dafür sorgt, dass der Kristall bei 0 gelöscht wird.
+
+
+
+<tt><font color="darkgreen">[REGIONTYPE r_default_rock t_rock]</font><br />
+//Random rocks<br />
+RESOURCES=100.0 mr_nothing<br />
+RESOURCES=500.0 mr_iron<br />
+//RESOURCES=6.0 mr_rusty<br />
+//RESOURCES=6.0 mr_old_copper<br />
+//RESOURCES=6.0 mr_dull_copper<br />
+//RESOURCES=4.5 mr_bronze<br />
+RESOURCES=5.0 mr_copper<br />
+RESOURCES=2.0 mr_gold<br />
+RESOURCES=1.0 mr_rose<br />
+RESOURCES=2.0 mr_agapite<br />
+RESOURCES=1.0 mr_bloodrock<br />
+RESOURCES=1.0 mr_silver<br />
+RESOURCES=0.5 mr_verite<br />
+RESOURCES=0.2 mr_Valorite<br />
+RESOURCES=0.1 mr_mytheril<br />
+RESOURCES=0.1 mr_blackrock<br />
+RESOURCES=0.1 mr_diamond<br /></tt>
+
+
+
+Wow? Was sind das für Dinge? mr_iron, mr_agapite? Das ist nirgendwo in der Datei. Auch in sphere_defs.scp findet man diese Definitionen nicht, man muss in sphereitem_ore.scp nachsehen.
+
+
+<tt>RESOURCES=50.0 mr_iron</tt>
+
+
+Das sieht irgendwie bekannt aus. Würde es noch mehr, wenns so aussehen würde?
+
+<tt><font color="darkred">RESOURCES={ mr_iron 50 mr_copper 5 mr_gold 2 mr_rose 2 ...etc... }</font></tt>
+
+
+Möchte wetten, dass es das würde, wenn die vorherigen Lektionen in Kapitel 1 gelesen wurden. Das ist eine gewichtete Liste von Resourcen. In einem etwas anderen Format, als die für Template genutzte Version, aber sie funktioniert genau so. Das ist der einzige Ort in allen Skripten, in denen Kommazahlen genutzt werden können, wie bspw 0.1 und 0.2. Eigentlich stimmt das nur halb, aber Sphere verdeckt erfolgreich, solange in jeder RESOURECE-Zeile eine Kommazahl steht. (Im übrigen sollte nicht ein <font color="darkgreen">RESOURCES</font> mit einer Zufallsauswahl geskriptet werden. Sphere wird das nicht richtig auswerten, es sollte dieses Format genutzt werden.)
+
+
+
+<font color="darkgreen">[REGIONTYPE r_default_rock t_rock]</font> ''Bedeutet:'' r_default t_rock legt einen Defname für einen <font color="darkgreen">REGIONTYPE</font> fest, der in anderen Skripten benutzt werden kann (im nächsten Abschnitt bspw. =P). t_rock ist ein Defname (siehe <font color="darkblue">sphere_defs.scp</font>) für Stein, was für Sphere festlegt wo Spieler welche Resource sammeln können (sollte es auf t_water geändert werden, kann im Wasser Erz geschürft werden, was sicher nicht ganz so beabsichtigt ist.)
+
+
+
+Hoffentlich erklärt das sphere-resion.scp für jeden. Im nächsten Abschnitt wird gezeigt, wie REGIONTYPE-Einstellungen benutzt werden, damit die Resourcen auch wirklich im Spiel vorhanden sind.
+
+==sphere_mapX.scp==
+
+Willkommen zur einfachsten Datei in Sphere: spheremap.scp. Diese Datei ist vollständig fertiggestellt für die Standardmap. Es ist sehr selten, dass diese Datei verändert werden muss.
+
+
+Eine Anmerkung, die gleich zu Anfang gesagt werden muss: wird diese Datei verändert, muss der Server neu gestartet werden, damit die Änderung auch übernommen wird. Sollte das innerhalb eine Resyncs passieren, wirds viele Fehler geben.
+
+
+Diese Sektion zeigt, wie neue Regionen erstellt werden können, zu denen man mit dem .go Befehl reisen kann.
+
+
+Es gibt momentan 5 Dateien in den Standardskripten, eine für jede Map (Felucca, Trammel, Ilshenar, Malas und Tokuno) die von 0 bis 4 durchnummeriert sind (sphere_map0.scp, sphere_map1.scp usw).
+
+
+Ich benutze die Region Felucca als ein Beispiel für dieses Tutorial und hier das Skript dafür:
+
+
+
+<tt><font color="darkgreen">[AREADEF a_world]</font><br />
+NAME=Felucca<br />
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass<br />
+GROUP=ALLMAP<br />
+P=1323,1624,55,0<br />
+RECT=0,0,6144,4096,0<br /></tt>
+
+
+Diese Zeilen bedeuten:
+
+
+'''[AREADEF somedef]''': Wie in allen anderen Skripten ist das ein Defname - nur hier für eine Region auf dem Server.
+
+
+
+'''Name''': Diese Zeile enthält einen Namen für die Region, der angezeigt wird, wenn der .where Befehl im Spiel benutzt wird. Zudem kann .go "Region Name" dafür benutzt werden, um dort hin zu reisen (keine zwei Regionen sollten den selben Namen haben, ansonsten wird hier einiges an Fehlern produziert).
+
+
+
+'''Events''': Hier wird festgelegt, was alles in der Regeion passiert und welche Resourcen hier abbaubar sind (siehe den Abschnitt über REGEIONTYPE - diese können hier als EVENT benutzt werden). Neben den Resourcen können hier auch Trigger benutzt werden, die von den EVENTS aufgerufen werden können (wahrscheinlich bemerkt man hier, dass die REGIONTYPE-Sektionen nur Ereignisse für Regionen sind :P), wie beispielsweise @Enter und andere (siehe [[Triggers]]).
+
+
+
+'''Group''': Das ist eine Axiseinstellung, die im Travelmenü Regionen gruppiert.
+
+
+
+'''P''': Das ist der Ort, an den man mit .go "Region Name" gelangt. Jede Region hat eine solche Angabe und sie liegt normalerweise mitten in der Region oder an einem passenden ort. Wenn eine eigene Region erstellt wird, sollte ein solcher Punkt angegeben werden.
+
+
+
+'''RainChance''': Legt die Chance auf Regeion in der Region fest (Rainchance=50 gibt eine 50% Wahrescheinlichkeit) der Rest bedeutet, dass es zu 50% schneit.
+
+
+
+'''Rect''': Gibt die Grenzen der Region als Koordinaten an. Die ersten zwei Zahlen sind die Koordinaten des oberen linken Punktes und die zweiten der untere linke Punkt eines Rechtecks. Im Fall von Felucca ist das 0,0 bis 6144,4096 (RECT=0,0,6144,4096). Mit 56b kann auch ein fünfter Wert angegeben werden, nämlich die Karte, auf der die Region liegt, also RECT=0,0,6144,4096,0 (kann auch weggelassen werden, dann wird standardmäßig 0 verwendet - soll das nicht Map 0 sein, dann muss ein Wert angegeben werden, sonst gibts Fehler).
+
+
+
+'''Flags''': Regionenflags bestimmen, was in einer Region los ist. Sie beschreiben, ob eine Region bewacht ist, welche Magie genutzt werden kann, wer hier wen verletzen kann und ob es hier regnen kann. Soll das verwendet werden, dann so:
+
+
+Diese Zeile hinzufügen:
+
+
+FLAGS=#
+
+
+Natürlich sollte statt # eine Zahl verwendet werden! Wo diese nummern stehen? Es gibt vordefinierte, aber es gibt eine Liste.
+
+
+Beispielsweise für eine bewachte und gesicherte Region, sehen sie so aus:
+
+
+<tt>
+::region_flag_safe    (02000)<br />
+:+<br />
+::region_flag_guarded (04000)<br/ >
+:=<br />
+::06000<br/ ></tt>
+
+
+Das wars. Die <font color="darkgreen">FLAGS</font> werden auf 06000 gesetzt. "Aber, aber ... hiess es nicht, dass <font color="darkgreen">DEFNAMEs</font> die Eingabe von Zahlen unnötig machen?" (siehe [[De:Chapter 1|Kapitel 1]].) Natürlich, deshalb geht das auch ohne Zahlen und zwar so:
+
+
+<tt><font color="darkblue">FLAGS=region_flag_safe|region_flag_guarded</font></tt>
+
+
+Das wars. Die Region ist bewacht und sicher.
+
+
+Aus Sicht eines Admins ist das aber keine gute Idee. Eine derartige Region verhindert, dass Wachen wirklich jemanden töten können, sie rufen sich gegenseitig und werden zu keiner Handlung fähig sein und letztendlich Lag verursachen. Einfach glauben und keine Region mit diesen beiden Flags erstellen.
+
+
+Hier ist die Liste der möglichen Flags (stehen auch in sphere_defs.scp und können sich von Zeit zu Zeit ändern):
+
+
+
+<tt><font color="darkblue">[DEFNAME region_flags]<br />
+region_antimagic_all 00001        // <font color="darkred">keine Magie möglich hier.</font><br />
+region_antimagic_recall_in 00002  // <font color="darkred">kein Teleport,Recall hier her, keine Markierung von Runen.</font><br />
+region_antimagic_recall_out 00004 // <font color="darkred">kein Recall nach draussen von hier aus.</font><br />
+region_antimagic_gate 00008       // <font color="darkred">keine Gatezauber hier hin oder hier raus.</font><br />
+region_antimagic_teleport 00010   // <font color="darkred">kein Teleport hier her.</font><br />
+region_antimagic_damage 00020     // <font color="darkred">Keine "böse" Magie hier.</font><br />
+region_flag_ship 00040            // <font color="darkred">Das hier ist ein Schiff - Schiffsbefehle klappen hier.</font><br />
+region_flag_nobuilding 00080      // <font color="darkred">kein Gebäude in diesem Areal</font><br />
+region_flag_globalname 00100      // <font color="darkred">Sicherstellen, dass der Name global gilt.</font><br />
+region_flag_announce 00200        // <font color="darkred">Ankündigung an alle, dass diese Region betreten wird.</font><br />
+region_flag_insta_logout 00400    // <font color="darkred">Instant Logout erlaubt. (Hotel?)</font><br />
+region_flag_underground 00800     // <font color="darkred">Dungeon Areal. (kein Wetter)</font><br />
+region_flag_nodecay 01000         // <font color="darkred">Items am Boden werden nie gelöscht.</font><br />
+region_flag_safe 02000            // <font color="darkred">Diese Region sichert vor jedem Schaden.</font><br />
+region_flag_guarded 04000         // <font color="darkred">siehe tag.guardowner</font><br />
+region_flag_no_pvp 08000          // <font color="darkred">Spieler können sich nicht direkt Schaden.</font><br /></font></tt>
+
+
+Und das wars mit der <font color="darkblue">sphere_mapX.scp</font> Datei.
+
+
+==sphere_book.scp==
+Spherebook.scp ist eine der sinnlosesten Dateien, die zu finden ist. Wie oft liest man schon die Tips auf einem Shard, wenn man einloggt? Ich weiss, dass die meisten Spieler diese Rollen einfach wegklicken. Aber der Inhalt ist in dieser Datei festgelegt. Und Bücher - hab ich die erwähnt? Diese fast-unmöglich-zu-schreiben, selten benutzten Speicherverschwender?
+
+
+<tt>'''[SCROLL SCROLL_MOTD]'''<br />
+'''[SCROLL SCROLL_NEWBIE]'''<br />
+'''[SCROLL SCROLL_GUEST]'''<br /></tt>
+
+
+Das sind die Sektionen, die Nachrichten definiert, wenn man einloggt. Alles, das hier nach diesen Tags steht, wird in einer Nachricht auftauchen. Welche Leerzeichen wo gebraucht werden, muss mit vielen Tests herausgefunden werden. Braucht etwas Zeit und es gibt keine echte Möglichkeit das gut zu erklären. Einfach versuchen. Achtung: es gibt hier keine Zeilenumbrüche - oder zumindest gabs in der Vergangenheit keine.
+
+
+
+<tt>'''[TIP X]'''<br /></tt>
+
+
+Richtig. Das sind Tips, die es beim Start gibt. "Krieg ist für Kinder und alles Leben ungesund." ist einer davon. Sehr passend.
+
+
+
+<tt>'''[BOOK title]'''<br />
+'''[BOOK title x]'''<br /></tt>
+
+
+Erstellt ein Buch mit DEFNAME Titel. Es legt eine Seitenzahl x nach dem DEFNAME fest und fügt Text auf einer bestimmten Seite hinzu. Sieht man die Beispielbücher an, kann man erahnen, wie das klappt. Die größte Schwierigkeit dieser Bücher ist die benutzte Schriftart im Spiel, so dass man nicht wirklich weiss, wieviele Zeichen es für eine Zeile oder Seite braucht. Beispielsweise passen mehr 'i's als 'w's oder 'm's in eine Zeile, weil diese Buchstaben größer sind. Ein Absatz kann mit der TAB Taste eingefügt werden.
+
+
+==sphere_name.scp==
+
+Eine einfache Datei. Es enthält eine Liste von Namen unter Sektionen mit verschiedenen <font color="darkgreen">DEFNAMEs</font>. Die Namen sind wichtig, nicht der Inhalt, da man wahrscheinlich nie eine eigene Liste von Namen anlegen wird. Ich benutze diesen Emulator seit Jahren und habe nie diese Datei verändert.
+
+
+Um auf die Liste der Namen zugreifen zu können, benutzt man das hier:
+
+
+'''NAME=#NAMES_HUMANMALE'''
+
+
+Das ersetzt automatisch auf einen Zufallsnamen aus der Liste <font color="darkgreen">'''NAMES_HUMANMALE'''</font>.
+
+
+Um eine Liste von Namen zu erstellen, sieht das so aus:
+
+
+<tt><font color="darkgreen">[NAMES EIN_DEFNAME]<br />
+ANZAHL_DER_NAMEN<br />
+NAMEN<br /></font></tt>
+
+
+Beispielsweise: 
+
+
+<tt><font color="darkgreen">[NAMES NAMES_SPECIAL]<br />
+2<br />
+Hil<br />
+Hol<br /></font></tt>
+
+
+Schwierig, hm? Eigentlich wollte ich dafür keinen Abschnitt schreiben ...
+
+
+==sphere_newb.scp==
+Ich habs getan - kein eitler Humor unter diesem Titel! :)
+
+
+Auf jeden Fall ist diese Datei oft Gegenstand vieler Fragen. "Wie sorge ich dafür, dass meine Spieler mit 10000 Gold anfangen?" oder "Wie gebe ich allen Schmieden 800 Barren?" Ich sag nicht, dass das sinnvoll wäre, aber in dieser Datei können solche Dinge geregelt werden.
+
+
+<tt><font color="darkblue">[NEWBIE MALE_DEFAULT]<br />
+// Male Generic Starting Clothes<br />
+ITEMNEWBIE=i_shirt_plain<br />
+COLOR=colors_all<br />
+ITEMNEWBIE=random_pants<br />
+COLOR=colors_neutral<br />
+ITEMNEWBIE=random_shoes<br />
+COLOR=colors_neutral<br />
+ITEMNEWBIE=i_dagger<br />
+ITEMNEWBIE=i_candle<br />
+ITEMNEWBIE=i_book_sm<br />
+ITEMNEWBIE=i_gold,100<br /></font></tt>
+
+
+So sieht ein typisches Skript aus. Wie eine große Template, nicht wahr? Dafür gibts einen Grund. Es ist ein Template, es steht nur <font color="darkgreen">'''ITEMNEWBIE'''</font> statt <font color="darkgreen">'''ITEM'''</font> drin. In Kapitel 1 steht über Templates alles, was man wissen muss und genau so funktioniert das auch hier.
+
+
+Das einzige wichtige in diesen Sektionen ist: alles MUSS einen eindeutigen Namen haben, den der Server finden kann. Es kann keine weitere Newbie-Sektion hinzugüfgt werden, so sehr das auch gewollt werden würde - sorry.
+
+
+==sphere_skill.scp (SKILLCLASSES)==
+Skill Klassen legen fest, wie weit Skills/Stats gesteigert werden können und es können zudem Trigger angelegt werden. Ein Skillclass Skript sieht so aus:
+
+<tt><font color="darkblue">[SKILLCLASS 0]<br />
+// undeclared class.<br />
+// max skills for players of this skill class. <br />
+// might want this to be all 50.0 to make people declare a class?<br />
+DEFNAME=Class_undeclared<br />
+NAME=undeclared<br />
+// EVENTS=e_ClassUndeclared<br />
+STATSUM=300<br />
+SKILLSUM=10000.0<br />
+STR=100<br />
+INT=100<br />
+DEX=100<br />
+ALCHEMY=100.0<br />
+ANATOMY=100.0<br />
+ITEMID=100.0<br />
+ARMSLORE=100.0<br />
+and so on...<br /></font></tt>
+
+
+Um es zu verstehen:
+
+
+<font color="darkgreen">'''EVENTS'''</font>: Bedeutet, dass jeder mit dieser Skillclass auch die hier angegebenen Ereignisse auslöst. (mehrere EVENTS werden mit Komma getrennt, bspw: EVENTS=e_1,e_2 usw).
+
+
+<font color="darkgreen">'''STATSUM'''</font>: Gibt eine Obergrenze für die Summe der Stats an. Bspw: ich hab 100 Str, 100 Dex und 100 Int, dann hab ich 300 und damit STATSUM erreicht, ich kann nicht mehr erreichen (außer mit magischen Gegenständen und sowas).
+
+
+<font color="darkgreen">'''SKILLSUM'''</font>: Wie STATSUM, nur für Skills.
+
+
+<font color="darkgreen">'''STR/DEX/INT'''</font>: Obergrenze für einen spezifischen Stat (außer mit magischen Gegenständen und sowas).
+
+
+<font color="darkgreen">'''ALCHEMY'''</font>: Wie STR/DEX/INT, nur für Skills (in diesem Fall Alchemy, aber kann auch jeder andere sein).
+
+
+==sphere_serv_triggers.scp==
+Diese Datei enthält spezielle Trigger "Functions", die vom Server bei bestimmten Ereignissen aufgerufen werden. Darunter gibt es eine Liste von Funktionen, die in dieser Datei gefunden werden und manche haben auch eine Erklärung dabei:
+
+
+'''f_onaccount_login'''
+
+Wird aufgerufen, wenn ein Client das Passwort eingegeben hat.
+
+:ARGS --> Benutzername des Clients, der einloggen möchte
+:ARGO --> Referenz zum Client selbst
+:RETURN 0 --> nichts tun (also Login weiterlaufen lassen)
+:RETURN 1 --> die Verbindung zum Client trennen
+
+
+'''f_onaccount_delete'''
+
+Diese Funktion wird aufgerufen, bevor ein Account gelöscht wird.
+
+:ARGS --> Benutername des Accounts
+:RETURN 0 --> Löschen zulassen
+:RETURN 1 --> Löschen verhindern
+
+
+'''f_onchar_create'''
+
+
+'''f_onchar_delete'''
+
+
+'''f_onserver_start'''
+
+
+'''f_onserver_save'''
+
+
+'''f_onserver_save_ok'''
+
+
+'''f_onserver_save_fail'''
+
+
+'''f_onserver_save_finished'''
+
+
+'''f_onserver_exit'''
+
+
+'''f_onserver_blockip'''
+
+
+[[De:Chapter 3|Kapitel 3]]
+
+[[Category:Tutorials]]

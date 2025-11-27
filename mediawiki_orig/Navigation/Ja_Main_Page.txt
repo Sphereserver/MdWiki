@@ -1,0 +1,145 @@
+{{Languages|Main_Page}}
+
+まだリンク先のページは和訳できていません。暇を見つけて和訳していきます。気長にお待ちを…。
+
+
+有名なTaranの情報サイト"[http://www.cs.rit.edu/~djr7581/ Sphere Scripting for Dummies tutorials]"の再構成版へようこそ。彼のチュートリアルはSphere 55iに向けて作られていますが、現在はSphere 56bがリリースされていますので、我々は最新の変更と追加情報を含めて再構成しています。
+
+
+'''どこから始めたらいい？'''
+
+あなたがSphere 56bのスクリプトを学ぼうとしているのであれば、まず最初に読むべきは[[#Sphereの設定]]のセクションです。そこでは、基本的な空っぽの世界をセットアップする方法が示されています。それが終わった後は[[#チュートリアル]]です。決して一日で全てを得ようとせず、全てを余さずに、しっかり理解しながら学習してください。
+
+
+'''スクリプトの方法は学んだ！次はどうする？'''
+
+あなたが10章全てを完了したなら、以下に示すその他のチュートリアルや記事を読むことをお勧めします。それらはその他に比べれば、さほど重要ではありませんが、それでも多少は使えるいくつもの情報が含まれています。自作スクリプトを作成して、[http://www.sphereserver.net/index.php SphereServer Forums]の人々に共有してみましょう。また、自分自身で解決できない問題に対して助けを求めることもできます(英語なのでやや敷居は高いですが)。下部にある[[#参照一覧]]を参照することを忘れないでください。結構使えますよ。
+
+
+'''寄稿したい！'''
+
+このウェブサイトの情報をメンテナンスするには、非常にたくさんの作業を必要としますが、我々の多くはその時間がありません。もし助けてあげようと思っているならどうぞ遠慮無く！まだアカウントを作成していないなら、兎にも角にも、始めに[[Special:UserLogin|アカウントを作成]]です。その後ページ上部左の"編集"リンクから編集を始めることができます。それを始める前に、[[Contribution Guide]]を読んでおいてください。
+
+
+'''謝辞:'''
+
+[[WhoIsWho|Ben, Cloud_Br, Ellessar, Jdog, Lord Zerofiz, Mordaunt, Nazghul-ll, RanXerox, Rattlehead, Sandman, Sharlenwar, ShiryuX, thelegbra, Maximus and WarAngel]]は、コンテンツの追加を助けてくれました。
+
+[[WhoIsWho|Daleth]]は、Sphere Reference Projectを書いてくれました。また、[[WhoIsWho|Mordaunt]]は .chm フォーマットに変換してくれました。
+
+[[WhoIsWho|Tracker]]は、Sphereserver.netからSphere 56の変更を追って書いてくれました。
+
+[[WhoIsWho|Taran]]は、ここのオリジナル、今や有名な Sphere Scripting for Dummies チュートリアルを書いてくれました。また、[[WhoIsWho|MrSugarCube]]は、ソースコードから直接更新を持ってきてくれました。
+
+[[WhoIsWho|Furio, Radiant, Vjaka, Nazghul-ll, Ellessar, Torfo, Shadow Dragon and MrSugarCube]]は、Sphereを強力な、カスタマイズ性に溢れたUltima Onlineエミュレーターを開発し続けてくれています。
+
+[[WhoIsWho|Crius]]は、元SphereWikiをホスティングしてくれました。現在は[[WhoIsWho|Torfo]]がホスティングしてくれています。
+
+----
+
+
+==Sphereの設定==
+
+* [[Ja:Where to get Sphere|Sphereの入手先]]
+* [[Installing Sphere|Sphereのインストール]]
+* [[Configuring Sphere.ini|Sphere.iniの構成]]
+
+==チュートリアル==
+
+これらは、Taranの解説にSphere 56bの更新を含めたものです。
+
+* [[Chapter 1]] ''(数値、定数、アイテム定義、キャラ定義)''
+* [[Chapter 2]] ''(Sphereのファイル説明)''
+* [[Chapter 3]] ''(NPCやアイテムのスクリプトとコマンド)''
+* [[Chapter 4]] ''(オブジェクト、演算子、スピーチ)''
+* [[Chapter 5]] ''(タグ、グローバル変数、ローカル変数、関数)''
+* [[Chapter 6]] ''(リンク、タイマー、ターゲット)''
+* [[Chapter 7]] ''(ループと強力な関数)''
+* [[Chapter 8]] ''(スキルメニュー、メニュー、ガンプ)''
+* [[Chapter 9]] ''(イベント)''
+* [[Chapter 10]] ''(文字列操作)''
+
+
+上記に加えて、以下に他のメンバーが寄稿した、一歩上のチュートリアルがあります。上記の10章を読んで、更に文献を読んで学ぶなら:
+
+* [[Common Mistakes|よくある間違いの解説]] ''(フォーラムより、Maximusによる、Taranの誤解解説の追補履歴)''
+* [[Internet and Sphere|インターネットとSphere]] ''(それらを正しく使うには)''
+* [[Languages Tutorial|言語のチュートリアル]] ''(あなたの言語でスクリプトを作る方法)''
+* [[Making your own Skills|オリジナルスキル作成法]] ''(スキルのカスタマイズ方法)''
+* [[Mul Patching Tutorial|NazghulのMULファイルパッチチュートリアル]] [http://sorea.profitux.cz/patching/ external link] ''(サーバーのMULファイル修正とカスタマイズドキュメント)''
+* [[Overriding Hardcoded Commands|ハードコードコマンドのオーバーライド]] ''(ハードコードされたコマンドや関数のオーバーライド方法)''
+* [[Scheduled Reboot|再起動スケジュール]] ''(システムリブートのスケジュール方法)''
+* [[Using MySQL|MySQLを使う]] ''(MySQLの使い方)''
+
+
+==参照一覧==
+
+* [[:Category:Definitions|定義]]
+** [[CHARDEF|キャラクター定義]]
+** [[ITEMDEF|アイテム定義]]
+** [[DIALOG|ダイアログ]]
+** [[EVENTS|イベント]]
+** [[MENU|メニュー]]
+** [[REGIONRESOURCE|リージョンリソース]]
+** [[REGIONTYPE|リージョンタイプ]]
+** [[AREADEF|リージョン定義]]
+** [[ROOMDEF|空間定義]]
+** [[SKILLCLASS|スキルクラス]]
+** [[SKILLMENU|スキルメニュー]]
+** [[SKILL|スキル]]
+** [[SPAWN|スポーングループ]]
+** [[SPELL|スペル]]
+** [[TYPEDEF|アイテムタイプ]]
+* [[:Category:Objects|オブジェクト]]
+** [[Accounts|アカウント]]
+** [[Characters|キャラクター]]
+** [[Database|データベース連携]]
+** [[Files|ファイル読み書き]]
+** [[GM Pages|GMコール]]
+** [[Items|アイテム]]
+*** [[Special Items|特殊アイテム]]
+** [[Map Points|マップポイント]]
+** [[Parties|パーティー]]
+** [[Regions|リージョン]]
+** [[Rooms|空間]]
+** [[Sectors|セクター]]
+** [[Server|サーバー]]
+* [[:Category:Scripts|スクリプト]]
+** [[:Category:Functions|関数]]
+** [[:Category:Triggers|トリガー]]
+** [[:Category:Variables|基本関数、プロパティーと参考文献]]
+** [[Intrinsic Functions|組み込み関数]]
+** [[:Category:Statements|ステートメント]]
+
+
+
+==その他の記事==
+
+* [[Armor Calculation|ARの計算]]
+* [[Client Changes|クライアントの変更]]
+* [[Common Scripting Misconceptions|良くあるスクリプトの間違い]]
+* [[Custom Object Properties|カスタムオブジェクトプロパティー]]
+* [[Error Codes|エラーコード]]
+* [[Experience System|経験値システム]]
+* [[How Combat Works|戦闘の動き]]
+* [[Occam's Razor]]
+* [[Optimization|最適化セオリー]]
+* [[Override TAGs|タグのオーバーライド]]
+* [[Revisions Changelog|修正記録]]
+* [[Sendpacket|パケット送信]]
+* [[Skill Gain Theory|スキル取得セオリー]]
+* [[The Process of Scripting|スクリプト作成の工程]]
+
+
+==外部リンク==
+
+* [http://www.sphereserver.net/ Official SphereServer Website]
+* [http://prerelease.sphereserver.net/ Official Sphere 56b Downloads]
+* [http://scriptsharing.dv-team.de/ ScriptSharing]
+* [http://www.cs.rit.edu/~djr7581/ Taran's Scripting for Dummies (Sphere 55i)]
+* [http://uo.torfo.org/packetguide/ Jerrith's UO Packet Guide]
+* [http://uo.torfo.org/packetguideKR/ Wyatt&Kons's UOKR Packet Guide]
+
+
+[[Category: Navigation]]
+[[de:Main Page/de]]

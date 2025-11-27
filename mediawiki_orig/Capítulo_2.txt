@@ -1,0 +1,52 @@
+{{Idiomas|Chapter_2}}
+
+==Spheretables.scp==
+
+Spheretables.scp es el primer archivo que lee Sphere al iniciarse (después de Sphere.ini), por lo tanto es el más importante. Prácticamente todas las configuraciones secundarias se encuentran en este archivo. Veamoslo en partes:
+
+<nowiki>==</nowiki> <font color="darkred">[RESOURCES]</font> ==
+
+Lo primero con lo que nos encontramos al ver el script, es la lista de recursos, con el título [RESOURCE]. Se ve algo como esto:
+
+<tt><font color="darkblue">[RESOURCES]<br />
+scripts/sphere_defs.scp<br />
+scripts/sphere_book.scp<br />
+scripts/sphere_backward_compatibility.scp<br />
+scripts/sphere_events_human.scp<br />
+scripts/sphere_events_npcs.scp<br />
+scripts/npcs/<br />
+...<br /></font></tt>
+
+Esta lista le dice a Sphere que archivos cargar y en que orden hacerlo. Deben tener cuidado a la hora de modificar esta lista, es recomendable poner los scripts con muchos DEFNAMES, REGIONS y otras configuraciones globales primero, para evitar errores al abrir el servidor (aunque de todas maneras estos errores no dañaran el servidor). Por ejemplo, recordamos el script visto en el capitulo uno de la moneda de oro (gold). Una de las lineas era:
+
+<font color="darkred">TYPE=t_gold</font>
+
+Por lo tanto, a menos que sphere cargue sphere_defs antes que el script de la moneda de oro, no sabra que significa t_gold, y saldra un error. Esto se debe a que t_gold está definido en sphere_defs.scp
+
+Primero deberian cargarse los scripts de items, luego los templates y por último los npcs. El loot de los npcs está definido con los items y los templates, entonces, a menos que sphere haya cargado antes estos scripts, apareceran cientos de errores.
+
+'''Nota''': ''Puedes hacer que sphere cargue toda una carpeta en vez de especificar cada archivo, por eso vemos <font color="darkred">scripts/</font> al final de la lista. De esta manera, sphere cargara todos los archivos que no hayan sido especificados en la lista.''
+
+
+<nowiki>==</nowiki> <font color="darkred">[OBSCENE]</font> ==
+
+La siguiente sección es bastante simple de enteder, unicamente define que nombres seran "ilegales". 
+De esta manera, un player no podra crear un personaje que tenga alguno de los nombres de esta lista.
+
+<nowiki>==</nowiki> <font color="darkred">[NOTOTITLES]</font> ==
+
+Aqui se definen que títulos se mostraran dependiendo la karma del player. Es importante no remover ninguna linea o el servidor NO FUNCIONARA, solo pueden cambiarse los títulos.
+
+<nowiki>==</nowiki> <font color="darkred">[PLEVEL X]</font> ==
+
+Está sección define los comandos disponibles para cada PLEVEL. Cualquier comando que no este especificado en esta lista, sphere lo toma como perteneciente a plevel 4.
+
+'''Note''': ''No es necesario poner todas las funciones en este script. En cualquier script se puede agregar el título [PLEVEL X] y definir una nueva función. De todas maneras es recomendable hacerlo en un mismo lado, por una cuestión de orden.''
+
+<nowiki>==</nowiki> <font color="darkred">[RUNES]</font> ==
+
+Esta lista contiene las palabras que se dicen al castear un hechizo (An, Lor, In, etc). Pueden modificarlas, pero puede volverse muy confuso.
+
+==Sphere.ini==
+
+Sphere.ini contiene todas las opciones internas de Sphere. Para configurar un servidor, este es el archivo por donde deben empezar. Para que comprendan mejor, voy a agregar comentarios dentro del archivo en '''negrita'''

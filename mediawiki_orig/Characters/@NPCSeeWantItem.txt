@@ -1,0 +1,45 @@
+==Description==
+This trigger fires when an NPC sees an item that they want to take.
+
+
+Fires on:
+* [[Characters#NPCs|NPCs]]
+
+
+==References==
+The following object references are explicitly available for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Description'''
+|-
+| [[ARGO]] || The [[Items|item]] that the NPC wants.
+|-
+| [[I]] || The [[Characters#NPCs|NPC]] seeing the item.
+|-
+| [[SRC]] || The [[Characters#NPCs|NPC]] seeing the item.
+|}
+
+
+==Arguments==
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
+
+
+''No arguments set for this trigger.''
+
+
+==Return Values==
+The following return values are explicitly defined for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Return Value''' || '''Description'''
+|-
+| 1 || Prevents the NPC from reacting to the item.
+|}
+
+
+
+
+[[Category: Reference Compendium]]
+[[Category: Triggers]]
+[[Category: Characters]]
+[[Category: NPCS]]

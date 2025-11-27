@@ -1,0 +1,200 @@
+{{Languages|Installing Sphere}}
+==Linux==
+===Vorwort===
+Sphere auf einem Linuxsystem zu installieren, ist nicht viel schwieriger als auf einem Windowsrechner. Allerdings ist Basiswissen über Linux vorausgesetzt und ein wenig Erfahrung mit der Kommandozeile von Nöten, da hier nicht einfach auf ein Symbol geklickt wird und Sphere läuft.
+
+
+Diese Anleitung ist deshalb darauf ausgelegt, dass eine Shell oder ein Terminal zum Linuxsystem verfügbar ist und root-Rechte vorhanden sind.
+
+
+Letztendlich wird diese Anleitung nicht beinhalten, welche Dateien auf dem Linux Server verfügbar sein müssen. Diese Anleitung umfasst keine Einführung in Linuxsysteme und hat auch keinen Anspruch darauf, dies zu sein. Für weiterführende Informationen über Linux gibt es viele E-Books und Howtos, die frei im Web verfügbar sind. Beispielsweise ist hier ein guter Startpunkt: [http://www.linux.org http://www.linux.org]
+
+
+Wichtig ist aber vor allem folgendes: Anders als ein Windowssystem, ist Linux bezüglich Datei- und Ordnernamen die Groß- und Kleinschreibung zu beachten. Wenn eine Datei von Sphere nicht gefunden wird, liegt das möglicherweise daran, dass gewisse Dateien falsch geschrieben sind, wie bspw: "sphere.INI" anstelle von "sphere.ini".
+
+
+Alle Zeilen, die in dieser Anleitung kursiv sind, sollten direkt in das Terminal eingegeben werden.
+
+
+===Vorbereitungen===
+Auf dem Linuxsystem wird eine Installation des MySQL Clients benötigt. Fehlen die Bibliotheken des MySQL Clients, wird Sphere nicht ausführbar sein.
+
+
+Des Weiteren wird eine Sphere Version FÜR LINUX benötigt, sowie das passende Skriptpaket und eventuelle zusätzliche Bibliotheken, die in der Downloadsektion angegeben sind.
+
+===Schritt für Schritt Installation===
+'''1)''' Mit Rootrechten einen neuen Nutzer namens "sphere" anlegen. Dieser Nutzer benötigt ein eigenen Heimverzeichnis (meistens: /home/sphere) mit den entsprechenden Rechten.
+
+
+<tt>useradd -d /home/sphere sphere<br />
+mkdir /home/sphere<br />
+chown sphere /home/sphere<br />
+chmod 700 /home/sphere<br /></tt>
+
+
+'''2)''' Kopiere alle Dateien des Sphere LINUX downloads, das Skriptpaket und eventuell nötige Bibliotheken in das neu angelegte Verzeichnis. Zudem müssen Unterordner angelegt werden: "save", "logs" und "accounts", wie angegeben in der sphere.ini und in spheretables.scp. Am Ende sollte eine ähnliche Ordnerstruktur vorliegen:
+
+
+<tt>/home/sphere --- spheresvr<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;sphere.ini<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;sphereCrypt.ini<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-------------------- accounts/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-------------------- logs/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-------------------- muls/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-------------------- save/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|-------------------- scripts/<br /></tt>
+
+
+'''3)''' Nachdem alle Dateien an die richtige Stelle kopiert wurden, benötigen sie die richtigen Dateirechte. Deshalb weiterhin unter Rootrechten folgende Befehle ausführen:
+
+
+<tt>cd ~sphere<br />
+chown -R sphere *<br />
+find . -type d | xargs chmod 0700<br />
+find . -type f | xargs chmod 0600<br />
+chmod 4700 spheresvr<br /></tt>
+
+
+'''4)''' Immer noch unter Rootrechten:
+
+
+<tt>ldd spheresvr<br /></tt>
+
+
+Die Ausgabe sollte nun ungefähr so lauten: 
+
+
+<tt>longbow:/home/sphere# ldd spheresvr<br />
+libpthread.so.0 => /lib/libpthread.so.0 (0x4001f000)<br />
+libmysqlclient.so.15 => /usr/lib/libmysqlclient.so.15 (0x40071000)<br />
+libboost_regex-gcc-1_33_1.so => /usr/lib/libboost_regex-gcc-1_33_1.so (0x40243000)<br />
+libstdc++.so.6 => /usr/lib/libstdc++.so.6 (0x402ea000)<br />
+libm.so.6 => /lib/libm.so.6 (0x403c9000)<br />
+libgcc_s.so.1 => /lib/libgcc_s.so.1 (0x403ef000)<br />
+libc.so.6 => /lib/libc.so.6 (0x403fa000)<br />
+/lib/ld-linux.so.2 (0x40000000)<br />
+libcrypt.so.1 => /lib/libcrypt.so.1 (0x4051c000)<br />
+libnsl.so.1 => /lib/libnsl.so.1 (0x4054a000)<br />
+libz.so.1 => /usr/lib/libz.so.1 (0x40561000)<br /></tt>
+
+
+NACH FEHLENDEN BIBLIOTHEKEN AUSSCHAU HALTEN! Notfalls müssen diese nachinstalliert werden.
+
+===Die Installation testen===
+Es ist jetzt nicht mehr von Belang, ob der erste Test mit Rootrechten oder unter dem Benutzer sphere ausgeführt wird. Werden die Rechte der Datei auf 4700 gesetzt, wird Sphere automatisch immer unter dem benutzer sphere ausgeführt. Deshalb:
+
+<tt>cd ~sphere<br />
+./spheresvr<br /></tt>
+
+
+Es sollte nun eine Liste des Startups folgen ... mit vielleicht enthaltenen Warnings: 
+
+
+<tt>longbow:/home/sphere# ./spheresvr<br />
+WARNING:(sphere.ini,587)'scripts/spherestatusbase.html' not found...<br />
+ERROR:(sphere.ini,587)Can't open web page input 'spherestatusbase1.htm'<br />
+Sphere Version 0.56b [Linux] by www.sphereserver.com, compiled at Sep 15 2006 (23:23:07)<br />
+Signal handlers installed.<br />
+Expansion maps supported: T2A, LBR, AOS, SE, ML<br />
+ERROR:(spheretables.scp,59)Unable to open directory scripts/custom/<br />
+ERROR:(spheretables.scp,59)DirList=-1 for 'scripts/custom/'<br />
+Allocating map sectors: 0=7168 1=7168 2=900 3=1280 4=32761<br />
+Indexing 211 scripts...<br />
+Loading scripts/sphere_defs.scp<br />
+[...]<br /></tt>
+
+
+Warnings und Fehler über fehlende Webseiten können ignoriert werden. Falls allerdings andere Fehler auftreten oder Sphere terminiert (=sich beendet), dann sollte in den vorhergehenden Zeilen nach dem Grund gesucht werden.
+
+
+Letztendlich sollten folgende Meldungen auftauchen, falls alles gut lief: 
+
+
+<tt>[...]<br />
+Loading save/spheredata...<br />
+Loading save/spherestatics...<br />
+Loading save/sphereworld...<br />
+Loading save/spherechars...<br />
+166 Objects accounted for<br />
+Option flags: CommandSysmsgs + NoHouseMuteSpeech<br />
+Experimental flags: DiagonalWalkCheck + ScriptsReturnStrings + NewTriggersEnable + NewPositionChecks + WalkCheck + ScriptProfiler + SizeOptimize<br />
+Admin=me@my.email.com, URL=www.myshard.com, Lang=English, TZ=0<br />
+Startup complete. items=0, chars=0<br />
+Creating thread.<br /></tt>
+
+Danach befindet man sich in der Sphere Konsole und kann allgemeine Befehle absetzen ('?' gibt eine Liste aus). Lege einen Account an, aktiviert ihn, editier die login.cfg des Ultima Online Clients damit er die IP-Adresse des Servers enthält und log ein.
+
+
+Damit Sphere wieder heruntergefahren wird, ist zunächst der Befehl "S", gefolgt vom Befehl "X" notwendig. Linux wird dann versuchen, Sphere zu beenden - sollte das aus irgendeinem Grund nicht funktionieren, hilft die Tastenkombination STRG-c weiter.
+
+===Einen Liveshard aufsetzen===
+Sphere in einem Terminal laufen zu lassen hat einen Nachteil: schließt man dieses Terminal, beendet Linux auch Sphere. Das ist unter Linuxsystemen beabsichtigt, weil es ein Multiusersystem ist. Das bedeutet vor allem, dass bei jedem Logout eines Nutzers auch unbedingt all seine laufenden Prozesse beendet werden sollten.
+
+
+Natürlich ist es aber dennoch möglich, Prozesse im Hintergrund laufen zu lassen, selbst wenn Terminal oder Shell geschlossen werden. Hierfür bietet sich ein Skript an, das ein Tool namens 'screen' nutzt (notfalls nachinstallieren):
+
+
+<tt>#!/bin/sh<br />
+cd ~sphere<br />
+while true; do<br />
+screen -D -m /home/sphere/spheresvr<br />
+sleep 30<br />
+done<br /></tt>
+
+
+Dieses Skript kann in jedem beliebigen Editor abgespeichert werden und sollte möglichst die Dateiendung .sh erhalten. Wird das Skript ausgeführt, startet sich Sphere in einem virtuellen Terminal, das jederzeit mit "screen -r "abgerufen werden kann. Mit der Tastenkombination STRG-a gefolgt von STRG-d kann man dieses Terminal jederzeit wieder verlassen und es läuft im Hintergrund weiter. In der Dokumentation von "screen" finden sich weitere Informationen.
+
+==Windows==
+Als erstes sollte Sphere hier heruntergeladen werden: [[Where to get Sphere/de|Sphere Download]]. Man sollte danach mindestestens zwei verschiedene zip Dateien erhalten haben, eins für den SphereServer und eins mit dem Script Paket.
+
+# Entpacke SphereServer-0.56b....zip in einen Ordner bspw. nach "c:\sphere"
+# Entpacke SphereServer-0.56b-xxxxxxxxxxxx-Scripts.zip Ordner aus Schritt 1. Es sollte nun "c:\sphere" ein Ordner namens "scripts" vorhanden sein.
+# Erstelle in diesem Ordner drei weitere Unterordner: "accounts", "logs" und "save".
+# Im "save" Ordner, erstelle eine leere Textdatei (bspw. mit dem Windows Notepad) und schreibe in diese Datei eine einzelne Zeile, in der [EOF] steht. Benenne diese Datei dann "spheredata.SCP" (NICHT .txt).
+# Erstelle drei Kopien dieser Datei und benenne sie: spherestatics, spherechars.scp und sphereworld.scp
+# Wiederhole das dann im "accounts" Ordner und erstelle die Dateien: "sphereacct.scp" und "sphereaccu.scp"
+# Lade dir dann [http://prerelease.sphere.torfo.org/files/libMySQL.dll MySQL Library] und kopiere sie in den Sphere Ordner (bspw.: "c:\sphere").
+# Nun sollte die [[Configuring_Sphere.ini/de|Sphere.ini]] bearbeitet werden, der SphereServer wird sonst nicht starten.
+# Doppelklicke dann SphereSvr.exe und dann wird die Konsole starten. In diesem Fenster können administrative Befehle abgesetzt werden (eine Liste dieser Befehle gibts mit Eingabe von "?").
+# Erstelle einen ersten Account auf dem Server. Führe deshalb folgende Befehle der Reihe nach aus und setze dabei einen passenden Nutzernamen und ein passenden Passwort ein: 
+#*"<font color="darkred">account add USERNAME PASSWORD</font>"
+#*"<font color="darkred">account USERNAME plevel 7</font>" (dieser Befehl gibt dem Account GM-Rechte).
+
+
+Der Server ist nun bereit und man kann sich mit einem UO Client einloggen. Es empfiehlt sich die Tutorials innerhalb dieses Wikis zu lesen, um ein wenig mehr über Sphere zu erfahren.
+
+==FreeBSD==
+We currently have no guide for this OS. Anyway, the developers have posted a list of required stuff. Here is the list:
+
+
+Compiled on: 
+
+
+<tt>FreeBSD freebsdvbox.fastwebnet.it 7.0-RELEASE FreeBSD 7.0-RELEASE #0: Sun Feb 24 19:59:52 UTC 2008     root@logan.cse.buffalo.edu:/usr/obj/usr/src/sys/GENERIC  i386<br /></tt>
+
+
+With:
+
+<tt>Using built-in specs.<br />
+Target: i386-portbld-freebsd7.0<br />
+Configured with: ./..//gcc-4.1-20071105/configure --disable-nls --with-system-zlib --with-libiconv-prefix=/usr/local --program-suffix=41 --libdir=/usr/local/lib/gcc-4.1.3 --with-gxx-include-dir=/usr/local/lib/gcc-4.1.3/include/c++/ --disable-rpath --prefix=/usr/local --mandir=/usr/local/man --infodir=/usr/local/info/gcc41 i386-portbld-freebsd7.0<br />
+Thread model: posix<br />
+gcc version 4.1.3 20071105 (prerelease)<br /></tt>
+
+
+Linked Against:
+
+
+<tt>libthr.so.3 => /lib/libthr.so.3 (0x281f3000)<br />
+libmysqlclient.so.15 => /usr/local/lib/mysql/libmysqlclient.so.15 (0x28206000)<br />
+libstdc++.so.6 => /usr/lib/libstdc++.so.6 (0x28265000)<br />
+libm.so.5 => /lib/libm.so.5 (0x2835a000)<br />
+libgcc_s.so.1 => /lib/libgcc_s.so.1 (0x2836f000)<br />
+libc.so.7 => /lib/libc.so.7 (0x2837a000)<br />
+libcrypt.so.4 => /lib/libcrypt.so.4 (0x28476000)<br />
+libz.so.4 => /lib/libz.so.4 (0x2848f000)<br /></tt>
+
+
+If you use this release, please check [http://www.sphereserver.net/index.php?showtopic=44153 this topic].
+
+[[Category: Setting Up Sphere]]

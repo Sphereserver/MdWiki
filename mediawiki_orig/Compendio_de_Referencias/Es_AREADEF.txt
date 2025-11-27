@@ -1,0 +1,106 @@
+{{Languages|AREADEF}}
+
+__FORCETOC__
+Las Areas en el mundo, como las dungeons (Cuevas) o las ciudades están definidas por rectangulos. Las regiones están compuestas por una o más rectangulos en en el mapa
+
+
+La sintaxis básica para definir una región es la siguiente:
+
+
+<tt>
+[AREADEF ''nombre por defecto'']<br />
+RECT=''izquierda, arriba, derecha, abajo, mapa''<br />
+RECT=''izquierda, arriba, derecha, abajo, mapa''<br />
+RECT='''izquierda, arriba, derecha, abajo, mapa''<br />
+</tt>
+
+
+==Propiedades==
+Sin definir la región las siguiente propiedades están también disponbiles para el comportamiento del area:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Read/Write''' || '''Description'''
+|-
+| [[ANNOUNCE]] || Leer y Escribir || Obtiene o Configura si un mensaje debe aparecer al salir o entrar en la zona.
+|-
+| [[ARENA]] || Leer y Escribir || Obtiene o Cofigura si la zona es tratada como una arena.
+|-
+| [[BUILDABLE]] || Leer y Escribir || Obtiene o Configura si los jugadores pueden construir en la zona.
+|-
+| [[EVENTS (Property)|EVENTS]] ''tiporegion_nombrepordefecto'' || Escribir || Añade un evento a una zona
+|-
+| [[FLAGS]] || Leer y Escribir || Obtiene o Configura los atributos de la zona-
+|-
+| [[GATE]] || Leer y Escribir || Obtiene o Configura si el Hechizo Gate Travel (Invocar Portal) está permitido.
+|-
+| [[GROUP]] || Leer y Escribir || Obtiene o Configura el nombre de la Región mayor en la que está incluida la zona
+|-
+| [[GUARDED]] || Leer y Escribir || Obtiene o Configura si los guardias deben estar en la zona.
+|-
+| [[MAGIC]] || Leer y Escribir || Obtiene o Configura si existe un bloqueo de la magia en la zona.
+|-
+| [[MARK]] || Leer y Escribir || Obtiene o Configura si el hechizo Mark (Marcar runa) está permitido en la zona.
+|-
+| [[NAME]] || Leer y Escribir || Obtiene o Configura el nombre de la región.
+|-
+| [[NOBUILD]] || Leer y Escribir || Obtiene o Configura si está prohibido construir en la zona.
+|-
+| [[NODECAY]] || Leer y Escribir || Obtiene o Configura si los objetos no tienen decay (El objeto desaparece tras un tiempo) en la zona
+|-
+| [[NOPVP]] || Leer y Escribir || Obtiene o Configura si el PvP está permitido en la zona.
+|-
+| [[P]] || Leer y Escribir || Obtiene o Configura la posición de la zona.
+|-
+| [[RECALL]] || Leer y Escribir || Obtiene o Configura si el hechizo Recall (Volver a un lugar mediante runa) está permitido en la zona.
+|-
+| [[RECALLIN]] || Leer y Escribir || Obtiene o Configura si el hechizo Recall (Volver a un lugar mediante runa) está permitido para entrar en la zona.
+|-
+| [[RECALLOUT]] || Leer y Escribir || Obtiene o Configura si el hechizo Recall (Volver a un lugar mediante runa) está permitido para salir la zona.
+|-
+| [[RECT]] ''izquierda, arriba, derecha, abajo, mapa'' || Escribir || Añade un rectángulo del mapa a la zona.
+|-
+| [[RESOURCES]] ''tiporegion_nombrepordefecto'' || Escribir || Añade un evento de región a la región.
+|-
+| [[SAFE]] || Leer y Escribir || Obtiene o Configura si la zona es segura.
+|-
+| [[TAG]]''.name'' || Leer y Escribir || Obtiene o Configura el Valor del TAG
+|-
+| [[UNDERGROUND]] || Leer y Escribir || Obtiene o Configura si se supone que la zona está bajo Tierra.
+|}
+
+
+==Ejemplo==
+
+<spherescript>
+//
+// La región del mundo del paquete de scripts.
+//
+[AREADEF a_world]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Felucca
+GROUP=ALLMAP
+P=1323,1624,55,0
+RECT=0,0,7168,4096,0
+</spherescript>
+
+<spherescript>
+//
+// Castillo de Lord British's del paquete de scripts.
+//
+[AREADEF a_lord_britishs_castle_1]
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+NAME=Lord British's Castle
+GROUP=Britain
+FLAGS=0648e
+P=1392,1625,30,0
+RECT=1294,1679,1411,1697,0
+RECT=1295,1559,1313,1577,0
+RECT=1392,1559,1410,1577,0
+RECT=1302,1577,1410,1680,0
+RECT=1313,1563,1392,1577,0
+EVENTS=r_brit_castle
+TAG.GUARDOWNER=Lord British's Personal
+</spherescript>
+
+[[Category: Compendio de Referencias]]
+[[Category: Definiciones]]

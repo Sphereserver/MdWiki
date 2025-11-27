@@ -1,0 +1,69 @@
+==Description==
+This trigger fires when an object is hit by the effects of a spell. The object may have been targeted directly or it may have been hit by an area-effect spell.
+
+
+Fires on:
+* [[Characters]]
+* [[Items]]
+
+
+==References==
+The following object references are explicitly available for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Description'''
+|-
+| [[ARGO]] || The [[Items|item]] used to cast the spell (e.g. a wand or scroll).
+|-
+| [[I]] || The [[Characters|character]] or [[Items|item]] being hit by the spell.
+|-
+| [[SRC]] || The [[Characters|character]] responsible for the spell.
+|}
+
+
+==Arguments==
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Argument''' || '''In/Out''' || '''Description'''
+|-
+| ARGN1 || IO || The number of the spell that has hit the object.
+|-
+| ARGN2 || IO || The strength of the spell.
+|-
+| ARGN3 || IO || A multiplier for the spell's duration or effect.<br />'''Note:''' Only used when a character is hit by a spell.
+|-
+| LOCAL.DamageType || IO || Can be used to override the damage flags for spells that have SPELLFLAG_DAMAGE.  The value can be a bitmask of dam_* flags.  For example, to change the s_magic_arrow SPELL definition to cause physical and magic damage:
+ ON=@Effect
+   LOCAL.DAMAGETYPE=(<DEF.dam_physical>|<DEF.dam_magic>)
+|-
+| LOCAL.AreaRadius || IO || Can be used to override the default radius (which is 5) for spells that have SPELLFLAG_AREA.
+|-
+| Local.CreateObject1 || IO || Changes the ID of the effect for this spell, IE: Local.CreateObject1=0eed in FlameStrike spell will change the Fire Column for a Gold Coin.
+|-
+| local.EffectColor || IO || Changes the color of the effect for this spell.
+|-
+| local.EffectRender || IO || Changes the Render Mode for this spell's effect.
+|-
+| local.EffectExplode || IO || Sets wether the effect should explode or not after reaching the target.
+|-
+| local.Resist || IO || Changes the default behavior on Magic Resistance (being local.resist 100 the same as resisting 100%. [Effect = Effect * Local.resist/100])
+|}
+
+==Return Values==
+The following return values are explicitly defined for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Return Value''' || '''Description'''
+|-
+| 0 || For scripted spells, prevents any hardcoded behaviour from taking place.
+|-
+| 1 || Prevents the object from being affected by the spell.
+|}
+
+
+'''Note:''' For the recall and gate travel spells, returning 0 prevents the spell from proceeding and returning 1 has no effect.
+
+
+[[Category: Reference Compendium]]
+[[Category: Triggers]]

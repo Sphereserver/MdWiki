@@ -1,0 +1,55 @@
+{{Languages|Where_to_get_Sphere}}
+
+Sphere 56b versiyonunu indirebilmek için iki farklı kaynak bulunmaktadır: [[#Önsürümler|Önsürümler]] (Pre-Releases) ve [[#Otomatik Sürümler|Otomatik Sürümler]] (Automated Builds). Hangisini seçeceğinize karar verebilmeniz için aşağıda bu iki sürüm özetlenmiştir.
+
+==Önsürümler==
+Önsürümler Sphere yapımcıları/geliştiricileri tarafından, sürümün kararlılığından göreceli olarak mutlu olduklarında (Başka bir deyişle: Sürüm gerçekten çalışıyorsa!) periyodik olarak çıkartılan sürümlerdir. Sphere 56b için henüz bir "final" sürümü olmadığına göre, önsürümler alabileceğiniz en yakın şey diyebiliriz.
+
+
+[http://prerelease.sphereserver.net SphereServer Pre-releases] sitesinde Sphere 56b için en son önsürümü bulabilirsiniz.
+
+
+Büyük ihtimalle indirmek isteyeceğiniz sürüm bu olacaktır. ''Eğer emin değilseniz daha fazla bilgi için, [[#Hangisini İstiyorum?|Hangisini İstiyorum?]] bölümüne göz atabilirsiniz.''
+
+
+
+==Otomatik Sürümler==
+Her gece bir otomatik işlem, en son geliştirilen kodlara göre Sphere 56b'nin çalıştırılabilir bir versiyonunu derlemektedir. Eğer en son önsürümde yer almayan en yeni özelliklere sahip olmak istiyorsanız, otomatik sürümleri kullanmayı düşünebilirsiniz.
+
+
+[http://nightly.prerelease.sphere.torfo.org/ SphereServer Nightly Automated Builds] sitesinde Sphere 56b için en son otomatik sürümü bulabilirsiniz.
+
+
+Acele edip otomatik sürümü indirmeden önce aşağıdaki uyarıları göz önüne alınız:
+* Bu sürümler direkt olarak en son geliştirilen kaynak kodundan derlendiği için; eğerki ne yaptığınızı bilmiyorsanız ve yüklemeden önce üzerinde denemeler yapmadıysanız çalışan bir sunucuda kullanmanızı önermiyoruz.
+* Sphere geliştirme takımı bu sürüm için herhangi bir destek sağlamamaktadır. Eğer bir sorun ile karşılaşırsanız, bunu tek başınıza çözmek zorundasınız.
+
+
+==Hangisini İstiyorum?==
+Eğer hangisi kullanacağınızdan emin değilseniz, en iyi seçenek en son önsürümü yüklemeniz olacaktır. Otomatik sürümler, yeni özellikleri çıkmadan önce test etmek isteyen, ileri seviye kullanıcılara ve test kullanıcılarına yöneliktir.
+
+
+Bu iki sürüm için kısa bir karşılaştırma:
+
+
+{| border="1" cellpadding="4"
+| '''[[#Önsürümler|Önsürümler]]''' || '''[[#Otomatik Sürümler|Otomatik Sürümler]]'''
+|-
+| Forumlarda yardım alabilirsiniz || Herhangi bir destek olduğu söylenemez
+|-
+| Kararlı olarak çalışma ihtimalleri yüksektir || Kararlı olarak çalışma ihtimalleri düşüktür
+|-
+| Daha kararlı bir sürüm için özel olarak derlenmiştir || Direkt geliştirme kodlarından, otomatik olarak derlenmiştir
+|-
+| En son özellikleri ve hata düzeltmelerini içermezler || En son özellikleri ve hata düzeltmelerini içerirler
+|-
+| Periyodik olarak çıkarılırlar (bazen aylar sürebilir) || Günlük olarak çıkarılırlar
+|}
+
+
+Özetlemek gerekirse, önsürümler resmi olarak desteklenmektedir ve yeteri kadar çalışıldığında ve yeni bir sürüm olarak çıkarılmaya değecek seviyeye geldiğinde Sphere geliştirme takımı tarafından özel olarak çıkarılmaktadır. Eğerki acil olarak henüz çıkmamış bir özelliğe veya hata düzeltmesine ihtiyacınız yoksa, bir son kullanıcı olarak otomatik sürümü indirmeniz için herhangi bir neden yok demektir.
+
+
+'''''Not:''''' ''Eğer otomatik sürümü seçmenizin tek nedeni, yeni özellikleri ve hata düzeltmelerini içeren resmi önsürümü beklemek istememeniz ise, bu kararınızı tekrar gözden geçirmenizi öneririz. Yeni bir özelliğin veya hata düzeltmelerinin keyfini çıkartırken, henüz tamamlanmamış bir iş veya yeni bir hata nedeni ile sunucunuzun kararsız çalışmasına neden olma ihtimaliniz oldukça yüksektir!''
+
+[[Category: Sphere Kurmak]]

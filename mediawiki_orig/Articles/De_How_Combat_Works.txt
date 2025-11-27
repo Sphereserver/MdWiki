@@ -1,0 +1,18 @@
+{{Languages|How_Combat_Works}}
+
+Das folgende Diagramm zeigt in welcher Reihenfolge die [[Trigger]] ausgelöst werden. Für weitere Informationen über die Trigger, siehe die jeweilige Triggerseite.
+
+<tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[[@HitTry]] (Angreifer)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\<br />
+[[@Hit]] (Angreifer)&nbsp;&nbsp;&nbsp;&nbsp;[[@HitMiss]] (Angreifer)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
+[[@Damage]] (Waffe)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
+[[@GetHit]] (Opfer)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|<br />
+[[@Damage]] (Rüstung)<br /></tt>
+
+
+Ein Dankeschön an Moe, der dies hier gepostet hat.
+
+[[Category:Articles]]

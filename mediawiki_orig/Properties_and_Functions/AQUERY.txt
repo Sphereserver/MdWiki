@@ -1,0 +1,98 @@
+__FORCETOC__
+
+==Description==
+This function will queue up a query and run it asynchronously in a background thread (rather than the script waiting for it to complete like the [[QUERY]] function). Once the query has been executed, a specified callback function will run.
+
+
+Unlike the [[QUERY]] function, results are not stored in the [[ROW]] object. Instead they are passed in to the callback function as [[LOCAL]]s. The following table shows the differences between accessing the results for the two functions:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| [[QUERY]] || [[AQUERY]]
+|-
+| [[ROW]].NUMROWS || LOCAL.NUMROWS
+|-
+| [[ROW]].NUMCOLS || LOCAL.NUMCOLS
+|-
+| [[ROW]].''row_index''.''col_index'' || LOCAL.''row_index''.''col_index''
+|-
+| [[ROW]].''row_index''.''col_name'' || LOCAL.''row_index''.''col_name''
+|}
+
+
+'''''Note 1''''': An open database connection is required for this function to work correctly. See the [[CONNECT]] function for information regarding the opening of a database connection.
+
+
+'''''Note 2''''': The [[AQUERY]] and [[QUERY]] functions are intended to run SQL commands that return results (such as SELECT). For commands that do not return results consider using the [[AEXECUTE]] and [[EXECUTE]] functions.
+
+
+Valid for the following objects:
+* [[Database]]
+
+
+==Syntax==
+<tt>AQUERY ''function'', ''command''</tt>
+
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Argument''' || '''Type''' || '''Description'''
+|-
+| ''function'' || string || A script function to call when the command has been executed.
+{| cellspacing="4" cellpadding="4"
+| '''Argument''' || '''Description'''
+|-
+| ''ARGN1'' || The type of command (0 = [[AEXECUTE]], 1 = [[AQUERY]])
+|-
+| ''ARGN2'' || 0 = Command failed, 1 = Command succeeded.
+|-
+| ''ARGS'' || The command that was executed.
+|}
+|-
+| ''command'' || string || The SQL command to execute.
+|}
+
+
+==Return Values==
+This function returns one of two values when executed. See the table below for the meanings of the return values:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Return Value''' || '''Description'''
+|-
+| 0 || Command has not been successfully queued.
+|-
+| 1 || Command has been successfully queued.
+|}
+
+
+==Examples==
+
+<spherescript>
+//
+// Queues an SQL query.
+//
+[FUNCTION f_aquery]
+SERV.LOG Selecting some values in the background.
+IF (<DB.AQUERY f_aquery_callback, SELECT 10 AS test1, 20 AS test2, 30 AS test3> == 0)
+  SERV.LOG Failed to queue command.
+ELSE
+  SERV.LOG Command queued.
+ENDIF
+RETURN
+
+//
+// This function will be called when the query has been executed.
+//
+[FUNCTION f_aquery_callback]
+IF (<ARGN2> == 0)
+  SERV.LOG The command failed to execute. (<ARGS>)
+ELSE
+  SERV.LOG The command succeeded, <dLOCAL.NUMROWS> row(s) of data returned. (<ARGS>)
+  FOR 0 <EVAL <LOCAL.NUMROWS> - 1>
+    SERV.LOG #<EVAL <LOCAL._FOR> + 1>. <LOCAL.<dLOCAL._FOR>.test1>, <LOCAL.<dLOCAL._FOR>.test2>, <LOCAL.<dLOCAL._FOR>.test3>
+  ENDFOR
+ENDIF
+RETURN
+</spherescript>
+
+
+[[Category: Reference Compendium]]
+[[Category: Properties and Functions]]

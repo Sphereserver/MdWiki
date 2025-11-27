@@ -1,0 +1,29 @@
+{{Languages|Contribution_Guide}}
+
+SphereWiki; Sphere'ı geliştirenler tarafından değil (Zaman zaman katkıları bulunsa bile bunu herhangi bir sorumlulukları olmadan yapıyorlar.), "Sphere community" tarafından kurulup idare edildiği için, siteyi geliştirmek için her türlü yardıma açığız.
+
+
+Katkıda bulunmak için tek yapmanız gereken [[Special:UserLogin|bir hesap oluşturmak]] ve hazırsınız! Hesabınızla giriş yaptığınızda, her sayfanın üzerinde bir "Düzenle" sekmesi gözükecek ve bu bağlantı aracılığıyla dilediğiniz her sayfayı düzenleyebileceksiniz.
+
+
+'''Katkıda bulunmanız için bazı fikirler, fakat bunlarla sınırlı kalmak zorunda değilsiniz:'''
+* Varolan sayfalardaki hataları düzeltmek.
+* Sphere veya UO hakkında makaleler yazmak.
+* [[Tr:Main Page#Referanslar|Referanslar]] bölümünü güncellemek. Bildiğiniz gibi her Sphere versiyonunda güncelliklerini kaybediyorlar.
+
+
+'''Ne tür bir katkıda bulunduğunuz önemli olmaksızın, lütfen aşağıdaki yönergeleri aklınızda tutmaya çalışın:'''
+* Sağladığınız bilginin doğru ve güncel olduğundan emin olun.
+* Mümkün olduğunca anlaşılır biçimde yazın. - '''Gerçek ve kısaltılmamış''' kelimeler kullanın. Kısaltmalar, konuşma dilindeki yazımlar ve "internet dili" kolayca tercüme edilemeyecektir.
+* Diğer insanlar üstlerinde çok çalıştıkları makalelerini düzenlemenizi olumsuz karşılayabilir. Eğer birinin makalesi üzerinde önemli bir değişiklik yapacaksanız, öncelikle makale sahibi ile konuşmayı düşünün.
+
+
+'''Katkıda bulunmak istiyorsanız fakat ne yapacağınızı bilemiyorsanız, size birkaç fikrimiz var:'''
+* [[Special:WantedPages|İstenen sayfalar]] listesini kontrol edin. Burada henüz yazılmamış fakat diğer makalelerde yönlendirme yapılmış sayfalar listelenmektedir.
+* [[Special:WantedCategories|İstenen kategoriler]] listesini kontrol edin. Burada henüz yazılmamış fakat diğer makalelerde yönlendirme yapılmış kategoriler listelenmektedir.
+
+
+Eğer "wiki" sistemini kullanarak sayfa düzenlemeyi bilmiyorsanız [[Tr:Help:Editing|Düzenleme yardımı]] sayfasından faydalanabilirsiniz. [[Tr:Help:Editing|Düzenleme yardımı]] sayfası ayrıca SphereWiki'ye özgü içeriğede sahip olabilir. Bu nedenle "wiki" kullanımını bilen kullanıcılarında kısaca göz atması faydalı olacaktır.
+
+
+[[Category: Navigasyon]]

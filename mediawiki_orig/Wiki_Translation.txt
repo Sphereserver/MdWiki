@@ -1,0 +1,53 @@
+{{Languages|Wiki_Translation}}
+
+== Wiki Translations HOWTO ==
+Find the English version of a page in the main namespace. <br>(If there is no english version, you create one by following the HOWTO). 
+
+If the languages tool bar is not displayed at the top (as you see on ''this'' page for example) then edit the page, and add the following wiki text: 
+ <nowiki>{{Languages|Page_name}}</nowiki>
+
+While you're editing, copy the wiki text of the entire page to your clipboard.  ...now 'Save'
+
+Where it says 'missing languages', follow a red link to begin creating the new wiki page. Paste in the text and start rewriting it in english. New new page title should have a language prefix.
+
+See also [[Wiki Help]].
+
+Note: before saving the new page, your language is shown as a missing language in the preview. However, after you have saved it, your language is still shown in the missing language box with black colour and bold type. This strange thing is caused by a template cache. [http://www.mediawiki.org/wiki/Manual:FAQ#How_do_I_purge_a_cached_page.3F Purge cache] to rescan the available languages. Your language will be shown as available.
+
+== The Instructions for the Languages Template ==
+
+[[Template:Languages|This]] is a template that lists all languages available. It is based on [[wikipedia:Help:Parser_function|parser functions]] from mediawiki and the [[wikipedia:ISO 639-1|ISO 639-1]] language code.
+
+=== Brief Instruction ===
+# All page names are in English. <br> Every translated page needs a page name with a language code as a prefix, followed by a colon and the english page name. <br>If the "plain" english page name content is written in English, the english page name does not have a prefix in the file name. If the "plain" english page name content is written in some other language (ie [[WikiProject France]]), the english translated page does need a prefix of "en" (ie [[en:WikiProject France]]). <br> Example:<tt>Page_name</tt> - <tt>fr:Page-name</tt> - <tt>de:Page_name</tt>
+# the following has to be included in each page: <tt><nowiki>{{Languages|Page_name}}</nowiki></tt>
+
+If you click on "missing languages", and then you click on a red link, it automatically opens a new page with the right suffix and the right page name. Copy the original text to this page and translate it. In the first line you put <tt><nowiki>{{Languages|Page_name}}</nowiki></tt> 
+
+Example for actually implemented namespaces and languages (2009-6): 
+ Page_name
+ DE:Page_name
+ EN:Page_name 
+ ES:Page_name
+ FR:Page_name 
+ IT:Page_name 
+ NL:Page_name
+
+This automatically generates a language menu consisting of links to the original page (in English) and all translated pages. The links are written in the respective language: Deutsch, English, Français, etc.
+
+=== Pages with Title in Foreign Language ===
+Pages with names in a national language or other names can create the automatic menu by redirect:
+
+in <code>XX:Page_name</code>:
+ <nowiki>#REDIRECT [[Page_name]]</nowiki>
+
+in <code>XX:translated title of "Page_name")</code> the English title has to be added as parameter in the template:
+ <nowiki>{{Languages|Page_name}}</nowiki>
+
+=== Interface Selection ===
+If you want to change the design of the bar, translate messages or change where the ''help'' bottom links to, you can do it by adding the 2nd parameter of your design template.
+ <nowiki>{{Languages|Key:highway|Fi:Languages/Interface}}</nowiki>
+
+Copy the [[Template:Languages/Interface]] as your first template.
+
+'''Note''': Technically, you can make a interface with the translated language as above, it is not recommended to use. Because '''this template is set for other language users''' to go back to their language versions, the translated messages can not be read for them. See also [[Talk:Wiki Translation|this discussion page]].

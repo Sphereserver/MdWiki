@@ -1,0 +1,40 @@
+{{Languages|Wiki_Translation}}
+__FORCETOC__
+==Nasıl Çeviri Yapılır==
+Bir dökümanın ingilizce versiyonunu anasayfadan bulabilirsiniz. <br>(Eğer ingilizce versiyonu yoksa, aşağıdaki dökümandan nasıl yaratabileceğinizi öğrenebilirsiniz.)
+
+Eğer dil çubuğu sayfanın en üstünde görünmüyorsa (bu sayfada göründüğü gibi) sayfayı düzenlemeye geçip, aşağıdaki kodu sayfanın en üstüne yazınız:
+ <nowiki>{{Languages|Sayfa_Adı}}</nowiki>
+
+Örnek vermek gerekirse bu sayfanın adı Tr:Wiki_Translation. Fakat biz dil çubuğu belirtirken dil kullanmayacağız yani sadece ''Wiki_Translation'' kullanacağız. Fakat burada dikkat etmeniz gereken nokta, '''büyük''' ve '''küçük''' harf duyarlılığıdır. Misalen, ''Wiki'' yerine ''wiki'' yazarsanız kod çalışmayacaktır.
+
+ <nowiki>{{Languages|Wiki_Translation}}</nowiki>
+
+Fakat unutmayınız ki, bir düzenleme yaptıktan sonra 'Save' butonu ile kaydetmezseniz, düzenlemeniz devreye girmeyecektir.
+
+Dil çubuğında 'missing languages' göreceksiniz. Bu Türkçe için ele aldığımızda ''Tr:''Sayfa_Adı sayfasının bulunmadığını gösterir. Bu sayfayı oluşturmak için bulunmayan (kırmızı link) bir dilin üzerine tıklayarak dil için sayfa oluşturabilirsiniz. Oluşturduğunuz sayfa dil çubuğuna sahip olmalıdır.
+
+Daha fazla bilgi için; [[Tr:Help:Editing|Sayfa Düzenleme]].
+
+'''NOT:''' Sayfayı kaydetmeden önce, sizin diliniz önizlemede dil kutusunda ''missing language'' olarak görünecektir. Fakat, kayıt ettikten sonra diliniz hala ''missing language'' olarak görünsede, bold ve siyah renkte olduğu göreceksiniz. Bunun nedeni yerleşmiş kayıtlardır. Sayfanızı yenilediğinizde otomatik olarak yerleşmiş kayıtlar yenilenmektedir, fakat bazı durumlarda yenilenmeyen kayıtları yenilemek için [http://www.mediawiki.org/wiki/Manual:FAQ#How_do_I_purge_a_cached_page.3F kayıt yenileme] sayfasını ziyaret edebilir ve bulunan dilleri kontrol etmesini sağlayabilirsiniz. Daha sonra diliniz döküman için mümkün olacaktır.
+
+
+==Dil Çubuğu Yardımı==
+
+[[Template:Languages|Bu önizleme]] [[wikipedia:ISO 639-1|ISO 639-1]] dil kodu için desteklenen tüm dilleri göstermektedir. Bu önizleme [[wikipedia:Help:Parser_function|parser functions]] tabanlıdır.
+
+
+===Açıklama===
+# Tüm sayfalar İngilizce yazılmıştır. <br> Her çeviri yapılan sayfa dil prefixi ve devamın bulunan ingilizce sayfa adından oluşmaktadır. <br>Eğer bir sayfa ingilizce yazışmışsa, o sayfanın bir prefixe ihtiyacı yoktur. Fakat sayfa diğer dillerde yazılmışsa (ör [[WikiProject France]]), ingilizce çeviri bulunan sayfaya ''En'' prefixi verilir (ör [[En:WikiProject France]]).
+
+Dil uzantıları aşağıdaki gibidir (2009-6): 
+ Sayfa_Adı
+ De:Sayfa_Adı
+ En:Sayfa_Adı
+ Es:Sayfa_Adı
+ Fr:Sayfa_Adı
+ It:Sayfa_Adı
+ Nl:Sayfa_Adı
+ Tr:Sayfa_Adı
+
+Bunlar dil menüsünden orjinal sayfaya (İngilizce olan) yönlendirmeyi otomatik olarak aktif eder. Ayrıca dilin hangi dilde yazıldığını gösterir (Türkçe, İngilizce ...).

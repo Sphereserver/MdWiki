@@ -1,0 +1,111 @@
+{{Languages|ATTACKER}}
+__FORCETOC__
+==Seçenekler==
+Aşağıda attacker komutu için mümkün olan seçenekler bulunmaktadır. Eğer parametrelerden herhangi biri "Okunabilir" olarak seçilmiş ise, bu parametre <KOMUT> ile okunabileceğini gösterir. Eğer bir parametre "Yazılabilir" görünüyorsa bu parametre değiştirilebilir demektir.
+
+Bu parametreler [[#Seçenekler|ATTACKER]]. ile birlikte kullanılır. Örnekler için, [[#Örnekler|Örnekler]]e tıklayınız.
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''İsim''' || '''Oku/Yaz''' || '''Açıklama'''
+|-
+| || O || Karaktere hasar veren toplam kişi sayısını öğrenmeye yarar.
+|-
+| ''n'' || O || Karaktere hasar veren n. karakterin UID'ini öğrenmeye yarar. (sıfır-tabanlı)
+|-
+| [[CLEAR]] || O || Karaktere hasar veren karakterlerin kayıtlarını temizler.
+|-
+| [[LAST]] || O || Karaktere hasar veren son karakterin UID'ini öğrenmeye yarar.
+|-
+| [[MAX]] || O || Karaktere en çok hasar veren karakterin UID'ini öğrenmeye yarar.
+|-
+| ''n''.[[DAMAGE]] || O || Karaktere hasar veren n. karakterin UID'ini öğrenmeye yarar. (sıfır-tabanlı)
+|-
+| ''n''.[[ELAPSED]] || O || Karaktere hasar veren n. karakterin saldırı süresini ''saniye'' cinsinden öğrenmeye yarar. (sıfır-tabanlı)
+|-
+| ''n''.[[UID]] || O || Karaktere hasar veren n. karakterin UID'ini öğrenmeye yarar. (sıfır-tabanlı)
+|}
+
+==Örnekler==
+[[#Seçenekler|Attacker]] hakkında örnekler.
+
+
+'''ATTACKER'''
+----
+<spherescript>
+[Events e_example]
+On=@Death
+SERV.LOG Saldıran Sayısı: <attacker>
+</spherescript>
+
+Konsolda ''saldıran toplam oyuncu sayısını'' görürsünüz.
+
+
+'''ATTACKER'''''.n'''''[.UID]'''
+----
+<spherescript>
+[Events e_example]
+On=@Death
+SERV.LOG İlk Saldıran: <uid.<attacker.0>.name>
+SERV.LOG Dördüncü Saldıran: <uid.<attacker.3.uid>.name>
+</spherescript>
+
+Konsolda ''birinci ve dördüncü saldıranların isimlerini'' görürsünüz.
+
+VEYA
+
+<spherescript>
+[Events e_example]
+On=@Death
+for 0 <eval <ATTACKER>-1>
+SERV.LOG <eval <DLOCAL._FOR>+1>. Saldıran: <uid.<attacker.<dlocal._for>>.name>
+endfor
+</spherescript>
+
+Konsolda ''saldıran tüm oyuncuların isimlerini'' görürsünüz.
+
+
+'''ATTACKER.LAST'''
+----
+<spherescript>
+[Events e_example]
+On=@Death
+SERV.LOG Son Saldıran: <uid.<attacker.last>.name>
+</spherescript>
+
+Konsolda ''son saldıranın ismini'' görürsünüz.
+
+
+'''ATTACKER.MAX'''
+----
+<spherescript>
+[Events e_example]
+On=@Death
+SERV.LOG En Çok Hasar Veren: <uid.<attacker.max>.name>
+</spherescript>
+
+Konsolda ''en çok hasar verenin ismini'' görürsünüz.
+
+
+'''ATTACKER'''''.n'''''.DAMAGE'''
+----
+<spherescript>
+[Events e_example]
+On=@Death
+SERV.LOG İlk Saldıranın Verdiği Hasar: <attacker.0.damage>
+</spherescript>
+
+Konsolda ''ilk saldıran oyuncunun verdiği hasarı'' görürsünüz.
+
+
+'''ATTACKER'''''.n'''''.ELAPSED'''
+----
+<spherescript>
+[Events e_example]
+On=@Death
+SERV.LOG İlk Saldıranın Saldırı Süresi: <attacker.0.elapsed>
+</spherescript>
+
+Konsolda ''ilk saldıran oyuncunun saldırı süresini'' saniye cinsinden görürsünüz..
+
+[[Category: Reference Compendium]]
+[[Category: Objects]]

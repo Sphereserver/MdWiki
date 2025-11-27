@@ -1,0 +1,53 @@
+{{Languages|Wiki_Translation}}
+
+== Guía de Wikitraducciones ==
+Encuentra la versión en Inglés de la página a traducir en el menú principal. <br>(Si no hay versión en Inglés, crea una siguiendo la guía). 
+
+Si la barra de idiomas no aparece en la parte superior (Tal como puedes ver en ''esta'' página, por ejemplo) entonces edita la página, y añade el siguiente wikitexto: 
+ <nowiki>{{Languages|Nombre_de_la_pagina_en_inglés}}</nowiki>
+
+Aún en el modo edición, copia todo el wikitexto de esa página en el portapapeles. 'Guarda' ahora.
+
+Donde dice 'Languages Missing', pincha en el vículo rojo para empezar a editar la wikipágina en ese idioma. Pega el texto copiado anteriormente y comienza a editarlo desde el Inglés hasta el idioma requerido. El título de la nueva página debería tener un prefijo de idioma.
+
+Ver también [[Wiki Help]].
+
+Nota: Antes de guardar la nueva página, tu idioma aparecerá como 'pendiente' en la previsualización. Por lo que sea, después de guardar los cambios, tu idioma aún aparece en el casillero de idiomas pendientes, con letras negras y en negrita. Estos cosas ocurren debido a un tema con la caché de la plantilla. [http://www.mediawiki.org/wiki/Manual:FAQ#How_do_I_purge_a_cached_page.3F Limpia la caché] para cargar los idiomas disponibles. Tu idioma ya debería aparecer como disponible.
+
+== Instrucciones para la plantilla de Idioma ==
+
+[[Template:Idiomas|Esta]] es una plantilla específica para las paginas en Español, que lista todos los idiomas disponibles, la plantilla para las páginas en Inglés es [[Template:Languages|esta otra]]. Están basadas en [http://www.mediawiki.org/wiki/Help:Magic_words/es las funciones del analizador sintáctico] de mediawiki y el código de idiomas [[wikipedia:es:ISO 639-1|ISO 639-1]].
+
+=== Instrucciones a seguir ===
+# Los nombres de las páginas deben permanecer en Inglés. <br> Cada página que vayas a traducir debe tener el mismo nombre en inglés pero precedido del prefijo de idioma y de 'dos puntos'. <br>Si la página "original" está escrita en Inglés, no necesita prefijo alguno. Pero sin embargo si la página "original" está escrita en otro idioma (ie [[Wikiprojec France]]), la traducción al inglés necesita el prefijo correspondiente "en" (Ej: [[en:WikiProject France]]). <br> Ejemplo:<tt>Nombre_de_la_pagina_en_inglés</tt> - <tt>fr:Nombre_de_la_pagina_en_inglés</tt> - <tt>de:Nombre_de_la_pagina_en_inglés</tt>
+# La siguiente cabecera debe incluirse en cada página editada en español: <tt><nowiki>{{Idiomas|Nombre_de_la_pagina_en_inglés}}</nowiki></tt>
+
+Si pinchas en "Idiomas pendientes", y entonces pinchas en el vínculo rojo, automáticamente abre un vículo con el sufijo correcto a la derecha del nombre de la página. Copia el texto original de la página en Inglés, pegalo y tradúcelo. En la primera linea pon <tt><nowiki>{{Idiomas|Nombre_de_la_pagina_en_inglés}}</nowiki></tt> 
+
+Ejemplo de los idiomas y espacios actualmente implementados (2009-6): 
+ Nombre_de_la_pagina_en_inglés
+ DE:Nombre_de_la_pagina_en_inglés
+ EN:Nombre_de_la_pagina_en_inglés 
+ ES:Nombre_de_la_pagina_en_inglés
+ FR:Nombre_de_la_pagina_en_inglés
+ IT:Nombre_de_la_pagina_en_inglés 
+ NL:Nombre_de_la_pagina_en_inglés
+
+Esto genera automáticamente un menú de idiomas que consiste en una serie de vínculos a la página original (en Inglés) y todas sus traducciones. Los vínculos estarán escritos en los respectivos idiomas: Alemán, Inglés, Francés, etc.
+
+=== Páginas con títulos en idiomas extranjeros ===
+Para incluir las páginas con el título traducido al idioma local dentro del menú de idioma hay que hacer lo siguiente:
+
+En <code>XX:Nombre_de_la_pagina_en_inglés</code> (donde XX es el prefijo del idioma, "ES" en el caso del español) debes incluir el siguiente wikitexto:
+ <nowiki>#REDIRECT [[Nombre_de_la_pagina_traducida]]</nowiki>
+
+En <code>XX:Título traducido de "Nombre_de_la_pagina_en_inglés")</code> el título en inglés debe ser añadido como parámetro en la plantilla:
+ <nowiki>{{Idiomas|Nombre_de_la_pagina_en_inglés}}</nowiki>
+
+=== Seleccion de Apariencia ===
+Si quieres cambiar el diseño de la barra, traducir el mensaje o cambiar a dónde vincula el botón ''Ayuda'' para tu idioma, puedes hacerlo creando las plantillas adecuadas.
+
+Copia el wikitexto de [[Template:Languages/Interface]] y crea tu propia plantilla traducida.
+Posteriormente copia la de [[Template:Languages]] y traducela también a tu propia plantilla.
+
+Cambia sólamente el nombre de la plantilla y las palabras "traducibles" deja el resto del código intacto para que los distintos idiomas se compenetren entre sí. Acuerdate de incluir en cada una de las páginas traducidas tu plantilla personalizada en lugar de la plantilla en Inglés.

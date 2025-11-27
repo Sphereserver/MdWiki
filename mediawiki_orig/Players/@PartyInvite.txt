@@ -1,0 +1,38 @@
+{{Languages|@PartyInvite}}
+
+==Description==
+This trigger fires when a character has sent the invitation and before the other player receive it.
+
+
+Fires on:
+* [[Characters]]
+
+==References==
+The following object references are explicitly available for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Description'''
+|-
+| [[I]] || The [[Characters|character]] getting the invitation the party.
+|-
+| [[SRC]] || The [[Characters|character]] inviting to the party (master).
+|}
+
+==Arguments==
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
+
+No arguments are set for this trigger.
+
+==Return Values==
+The following return values are explicitly defined for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Return Value''' || '''Description'''
+|-
+| 1 || Cancels the invite. Player won't receive the invitation.
+|}
+
+
+[[Category: Reference Compendium]]
+[[Category: Triggers]]
+[[Category: Players]]

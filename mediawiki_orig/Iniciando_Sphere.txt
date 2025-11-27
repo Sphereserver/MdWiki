@@ -1,0 +1,185 @@
+''Lengua: Español. Language: Spanish''
+
+== Dónde Conseguir Sphere ==
+Puedes descargarlo de [http://prerelease.sphere.torfo.org/ http://prerelease.sphere.torfo.org/] (Pre-releases) o de [http://nightly.prerelease.sphere.torfo.org/ http://nightly.prerelease.sphere.torfo.org/] (Automáticas)
+
+
+=== Diferencias entre Pre-releases y Automáticas ===
+
+{| border="1" cellpadding="4"
+| '''Prereleases''' || '''Automáticas'''
+|-
+| Soporte disponible en foro || No hay soporte disponible de todo
+|-
+| Nivel de Estabilidad Elevado || Nivel de Estabilidad Bajo
+|-
+| Compilado manualmente || Compiled autómaticamente por un SVN (Subversion)
+|-
+| No contiene los nuevos elementos del juego y arreglos de errores || Contiene nuevos elementos del juego y arreglos de errores
+|-
+| Se realiza en un periodo indefido (A veces muchos meses) || Se actualiza a diario
+|} 
+
+== Instalación (Windows) ==
+
+
+1.  Extrae SphereServer-0.56b-xxxxxxxxxxxx-Win32.zip en el directorio el que desees tener Sphere. Recomendablemente c:/sphere
+
+2. Extrae SphereServer-0.56b-xxxxxxxxxxxx-Scripts.zip en el mismo directorio en el que extraiste el otro zip.
+
+3. Crea 3 nuevas carpetas: "accounts", "logs" y "save".
+
+4. Ahora ve a la carpeta "save". Accede al Bloc de Notas escribe [EOF] y guarda el archivo con el nombre de "spheredata.scp"
+
+5. Guárdalo también como "spherestatics.scp", "spherechars.scp" y "sphereworld.scp"
+
+6. Ahora guárdalo en la carpeta "accounts" con el nombre de "sphereaccu.scp" y "sphereacct.scp"
+
+7. Descarga la [http://prerelease.sphere.torfo.org/files/libMySQL.dll MySQL Library] y guárdala en el directorio de tu Sphere
+
+8. Ahora debes leer la sección [[Configurar Sphere.ini]] y configurar cómo deseas que trabaje el emulador antes de los dos últimos pasos.
+
+9. Doble click SphereSrv.exe para iniciar la consola. Aquí podrás escribir comandos y administrar algunas cosas sin necesidad de entrar a UO.
+
+10. Crea una cuenta para ti. En la cosola escribe "account add NOMBREUSUARIO CONTRASEÑA". Para ganar el nivel de Propietario del Servidor (Owner) escribe "account NOMBREUSUARIO plevel 7"
+
+== Instalación (Linux) ==
+
+=== Introducción y Requisitos ===
+
+Instalar Sphere en Linux no es más difícil que en un Windows. Sólo debes saber el funcionamiento básico del sistema. 
+
+Este tutorial está pensado para un Terminal (o Consola) de Linux, con permisos de admin (root).
+
+
+Por último, este tutorial no cubre las formas de obtener los archivos necesarios en el servidor Linux. Si no puede resolver esto a ti mismo - lee la última frase del párrafo anterior. ESTO NO ES UNA LECCIÓN "Linux para Novatos"! Haga su tarea y aprender. Hay muchos libros sobre conceptos básicos de Linux, incluso libros electrónicos que puede descargar de forma gratuita. Mirando [http://www.linux.org http://www.linux.org] será un buen punto para empezar.
+
+'''ADVERTENCIA:''' Linux es sensible con MAYÚSCULAS y minúsculas, por lo que para Linux no es lo mismo Sphere.ini que sphere.ini o sphere.INI
+
+Para instalarlo necesitas tener MySQL (aunque tú no lo vayas a usar), el paquete de scripts y una Pre-release o una Automática para Linux
+
+=== Instalación Paso por Paso ===
+
+0) Primero configura tu sphere.ini [[Configurar Sphere.ini]]
+
+1) Con cuenta admin crea un usuario llamado 'sphere'. Crea un directorio raíz, generalmente /home/sphere y ponle las propiedades y permisos adecuados
+
+
+useradd -d /home/sphere sphere
+mkdir /home/sphere
+chown sphere /home/sphere
+chmod 700 /home/sphere
+
+
+2)Copiar los archivos del paquete SphereServer para LINUX y el  en este directorio recién creado. Crea todos los directorios y archivos que se nombrar en los puntos 3, 4, 5 y 6 de la instalación en Windows
+
+         | /home/sphere --- spheresvr
+              |  sphere.ini
+              |  sphereCrypt.ini
+          |-------------------- accounts/
+          |-------------------- logs/
+          |-------------------- muls/
+          |-------------------- save/
+          |-------------------- scripts/
+
+
+3) Después de copiar todos los archivos relacionados con sus respectivas posiciones, asegúrese de que todos ellos tienen los permisos correctos y propiedades. Siendo admin (root) haz:
+
+    |cd ~sphere
+    |chown -R sphere *
+    |find . -type d | xargs chmod 0700
+    |find . -type f | xargs chmod 0600
+    |chmod 4700 spheresvr
+
+
+4) Siendo admin (root) haz
+
+    |
+    |ldd spheresvr
+    |
+
+Debe devolverte algo así:
+
+
+    |longbow:/home/sphere# ldd spheresvr
+    |libpthread.so.0 => /lib/libpthread.so.0 (0x4001f000)
+    |libmysqlclient.so.15 => /usr/lib/libmysqlclient.so.15 (0x40071000)
+    |libboost_regex-gcc-1_33_1.so => /usr/lib/libboost_regex-gcc-1_33_1.so (0x40243000)
+    |libstdc++.so.6 => /usr/lib/libstdc++.so.6 (0x402ea000)
+    |libm.so.6 => /lib/libm.so.6 (0x403c9000)
+    |libgcc_s.so.1 => /lib/libgcc_s.so.1 (0x403ef000)
+    |libc.so.6 => /lib/libc.so.6 (0x403fa000)
+    |/lib/ld -linux.so.2 (0x40000000)
+    |libcrypt.so.1 => /lib/libcrypt.so.1 (0x4051c000)
+    |libnsl.so.1 => /lib/libnsl.so.1 (0x4054a000)
+    |libz.so.1 => /usr/lib/libz.so.1 (0x40561000)
+
+
+¡BUSCA SOLUCIÓN A ERRORES O PERDIDAS DE LIBRERÍAS (BIBLIOTECAS)! Si algo se pierde, sólo instálalo. Debes saber como hacerlo.
+
+== Comprobando si funciona ==
+
+No importa si usted comienza su prueba como admin (root) o usuario sphere. Establece los permisos de la spheresvr ejecutable a 4700 para iniciarlo como owner. Por lo tanto, inícialo:
+
+
+ cd ~sphere
+ ./spheresvr
+
+
+Usted recibirá el inicio de costumbre, tal vez incluyendo algunas advertencias:
+
+
+ longbow:/home/sphere# ./spheresvr
+ WARNING:(sphere.ini,587)'scripts/spherestatusbase.html' not found...
+ ERROR:(sphere.ini,587)Can't open web page input 'spherestatusbase1.htm'
+ Sphere Version 0.56b [Linux] by www.sphereserver.com, compiled at Sep 15 2006 (23:23:07)
+ Signal handlers installed.
+ Expansion maps supported: T2A, LBR, AOS, SE, ML
+ ERROR:(spheretables.scp,59)Unable to open directory scripts/custom/
+ ERROR:(spheretables.scp,59)DirList=-1 for 'scripts/custom/'
+ Allocating map sectors: 0=7168 1=7168 2=900 3=1280 4=32761
+ Indexing 211 scripts...
+ Loading scripts/sphere_defs.scp
+ [...]
+
+
+Puede pasar por alto las advertencias y errores con respecto a que faltan las páginas web, pero si salen otros errores debes arreglarlos 
+
+
+Finalmente tu Sphere te dira algo como:
+
+ [...]
+ Loading save/spheredata...
+ Loading save/spherestatics...
+ Loading save/sphereworld...
+ Loading save/spherechars...
+ 166 Objects accounted for
+ Option flags: CommandSysmsgs + NoHouseMuteSpeech
+ Experimental flags: DiagonalWalkCheck + ScriptsReturnStrings + NewTriggersEnable + NewPositionChecks + WalkCheck + ScriptProfiler + SizeOptimize
+ Admin=me@my.email.com, URL=www.myshard.com, Lang=English, TZ=0
+ Startup complete. items=0, chars=0
+ Creating thread.
+
+
+Tu ahora estás en las consola de Sphere y puedes usar lo comandos usuales de sphere
+
+
+Para parar Sphere escribe 'S' y después 'x'. Linux te dira algo sobre deinstalling handlers y shutting down. Pero normalmente solo esta colgado. Puedes solucionando pulsando Ctrl + c
+
+==  ==
+
+Quizas tu cerraste al consola durante el test. Entonces recibiras que tu sistema operativo ha hecho nosequé con Sphere. Esto no es un error pero ten cuidado con el funcionamiento: Linux es un sistema operativo multiusuario, y cuando un usuario finaliza processos iniciados por el, puede ser que sigan en funcionamiento.
+
+
+Pero por supuesto usted no será capaz de mantener abierta la consola todo el tiempo, al menos si su máquina Linux sólo se puede acceder de forma remota, tal vez por ssh. Si este es el modo de controlar Linux, tu debes crear un script que inicio sphere en un bucle sin fin, reiniciándolo en el caso de que falle. Para hacer esto primero instala la utilidad "pantalla" ("screen") usando el administrador de paquetes de tu versión. Luego usa el editor de textos y haz el script siguiente:
+
+
+ #!/bin/sh
+ cd ~sphere
+ while true; do
+ screen -D -m /home/sphere/spheresvr
+ sleep 30
+ done
+
+
+De esta manera el servidor se ejecuta en una ventana virtual a lo que siempre se puede conectar con "screen-r". Lea la página de manual para la pantalla para obtener más información.

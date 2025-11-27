@@ -1,0 +1,46 @@
+==Description==
+This trigger fires when an NPC gets lost and is about to be teleported back to its [[HOME]] location. The LOSTNPCTELEPORT setting in Sphere.ini controls how far an NPC can wander from its home location before it is considered to be lost.
+
+
+Fires on:
+* [[Characters#NPCs|NPCs]]
+
+
+==References==
+The following object references are explicitly available for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Description'''
+|-
+| [[I]] || The [[Characters#NPCs|NPC]] who has gotten lost.
+|-
+| [[SRC]] || The [[Characters#NPCs|NPC]] who has gotten lost.
+|}
+
+
+==Arguments==
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Argument''' || '''In/Out''' || '''Description'''
+|-
+| ARGN1 || I || The distance between the NPC and its home location.
+|}
+
+
+==Return Values==
+The following return values are explicitly defined for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Return Value''' || '''Description'''
+|-
+| 1 || Prevents the NPC from being teleported back home.
+|}
+
+
+
+
+[[Category: Reference Compendium]]
+[[Category: Triggers]]
+[[Category: Characters]]
+[[Category: NPCS]]

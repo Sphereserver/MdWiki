@@ -1,0 +1,56 @@
+{{Languages|Intrinsic_Functions}}
+
+Funções intrínsecas são funções especiais que somente podem ser usadas em funções de avaliação, como [[EVAL]], [[FEVAL]], [[FHVAL]], [[FVAL]] e [[HVAL]]. Algumas das funções e propriedades embutidas irão avaliar automaticamente seus parâmetros, por exemplo a função [[IF]] e [[WHILE]] automaticamente irão avaliar suas condicionais.
+
+Diferente da sintaxe para funções normais (&lt;FUNCTION args&gt;), a sintaxe para retornar um valor de uma função intrínseca é:
+
+<tt>FUNCTION(''args'')<br /></tt>
+
+A tabela a seguir detalha todas as funções intrínsecas no SphereServer:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Nome''' || '''Descrição'''
+|-
+| [[COS]](''valor'') || Retorna o cosseno de ''valor''.
+|-
+| [[ID]](''defname'') || Retorna o valor numérico de ''defname''.
+|-
+| [[ISOBSCENE]](''texto'') || Retorna 1 se ''texto'' é considerado como texto obsceno.
+|-
+| [[ISNUMERIC]](''valor'') || Retorna 1 se ''valor'' é numérico.
+|-
+| [[LOGARITHM]](''valor'') || Retorna o logarítimo na base-10 de ''valor''.
+|-
+| [[LOGARITHM]](''valor'', ''base'') || Retorna o logarítimo de ''value'' na base-''base'' . (Aceita "e" e "pi" como bases, bem como valores numéricos)
+|-
+| [[NAPIERPOW]](''valor'') || Retorna e neperiano (2.7182818) para o power de ''valor''.
+|-
+| [[QVAL]](''a, b, less_than, equal_to, greater_than'') || Retorna ''less_than'' se ''a'' é menor/menos que ''b'', ''equal_to'' se ''a'' é igual a ''b'', ou ''greater_than'' se ''a'' é maior/mais que ''b''.
+|-
+| [[RAND]](''valor'') || Retorna um valor aleatório entre 0 e ''valor-1''.
+|-
+| [[RAND]](''min, max'') || Retorna um valor aleatório entre ''min'' e ''max''.
+|-
+| [[RANDBELL]](''valor, variância'') || Calcula um valor baseado na curva em forma de sino (Gauss).
+|-
+| [[SIN]](''valor'') || Retorna o seno de ''valor''.
+|-
+| [[STRCMP]](''linha1, linha2'') || Compara ''linha1'' com ''linha2'' e retorna o resultado. Sensível a caixa alta. (<= 1 = ''linha1'' menor/menos que ''linha2'', 0 = ''linha1'' igual a/equivalente ''linha2'', >= 1 = ''linha1'' maior/mais que ''linha2'')
+|-
+| [[STRCMPI]](''linha1, linha2'') || Compara ''linha1'' com ''linha2'' e retorna o resultado. NÃO sensível a caixa alta. (<= 1 = ''linha1'' menor/menos que ''linha2'', 0 = ''linha1'' igual a/equivalente ''linha2'', >= 1 = ''linha1'' maior/mais que ''linha2'')
+|-
+| [[STRINDEXOF]](''texto, search, n'') || Retorna o indice da sequencia de caracteres ''search''  no ''texto'', a começar do caractere número ''n''. (começando de zero)
+|-
+| [[STRLEN]](''texto'') || Retorna o comprimento de ''texto''.
+|-
+| [[STRMATCH]](''padrão, texto'') || Retorna 1 se ''texto'' corresponde especificamente ao ''padrão''.
+|-
+| [[STRREGEX]](''padrão, texto'') || Retorna 1 se ''texto'' corresponde à expressão regular especificada ''padrão''.
+|-
+| [[SQRT]](''valor'') || Retorna a raiz quadrada de ''value''.
+|-
+| [[TAN]](''valor'') || Retorna a tangente de ''value''.
+|}
+
+[[Category: Reference Compendium]]
+[[Category: Scripts]]

@@ -1,0 +1,77 @@
+Cuando inicias Sphere, en la mayoría de los casos monitoriza 2 ip y permanece directamente en la red. La única cosa que debes hacer es cambiar lo siguiente:
+
+
+<spherescript>[SERVERS]
+MyShard //Nombre del Servidor
+Tu_IP //Esto es tu IP
+2593 //Esto es tu puerto</spherescript>
+
+
+Así que no necesitas añadir un <tt>SERV.SERVIP</tt> en ningún lado. Pero, ¿dónde está el problema? Si no tienes una IP estática, necesitarás cambiarla cada vez que cortes y enciendas tu líneas, así que: Consigue una cuenta [http://www.no-ip.com/ noip.org] y podrás conseguir una IP estática. ¿Fácil, eh? 
+
+
+Ahora, si vas a la página de selección de server del cliente y se para es que algo está mal. Por supuesto este problema no es específico, puede ser tu cliente (del router), filtro de paquetes, proxy en el servidor, otra cosa en el puerto 2593 o cosas raras con la interfaz de red del servidor. (Hay cientos de cosas que podrían ser). Así que, antes de seguir leyendo, asegúrate de no tener problemas internos. ¡Ahora, sigamos! 
+
+
+Si tienes un router, Sphere es capaz de determinar tu IP Interna (y quizás tu IP externa que cambia constantemente), haz lo siguiente: 
+
+# Registra una cuenta en [http://www.no-ip.com/ NoIP.org], necesitarás esto si no quieres cambiar los archivos siempre. Consigue un nombre de host. 
+'''A medio traducir. Puedes seguir si lo deseas'''
+# Install their software, and run it, of course. 
+# Properly configure you router so it forwards port 2593 (or your Sphere Port, alas, i recommend the default one) to your internal IP (in my case: 192.186.0.175, you can find yours if you check your network connection properties). 
+# Configure your Sphere.ini: 
+
+
+<spherescript>[SPHERE]
+// Name of your Sphere shard
+ServName=Three-Head Monkey
+// The IP of your server, this will be 127.0.0.1 almost always
+ServIP=127.0.0.1
+// The port of your server, this is 2593 by default
+ServPort=2593</spherescript>
+
+
+Go to the lower part of it, and comment every line under [SERVERS], for example: 
+
+
+<spherescript>[SERVERS]
+//Three-Head Monkey
+//127.0.0.1
+//2593
+//
+
+[EOF]</spherescript>
+
+
+Now, go to your "scripts/sphere_serv_triggers.scp", and edit it like this: 
+
+
+<spherescript>[FUNCTION f_onaccount_login]
+SERV.SERVIP yourno-ip.homedns.org
+
+[FUNCTION f_onserver_start]
+SERV.SERVIP yourno-ip.homedns.org
+
+[FUNCTION f_onserver_save_ok]
+SERV.SERVIP yourno-ip.homedns.org
+
+[FUNCTION f_onserver_timer]
+F_DATE</spherescript>
+
+
+Just change every "yourno-ip.homedns.org" with your registered hostname at NoIP.org (Self-Descriptive Name, uh). 
+
+
+Ok, why there's an F_DATE function in there? Well, it refreshes Sphere's external IP to "yourno-ip.homedns.org", in case it changes. That will keep your connection with the players safe. Just go to the ini and change the option "TimerCall" to 5 (instead of 0). Then in a script file, add this: 
+
+
+<spherescript>[FUNCTION f_date]
+SERV.SERVIP yourno-ip.homedns.org</spherescript>
+
+
+That's it, at the Login.cfg you should put your hostname registered from NoIP.org and the port you used. And it should work, here an example: 
+
+
+<spherescript color="darkgreen">LoginServer=yourno-ip.homedns.org,2593</spherescript>
+
+[[Category:Artículos]]

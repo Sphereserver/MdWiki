@@ -1,0 +1,41 @@
+{{Languages|@SpellTargetCancel}}
+
+==Description==
+This trigger fires when a character cancel the spell target.
+
+
+Fires on:
+* [[Characters]]
+
+
+==References==
+The following object references are explicitly available for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Description'''
+|-
+| [[I]] || The [[Characters|character]] who cancel the spell target.
+|-
+| [[SRC]] || The [[Characters|character]] who cancel the spell target.
+|}
+
+
+==Arguments==
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Argument''' || '''In/Out''' || '''Description'''
+|-
+| ARGN1 || I || The spell that was cancel.
+|}
+
+
+==Return Values==
+The following return values are explicitly defined for this trigger:
+
+
+''No return values are handled for this trigger.''
+
+
+[[Category: Reference Compendium]]
+[[Category: Triggers]]

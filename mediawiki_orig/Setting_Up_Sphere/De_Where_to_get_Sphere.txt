@@ -1,0 +1,53 @@
+{{Languages|Where to get Sphere}}
+Für Sphere 56b gibt es hauptsächlich 2 Möglichkeiten: Pre-Releases und automatische Builds. Unten ist eine Gegenüberstellung, die Unterschiede beinhaltet.
+
+==Prerelease Builds==
+Prerelease Builds werden regelmäßig veröffentlicht, wenn die Entwickler der Meinung sind, dass eine neue Version fällig ist und sie mit der Stabilität zufrieden sind (d.h. u.a. dass ein Prerelease Build auch läuft). Weil es noch keinen finalen Build gibt, sind die Prerelease Builds am nächsten an einer stabilen Version dran.
+
+Prerelease Builds können hier heruntergeladen werden: [http://prerelease.sphereserver.net SphereServer Pre-releases].
+
+
+Falls du nicht sicher bist, was genau hinter einem Prerelease Build steckt, dann gibt es hier noch weitere Informationen: [[#Was will ich eigentlich?|Was will ich eigentlich?]]
+
+
+
+==Automatisierte Builds==
+Jede Nacht wird automatisiert aus dem bestehenden Code eine neue Version von Sphere erstellt. Das passiert direkt und dieser Build enthält die letzten Änderungen, die von den Entwicklern vorgenommen wurden. Wenn es also die das topaktuellste sein soll, dann nutzt man einen automatisierten Build.
+
+
+Automatisierte Builds sind hier zum Download verfügbar: [http://nightly.prerelease.sphere.torfo.org/ SphereServer Nightly Automated Builds]
+
+
+Einige Warnungen, ehe ein solcher automatisierter Build genutzt wird:
+* Da diese Builds direkt mit den neuesten und aktuellsten Änderungen am Quellcode erstellt wurden, ist es nicht ratsam, diese Version für einen laufenden Server zu nutzen, ausser man hat zuvor gut und gründlich getestet.
+* Das Entwicklerteam kann keine oder wenige Hilfestellungen leisten, falls Probleme auftreten.
+
+
+==Was will ich eigentlich?==
+Falls noch Unsicherheiten bestehen, welche Version gewählt werden soll, dann sollte man auf einen Prerelease Build zurückgreifen. Automatisierte Builds sind vor allem für fortgeschrittenere Nutzer und Tester gedacht, die neue Features austesten wollen, bevor sie offiziell veröffentlicht werden.
+
+
+Hier eine knappe Gegenüberstellung, was die Builds hauptsächlich unterscheidet:
+
+
+{| border="1" cellpadding="4"
+| '''[[#Prerelease Builds|Prerelease Builds]]''' || '''[[#Automatisierte Builds|Automatisierte Builds]]'''
+|-
+| Forensupport || Kein Support in den Foren
+|-
+| Höhere Stabilität || Keine Garantien für Stabilität
+|-
+| Von Hand kompiliert aus einem stabilen Zweig des Quellcodes || Automatisch kompiliert aus dem Quellcode der Entwickler
+|-
+| Enthält nicht die neuesten Features und Fehlerkorrekturen || Enthält das neueste an Features und Fehlerkorrekturen
+|-
+| Wird alle paar Monate veröffentlicht || Wird täglich veröffentlicht
+|}
+
+
+Zusammengefasst: die Prerelease Builds erhalten Forensupport durch die Entwickler und werden nur veröffentlicht, wenn das Team der Meinung ist, dass genug an Arbeit hineingeflossen ist.  Solange nicht dringend neueste Features und Fehlerkorrekturen benötigt werden, sollte man deshalb als Endnutzer auf diese Builds zurückgreifen.
+
+
+'''''Anmerkung:''''' ''Sollte man nur aus dem Grund einen automatisierten Build wählen, da man nicht auf die offiziellen Prerelease Builds warten will, dann sollte man sich das genau überlegen. Zwar sind neue Features oder Fehlerkorrekturen enthalten, aber die Gefahr, dass manche Dinge nicht abgeschlossen wurden oder bisher unbekannte Bugs und Fehler in Sphere auftauchen, ist viel höher und das kann die Stabilität des Servers stark verringern.''
+
+[[Category: Setting Up Sphere]]

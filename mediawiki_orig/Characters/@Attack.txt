@@ -1,0 +1,46 @@
+==Description==
+This trigger fires when one character initiates an attack on another.
+
+
+Fires on:
+* [[Characters]]
+
+
+==References==
+The following object references are explicitly available for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Description'''
+|-
+| [[I]] || The [[Characters|character]] initiating the attack.
+|-
+| [[SRC]] || The [[Characters|character]] being attacked.
+|}
+
+
+==Arguments==
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
+
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Description'''
+|-
+| [[ARGN1]] || Threat being assigned to the target after starting the fight (Only for NPCs).
+|-
+| [[ARGN2]] ||replace Ignore status. 1->Force to ignore attacker 0->Force to unignore attacker (X-ONLY) 
+|}
+
+==Return Values==
+The following return values are explicitly defined for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Return Value''' || '''Description'''
+|-
+| 1 || Prevents the character from attacking.
+|}
+
+
+[[Category: Reference Compendium]]
+[[Category: Triggers]]
+[[Category: Characters]]
+[[Category: Combat]]

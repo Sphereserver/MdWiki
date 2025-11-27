@@ -1,0 +1,41 @@
+==Description==
+This trigger fires when a player logs out.
+
+
+Fires on:
+* [[Characters#Players|Players]]
+
+
+==References==
+The following object references are explicitly available for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Description'''
+|-
+| [[I]] || The [[Characters#Players|player]] who logged out.
+|-
+| [[SRC]] || The [[Characters#Players|player]] who logged out.
+|}
+
+
+==Arguments==
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Argument''' || '''In/Out''' || '''Description'''
+|-
+| ARGN1 || IO || The length of time that the character will linger in the world, in tenths of a second.
+|-
+| ARGN2 || IO || If non-zero, the character will instantly log out.
+|}
+
+
+==Return Values==
+The following return values are explicitly defined for this trigger:
+
+
+''No return values are handled by this trigger.''
+
+
+[[Category: Reference Compendium]]
+[[Category: Triggers]]

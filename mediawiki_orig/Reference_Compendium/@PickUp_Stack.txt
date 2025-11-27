@@ -1,0 +1,41 @@
+==Description==
+This trigger fires when an item is picked up from a pile of items.
+
+
+Fires on:
+* [[Items]]
+
+
+==References==
+The following object references are explicitly available for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Name''' || '''Description'''
+|-
+| [[ARGO]] || The stack of [[Items|items]] that the item was taken from.
+|-
+| [[I]] || The [[Items|item]] that was picked up from the stack.
+|-
+| [[SRC]] || The [[Characters|character]] picking up the item.
+|}
+
+
+==Arguments==
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
+
+
+''No arguments are set for this trigger.''
+
+
+==Return Values==
+The following return values are explicitly defined for this trigger:
+
+{| border="1" cellspacing="4" cellpadding="4"
+| '''Return Value''' || '''Description'''
+|-
+| 1 || Prevents the item from being picked up.
+|}
+
+
+[[Category: Reference Compendium]]
+[[Category: Triggers]]
