@@ -20,6 +20,6 @@
   "model": {
     "disableLoopDetection": true,
     "name": "gemini-2.5-flash",
-    "maxRetries": 1
+    "maxRetries": 3
   }
 }

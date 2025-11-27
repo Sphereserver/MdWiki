@@ -32,19 +32,15 @@ The `Changelog.txt` file contains changes to the C++ core and SphereScript featu
 
 # Tasks
 
-## Task 1) Done
+## Task 1)
 
->! Create a **new Python script**, starting from `agent_helpers/download_mediawiki.py`, to download the mediawiki files from the old wiki and put them into the folder `mediawiki_orig`. Old wiki address: `https://wiki.spherecommunity.net/index.php?title=Main_Page`
+Use `agent_helpers/download_mediawiki.py`, to download the mediawiki files from the old wiki and put them into the folder `mediawiki_orig`. Use this via the wrapper `agent_helpers/sphere_wiki_downloader.sh`, which passes the corrent command line arguments.
 
-## Task 2) Done
+## Task 2)
 
->! Convert the original mediawiki files from the `mediawiki_orig` folder into markdown files in the `mediawiki_orig_conv_markdown` folder through the python script `agent_helpers/convert_mediawiki_to_md.py`, which leverages `pandoc` for the conversion.
+Convert the original mediawiki files from the `mediawiki_orig` folder into markdown files in the `mediawiki_orig_conv_markdown` folder through the python script `agent_helpers/convert_mediawiki_to_md.py`, which leverages `pandoc` for the conversion.
 
-## Task 3) Done
-
->! If missing, retrieve the missing root pages (e.g., `Category*.md`) from the `mediawiki_orig_conv_markdown` folder and expand them if needed, linking to their child pages.
-
-## Task 4) Current, not yet completed.
+## Task 3)
 
 **Update the wiki content using the `Changelog.txt`** (Long-Running Task).
 - **Work Folder**: `markdown_integrated`.
@@ -69,16 +65,17 @@ The `Changelog.txt` file contains changes to the C++ core and SphereScript featu
     - Make sure that any files you are adding new links to **do really exist** and have the correct, non-hallucinated content.
 - **Execution Plan:** **Continue with every unaddressed changelog entry** (as indicated by `agent_helpers/changelog_progress.txt`), taking the time you need and proceeding without supervision.
 
-## Task 5) TODO.
+## Task 4)
 
 Stop your actions and wait for user input. We will need to change the model (use here gemini-2.5-pro, for everything else continue using gemini-2.5-flash).
 Review and fix the links you inserted between pages, as most have a **broken format** (e.g., an unnecessary leading `:`). Moreover, for each markdown "root" file (has multiple links to other pages, and the other pages are "children" and do have only one root file), create a folder with the "root" markdown file name. Keep every child file in that folder. Subfolders are allowed.
 - **Mandatory Tool for Restructuring:** You MUST use the script `agent_helpers/organize_wiki.py` to perform the file restructuring (right now it is only a blueprint, you need to complete it). The script handles finding root files, creating folders named after the root file, and moving all child pages into that new folder structure.
-## Task 6) TODO.
+
+## Task 6)
 
 Read every **Sphere.ini** setting and add it to the wiki in the relevant page, if missing.
 
-## Task 7) TODO.
+## Task 7)
 
 **Post-Processing Pass:** After all other tasks are complete, perform a single, full review of all modified/created files to ensure:
 1. **Consistent Markdown Headings** (e.g., no excessive deep nesting like `#######`).
