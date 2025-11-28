@@ -1,0 +1,120 @@
+\_\_FORCETOC\_\_
+
+## Server Functions
+
+This functions are special functions which triggered by Sphere. These
+can be called "Server Functions", "Trigger Functions" or "Function
+Trigger". Some server functions can be triggered by server on a specific
+action, some of them can be triggered with specific delays and some of
+them can be activated from sphere.ini.
+
+Generally server functions located into sphere_serv_triggers.scp.
+
+### f_axis_preload
+
+------------------------------------------------------------------------
+
+This function is called every time when someone connects from
+[Axis](https://forum.spherecommunity.net/sshare.php?srt=4&prj=1) to
+retrieve information.
+
+**Variables**
+
+------------------------------------------------------------------------
+
+|                 |            |                 |
+|-----------------|------------|-----------------|
+| **Name**        | **In/Out** | **Description** |
+| *LOCAL.Account* | O          | Account name.   |
+| *LOCAL.IP*      | O          | Ip address.     |
+
+**Return Values**
+
+------------------------------------------------------------------------
+
+|           |                                                |
+|-----------|------------------------------------------------|
+| **Value** | **Description**                                |
+| 0         | Block the connection.                          |
+| 1         | Block the connection and send warning message. |
+| 2         | Allow the connection. (Default)                |
+
+### f_onaccount_connect
+
+------------------------------------------------------------------------
+
+This function is called when someone trying to connect server before
+password check.
+
+**Variables**
+
+------------------------------------------------------------------------
+
+|                 |            |                     |
+|-----------------|------------|---------------------|
+| **Name**        | **In/Out** | **Description**     |
+| *LOCAL.Account* | O          | Given account name. |
+| *LOCAL.IP*      | O          | Ip address.         |
+
+**Return Values**
+
+------------------------------------------------------------------------
+
+|           |                                                                |
+|-----------|----------------------------------------------------------------|
+| **Value** | **Description**                                                |
+| 0         | Continue to connection. (Default)                              |
+| 1         | Block the connection and send the wrong password warning.      |
+| 6         | Skip password check. (Password check must be done with script) |
+
+### f_onaccount_login
+
+------------------------------------------------------------------------
+
+This function is called when someone connected server with correct
+password.
+
+**Variables**
+
+------------------------------------------------------------------------
+
+|          |            |                     |
+|----------|------------|---------------------|
+| **Name** | **In/Out** | **Description**     |
+| *ARGS*   | O          | Given account name. |
+| *ARGO*   | O          | Client name.        |
+
+**Return Values**
+
+------------------------------------------------------------------------
+
+|           |                                   |
+|-----------|-----------------------------------|
+| **Value** | **Description**                   |
+| 0         | Continue to connection. (Default) |
+| 1         | Block the connection.             |
+
+### f_onaccount_create
+
+------------------------------------------------------------------------
+
+This function is called when new account created.
+
+**Variables**
+
+------------------------------------------------------------------------
+
+|          |            |                       |
+|----------|------------|-----------------------|
+| **Name** | **In/Out** | **Description**       |
+| *ARGS*   | O          | Created account name. |
+
+**Return Values**
+
+------------------------------------------------------------------------
+
+|           |                                   |
+|-----------|-----------------------------------|
+| **Value** | **Description**                   |
+| 0         | Allow account creation. (Default) |
+| 1         | Deny account creation.            |

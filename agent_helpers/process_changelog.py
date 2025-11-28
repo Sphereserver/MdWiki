@@ -242,7 +242,8 @@ def main():
     
     # Save the headers of the current batch to a temporary file
     # This file will be read when --mark-as-processed is used in the next run.
-    with open('.last_processed_batch_headers.tmp', 'w', encoding='utf-8') as f:
+    tmp_headers_filepath = os.path.join(os.path.dirname(__file__), '.last_processed_batch_headers.tmp')
+    with open(tmp_headers_filepath, 'w', encoding='utf-8') as f:
         for header in batch_headers_for_progress:
             f.write(header + '\n')
 
