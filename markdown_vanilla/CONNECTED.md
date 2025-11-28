@@ -1,0 +1,17 @@
+This function will return if sphere is connected to any database.
+
+Must be checked in a condition like: **IF**, **WHILE**, **QVAL**.
+
+**USES**: \<DB.CONNECTED\>
+
+## Examples
+
+<spherescript>IF \<DB.CONNECTED\>
+
+`// Sphere is connected to the database.`
+
+ELSE
+
+`// Sphere is not connected to the database.`
+
+ENDIF</spherescript>

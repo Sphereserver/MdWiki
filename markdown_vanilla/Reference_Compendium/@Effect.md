@@ -1,0 +1,107 @@
+## Description
+
+This trigger fires when an object is hit by the effects of a spell. The
+object may have been targeted directly or it may have been hit by an
+area-effect spell.
+
+Fires on:
+
+- [Spells](SPELL "wikilink")
+
+## References
+
+The following object references are explicitly available for this
+trigger:
+
+|  |  |
+|----|----|
+| **Name** | **Description** |
+| [ARGO](ARGO "wikilink") | The [item](Items "wikilink") used to cast the spell (e.g. a wand or scroll). |
+| [I](I "wikilink") | The [character](Characters "wikilink") or [item](Items "wikilink") being hit by the spell. |
+| [SRC](SRC "wikilink") | The [character](Characters "wikilink") responsible for the spell. |
+
+## Arguments
+
+The following arguments are set for this trigger. If an argument is
+marked as "In" then a value will be passed in to the trigger, if an
+argument is marked as "Out" then it can be set to a value to affect
+Sphere's behaviour:
+
+<table>
+<tbody>
+<tr>
+<td><p><strong>Argument</strong></p></td>
+<td><p><strong>In/Out</strong></p></td>
+<td><p><strong>Description</strong></p></td>
+</tr>
+<tr>
+<td><p>ARGN1</p></td>
+<td><p>IO</p></td>
+<td><p>The number of the spell that has hit the object.</p></td>
+</tr>
+<tr>
+<td><p>ARGN2</p></td>
+<td><p>IO</p></td>
+<td><p>The strength of the spell.</p></td>
+</tr>
+<tr>
+<td><p>ARGN3</p></td>
+<td><p>IO</p></td>
+<td><p>A multiplier for the spell's duration or effect.<br />
+<strong>Note:</strong> Only used when a character is hit by a
+spell.</p></td>
+</tr>
+<tr>
+<td><p>Local.CreateObject1</p></td>
+<td><p>IO</p></td>
+<td><p>Changes the ID of the effect for this spell, IE:
+Local.CreateObject1=0eed in FlameStrike spell will change the Fire
+Column for a Gold Coin.</p></td>
+</tr>
+<tr>
+<td><p>local.Duration</p></td>
+<td><p>IO</p></td>
+<td><p>Overrides the default duration of spell in tenths of second
+(local.duration = 10 is 1 second).</p></td>
+</tr>
+<tr>
+<td><p>local.Effect</p></td>
+<td><p>IO</p></td>
+<td><p>Changes the EFFECT value of the spell (For changing EFFECT_ID see
+Local.CreateObject1).</p></td>
+</tr>
+<tr>
+<td><p>local.EffectColor</p></td>
+<td><p>IO</p></td>
+<td><p>Changes the color of the effect for this spell.</p></td>
+</tr>
+<tr>
+<td><p>local.EffectRender</p></td>
+<td><p>IO</p></td>
+<td><p>Changes the Render Mode for this spell's effect.</p></td>
+</tr>
+<tr>
+<td><p>local.EffectExplode</p></td>
+<td><p>IO</p></td>
+<td><p>Sets wether the effect should explode or not after reaching the
+target.</p></td>
+</tr>
+</tbody>
+</table>
+
+## Return Values
+
+The following return values are explicitly defined for this trigger:
+
+|  |  |
+|----|----|
+| **Return Value** | **Description** |
+| 0 | For scripted spells, prevents any hardcoded behaviour from taking place. |
+| 1 | Prevents the object from being affected by the spell. |
+
+**Note:** For the recall and gate travel spells, returning 0 prevents
+the spell from proceeding and returning 1 has no effect.
+
+[Category: Reference
+Compendium](Category:_Reference_Compendium "wikilink") [Category:
+Triggers](Category:_Triggers "wikilink")

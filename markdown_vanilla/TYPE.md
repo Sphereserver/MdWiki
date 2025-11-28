@@ -1,0 +1,10 @@
+Gets or sets the item type.
+
+## Examples
+
+Ingame commands: <spherescript>.XTYPE T_NEW_TYPE // Set T_NEW_TYPE as
+type of targetted item. .XSHOW TYPE // Show the TYPE of targetted
+item.</spherescript>
+
+Sphere scripting: <spherescript>TYPE T_NEW_TYPE // Set T_NEW_TYPE as
+type of the item. <TYPE> // Return the type of the item.</spherescript>

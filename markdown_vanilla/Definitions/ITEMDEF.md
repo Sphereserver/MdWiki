@@ -1,0 +1,122 @@
+\_\_FORCETOC\_\_
+
+An ITEMDEF block defines the basic properties of an
+[item](Items "wikilink").
+
+## Properties
+
+Here is a list of all item definition properties.
+
+|  |  |  |
+|----|----|----|
+| **Name** | **Read/Write** | **Description** |
+| [AMMOANIM](AMMOANIM "wikilink") | RW | Overrides TDATA4 for bow/crossbow type weapons. |
+| [AMMOANIMHUE](AMMOANIMHUE "wikilink") | RW | Sets the color of the effect when firing bow/crossbow type weapons. |
+| [AMMOANIMRENDER](AMMOANIMRENDER "wikilink") | RW | Sets the render mode of the effect when firing bow/crossbow type weapons. |
+| [AMMOCONT](AMMOCONT "wikilink") | RW | Sets the container UID or ID where to search for ammos for bow/crossbow type weapons. |
+| [AMMOTYPE](AMMOTYPE "wikilink") | RW | Overrides TDATA3 for bow/crossbow type weapons. |
+| [ARMOR](ARMOR "wikilink") *min,max* | RW | Gets or sets the base protection that the armour will give. |
+| [ARMOR](ARMOR "wikilink").LO | R | Gets the minimum base protection the armour will give. |
+| [ARMOR](ARMOR "wikilink").HI | R | Gets the maximum base protection the armour will give. |
+| [BASEID](BASEID "wikilink") | R | Gets the defname of the item if set, otherwise the ID. |
+| [BONUSSTR](BONUSSTR "wikilink") \| [BONUSDEX](BONUSDEX "wikilink") \| [BONUSINT](BONUSINT "wikilink") \| [BONUSHITS](BONUSHITS "wikilink") \| [BONUSSTAM](BONUSSTAM "wikilink") \| [BONUSMANA](BONUSMANA "wikilink") \| [BONUSSKILLx](BONUSSKILLx "wikilink") \| [BONUSSKILLxAMT](BONUSSKILLxAMT "wikilink") (X branch only) | RW | Increases (or decreases) the applicable Stat. Positive or negative integer. For BonusSkill, x is a sequential number(1-4) and must assign a skill. Ex:bonusskill1=bowcraft and BonusSkillxAMT is the amount |
+| [CAN](CAN "wikilink") | RW | Gets or sets attributes for the item. See can_i_flags in sphere_defs.scp. |
+| [DAM](DAM "wikilink") *min,max* | RW | Gets or sets the base damage that the weapon will deal. |
+| [DAM](DAM "wikilink").LO | R | Gets the minimum base damage the weapon will deal. |
+| [DAM](DAM "wikilink").HI | R | Gets the maximum base damage the weapon will deal. |
+| [DEFNAME](DEFNAME "wikilink") | RW | Gets or sets defname of the item |
+| [DISPID](DISPID "wikilink") | RW | Gets or sets the ID to display as to clients. |
+| [DUPEITEM](DUPEITEM "wikilink") | RW | Gets or sets the defname of the item that this is a duplicate/rotation of (see [DUPELIST](DUPELIST "wikilink")). |
+| [DUPELIST](DUPELIST "wikilink") *item_defname, item_defname, ...* | RW | Gets or sets a comma-separated list of items that this item will cycle through when rotated. |
+| [DYE](DYE "wikilink") | RW | Gets or sets whether or not the item can be dyed using dye tubs (1 or 0). |
+| [FLIP](FLIP "wikilink") | RW | Gets or sets whether or not the item automatically rotates when dropped. |
+| [HEIGHT](HEIGHT "wikilink") | RW | Gets or sets the height of the item. |
+| [ID](ID "wikilink") | RW | Gets or sets the ID of the item to inherit property values from. |
+| [INSTANCES](INSTANCES "wikilink") | R | Returns the number of this item that exist in the world. |
+| [ISARMOR](ISARMOR "wikilink") | R | Gets whether or not the item is considered to be armour. |
+| [ISWEAPON](ISWEAPON "wikilink") | R | Gets whether or not the item is considered to be a weapon. |
+| [LAYER](LAYER "wikilink") | RW | Gets or sets the layer that the item will occupy when equipped (1 or 0). |
+| [NAME](NAME "wikilink") | RW | Gets or sets the name of the item. |
+| [RANGE](RANGE "wikilink") *min, max* | RW | Gets or sets the range of the weapon. |
+| [RANGEH](RANGEH "wikilink") | R | Gets the maximum range of the weapon. |
+| [RANGEL](RANGEL "wikilink") | R | Gets the minimum range of the weapon. |
+| [REPAIR](REPAIR "wikilink") | RW | Gets or sets whether or not the item can be repaired (1 or 0). |
+| [REPLICATE](REPLICATE "wikilink") | RW | Gets or sets whether or not multiple instances of the item can be crafted at once. |
+| [RESDISPDNHUE](RESDISPDNHUE "wikilink") | RW | Gets or sets the colour to display as to clients who don't have a high enough [RESDISP](RESDISP "wikilink") to see the item. |
+| [RESDISPDNID](RESDISPDNID "wikilink") | RW | Gets or sets the item ID to display as to clients who don't have a high enough [RESDISP](RESDISP "wikilink") to see the item. |
+| [RESLEVEL](RESLEVEL "wikilink") | RW | Gets the minimum [RESDISP](RESDISP "wikilink") required for a client to see the item. |
+| [RESMAKE](RESMAKE "wikilink") | R | Returns the names of the resources needed to craft the item. |
+| [RESOURCES](RESOURCES "wikilink") | RW | Gets or sets the resources that are needed to craft the item. |
+| [RESOURCES](RESOURCES "wikilink")*.COUNT* | R | Gets the number of different resources that are needed to craft the item. |
+| [RESOURCES](RESOURCES "wikilink")*.n.KEY* | R | Gets the [BASEID](BASEID "wikilink") of the nth resource needed to craft the item. (zero-based) |
+| [RESOURCES](RESOURCES "wikilink")*.n.VAL* | R | Gets the amount of the nth resource needed to craft the item. (zero-based) |
+| [REQSTR](REQSTR "wikilink") | RW | Gets or sets the amount of strength needed to equip the item. |
+| [SKILL](SKILL_(Item_Property) "wikilink") | RW | Gets or sets the skill that is used with the weapon. |
+| [SKILLMAKE](SKILLMAKE "wikilink") | RW | Gets or sets the list of skills needed to craft the item. |
+| [SKILLMAKE](SKILLMAKE "wikilink")''.n.KEY | R | Gets the name of the nth skill needed to craft the item. |
+| [SKILLMAKE](SKILLMAKE "wikilink")''.n.VAL | R | Gets the amount of the nth skill needed to craft the item. |
+| [SPEED](SPEED "wikilink") | RW | Gets or sets the speed of the weapon. |
+| [TAG](TAG "wikilink")*.name* | RW | Gets or sets the value of a TAG. |
+| [TDATA1](TDATA1 "wikilink") | RW | Gets or sets the TDATA1 value of the item. |
+| [TDATA2](TDATA2 "wikilink") | RW | Gets or sets the TDATA2 value of the item. |
+| [TDATA3](TDATA3 "wikilink") | RW | Gets or sets the TDATA3 value of the item. |
+| [TDATA4](TDATA4 "wikilink") | RW | Gets or sets the TDATA4 value of the item. |
+| [TEVENTS](TEVENTS "wikilink") | RW | Gets a list of events attached the item, or adds an event to the item. |
+| [TFLAGS](TFLAGS "wikilink") | R | Gets or sets the flags of the item from tiledata.mul. |
+| [TWOHANDS](TWOHANDS "wikilink") | RW | Gets or sets whether or not the item occupies both hands when equipped (layer_hand2) |
+| [TYPE](TYPE "wikilink") | RW | Gets or sets the item's type. |
+| [VALUE](VALUE "wikilink") | RW | Gets or sets the base value of the item. |
+| [WEIGHT](WEIGHT "wikilink") | RW | Gets or sets the weight of the item. |
+| [WEIGHTREDUCTION](WEIGHTREDUCTION "wikilink") | RW | Gets or sets the percent of weight reduction of the item. |
+
+## Multi Definitions
+
+For multi items (t_multi, t_multi_custom, t_ship), the ITEMDEF has
+additional properties.
+
+### Properties
+
+Here is a list of all multi definition properties.
+
+|  |  |  |  |
+|----|----|----|----|
+| **Name** | **Read/Write** | **Override†** | **Description** |
+| [BASECOMPONENT](BASECOMPONENT "wikilink") | R | ?? | Gets how many static components the multi has in the multi.mul file. |
+| [BASECOMPONENT](BASECOMPONENT "wikilink")*.n.KEY* | R | ?? | Accesses the multi's static components directly from the multi.mul file. (ID,DX,DY,DZ,D,VISIBLE) |
+| [COMPONENT](COMPONENT "wikilink") | R | ?? | Gets how many dynamic components have been defined for the multi. |
+| [COMPONENT](COMPONENT "wikilink")*.n.KEY* | R | ?? | Accesses the multi's dynamic components. (ID,DX,DY,DZ,D) |
+| [COMPONENT](COMPONENT "wikilink") *item_defname, dx, dy, dz* | W | ?? | Defines a dynamic component to the multi that will be spawned along with it (e.g. doors and house sign) |
+| [MULTIREGION](MULTIREGION "wikilink") *left, top, right, bottom* | RW | ?? | Gets or sets the boundaries of the multi (t_multi, t_multi_custom, t_ship). |
+| [REGIONFLAGS](REGIONFLAGS "wikilink") | RW | ?? | Gets or sets the flags that will be set on the multi's region. |
+| [SHIPSPEED](SHIPSPEED "wikilink") *period,tiles* | RW | ?? | Gets or sets the speed (tenths) and tiles that a ship will move at. (t_ship only) |
+| [SHIPSPEED.TILES](SHIPSPEED.TILES "wikilink") | RW | Y | Gets or sets the tiles that a ship will move at each movement. (t_ship only) |
+| [SHIPSPEED.PERIOD](SHIPSPEED.PERIOD "wikilink") | RW | Y | Gets or sets the speed (tenths per each movement) that a ship will move at. (t_ship only) |
+| [TSPEECH](TSPEECH "wikilink") | RW | ?? | Gets a list of attached [SPEECH](SPEECH "wikilink") handlers, or adds a handler to the multi. |
+
+**†** Some ITEMDEF properties can be overridden by using
+[Override_TAGs](Override_TAGs "wikilink"). For example,
+TAG.OVERRIDE.SHIPSPEED.PERIOD and TAG.OVERRIDE.SHIPSPEED.TILES can be
+set on individual ships in-game to affect their speed.
+
+## Examples
+
+<spherescript>// // Blue Gold // \[ITEMDEF i_gold_blue\] ID=i_gold //
+inherits from i_gold NAME=Blue Gold // named Blue Gold TYPE=t_gold // is
+type t_gold VALUE=10 // valued at gold
+
+ON=@Create
+
+`   COLOR = colors_blue`
+
+// // Small Stone and Plaster House (from default script pack) //
+\[ITEMDEF 04064\] // item ID 0x4064 (in mul files)
+DEFNAME=i_multi_house_stone_plaster_small NAME=Small Stone and Plaster
+House TYPE=t_multi VALUE=43800 // valued at 43800 gold
+MULTIREGION=-3,-3,3,4 // size of the region, relative to location of the
+item COMPONENT=i_door_wood,0,3,7 // adds a door at 0,3,7 (relative to
+location of the item) COMPONENT=i_sign_brass_2,2,4,5 // adds a brass
+sign at 2,4,5 (relative to location of the item)</spherescript>
+
+[Category: Reference
+Compendium](Category:_Reference_Compendium "wikilink") [Category:
+Definitions](Category:_Definitions "wikilink")

@@ -32,9 +32,9 @@ The `Changelog.txt` file contains changes to the C++ core and SphereScript featu
 
 # Tasks
 
-## Task 1)
+## Task 1) DONE
 
-Use `agent_helpers/download_mediawiki.py`, to download the mediawiki files from the old wiki and put them into the folder `mediawiki_orig`. Use this via the wrapper `agent_helpers/sphere_wiki_downloader.sh`, which passes the corrent command line arguments.
+>! Use `agent_helpers/download_mediawiki.py`, to download the mediawiki files from the old wiki and put them into the folder `mediawiki_orig`. Use this via the wrapper `agent_helpers/sphere_wiki_downloader.sh`, which passes the corrent command line arguments.
 
 ## Task 2)
 
