@@ -1,18 +1,8 @@
-\_\_FORCETOC\_\_ Clients are able to form parties with each other by
-using the `/add` command. When in a party, the party object can be
-referenced by using **PARTY.KEY** from the
-[client](Characters#Clients "wikilink") object. The following tables
-detail the various properties of parties in SphereServer:
+ Clients are able to form parties with each other by using the `/add` command. When in a party, the party object can be referenced by using **PARTY.KEY** from the [client](Characters#Clients "wikilink") object. The following tables detail the various properties of parties in SphereServer:
 
 ## References
 
-References return pointers to other objects (e.g. the CHAR.n reference
-allows you to access the characters that are attached to the account).
-These can either be accessed by using *\<REFNAME\>* to return the
-[UID](UID "wikilink") (1 for object types that don't have UIDs) of the
-object or 0 if it doesn't exist, or by using *\<REFNAME.KEY\>* where KEY
-is a valid property/function/reference for the *REFNAME* object. Click
-on the name for more detailed information such as usage and examples.
+References return pointers to other objects (e.g. the CHAR.n referenceallows you to access the characters that are attached to the account). These can either be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink") (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid property/function/reference for the *REFNAME* object. Click on the name for more detailed information such as usage and examples.
 
 |  |  |  |
 |----|----|----|
@@ -22,9 +12,7 @@ on the name for more detailed information such as usage and examples.
 
 ## Properties and Functions
 
-Here is a list of all party properties and functions. If a function is
-marked as readable then it can return a value when used as <KEY>. Click
-on the name for more detailed information such as usage and examples.
+Here is a list of all party properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples.
 
 |  |  |  |
 |----|----|----|
@@ -47,6 +35,4 @@ on the name for more detailed information such as usage and examples.
 | [TAGCOUNT](TAGCOUNT "wikilink") | R | Gets the number of TAGs stored on the party. |
 | [TAGLIST](TAGLIST "wikilink") | W | Displays a list of all TAGs to SRC. |
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Objects](Category:_Objects "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Objects](Category:_Objects "wikilink")

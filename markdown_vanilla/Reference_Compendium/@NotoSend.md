@@ -1,8 +1,6 @@
 ## Description
 
-This trigger fires when a character's notoriety is being sent on a
-packet update (its fired a lot of times, keep it light and clean of
-code).
+This trigger fires when a character's notoriety is being sent on a packet update (its fired a lot of times, keep it light and clean ofcode).
 
 Fires on:
 
@@ -10,8 +8,7 @@ Fires on:
 
 ## References
 
-The following object references are explicitly available for this
-trigger:
+The following object references are explicitly available for this trigger:
 
 |  |  |
 |----|----|
@@ -21,10 +18,7 @@ trigger:
 
 ## Arguments
 
-The following arguments are set for this trigger. If an argument is
-marked as "In" then a value will be passed in to the trigger, if an
-argument is marked as "Out" then it can be set to a value to affect
-Sphere's behaviour:
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
 
 |  |  |  |
 |----|----|----|
@@ -34,7 +28,7 @@ Sphere's behaviour:
 
 Notes:
 
-`-`*`The default colors are listed above but you can set any color (note that the colors are not the same as for items/chars from hues.mul).`*  
+`-`*`The default colors are listed above but you can set any color (note that the colors are not the same as for items/chars from hues.mul).`*
 `-`*`Modifying the argn1 value will stop default behaviours checks and make the function 'NotoGetFlag' to return this value.`*
 
 ## Notoriety Values
@@ -54,9 +48,6 @@ These are the default Notoriety Values (also listed in sphere.ini).
 
 ## Return Values
 
-*This trigger doesn't have return values, notoriety something that must
-always be sent.*
+*This trigger doesn't have return values, notoriety something that must always be sent.*
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Triggers](Category:_Triggers "wikilink")

@@ -1,5 +1,4 @@
-\_\_FORCETOC\_\_ A region resource block defines a resource that can be
-found in a region.
+ A region resource block defines a resource that can be found in a region.
 
 ## Properties
 
@@ -17,8 +16,7 @@ The following properties are available when defining a region resource:
 
 ## Triggers
 
-Here is a list of all region resource triggers. Click on the trigger
-name for more detailed information such as arguments and examples.
+Here is a list of all region resource triggers. Click on the trigger name for more detailed information such as arguments and examples.
 
 |  |  |
 |----|----|
@@ -29,12 +27,9 @@ name for more detailed information such as arguments and examples.
 
 ## Examples
 
-<spherescript> // // Fish resource from default script pack. //
-\[REGIONRESOURCE mr_fish1\] SKILL=1.0,100.0 // requires between 1% and
-100% skill to gather AMOUNT=9,30 // between 9 and 30 fish available
-REAP=i_fish_big_1 // the resource item REGEN=60\*60\*10 // decays after
-10 hours </spherescript>
+```
+ // // Fish resource from default script pack. //
+```
+\[REGIONRESOURCE mr_fish1\] SKILL=1.0,100.0 // requires between 1% and 100% skill to gather AMOUNT=9,30 // between 9 and 30 fish available REAP=i_fish_big_1 // the resource item REGEN=60\*60\*10 // decays after 10 hours
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Objects](Category:_Objects "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Objects](Category:_Objects "wikilink")

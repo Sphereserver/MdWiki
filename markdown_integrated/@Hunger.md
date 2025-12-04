@@ -1,4 +1,3 @@
 ## Description
 
-This trigger was removed and merged in
-[@RegenStat](@RegenStat "wikilink")
+This trigger was removed and merged in [@RegenStat](@RegenStat "wikilink")

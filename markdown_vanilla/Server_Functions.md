@@ -1,12 +1,8 @@
-\_\_FORCETOC\_\_
+
 
 ## Server Functions
 
-This functions are special functions which triggered by Sphere. These
-can be called "Server Functions", "Trigger Functions" or "Function
-Trigger". Some server functions can be triggered by server on a specific
-action, some of them can be triggered with specific delays and some of
-them can be activated from sphere.ini.
+This functions are special functions which triggered by Sphere. These can be called "Server Functions", "Trigger Functions" or "Function Trigger". Some server functions can be triggered by server on a specific action, some of them can be triggered with specific delays and some of them can be activated from sphere.ini.
 
 Generally server functions located into sphere_serv_triggers.scp.
 
@@ -14,9 +10,7 @@ Generally server functions located into sphere_serv_triggers.scp.
 
 ------------------------------------------------------------------------
 
-This function is called every time when someone connects from
-[Axis](https://forum.spherecommunity.net/sshare.php?srt=4&prj=1) to
-retrieve information.
+This function is called every time when someone connects from [Axis](https://forum.spherecommunity.net/sshare.php?srt=4&prj=1) to retrieve information.
 
 **Variables**
 
@@ -43,8 +37,7 @@ retrieve information.
 
 ------------------------------------------------------------------------
 
-This function is called when someone trying to connect server before
-password check.
+This function is called when someone trying to connect server before password check.
 
 **Variables**
 
@@ -71,8 +64,7 @@ password check.
 
 ------------------------------------------------------------------------
 
-This function is called when someone connected server with correct
-password.
+This function is called when someone connected server with correct password.
 
 **Variables**
 

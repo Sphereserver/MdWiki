@@ -1,18 +1,10 @@
-\_\_FORCETOC\_\_ Using the [DB](DB "wikilink") object reference, scripts
-can interact with an external MySQL database. The following table
-details the various properties of the database object in SphereServer:
+ Using the [DB](DB "wikilink") object reference, scripts can interact with an external MySQL database. The following table details the various properties of the database object in SphereServer:
 
-**Note:** Before the DB object can be used, MySQL must be enabled along
-with the database host details, in Sphere.ini.
+**Note:** Before the DB object can be used, MySQL must be enabled along with the database host details, in Sphere.ini.
 
 ## Properties and Functions
 
-Here is a list of all database properties and functions. If a function
-is marked as readable then it can return a value when used as <KEY>.
-Click on the name for more detailed information such as usage and
-examples. If an attempt is made to access a property that does not exist
-on the item, the property from the [ITEMDEF](ITEMDEF "wikilink") will be
-accessed instead.
+Here is a list of all database properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples. If an attempt is made to access a property that does not exist on the item, the property from the [ITEMDEF](ITEMDEF "wikilink") will be accessed instead.
 
 |  |  |  |
 |----|----|----|
@@ -30,6 +22,4 @@ accessed instead.
 | [ROW](ROW "wikilink")*.n.col_index* | R | Returns the value of the column at index *col_index* in the nth row. (zero-based) |
 | [ROW](ROW "wikilink")*.n.col_name* | R | Returns the value of the column named *col_name* in the nth row. (zero-based) |
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Objects](Category:_Objects "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Objects](Category:_Objects "wikilink")

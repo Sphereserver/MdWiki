@@ -1,20 +1,14 @@
-Intrinsic functions are special functions that can only be used within
-evaluation functions, such as [EVAL](EVAL "wikilink"),
-[FEVAL](FEVAL "wikilink"), [FHVAL](FHVAL "wikilink"),
-[FVAL](FVAL "wikilink"), [HVAL](HVAL "wikilink"), and
-[UVAL](UVAL "wikilink"). Some of the builtin functions and properties
-will automatically evaluate their parameters, for example the
-[IF](IF "wikilink"), [WHILE](WHILE "wikilink") statements will
-automatically evaluate their conditions.
+Intrinsic functions are special functions that can only be used within evaluation functions, such as [EVAL](EVAL "wikilink"), [FEVAL](FEVAL "wikilink"), [FHVAL](FHVAL "wikilink"), [FVAL](FVAL "wikilink"), [HVAL](HVAL "wikilink"), and [UVAL](UVAL "wikilink"). Some of the builtin functions and properties will automatically evaluate their parameters, for example the [IF](IF "wikilink"), [WHILE](WHILE "wikilink") statements will automatically evaluate their conditions.
 
 Unlike the syntax for normal functions (\<FUNCTION args\>), the syntax
+```
 for returning a value from an instrinsic function is:
 
-`FUNCTION(`*`args`*`)`  
+`FUNCTION(`*`args`*`)`
 
-The following table details all of the intrinsic functions in
-SphereServer:
+The following table details all of the intrinsic functions in SphereServer:
 
+```
 |  |  |
 |----|----|
 | **Name** | **Description** |
@@ -39,7 +33,7 @@ SphereServer:
 | [STRREGEX](STRREGEX "wikilink")(*pattern, text*) | Returns 1 if *text* matches the specified regular expression *pattern*. |
 | [SQRT](SQRT "wikilink")(*value*) | Returns the square root of *value*. |
 | [TAN](TAN "wikilink")(*value*) | Returns the tangent of *value*. |
+```
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Scripts](Category:_Scripts "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Scripts](Category:_Scripts "wikilink")
+```

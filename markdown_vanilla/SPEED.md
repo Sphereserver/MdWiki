@@ -1,27 +1,25 @@
 Speed formulas that were used in Sphere.
 
-All variables are Integer and numbers after point, **truncated** to
-nearest INT.
+All variables are Integer and numbers after point, **truncated** to nearest INT.
 
 **Formulas EXAMPLES CURRENTLY UNCOMPLETED & UNTESTED!**
 
 # 09-05-2015
 
-    ibs = 50;
-    iss = Char.IncreaseSwingSpeed;
+```
+    ibs = 50; iss = Char.IncreaseSwingSpeed;
+```
 
-    if (Weapon) {
-      ibs = Weapon.TAG.OVERRIDE.SPEED;
-      
-      if (ibs <= 0) {
-        ibs = MAX(0, Weapon.SPEED);
-      }
-    }
+```
+    if (Weapon) { ibs = Weapon.TAG.OVERRIDE.SPEED;
 
-    iss = MAX(1, ibs * (100 + iss) / 100);
-    iss = (iSpeedScaleFactor / (DEX + 100) * iss) - 2;
-    swingSpeed = (MAX(5, iss) * 10) / 4;
+      if (ibs <= 0) { ibs = MAX(0, Weapon.SPEED); } }
 
+    iss = MAX(1, ibs * (100 + iss) / 100); iss = (iSpeedScaleFactor / (DEX + 100) * iss) - 2; swingSpeed = (MAX(5, iss) * 10) / 4;
+
+```
 # Older
+```
 
     Coming soon...
+```

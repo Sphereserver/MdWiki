@@ -1,9 +1,6 @@
 ## Description
 
-This trigger fires when an NPC gets lost and is about to be teleported
-back to its [HOME](HOME "wikilink") location. The LOSTNPCTELEPORT
-setting in Sphere.ini controls how far an NPC can wander from its home
-location before it is considered to be lost.
+This trigger fires when an NPC gets lost and is about to be teleported back to its [HOME](HOME "wikilink") location. The LOSTNPCTELEPORT setting in Sphere.ini controls how far an NPC can wander from its home location before it is considered to be lost.
 
 Fires on:
 
@@ -11,8 +8,7 @@ Fires on:
 
 ## References
 
-The following object references are explicitly available for this
-trigger:
+The following object references are explicitly available for this trigger:
 
 |  |  |
 |----|----|
@@ -22,10 +18,7 @@ trigger:
 
 ## Arguments
 
-The following arguments are set for this trigger. If an argument is
-marked as "In" then a value will be passed in to the trigger, if an
-argument is marked as "Out" then it can be set to a value to affect
-Sphere's behaviour:
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
 
 |  |  |  |
 |----|----|----|
@@ -41,8 +34,4 @@ The following return values are explicitly defined for this trigger:
 | **Return Value** | **Description**                                   |
 | 1                | Prevents the NPC from being teleported back home. |
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink") [Category:
-Characters](Category:_Characters "wikilink") [Category:
-NPCS](Category:_NPCS "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Triggers](Category:_Triggers "wikilink") [Category: Characters](Category:_Characters "wikilink") [Category: NPCS](Category:_NPCS "wikilink")

@@ -1,11 +1,6 @@
 ## Description
 
-This trigger is used in skills definitions (a related
-[@SkillWait](@SkillWait "wikilink") exists for characters). This trigger
-is called whenever Sphere wants to check if a character must wait before
-starting a skill. Normally this will be when a skill is selected from
-the skill menu (before [@Select](@Select "wikilink")), but also when
-snooping a container or using a musical instrument.
+This trigger is used in skills definitions (a related[@SkillWait](@SkillWait "wikilink") exists for characters). This trigger is called whenever Sphere wants to check if a character must wait before starting a skill. Normally this will be when a skill is selected from the skill menu (before [@Select](@Select "wikilink")), but also when snooping a container or using a musical instrument.
 
 Fires on:
 
@@ -13,8 +8,7 @@ Fires on:
 
 ## References
 
-The following object references are explicitly available for this
-trigger **(this needs to be tested/validated)**:
+The following object references are explicitly available for this trigger **(this needs to be tested/validated)**:
 
 |  |  |
 |----|----|
@@ -24,10 +18,7 @@ trigger **(this needs to be tested/validated)**:
 
 ## Arguments
 
-The following arguments are set for this trigger. If an argument is
-marked as "In" then a value will be passed in to the trigger, if an
-argument is marked as "Out" then it can be set to a value to affect
-Sphere's behavior **(this needs to be tested/validated)**:
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behavior **(this needs to be tested/validated)**:
 
 |              |            |                                        |
 |--------------|------------|----------------------------------------|
@@ -37,8 +28,7 @@ Sphere's behavior **(this needs to be tested/validated)**:
 
 ## Return Values
 
-The following return values are explicitly defined for this trigger
-**(this needs to be tested/validated)**:
+The following return values are explicitly defined for this trigger **(this needs to be tested/validated)**:
 
 |  |  |
 |----|----|
@@ -47,6 +37,4 @@ The following return values are explicitly defined for this trigger
 | 1 | The character must wait (bypasses default checks) |
 | 2 | Perform default checks |
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Triggers](Category:_Triggers "wikilink")

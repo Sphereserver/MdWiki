@@ -10,6 +10,6 @@ This function works like [NEWNPC](NEWNPC) and [NEWITEM](NEWITEM). It summons a c
 
 ### Example
 
-`SERV.NEWSUMMON=c_ogre,15 NEW.P=<P>`
+``SERV.NEWSUMMON`=c_ogre,15 `NEW.P`=<P>`
 
 This will summon an ogre for 15 seconds at the current position.

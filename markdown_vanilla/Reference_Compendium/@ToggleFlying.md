@@ -8,8 +8,7 @@ Fires on:
 
 ## References
 
-The following object references are explicitly available for this
-trigger:
+The following object references are explicitly available for this trigger:
 
 |  |  |
 |----|----|
@@ -30,6 +29,4 @@ The following return values are explicitly defined for this trigger:
 | **Return Value** | **Description**                                   |
 | 1                | Prevents the gargoyle to proceed with the action. |
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Triggers](Category:_Triggers "wikilink")

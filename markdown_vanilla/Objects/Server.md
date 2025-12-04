@@ -1,195 +1,38 @@
-\_\_FORCETOC\_\_ The server object is a global object that can be
-accessed from any script, by using the SERV reference. The following
-tables detail the various properties of the server in SphereServer:
+ The server object is a global object that can be accessed from any script, by using the SERV reference. The following tables detail the various properties of the server in SphereServer:
 
 ## References
 
-References return pointers to other objects (e.g. the CHAR.n reference
-allows you to access the characters that are attached to the account).
-These can either be accessed by using *\<REFNAME\>* to return the
-[UID](UID "wikilink") (1 for object types that don't have UIDs) of the
-object or 0 if it doesn't exist, or by using *\<REFNAME.KEY\>* where KEY
-is a valid property/function/reference for the *REFNAME* object. Click
-on the name for more detailed information such as usage and examples.
+References return pointers to other objects (e.g. the CHAR.n referenceallows you to access the characters that are attached to the account). These can either be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink") (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid property/function/reference for the *REFNAME* object. Click on the name for more detailed information such as usage and examples.
 
-<table>
-<tbody>
-<tr>
-<td><p><strong>Name</strong></p></td>
-<td><p><strong>Read/Write</strong></p></td>
-<td><p><strong>Description</strong></p></td>
-</tr>
-<tr>
-<td><p><a href="ACCOUNT"
-title="wikilink">ACCOUNT</a><em>.n</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the nth <a href="Accounts" title="wikilink">account</a> on
-the server. (zero-based)</p></td>
-</tr>
-<tr>
-<td><p><a href="ACCOUNT"
-title="wikilink">ACCOUNT</a><em>.name</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the <a href="Accounts" title="wikilink">account</a> with the
-specified name.</p></td>
-</tr>
-<tr>
-<td><p><a href="AREA"
-title="wikilink">AREA</a><em>.defname</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the <a href="Regions" title="wikilink">region</a> with the
-specified defname.</p></td>
-</tr>
-<tr>
-<td><p><a href="CHARDEF_(Reference)"
-title="wikilink">CHARDEF</a><em>.defname</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the <a href="CHARDEF" title="wikilink">character
-definition</a> for <em>defname</em>.</p></td>
-</tr>
-<tr>
-<td><p><a href="DEF" title="wikilink">DEF</a><em>.defname</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the value for <em>defname</em>. Def0.defname can also be
-used similar to tag0 and ctag0.</p></td>
-</tr>
-<tr>
-<td><p><a href="CLIENT" title="wikilink">CLIENT</a><em>.n</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the nth <a href="Characters#Clients"
-title="wikilink">client</a> on the server. (zero-based)<br />
-<strong>Note:</strong> The nth client may not be an ingame player
-character, check &lt;CLIENT.n&gt; first as it returns 1 for ingame
-clients and 0 for non-player clients.</p></td>
-</tr>
-<tr>
-<td><p><a href="GMPAGE" title="wikilink">GMPAGE</a><em>.n</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the nth <a href="GM_Pages" title="wikilink">GM page</a> on
-the server. (zero-based)</p></td>
-</tr>
-<tr>
-<td><p><a href="GUILDSTONES"
-title="wikilink">GUILDSTONES</a><em>.n</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the nth <a href="Special_Items#Guild.2FTown_Stones"
-title="wikilink">guild stone</a> on the server. (zero-based)</p></td>
-</tr>
-<tr>
-<td><p><a href="ITEMDEF_(Reference)"
-title="wikilink">ITEMDEF</a><em>.defname</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the <a href="ITEMDEF" title="wikilink">item definition</a>
-for <em>defname</em>.</p></td>
-</tr>
-<tr>
-<td><p><a href="LASTNEWCHAR" title="wikilink">LASTNEWCHAR</a></p></td>
-<td><p>R</p></td>
-<td><p>Gets the last <a href="Characters" title="wikilink">character</a>
-created on the server.</p></td>
-</tr>
-<tr>
-<td><p><a href="LASTNEWITEM" title="wikilink">LASTNEWITEM</a></p></td>
-<td><p>R</p></td>
-<td><p>Gets the last <a href="Items" title="wikilink">item</a> created
-on the server.</p></td>
-</tr>
-<tr>
-<td><p><a href="MAP" title="wikilink">MAP</a><em>(x, y, map)</em><br />
-<a href="MAP" title="wikilink">MAP</a><em>(x, y, z, map)</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the <a href="Map_Points" title="wikilink">map point</a> for
-a specified location.</p></td>
-</tr>
-<tr>
-<td><p><a href="REGIONRESOURCE_(Reference)"
-title="wikilink">REGIONRESOURCE</a><em>.defname</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the <a href="REGIONRESOURCE" title="wikilink">region
-resource definition</a> for <em>defname</em>.</p></td>
-</tr>
-<tr>
-<td><p><a href="REGIONTYPE_(Reference)"
-title="wikilink">REGIONTYPE</a><em>.defname</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the <a href="REGIONTYPE" title="wikilink">region type
-definition</a> for <em>defname</em>.</p></td>
-</tr>
-<tr>
-<td><p><a href="ROOM_(Reference)"
-title="wikilink">ROOM</a><em>.defname</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the <a href="Rooms" title="wikilink">room</a> with the
-specified defname.</p></td>
-</tr>
-<tr>
-<td><p><a href="SKILL_(Reference)"
-title="wikilink">SKILL</a><em>.defname</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the <a href="SKILL" title="wikilink">skill definition</a>
-for <em>defname</em>.</p></td>
-</tr>
-<tr>
-<td><p><a href="SKILLCLASS_(Reference)"
-title="wikilink">SKILLCLASS</a><em>.defname</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the <a href="SKILLCLASS" title="wikilink">skillclass</a> for
-<em>defname</em>.</p></td>
-</tr>
-<tr>
-<td><p><a href="SPAWN_(Reference)"
-title="wikilink">SPAWN</a><em>.defname</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the <a href="SPAWN" title="wikilink">spawn group</a> for
-<em>defname</em>.</p></td>
-</tr>
-<tr>
-<td><p><a href="SPELL_(Reference)"
-title="wikilink">SPELL</a><em>.defname</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the <a href="SPELL" title="wikilink">spell definition</a>
-for <em>defname</em>.</p></td>
-</tr>
-<tr>
-<td><p><a href="SPELL_(Reference)"
-title="wikilink">SPELL</a><em>.n</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the nth <a href="SPELL" title="wikilink">spell
-definition</a>, ordered by skill requirements (1-based,
-ascending).</p></td>
-</tr>
-<tr>
-<td><p>(X only)<a href="TILEDATA_(Reference)"
-title="wikilink">TILEDATA</a>.TERRAIN(<em>id</em>).<em>attribute</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the tiledata <em>attribute</em> of <em>id</em> terrain.
-<em>attribute</em> can be one of: FLAGS,UNK,INDEX,NAME.</p></td>
-</tr>
-<tr>
-<td><p>(X only)<a href="TILEDATA_(Reference)"
-title="wikilink">TILEDATA</a>.ITEM(<em>id</em>).<em>attribute</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the tiledata <em>attribute</em> of <em>id</em> item.
-<em>attribute</em> can be one of:
-FLAGS,WEIGHT,LAYER,UNK11,ANIM,HUE,LIGHT,HEIGHT,NAME.</p></td>
-</tr>
-<tr>
-<td><p><a href="TOWNSTONES"
-title="wikilink">TOWNSTONES</a><em>.n</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the nth <a href="Special_Items#Guild.2FTown_Stones"
-title="wikilink">town stone</a> on the server. (zero-based)</p></td>
-</tr>
-</tbody>
-</table>
+| **Name** | **Read/Write** | **Description** |
+| --- | --- | --- |
+| [ACCOUNT](ACCOUNT)*.n* | R | Gets the nth [account](Accounts) on the server. (zero-based) |
+| [ACCOUNT](ACCOUNT)*.name* | R | Gets the [account](Accounts) with the specified name. |
+| [AREA](AREA)*.defname* | R | Gets the [region](Regions) with the specified defname. |
+| [CHARDEF](CHARDEF_(Reference))*.defname* | R | Gets the [character definition](CHARDEF) for *defname*. |
+| [DEF](DEF)*.defname* | R | Gets the value for *defname*. Def0.defname can also be used similar to tag0 and ctag0. |
+| [CLIENT](CLIENT)*.n* | R | Gets the nth [client](Characters#Clients) on the server. (zero-based) **Note:** The nth client may not be an ingame player character, check &lt;CLIENT.n&gt; first as it returns 1 for ingame clients and 0 for non-player clients. |
+| [GMPAGE](GMPAGE)*.n* | R | Gets the nth [GM page](GM_Pages) on the server. (zero-based) |
+| [GUILDSTONES](GUILDSTONES)*.n* | R | Gets the nth [guild stone](Special_Items#Guild.2FTown_Stones) on the server. (zero-based) |
+| [ITEMDEF](ITEMDEF_(Reference))*.defname* | R | Gets the [item definition](ITEMDEF) for *defname*. |
+| [LASTNEWCHAR](LASTNEWCHAR) | R | Gets the last [character](Characters) created on the server. |
+| [LASTNEWITEM](LASTNEWITEM) | R | Gets the last [item](Items) created on the server. |
+| [MAP](MAP)*(x, y, map)* [MAP](MAP)*(x, y, z, map)* | R | Gets the [map point](Map_Points) for a specified location. |
+| [REGIONRESOURCE](REGIONRESOURCE_(Reference))*.defname* | R | Gets the [region resource definition](REGIONRESOURCE) for *defname*. |
+| [REGIONTYPE](REGIONTYPE_(Reference))*.defname* | R | Gets the [region type definition](REGIONTYPE) for *defname*. |
+| [ROOM](ROOM_(Reference))*.defname* | R | Gets the [room](Rooms) with the specified defname. |
+| [SKILL](SKILL_(Reference))*.defname* | R | Gets the [skill definition](SKILL) for *defname*. |
+| [SKILLCLASS](SKILLCLASS_(Reference))*.defname* | R | Gets the [skillclass](SKILLCLASS) for *defname*. |
+| [SPAWN](SPAWN_(Reference))*.defname* | R | Gets the [spawn group](SPAWN) for *defname*. |
+| [SPELL](SPELL_(Reference))*.defname* | R | Gets the [spell definition](SPELL) for *defname*. |
+| [SPELL](SPELL_(Reference))*.n* | R | Gets the nth [spell definition](SPELL), ordered by skill requirements (1-based, ascending). |
+| (X only)[TILEDATA](TILEDATA_(Reference)).TERRAIN(*id*).*attribute* | R | Gets the tiledata *attribute* of *id* terrain. *attribute* can be one of: FLAGS,UNK,INDEX,NAME. |
+| (X only)[TILEDATA](TILEDATA_(Reference)).ITEM(*id*).*attribute* | R | Gets the tiledata *attribute* of *id* item. *attribute* can be one of: FLAGS,WEIGHT,LAYER,UNK11,ANIM,HUE,LIGHT,HEIGHT,NAME. |
+| [TOWNSTONES](TOWNSTONES)*.n* | R | Gets the nth [town stone](Special_Items#Guild.2FTown_Stones) on the server. (zero-based) |
 
 ## Properties and Functions
 
-Here is a list of all item properties and functions. If a function is
-marked as readable then it can return a value when used as <KEY>. Click
-on the name for more detailed information such as usage and examples.
-Settings from Sphere.ini can also be accessed from the server object,
-but they are not listed in this table.
+Here is a list of all item properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples. Settings from Sphere.ini can also be accessed from the server object, but they are not listed in this table.
 
 |  |  |  |
 |----|----|----|
@@ -264,6 +107,4 @@ but they are not listed in this table.
 | [VARLIST](VARLIST "wikilink") *LOG* | W | Displays a list of all VARs to SRC, or the server console. |
 | [VERSION](VERSION "wikilink") | R | Returns the SphereServer version. |
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Objects](Category:_Objects "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Objects](Category:_Objects "wikilink")

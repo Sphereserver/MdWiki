@@ -1,7 +1,6 @@
 ## Description
 
-This trigger fires when a character calls for the guards to attack a
-criminal.
+This trigger fires when a character calls for the guards to attack a criminal.
 
 Fires on:
 
@@ -9,8 +8,7 @@ Fires on:
 
 ## References
 
-The following object references are explicitly available for this
-trigger:
+The following object references are explicitly available for this trigger:
 
 |  |  |
 |----|----|
@@ -22,10 +20,7 @@ trigger:
 
 ## Arguments
 
-The following arguments are set for this trigger. If an argument is
-marked as "In" then a value will be passed in to the trigger, if an
-argument is marked as "Out" then it can be set to a value to affect
-Sphere's behaviour:
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
 
 |  |  |  |
 |----|----|----|
@@ -42,8 +37,4 @@ The following return values are explicitly defined for this trigger:
 | **Return Value** | **Description** |
 | 1 | Prevents the guards from reacting. (When firing on a player, will prevent the guards attacking the next possible targets) |
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink") [Category:
-Characters](Category:_Characters "wikilink") [Category:
-Combat](Category:_Combat "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Triggers](Category:_Triggers "wikilink") [Category: Characters](Category:_Characters "wikilink") [Category: Combat](Category:_Combat "wikilink")

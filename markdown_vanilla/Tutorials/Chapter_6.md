@@ -2,88 +2,62 @@
 
 How to affect one object with another
 
-The biggest problem the early scripters had to overcome, was the lack of
-ability to access other objects via a script. The only two objects
-possible to access were the SRC and the default object. And the LINK.
-The LINK made it possible to do things in version .40 that most people
-don't suspect are possible even in SPHERE .55i.
+The biggest problem the early scripters had to overcome, was the lack of ability to access other objects via a script. The only two objects possible to access were the SRC and the default object. And the LINK. The LINK made it possible to do things in version .40 that most people don't suspect are possible even in SPHERE .55i.
 
-The LINK property of an item holds the UID of another object. Then, it
-serves as an object reference to directly access that object. The LINK
-property can be set in-game or in a script. Here's an example:
+The LINK property of an item holds the UID of another object. Then, it serves as an object reference to directly access that object. The LINK property can be set in-game or in a script. Here's an example:
 
-<font color="darkblue">`[ITEMDEF i_link_test]`  
-`ID=01828`  
-`NAME=Link Test`  
-  
-`ON=@DClick`  
-`:MESSAGE The LINK's name is <LINK.NAME>.`  
-`:RETURN 1`  
+<font color="darkblue">`[ITEMDEF i_link_test]`
+`ID=01828`
+`NAME=Link Test`
+
+``ON=`@DClick`
+`:MESSAGE The LINK's name is <LINK.NAME>.`
+`:`RETURN`1`
 </font>
 
-Now, create this item in-game and set its LINK to the UID of another
-object. (Use the <font color="darkred">.info</font> command or
-<font color="darkred">.xshow uid</font> to get the UID.) Double-click
-the Link Test item. It will say the name of the object you linked it to.
-This obviously has very little use, so here I offer you a piece of a
-script I wrote a while ago that uses the LINK object. (The items have
-been changed to protect the innocent.)
+Now, create this item in-game and set its LINK to the UID of another object. (Use the <font color="darkred">.info</font> command or<font color="darkred">.xshow uid</font> to get the UID.) Double-click the Link Test item. It will say the name of the object you linked it to. This obviously has very little use, so here I offer you a piece of a script I wrote a while ago that uses the LINK object. (The items havebeen changed to protect the innocent.)
 
-<font color="darkblue">`[ITEMDEF i_tile_sender]`  
-`ID=01828`  
-`NAME=Sender tile`  
-  
-`ON=@DClick`  
-`:IF (!<LINK.UID>) // If there is no link yet`  
-`::TARGET Select an object to link to.`  
-`::RETURN 1`  
-`:ELSE`  
-`::LINK.SAY <SRC.NAME> is knocking at your door!`  
-`::RETURN 1`  
-`:ENDIF`  
-  
-`ON=@TargOn_Item`  
-`:LINK = <SRC.TARG.UID> // Put the UID of the targeted item into LINK`  
-`:RETURN 1`  
-  
-`ON=@TargOn_Char`  
-`:LINK = <SRC.TARG.UID> // Put the UID of the targeted character into LINK`  
-`:RETURN 1`  
+<font color="darkblue">`[ITEMDEF i_tile_sender]`
+`ID=01828`
+`NAME=Sender tile`
+
+``ON=`@DClick`
+`:IF (!<LINK.UID>) // If there is no link yet`
+`::TARGET Select an object to link to.`
+`::`RETURN`1`
+`:ELSE`
+`::LINK.SAY <`SRC.NAME`> is knocking at your door!`
+`::`RETURN`1`
+`:ENDIF`
+
+``ON=`@TargOn_Item`
+`:LINK = <`SRC.TARG.UID`> // Put the UID of the targeted item into LINK`
+`:`RETURN`1`
+
+``ON=`@TargOn_Char`
+`:LINK = <`SRC.TARG.UID`> // Put the UID of the targeted character into LINK`
+`:`RETURN`1`
 </font>
 
-This script has no real apparent use either, but put the item in front
-of a house, and let the house owner link it to an item of his choosing.
-(He would probably want to link it to his backpack because he'll have
-that with him all the time. He might even want to link it to himself.)
-When someone comes to his house, they can double-click the tile, and the
-house owner will get a "Knock knock" style message so he can go see
-what's happening at his house.
+This script has no real apparent use either, but put the item in front of a house, and let the house owner link it to an item of his choosing. (He would probably want to link it to his backpack because he'll havethat with him all the time. He might even want to link it to himself.) When someone comes to his house, they can double-click the tile, and the house owner will get a "Knock knock" style message so he can go see what's happening at his house.
 
-Do you understand the script? You should understand the part dealing
-with the IF statement, and the TARGET function. If you don't, reread the
-script until you do, or the earlier chapters dealing with those
-particular aspects of scripting. The only part here that's new is the
-<font color="darkblue">LINK.SAY</font> function, which causes the LINKed
-item to SAY whatever the scripter wants.
+Do you understand the script? You should understand the part dealing with the IF statement, and the TARGET function. If you don't, reread the script until you do, or the earlier chapters dealing with those particular aspects of scripting. The only part here that's new is the <font color="darkblue">LINK.SAY</font> function, which causes the LINKed item to SAY whatever the scripter wants.
 
-Another use for a LINKed object becomes apparent in the next chapter
-when we discuss the @Timer event. @Timer has no SRC, so you must find
-another way to access items outside of the script. LINK is just the tool
+Another use for a LINKed object becomes apparent in the next chapter when we discuss the @Timer event. @Timer has no SRC, so you must find another way to access items outside of the script. LINK is just the tool
+```
 for that. Read onward!
 
+```
 ## The @Timer Event
+```
 
 Or, how to irritate a large number of newbie Admins
 
-This is definitely the event that causes the most confusion in scripts,
-on the boards, and elsewhere. Here are some things you should remember
-about the @Timer event:
+This is definitely the event that causes the most confusion in scripts, on the boards, and elsewhere. Here are some things you should remember about the @Timer event:
 
-1.  **It is triggered when the TIMER property of an ITEM (not a
-    character) reaches zero.**
+1.  **It is triggered when the TIMER property of an ITEM (not acharacter) reaches zero.**
 2.  **The TIMER property is decreased by ONE approximately every second.
-    If you have a huge number of items, it may be more or less than a
-    second, which leads to some problems we will see later.**
+    If you have a huge number of items, it may be more or less than a second, which leads to some problems we will see later.**
 3.  **It is not always connected with the decay of an item, but to have
     an @Timer event work properly, the item must have attr_decay set.**
 4.  **There is no SRC in an @Timer event.**
@@ -91,164 +65,139 @@ about the @Timer event:
 
 Here's an example of the use of an @Timer event:
 
-<font color="darkblue">`[ITEMDEF i_timer_test]`  
-`ID=01828`  
-`NAME=Timer Test item`  
-  
-`ON=@Create`  
-`:TIMER = 1`  
-`:MORE = 0`  
-  
-`ON=@Timer`  
-`:TIMER = 1 // reset it for next time`  
-`:SAY The current MORE value is <MORE>.`  
-`:MORE = <MORE>+1`  
-`:RETURN 1 // If you return 0, the item WILL decay!`  
+<font color="darkblue">`[ITEMDEF i_timer_test]`
+`ID=01828`
+`NAME=Timer Test item`
+
+`ON=@Create`
+`:TIMER = 1`
+`:MORE = 0`
+
+`ON=@Timer`
+`:TIMER = 1 // reset it for next time`
+`:SAY The current MORE value is <MORE>.`
+`:MORE = <MORE>+1`
+`:RETURN 1 // If you return 0, the item WILL decay!`
 </font>
 
-The beginning of the script should not cause ANY problems for you right
-now. Notice that we set TIMER to 1 when the item is created. One second
-later, the @Timer event will fire.
+The beginning of the script should not cause ANY problems for you right now. Notice that we set TIMER to 1 when the item is created. One second later, the @Timer event will fire.
 
-In the @Timer event, we make the item say the current value of the MORE
-property. It also sets the TIMER back to one, meaning that one second
-later, @Timer will execute again. This will continue until you either
-manually set TIMER to -1, or you destroy the item.
+In the @Timer event, we make the item say the current value of the MORE property. It also sets the TIMER back to one, meaning that one second later, @Timer will execute again. This will continue until you either manually set TIMER to -1, or you destroy the item.
 
 Here is an example of code that will not work:
 
-<font color="darkblue">`[ITEMDEF i_timer_test]`  
-`ID=01828`  
-`NAME=Timer Test item`  
-  
-`ON=@Create`  
-`:TIMER = 1`  
-`:MORE = 0`  
-  
-`ON=@Timer`  
-`:TIMER = 1 // reset it for next time`  
-`:SRC.SAY The current MORE value is <MORE>.`  
-`:MORE = <MORE>+1`  
-`:RETURN 1 // If you return 0, the item WILL decay!`  
+<font color="darkblue">`[ITEMDEF i_timer_test]`
+`ID=01828`
+`NAME=Timer Test item`
+
+`ON=@Create`
+`:TIMER = 1`
+`:MORE = 0`
+
+`ON=@Timer`
+`:TIMER = 1 // reset it for next time`
+`:SRC.SAY The current MORE value is <MORE>.`
+`:MORE = <MORE>+1`
+`:RETURN 1 // If you return 0, the item WILL decay!`
 </font>
 
-You will get an error with this script. There is no SRC object in an
-@Timer script. None. Don't ever ever use it. I will severely berate you
-on the scripting boards if I see it. Then I will tell you to read this
-page.
+You will get an error with this script. There is no SRC object in an @Timer script. None. Don't ever ever use it. I will severely berate you on the scripting boards if I see it. Then I will tell you to read this page.
 
-So what can you do with timers? Well you can do any number of things.
-Here is an example of a useful tool using @Timer:
+So what can you do with timers? Well you can do any number of things. Here is an example of a useful tool using @Timer:
 
-<font color="darkblue">`[ITEMDEF i_cool_stick]`  
-`ID=i_staff_black`  
-`NAME=cool stick`  
-  
-`ON=@DClick`  
-`:IF !(<SRC.TAG0.COOLSTICK>)`  
-`::SRC.SYSMESSAGE You have used the cool stick. You must wait ten seconds before using it again.`  
-`::TIMER = 10`  
-`::SRC.TAG.COOLSTICK = 1`  
-`::LINK = <SRC.UID>`  
-`:ELSE`  
-`::SRC.SYSMESSAGE You cannot use the cool stick right now!`  
-`:ENDIF`  
-`:RETURN 1`  
-  
-`ON=@Timer`  
-`:// Uh oh! What do we do now? We have no way to refer to the player!`  
-`:// But look! We set the LINK of the item to the player's uid.`  
-`:LINK.TAG.COOLSTICK = 0`  
-`:TIMER = -1`  
-`:RETURN 1`  
+<font color="darkblue">`[ITEMDEF i_cool_stick]`
+`ID=i_staff_black`
+`NAME=cool stick`
+
+`ON=@DClick`
+`:IF !(<SRC.TAG0.COOLSTICK>)`
+`::SRC.SYSMESSAGE You have used the cool stick. You must wait ten seconds before using it again.`
+`::TIMER = 10`
+`::SRC.TAG.COOLSTICK = 1`
+`::LINK = <SRC.UID>`
+`:ELSE`
+`::SRC.SYSMESSAGE You cannot use the cool stick right now!`
+`:ENDIF`
+`:RETURN 1`
+
+`ON=@Timer`
+`:// Uh oh! What do we do now? We have no way to refer to the player!`
+`:// But look! We set the LINK of the item to the player's uid.`
+`:LINK.TAG.COOLSTICK = 0`
+`:TIMER = -1`
+`:RETURN 1`
 </font>
 
-What does this script do? It is a cool stick, which doesn't allow you to
-use it for 10 seconds after you use it the first time. It's a relatively
-useless item as it stands, but you might want the stick to do something,
-like a very powerful magic effect, or restoring mana, and then restrict
-its use for a while. We will see another way to do this in another
-section that is easier to understand. It also uses @Timer.
+What does this script do? It is a cool stick, which doesn't allow you to use it for 10 seconds after you use it the first time. It's a relatively useless item as it stands, but you might want the stick to do something, like a very powerful magic effect, or restoring mana, and then restrict its use for a while. We will see another way to do this in another section that is easier to understand. It also uses @Timer.
 
-So let's break the script down. The entire middle section needs some
-commenting, so I shall cut and paste it here and add comments. It's
-easier than taking it line by line.
+So let's break the script down. The entire middle section needs some commenting, so I shall cut and paste it here and add comments. It's easier than taking it line by line.
 
-<font color="darkblue">`ON=@DClick`  
-`// We set the player's TAG.COOLSTICK to 1 when they use the stick the first time.`  
-`// If you don't put that 0 in there, console errors will occur sometimes ("Undefined symbol ")`  
-`// We're testing here if the TAG.COOLSTICK is set. Remember, an IF statement only must become true or false.`  
-`// Notice that we have this: !(0<SRC.TAG.COOLSTICK>). In an IF statement, ! means not, so we're testing`  
-`// the opposite of what it actually is. So if it's false, it's true, and vice versa.`  
-`:IF !(<SRC.TAG0.COOLSTICK>)`  
-`::SRC.SYSMESSAGE You have used the cool stick. You must wait ten seconds before using it again.`  
-`::// Set the TIMER to 10, for a 10 second pause.`  
-`::TIMER = 10`  
-`::SRC.TAG.COOLSTICK=1`  
-`::// Set the LINK on the item to the UID of the SRC.`  
-`::LINK = <SRC.UID>`  
-`:ELSE // SRC.TAG.COOLSTICK was not zero`  
-`::SRC.SYSMESSAGE You cannot use the cool stick right now!`  
-`:ENDIF`  
-`:RETURN 1`  
+<font color="darkblue">`ON=@DClick`
+`// We set the player's TAG.COOLSTICK to 1 when they use the stick the first time.`
+`// If you don't put that 0 in there, console errors will occur sometimes ("Undefined symbol ")`
+`// We're testing here if the TAG.COOLSTICK is set. Remember, an IF statement only must become true or false.`
+`// Notice that we have this: !(0<SRC.TAG.COOLSTICK>). In an IF statement, ! means not, so we're testing`
+`// the opposite of what it actually is. So if it's false, it's true, and vice versa.`
+`:IF !(<SRC.TAG0.COOLSTICK>)`
+`::SRC.SYSMESSAGE You have used the cool stick. You must wait ten seconds before using it again.`
+`::// Set the TIMER to 10, for a 10 second pause.`
+`::TIMER = 10`
+`::SRC.TAG.COOLSTICK=1`
+`::// Set the LINK on the item to the UID of the SRC.`
+`::LINK = <SRC.UID>`
+`:ELSE // SRC.TAG.COOLSTICK was not zero`
+`::SRC.SYSMESSAGE You cannot use the cool stick right now!`
+`:ENDIF`
+`:RETURN 1`
 </font>
 
-I did an interesting thing there that you may not have picked up on. It
-is ALWAYS good scripting practice to indent the contents of a code
-block, particularly in complex scripts where it can be difficult to keep
-track of what is going on. Like so:
+I did an interesting thing there that you may not have picked up on. It is ALWAYS good scripting practice to indent the contents of a code block, particularly in complex scripts where it can be difficult to keep track of what is going on. Like so:
 
-<font color="darkblue">`IF <blah>`  
-`. . . indent these lines`  
-`ELSE`  
-`. . . indent these lines`  
-`. . . IF <blah>`  
-`. . . . . . indent these lines further`  
-`. . . ENDIF`  
-`ENDIF`  
+<font color="darkblue">`IF <blah>`
+`. . . indent these lines`
+`ELSE`
+`. . . indent these lines`
+`. . . IF <blah>`
+`. . . . . . indent these lines further`
+`. . . ENDIF`
+`ENDIF`
 </font>
 
-It makes it much easier to read. It also makes it easier to see if you
-have the same number of IFs and ENDIFs, which is always useful. Some
-text editors will automatically do the indenting for you.
+It makes it much easier to read. It also makes it easier to see if you have the same number of IFs and ENDIFs, which is always useful. Some text editors will automatically do the indenting for you.
 
-Now, the @Timer script on this item accesses the player through the LINK
-object. It resets the player's TAG.COOLSTICK to zero. The next time the
-player double-clicks on the cool stick, it will recognize that, and the
-player will use the cool stick again.
+Now, the @Timer script on this item accesses the player through the LINK object. It resets the player's TAG.COOLSTICK to zero. The next time the player double-clicks on the cool stick, it will recognize that, and the player will use the cool stick again.
 
+```
 ### TRYSRC
+```
 
-There is one very hot thing about timers. It is TRYSRC. The correct
-syntax is: TRYSRC \<uid_of_something_what_you_want_to_become_src\>
-<function_or_command>. TRYSRC allows you to change SRC for that line
-only. So to contradict the above rules:
+There is one very hot thing about timers. It is TRYSRC. The correct syntax is: TRYSRC \<uid_of_something_what_you_want_to_become_src\> <function_or_command>. TRYSRC allows you to change SRC for that line only. So to contradict the above rules:
 
 There is an SRC in an @Timer event if you are using **TRYSRC** :)
 
 For example:
 
-<font color="darkblue">`ON=@Timer`  
-`:// display a message over the LINK object that can be seen by TOPOBJ (TOPOBJ is a reference to the top-most`  
-`:// object that contains this object, for example the character that has the item equipped)`  
-`:TRYSRC <TOPOBJ.UID> LINK.MESSAGE Hello There! // if you recall, the MESSAGE function only shows a message to SRC`  
-`:RETURN 1`  
+<font color="darkblue">`ON=@Timer`
+`:// display a message over the LINK object that can be seen by TOPOBJ (TOPOBJ is a reference to the top-most``:// object that contains this object, for example the character that has the item equipped)`
+`:TRYSRC <TOPOBJ.UID> LINK.MESSAGE Hello There! // if you recall, the MESSAGE function only shows a message to SRC`
+`:RETURN 1`
 </font>
 
 And another:
 
-<font color="darkblue">`ON=@Timer`  
-`:// place 5000 gold coins in LINK's backpack`  
-`:SERV.NEWITEM i_gold`  
-`:NEW.AMOUNT = 5000`  
-`:TRYSRC <LINK.UID> NEW.BOUNCE // the BOUNCE function places an item into SRC's backpack`  
-`:RETURN 1`  
+<font color="darkblue">`ON=@Timer`
+`:// place 5000 gold coins in LINK's backpack`
+`:SERV.NEWITEM i_gold`
+`:NEW.AMOUNT = 5000`
+`:TRYSRC <LINK.UID> NEW.BOUNCE // the BOUNCE function places an item into SRC's backpack`
+`:RETURN 1`
 </font>
 
-That's about all you need to know about @Timer events. Later on we will
-move on to another confusing set of events.
+That's about all you need to know about @Timer events. Later on we will move on to another confusing set of events.
 
+```
 ## TARGETs
+```
 
 @Targon events explained TARGETF function explained
 
@@ -259,157 +208,118 @@ There are four of these events:
 - @TargOn_Ground
 - @TargOn_Cancel
 
-That seems rather self-explanatory doesn't it? The event is triggered
-when a player targets the object type specified after the \_ character.
-(@TargOn_Item fires when a player targets an item, for example.) Since
-this is very obvious, this section will be very short.
+That seems rather self-explanatory doesn't it? The event is triggered when a player targets the object type specified after the \_ character. (@TargOn_Item fires when a player targets an item, for example.) Since this is very obvious, this section will be very short.
 
 When a @TargOn event is triggered, the following objects are created:
 
+```
 |             |                                             |
 |-------------|---------------------------------------------|
 | SRC         | The player doing the targetting             |
 | ARGO        | The item or character that SRC has targeted |
 | \[default\] | The item this script is on                  |
+```
 
 *Note: You can also use SRC.TARG instead of ARGO.*
 
-I believe this doesn't even require an example, but I'll give one
-anyway. It's a very simple, relatively useful example, too.
+I believe this doesn't even require an example, but I'll give one anyway. It's a very simple, relatively useful example, too.
 
-<font color="darkblue">`[ITEMDEF i_hitching_post]`  
-`NAME=Hitching Post`  
-`ID=014e7`  
-`WEIGHT=500`  
-  
-`ON=@DClick`  
-`:SRC.SYSMESSAGE Target the creature to hitch.`  
-`:TARGET`  
-  
-`ON=@TargOn_Item`  
-`:SRC.SYSMESSAGE Items can not be hitched!`  
-`:RETURN 1`  
-  
-`ON=@TargOn_Char`  
-`:IF (<ARGO.BODY> == c_man) || (<ARGO.BODY> == c_woman)`  
-`::SRC.SYSMESSAGE You can not hitch a human!`  
-`::RETURN 1`  
-`:ELSEIF (<ARGO.FLAGS> & 040000) && (<ARGO.ISMYPET>)`  
-`::ARGO.FLAGS = <ARGO.FLAGS> &~ 040000`  
-`::SRC.SYSMESSAGE You have released <ARGO.NAME> from the hitching post!`  
-`::RETURN 1`  
-`:ELSE`  
-`::ARGO.FLAGS = <ARGO.FLAGS> | 040000`  
-`::SRC.SYSMESSAGE <ARGO.NAME> is hitched!`  
-`::RETURN 1`  
-`:ENDIF`  
+<font color="darkblue">`[ITEMDEF i_hitching_post]`
+`NAME=Hitching Post`
+`ID=014e7`
+`WEIGHT=500`
+
+`ON=@DClick`
+`:SRC.SYSMESSAGE Target the creature to hitch.`
+`:TARGET`
+
+`ON=@TargOn_Item`
+`:SRC.SYSMESSAGE Items can not be hitched!`
+`:RETURN 1`
+
+`ON=@TargOn_Char`
+`:IF (<ARGO.BODY> == c_man) || (<ARGO.BODY> == c_woman)`
+`::SRC.SYSMESSAGE You can not hitch a human!`
+`::RETURN 1`
+`:ELSEIF (<ARGO.FLAGS> & 040000) && (<ARGO.ISMYPET>)`
+`::ARGO.FLAGS = <ARGO.FLAGS> &~ 040000`
+`::SRC.SYSMESSAGE You have released <ARGO.NAME> from the hitching post!`
+`::RETURN 1`
+`:ELSE`
+`::ARGO.FLAGS = <ARGO.FLAGS> | 040000`
+`::SRC.SYSMESSAGE <ARGO.NAME> is hitched!`
+`::RETURN 1`
+`:ENDIF`
 </font>
 
-Yes, this was made by Trunks and all credit goes to him. I found it in
-my script files a while back. Not sure how it got there.
+Yes, this was made by Trunks and all credit goes to him. I found it in my script files a while back. Not sure how it got there.
 
 But in any case, let's analyze his script.
 
-**\[ITEMDEF i_hitching_post\]**  
-First of all, this is an item. Notice the very high weight to prevent
-players from picking it up and carrying it away with everyone's pets
-trapped on it.
+**\[ITEMDEF i_hitching_post\]**
+First of all, this is an item. Notice the very high weight to prevent players from picking it up and carrying it away with everyone's pets trapped on it.
 
-**@DClick**  
-When you trigger the @DClick event on the item, it asks you which
-creature you wish to tie to the hitching post. Then, it pops the target
-up on your screen. Notice that Trunks uses TARGET and not SRC.TARGET. If
-you experiment with this, you'll see that SRC.TARGET gives you funny
-errors like "Targeted item is gone ??". Then come two @TargOn events,
-one for items and one for characters.
+**@DClick**
+When you trigger the @DClick event on the item, it asks you which creature you wish to tie to the hitching post. Then, it pops the target up on your screen. Notice that Trunks uses TARGET and not SRC.TARGET. If you experiment with this, you'll see that SRC.TARGET gives you funny errors like "Targeted item is gone ??". Then come two @TargOn events, one for items and one for characters.
 
-**@TargOn_Item**  
-This trigger simply exists to inform the user that he cannot target an
-item with this script. If this event were not present, and the user
-targeted an item, he would get a message similar to "You can't think of
-a way to use that item," which is not very clear to him. It's better to
-put in @TargOn events for the things you don't want them to target as
-well, just for information.
+**@TargOn_Item**
+This trigger simply exists to inform the user that he cannot target an item with this script. If this event were not present, and the user targeted an item, he would get a message similar to "You can't think of a way to use that item," which is not very clear to him. It's better to put in @TargOn events for the things you don't want them to target as well, just for information.
 
-**@TargOn_Char**  
-This is the meat of this item. When the player targets a character, it
-first checks to see whether or not the creature is a c_man or c_woman.
-If it is either of those, it immediately exits the script so we cannot
-hitch players and NPC humans. Hitching people seems rather inhumane,
-doesn't it?
+**@TargOn_Char**
+This is the meat of this item. When the player targets a character, it first checks to see whether or not the creature is a c_man or c_woman. If it is either of those, it immediately exits the script so we cannot hitch players and NPC humans. Hitching people seems rather inhumane, doesn't it?
 
-The next section, separated by an ELSEIF (which is the same as ELIF)
-statement, checks to see whether or not the creature is the user's pet,
-AND (&&) whether or not the creature is already hitched to the post. If
-both are true, it releases the animal from the hitching post. There is a
-slight error in Trunks' script right here. Can you find it? I'll tell
-you what it is at the end of the article.
+The next section, separated by an ELSEIF (which is the same as ELIF) statement, checks to see whether or not the creature is the user's pet, AND (&&) whether or not the creature is already hitched to the post. If both are true, it releases the animal from the hitching post. There is a slight error in Trunks' script right here. Can you find it? I'll tell you what it is at the end of the article.
 
-The next section, after the ELSE, shows what happens if none of the
-above is true. This is where your pet is hitched to the post. I believe
-FLAGS 040000 is statf_stone, which holds a creature in place and
-prevents him from being unparalyzed by magic. Notice that we're
-referring to ARGO when we modify the flags, not SRC. We don't want the
-user targeting his pet only to find himself hitched to the post!
-Wouldn't that be an amusing twist?
+The next section, after the ELSE, shows what happens if none of the above is true. This is where your pet is hitched to the post. I believe FLAGS 040000 is statf_stone, which holds a creature in place and prevents him from being unparalyzed by magic. Notice that we're referring to ARGO when we modify the flags, not SRC. We don't want the user targeting his pet only to find himself hitched to the post! Wouldn't that be an amusing twist?
 
-Anyway, that covers both @TargOn_Item and @TargOn_Char. Here is a
-similar example for @TargOn_Ground, which is one of my test items. It
-also uses a function.
+Anyway, that covers both @TargOn_Item and @TargOn_Char. Here is a similar example for @TargOn_Ground, which is one of my test items. It also uses a function.
 
-<font color="darkblue">`[ITEMDEF i_test_targetg]`  
-`ID=01828`  
-`NAME=test targetg`  
-  
-`ON=@DClick`  
-`:TARGETG Select ground`  
-`:RETURN 1`  
-  
-`ON=@TargOn_Ground`  
-`:POINT_INFO <ARGO.P>`  
-`:SRC.SYSMESSAGE The point you targetted was: <VAR.TI_P>`  
-`:DOSWITCH <VAR.TI_LOS>`  
-`::SRC.SYSMESSAGE The point is not in your line of sight.`  
-`::SRC.SYSMESSAGE The point is in your line of sight.`  
-`:ENDDO`  
-`:SRC.SYSMESSAGE The distance between you and that point is <EVAL <VAR.TI_DISTANCE>> tiles.`  
-`:RETURN 1`  
-  
-`[FUNCTION point_info]`  
-`IF !<ARGS>`  
-`VAR.TI = 0 // Failed`  
-`RETURN 0`  
-`ENDIF`  
-`SERV.NEWNPC = c_man`  
-`NEW.FLAGS = 04`  
-`NEW.P = `<ARGS>  
-`NEW.FIX`  
-`VAR.TI = 1 // Success`  
-`VAR.TI_P = <NEW.P>`  
-`VAR.TI_X = <NEW.P.X>`  
-`VAR.TI_Y = <NEW.P.Y>`  
-`VAR.TI_Z = <NEW.P.Z>`  
-`VAR.TI_LOS = <NEW.CanSeeLOS>`  
-`VAR.TI_SEE = <NEW.CanSee>`  
-`VAR.TI_RFLAGS = <NEW.REGION.FLAGS>`  
-`VAR.TI_DISTANCE = <NEW.DISTANCE>`  
-`NEW.REMOVE`  
-`VAR.TI_TEMP =`  
-`RETURN 0`  
+<font color="darkblue">`[ITEMDEF i_test_targetg]`
+`ID=01828`
+`NAME=test targetg`
+
+`ON=@DClick`
+`:TARGETG Select ground`
+`:RETURN 1`
+
+`ON=@TargOn_Ground`
+`:POINT_INFO <ARGO.P>`
+`:SRC.SYSMESSAGE The point you targetted was: <VAR.TI_P>`
+`:DOSWITCH <VAR.TI_LOS>`
+`::SRC.SYSMESSAGE The point is not in your line of sight.`
+`::SRC.SYSMESSAGE The point is in your line of sight.`
+`:ENDDO`
+`:SRC.SYSMESSAGE The distance between you and that point is <EVAL <VAR.TI_DISTANCE>> tiles.`
+`:RETURN 1`
+
+`[FUNCTION point_info]`
+`IF !<ARGS>`
+`VAR.TI = 0 // Failed`
+`RETURN 0`
+`ENDIF`
+`SERV.NEWNPC = c_man`
+`NEW.FLAGS = 04`
+`NEW.P = `<ARGS>
+`NEW.FIX`
+`VAR.TI = 1 // Success`
+`VAR.TI_P = <NEW.P>`
+`VAR.TI_X = <NEW.P.X>`
+`VAR.TI_Y = <NEW.P.Y>`
+`VAR.TI_Z = <NEW.P.Z>`
+`VAR.TI_LOS = <NEW.CanSeeLOS>`
+`VAR.TI_SEE = <NEW.CanSee>`
+`VAR.TI_RFLAGS = <NEW.REGION.FLAGS>`
+`VAR.TI_DISTANCE = <NEW.DISTANCE>`
+`NEW.REMOVE`
+`VAR.TI_TEMP =`
+`RETURN 0`
 </font>
 
-You'll notice that all of my test items are these little alchemical
-tiles. I just find 01828 easy to remember, so I use it for almost
-anything I'm testing. Either that or i_memory, which we haven't
-discussed yet.
+You'll notice that all of my test items are these little alchemical tiles. I just find 01828 easy to remember, so I use it for almost anything I'm testing. Either that or i_memory, which we haven't discussed yet.
 
-This is a rather complicated script, especially the function. It makes
-it so I don't have to type all of that stuff over and over every time I
-want to use a @TargOn_Ground function. Actually, it's very useful for a
-lot of things, because it breaks down a point into its respective
-information. Here's the information returned in VAR variables from the
-function:
+This is a rather complicated script, especially the function. It makes it so I don't have to type all of that stuff over and over every time I want to use a @TargOn_Ground function. Actually, it's very useful for a lot of things, because it breaks down a point into its respective information. Here's the information returned in VAR variables from the function:
 
+```
 |  |  |
 |----|----|
 | VAR.TI | 1 or 0 depending on whether or not it was a success (TI = target info) |
@@ -421,33 +331,19 @@ function:
 | VAR.TI_SEE | Is it targeted item on the user's screen? |
 | VAR.TI_RFLAGS | the flags in the region where the ground was targeted |
 | VAR.TI_DISTANCE | the distance in tiles between the user and the targeted point |
+```
 
-As you can see, this is an enormously useful quantity of information,
-and may introduce you to a number of new functions. DISTANCE returns a
-numerical value, and CANSEE/CANSEELOS return 1/0 boolean values.. But
-we're getting off track. We'll discuss those further later. Let's see
-what our item does.
+As you can see, this is an enormously useful quantity of information, and may introduce you to a number of new functions. DISTANCE returns a numerical value, and CANSEE/CANSEELOS return 1/0 boolean values.. But we're getting off track. We'll discuss those further later. Let's see what our item does.
 
-Well first, it brings up a target with another new command: TARGETG...
-basically, "Target Ground". This tells the client that you're allowed to
-target ground tiles rather than only items and characters. When the user
-actually does target the ground, the first thing that happens is that
-\[FUNCTION point_info\] is called. This fills those wonderful VARs with
-the data about our point. *NOTE: If you want to gather resource or item
-type data about a map location keep reading, in one of the next sections
-there will be a method of how to get it (SERV.MAP)*.
+Well first, it brings up a target with another new command: TARGETG... basically, "Target Ground". This tells the client that you're allowed to target ground tiles rather than only items and characters. When the user actually does target the ground, the first thing that happens is that \[FUNCTION point_info\] is called. This fills those wonderful VARs with the data about our point. *NOTE: If you want to gather resource or item type data about a map location keep reading, in one of the next sections there will be a method of how to get it (SERV.MAP)*.
 
-I don't think I need to explain the rest of the code. Refer to the table
-of events in chapter four for more information about the data and
-objects you can retrieve from the @TargOn_Ground event.
+I don't think I need to explain the rest of the code. Refer to the table of events in chapter four for more information about the data and objects you can retrieve from the @TargOn_Ground event.
 
-**@TargOn_Cancel**  
-This trigger is called when a player cancels the target by hitting the
-escape (ESC) key.
+**@TargOn_Cancel**
+This trigger is called when a player cancels the target by hitting the escape (ESC) key.
 
-**TARGETF**  
-This is the most powerful way to target something or someone. Now you do
-not need any memory item for targeting.
+**TARGETF**
+This is the most powerful way to target something or someone. Now you do not need any memory item for targeting.
 
 There are two types of TARGETF function:
 
@@ -458,55 +354,49 @@ There are two types of TARGETF function:
 - TARGETFW f_myfunction - Allows you to target only characters and
   non-static items, and will warn against criminal action
 
-After targeting, f_myfunction will be called with ARGO being a reference
-to the targeted item/NPC, and if the client is able to target ground
-then that position will be TARGP in the function. You can also pass
-arguments into the function as you can with other functions. Here is an
-example of a script using TARGETF, ARGO and passing arguments:
+After targeting, f_myfunction will be called with ARGO being a reference to the targeted item/NPC, and if the client is able to target ground then that position will be TARGP in the function. You can also pass arguments into the function as you can with other functions. Here is an example of a script using TARGETF, ARGO and passing arguments:
 
-<font color="darkblue">`ON=@Start`  
-`:TARGETFG F_MYFUNCTION <SRC.UID>, <SRC.ACTION>, <SRC.KILLS>, <SRC.ACCOUNT.LASTIP>`  
-  
-`[FUNCTION f_myfunction]`  
-`SERV.B <name> targeted <argo.name>. Arguments are: UID <ARGV[0]> ACTION <ARGV[1]> KILLS <ARGV[2]> LASTIP <ARGV[3]>`  
+<font color="darkblue">`ON=@Start`
+`:TARGETFG F_MYFUNCTION <SRC.UID>, <SRC.ACTION>, <SRC.KILLS>, <SRC.ACCOUNT.LASTIP>`
+
+`[FUNCTION f_myfunction]`
+`SERV.B <name> targeted <argo.name>. Arguments are: UID <ARGV[0]> ACTION <ARGV[1]> KILLS <ARGV[2]> LASTIP <ARGV[3]>`
 </font>
 
+```
 ## FINDCONT, FINDID, FINDTYPE
+```
 
-These three commands are both functions and objects. More specifically,
-they are functions that return an object, but you can think of them as
-objects only if you wish. Because they work like an object. Here is a
-summary of what they do:
+These three commands are both functions and objects. More specifically, they are functions that return an object, but you can think of them as objects only if you wish. Because they work like an object. Here is a summary of what they do:
 
+```
 |  |  |
 |----|----|
 | FINDLAYER.x | Returns the object contained in layer x on the specified character, or zero if there is no item there. |
 | FINDCONT.x | The value passed to this function is an integer which refers to the position of the item in the "list" of items contained within a container. There is absolutely no way you can access this list in any particular order, or gain information about it. It's all internal. Therefore, this function is only useful in loops (next section) to affect every item in a container. |
 | FINDID.id | This function receives an ID and returns the first item in the container's item list with that ID. This is faster than looping through a container looking through a particular item and is often useful for searching the character's memory items (see later chapters). |
 | FINDTYPE.type | This function finds the first instance of a particular type in a pack. Belgar's arrow changing script uses this function to find the first instance of a magical arrow in the user's pack. |
+```
 
-Here are examples of the use of each. You'll notice I use two different
-formats here. Both are perfectly legal, and it's just a matter of which
-you prefer. I prefer using the ( ) method, and Belgar and Swindler both
-prefer the . method.
+Here are examples of the use of each. You'll notice I use two different formats here. Both are perfectly legal, and it's just a matter of which you prefer. I prefer using the ( ) method, and Belgar and Swindler both prefer the . method.
 
-<font color="darkblue">`SRC.SYSMESSAGE SRC.FINDLAYER(21).FINDCONT(0).NAME`  
-`SRC.SYSMESSAGE <SRC.FINDLAYER.21.FINDCONT.0.NAME>`  
-  
-`SRC.SYSMESSAGE <SRC.FINDLAYER(21).FINDTYPE(t_arrow).UID>`  
-  
-`SRC.SYSMESSAGE <SRC.FINDLAYER(21).FINDTYPE.t_door.UID> // Odd example eh?`  
-  
-`SRC.MESSAGE <SRC.FINDLAYER(layer_collar).ID>`  
-  
-`IF (<FINDCONT(0)>) // If this is false, the container is empty`  
-`:SRC.SYSMESSAGE The container is empty.`  
-`ELSE`  
-`:SRC.SYSMESSAGE The container is not empty.`  
-`ENDIF`  
+<font color="darkblue">`SRC.SYSMESSAGE SRC.FINDLAYER(21).FINDCONT(0).NAME`
+`SRC.SYSMESSAGE <SRC.FINDLAYER.21.FINDCONT.0.NAME>`
+
+`SRC.SYSMESSAGE <SRC.FINDLAYER(21).FINDTYPE(t_arrow).UID>`
+
+`SRC.SYSMESSAGE <SRC.FINDLAYER(21).FINDTYPE.t_door.UID> // Odd example eh?`
+
+`SRC.MESSAGE <SRC.FINDLAYER(layer_collar).ID>`
+
+`IF (<FINDCONT(0)>) // If this is false, the container is empty`
+`:SRC.SYSMESSAGE The container is empty.`
+`ELSE`
+`:SRC.SYSMESSAGE The container is not empty.`
+`ENDIF`
 </font>
 
-*\[NOTE: layer 21 is the backpack. you could also use the
-<font color="darkgreen">layer_backpack</font> defname\]*
+*\[NOTE: layer 21 is the backpack. you could also use the <font color="darkgreen">layer_backpack</font> defname\]*
 
 [Category:Tutorials](Category:Tutorials "wikilink")
+```

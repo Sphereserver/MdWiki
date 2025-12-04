@@ -1,7 +1,4 @@
-\_\_FORCETOC\_\_ Within [regions](Regions "wikilink") you can also
-define rooms, which are basically 'sub-regions' that exist inside the
-area which may represent buildings within a town or a boss room within a
-dungeon. Rooms are almost identical to region.
+ Within [regions](Regions "wikilink") you can also define rooms, which are basically 'sub-regions' that exist inside the area which may represent buildings within a town or a boss room within a dungeon. Rooms are almost identical to region.
 
 **Sphere 56b**
 
@@ -13,15 +10,14 @@ dungeon. Rooms are almost identical to region.
 
 The syntax for defining a room is as follows:
 
-`[ROOMDEF `*`defname`*`]`  
-`RECT=`*`left, top, right, bottom, map`*  
-`RECT=`*`left, top, right, bottom, map`*  
-`RECT=`*`left, top, right, bottom, map`*  
+`[ROOMDEF `*`defname`*`]`
+`RECT=`*`left, top, right, bottom, map`*
+`RECT=`*`left, top, right, bottom, map`*
+`RECT=`*`left, top, right, bottom, map`*
 
 ## Properties
 
-Within the room definition the following properties are also available
-to customise the behaviour of the area.
+Within the room definition the following properties are also available to customise the behaviour of the area.
 
 |  |  |  |
 |----|----|----|
@@ -50,8 +46,7 @@ to customise the behaviour of the area.
 
 ## Triggers
 
-Within the room definition the following properties are also available
-to customise the behaviour of the area.
+Within the room definition the following properties are also available to customise the behaviour of the area.
 
 |  |  |
 |----|----|
@@ -62,14 +57,20 @@ to customise the behaviour of the area.
 
 ## Examples
 
-<spherescript> // // A House in Minoc, from the default script pack. //
+```
+ // // A House in Minoc, from the default script pack. //
+```
 \[ROOMDEF a_house_1\] NAME=House GROUP=Minoc FLAGS=04000 P=2484,472,0,0
-RECT=2479,463,2489,481,0 RECT=2489,471,2497,481,0 </spherescript>
+```
+RECT=2479,463,2489,481,0 RECT=2489,471,2497,481,0
+```
 
-<spherescript> // // A Secret Cave, from the default script pack. //
+```
+ // // A Secret Cave, from the default script pack. //
+```
 \[ROOMDEF a_secret_cave_1\] NAME=Secret Cave GROUP=Hidden Valley
-P=1653,2967,0,0 RECT=1648,2957,1658,2977,0 </spherescript>
+```
+P=1653,2967,0,0 RECT=1648,2957,1658,2977,0
+```
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Definitions](Category:_Definitions "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Definitions](Category:_Definitions "wikilink")

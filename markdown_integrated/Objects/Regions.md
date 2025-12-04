@@ -1,20 +1,8 @@
-\_\_FORCETOC\_\_ Areas in the world, such as dungeons and cities are
-defined by regions. Accessing regions in scripts can be accomplished
-using the REGION reference from a [character](Characters "wikilink"),
-[item](Items "wikilink") or [map point](Map_Points "wikilink") object,
-or the AREA.region_id reference from the [server](Server "wikilink")
-object. The following tables detail the various properties of the region
-object in SphereServer:
+ Areas in the world, such as dungeons and cities are defined by regions. Accessing regions in scripts can be accomplished using the REGION reference from a [character](Characters "wikilink"), [item](Items "wikilink") or [map point](Map_Points "wikilink") object, or the AREA.region_id reference from the [server](Server "wikilink") object. The following tables detail the various properties of the region object in SphereServer:
 
 ## References
 
-References return pointers to other objects (e.g. the CHAR.n reference
-allows you to access the characters that are attached to the account).
-These can either be accessed by using *\<REFNAME\>* to return the
-[UID](UID "wikilink") (1 for object types that don't have UIDs) of the
-object or 0 if it doesn't exist, or by using *\<REFNAME.KEY\>* where KEY
-is a valid property/function/reference for the *REFNAME* object. Click
-on the name for more detailed information such as usage and examples.
+References return pointers to other objects (e.g. the CHAR.n referenceallows you to access the characters that are attached to the account). These can either be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink") (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid property/function/reference for the *REFNAME* object. Click on the name for more detailed information such as usage and examples.
 
 |  |  |  |
 |----|----|----|
@@ -23,14 +11,7 @@ on the name for more detailed information such as usage and examples.
 
 ## Properties and Functions
 
-Here is a list of all region properties and functions. If a function is
-marked as readable then it can return a value when used as <KEY>. Click
-on the name for more detailed information such as usage and examples.
-Properties from the [region definition](AREADEF "wikilink") can also be
-accessed from the region object. If an attempt is made to execute (not
-read) a command that does not exist on the region or its definition,
-then the command will be called on all sectors that touch the region
-area.
+Here is a list of all region properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples. Properties from the [region definition](AREADEF "wikilink") can also be accessed from the region object. If an attempt is made to execute (notread) a command that does not exist on the region or its definition, then the command will be called on all sectors that touch the region area.
 
 |  |  |  |
 |----|----|----|
@@ -66,8 +47,7 @@ area.
 
 ## Triggers
 
-Here is a list of all region triggers. Click on the trigger name for
-more detailed information such as arguments and examples.
+Here is a list of all region triggers. Click on the trigger name for more detailed information such as arguments and examples.
 
 |  |  |
 |----|----|
@@ -81,6 +61,4 @@ more detailed information such as arguments and examples.
 | [@ResourceTest](@ResourceTest "wikilink") | Fires once for every resource listed in a REGIONTYPE, to check if the player (SRC) can get it. It is called only if the player meets the SKILLMAKE requirements for the item set in REAP. |
 | [@Step](@Step "wikilink") | Fires whenever a character takes a step within the region. |
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Objects](Category:_Objects "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Objects](Category:_Objects "wikilink")

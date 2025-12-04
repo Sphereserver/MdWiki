@@ -1,15 +1,10 @@
-\_\_FORCETOC\_\_
+
 
 ## Properties and Functions
 
-Here is a list of all dialoglist properties and functions. If a function
-is marked as readable then it can return a value when used as <KEY>.
-Click on the name for more detailed information such as usage and
-examples.
+Here is a list of all dialoglist properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples.
 
-This parameters must use with
-[DIALOGLIST](#Properties_and_Functions "wikilink"). For examples, please
-go [Examples](#Examples "wikilink").
+This parameters must use with [DIALOGLIST](#Properties_and_Functions "wikilink"). For examples, please go [Examples](#Examples "wikilink").
 
 |  |  |  |
 |----|----|----|
@@ -20,15 +15,13 @@ go [Examples](#Examples "wikilink").
 
 ## Examples
 
-The following examples are about
-[dialoglist](#Properties_and_Functions "wikilink").
+The following examples are about [dialoglist](#Properties_and_Functions "wikilink").
 
 **DIALOGLIST.COUNT**
 
 ------------------------------------------------------------------------
 
-<spherescript> \[Function dialogtotal\] SERV.LOG Total number of
-dialogs: \<dialoglist.count\> </spherescript>
+ \[Function dialogtotal\] `SERV.LOG` Total number of dialogs: \<dialoglist.count\>
 
 You will see *total number of dialogs* output to the console.
 
@@ -36,17 +29,14 @@ You will see *total number of dialogs* output to the console.
 
 ------------------------------------------------------------------------
 
-<spherescript> \[Function dialogtotal\] SERV.LOG Instant dialogs:
-\<dialoglist.0.count\> </spherescript>
+ \[Function dialogtotal\] `SERV.LOG` Instant dialogs: \<dialoglist.0.count\>
 
-You will see *how many dialog same id with first dialog* output to the
-concole.
+You will see *how many dialog same id with first dialog* output to the concole.
 
 **DIALOGLIST***.n***.ID**
 
 ------------------------------------------------------------------------
 
-<spherescript> \[Function dialogtotal\] SERV.LOG First dialog id:
-\<dialoglist.0.id\> </spherescript>
+ \[Function dialogtotal\] `SERV.LOG` First dialog id: \<dialoglist.0.id\>
 
 You will see *id for first dialog* output to the console.

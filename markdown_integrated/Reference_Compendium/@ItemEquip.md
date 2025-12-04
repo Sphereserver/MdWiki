@@ -8,8 +8,7 @@ Fires on:
 
 ## References
 
-The following object references are explicitly available for this
-trigger:
+The following object references are explicitly available for this trigger:
 
 |  |  |
 |----|----|
@@ -19,10 +18,7 @@ trigger:
 
 ## Arguments
 
-The following arguments are set for this trigger. If an argument is
-marked as "In" then a value will be passed in to the trigger, if an
-argument is marked as "Out" then it can be set to a value to affect
-Sphere's behaviour:
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
 
 *No arguments are set for this trigger.*
 
@@ -30,26 +26,10 @@ Sphere's behaviour:
 
 The following return values are explicitly defined for this trigger:
 
-<table>
-<tbody>
-<tr>
-<td><p><strong>Return Value</strong></p></td>
-<td><p><strong>Description</strong></p></td>
-</tr>
-<tr>
-<td><p>1</p></td>
-<td><p>Treats the item as failed to equip.<br />
-<strong>Note:</strong> This trigger is not reliable for blocking the
-equipping of an item. Use the <a href="@EquipTest"
-title="wikilink">@EquipTest</a> trigger instead which is designed for
-blocking the equip action.</p></td>
-</tr>
-</tbody>
-</table>
+| **Return Value** | **Description** |
+| --- | --- |
+| 1 | Treats the item as failed to equip. **Note:** This trigger is not reliable for blocking the equipping of an item. Use the [@EquipTest](@EquipTest) trigger instead which is designed for blocking the equip action. |
 
-Hint: As an example, use "cont=(\<findlayer(21).uid\>)" to put an item
-pack into the backpack if you wish to block the equip action
+Hint: As an example, use "cont=(\<findlayer(21).uid\>)" to put an item pack into the backpack if you wish to block the equip action
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Triggers](Category:_Triggers "wikilink")

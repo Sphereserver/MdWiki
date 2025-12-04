@@ -1,7 +1,6 @@
 ## Description
 
-X branch only. This trigger fires when an item is about to commit when
-using house designer.
+X branch only. This trigger fires when an item is about to commit when using house designer.
 
 Fires on:
 
@@ -9,8 +8,7 @@ Fires on:
 
 ## References
 
-The following object references are explicitly available for this
-trigger:
+The following object references are explicitly available for this trigger:
 
 |                   |                                              |
 |-------------------|----------------------------------------------|
@@ -19,10 +17,7 @@ trigger:
 
 ## Arguments
 
-The following arguments are set for this trigger. If an argument is
-marked as "In" then a value will be passed in to the trigger, if an
-argument is marked as "Out" then it can be set to a value to affect
-Sphere's behaviour:
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
 
 |  |  |  |
 |----|----|----|

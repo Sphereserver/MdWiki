@@ -1,7 +1,6 @@
 ## Description
 
-This trigger fires when a character selects to cast a spell. It fires
-multiple times during the different stages of a spell being cast.
+This trigger fires when a character selects to cast a spell. It fires multiple times during the different stages of a spell being cast.
 
 Fires on:
 
@@ -9,8 +8,7 @@ Fires on:
 
 ## References
 
-The following object references are explicitly available for this
-trigger:
+The following object references are explicitly available for this trigger:
 
 |  |  |
 |----|----|
@@ -21,80 +19,23 @@ trigger:
 
 ## Arguments
 
-The following arguments are set for this trigger. If an argument is
-marked as "In" then a value will be passed in to the trigger, if an
-argument is marked as "Out" then it can be set to a value to affect
-Sphere's behaviour:
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
 
-<table>
-<tbody>
-<tr>
-<td><p><strong>Argument</strong></p></td>
-<td><p><strong>In/Out</strong></p></td>
-<td><p><strong>Description</strong></p></td>
-</tr>
-<tr>
-<td><p>ARGN1</p></td>
-<td><p>IO</p></td>
-<td><p>The spell being cast.</p></td>
-</tr>
-<tr>
-<td><p>ARGN2</p></td>
-<td><p>IO</p></td>
-<td><p>The amount of mana needed to cast the spell.</p></td>
-</tr>
-<tr>
-<td><p>ARGN3</p></td>
-<td><p>I</p></td>
-<td><p>Flags representing what stage of the casting process the trigger
-is being used at.</p>
-<table>
-<tbody>
-<tr>
-<td><p><strong>Flag</strong></p></td>
-<td><p><strong>Meaning</strong></p></td>
-</tr>
-<tr>
-<td><p>01</p></td>
-<td><p>Just a test (no reagents or mana will be consumed)</p></td>
-</tr>
-<tr>
-<td><p>02</p></td>
-<td><p>Display fail message if unable to cast</p></td>
-</tr>
-</tbody>
-</table>
-<table>
-<tbody>
-<tr>
-<td><p><strong>Spell Casting Stage</strong></p></td>
-<td><p><strong>Expected Flags</strong></p></td>
-</tr>
-<tr>
-<td><p>Spell selected for casting</p></td>
-<td><p>01</p></td>
-</tr>
-<tr>
-<td><p>Spell is about to start casting</p></td>
-<td><p>03</p></td>
-</tr>
-<tr>
-<td><p>Spell is about to finish casting</p></td>
-<td><p>03</p></td>
-</tr>
-<tr>
-<td><p>Spell casting finished successfully</p></td>
-<td><p>02</p></td>
-</tr>
-<tr>
-<td><p>Spell casting finished unsuccessfully</p></td>
-<td><p>00</p></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-</tbody>
-</table>
+| **Argument** | **In/Out** | **Description** |  |
+| --- | --- | --- | --- |
+| ARGN1 | IO | The spell being cast. |  |
+| ARGN2 | IO | The amount of mana needed to cast the spell. |  |
+| ARGN3 | I | Flags representing what stage of the casting process the trigger is being used at. <table> **Flag** | **Meaning** |
+| 01 | Just a test (no reagents or mana will be consumed) |  |  |
+| 02 | Display fail message if unable to cast |  |  |
+| **Spell Casting Stage** | **Expected Flags** |
+| ------------------------------------- | ------------------ |
+| Spell selected for casting | 01 |
+| Spell is about to start casting | 03 |
+| Spell is about to finish casting | 03 |
+| Spell casting finished successfully | 02 |
+| Spell casting finished unsuccessfully | 00 |</td>
+</tr> </tbody> </table>
 
 ## Return Values
 
@@ -107,6 +48,4 @@ The following return values are explicitly defined for this trigger:
 | 1 | Prevents the spell from being cast. |
 | 6 | Allows the spell to be cast without checking mana, spellbook, and reagent(s). |
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Triggers](Category:_Triggers "wikilink")

@@ -1,10 +1,8 @@
-\_\_FORCETOC\_\_
+
 
 ## LIST Functions
 
-These functions will allow the insertion and referencing of elements in
-a list, this is a global property much like VAR and can be referenced or
-set globally.
+These functions will allow the insertion and referencing of elements in a list, this is a global property much like VAR and can be referenced or set globally.
 
 |  |  |  |
 |----|----|----|
@@ -30,24 +28,21 @@ Below are examples of the use of the **LIST** functions:
 
 ### Adding to LIST
 
-This example shows how to add elements to your LIST.*xxx* :
+This example shows how to add elements to your `LIST.`*xxx* :
 
-<spherescript> \[FUNCTION f_add_to_mylist\] SERV.LIST.MyList.ADD
-MyElement1 SERV.LIST.MyList.ADD MyElement2 SERV.LIST.MyList.ADD
-MyElement3 SERV.LIST.MyList.ADD MyElement4
+ \[FUNCTION f_add_to_mylist\] `SERV.LIST.MyList.ADD` MyElement1 `SERV.LIST.MyList.ADD` MyElement2 `SERV.LIST.MyList.ADD` MyElement3 `SERV.LIST.MyList.ADD` MyElement4
 
 ...
 
-SERV.LIST.MyList.SET MyElement1,MyElement2,MyElement3,MyElement4 - will
-have the same effect as the f_add_to_mylist function above
-</spherescript>
+`SERV.LIST.MyList.SET` MyElement1,MyElement2,MyElement3,MyElement4 - will have the same effect as the f_add_to_mylist function above
+
 
 ### Referencing the LIST
 
-To reference your LIST.*xxx* :
+To reference your `LIST.`*xxx* :
 
-<spherescript> \[FUNCTION f_show_mylist\] serv.log \<serv.list.MyList\>
-</spherescript>
+ \[FUNCTION f_show_mylist\] `serv.log` \<`serv.list.MyList`\>
+
 
 *`displays; "MyElement1","MyElement2","MyElement3","MyElement4"`*
 
@@ -55,21 +50,13 @@ To reference your LIST.*xxx* :
 
 in the LIST above, in order to reference by index :
 
-<spherescript> serv.list.MyList.0 - outputs "MyElement1"
-serv.list.MyList.1 - outputs "MyElement2" . . . </spherescript>
+ `serv.list.MyList.0` - outputs "MyElement1" `serv.list.MyList.1` - outputs "MyElement2" . . .
 
 ### Sorting the LIST
 
-This example shows how to sort your LIST.*xxx* :
+This example shows how to sort your `LIST.`*xxx* :
 
-<spherescript> SERV.LIST.MyList.SORT - ascending sort in case sensitive
-SERV.LIST.MyList.SORT asc - ascending sort in case sensitive
-SERV.LIST.MyList.SORT i - ascending sort in case insensitive
-SERV.LIST.MyList.SORT iasc - ascending sort in case insensitive
-SERV.LIST.MyList.SORT desc - descending sort in case sensitive
-SERV.LIST.MyList.SORT idesc - descending sort in case insensitive
-</spherescript>
+ `SERV.LIST.MyList.SORT` - ascending sort in case sensitive `SERV.LIST.MyList.SORT` asc - ascending sort in case sensitive `SERV.LIST.MyList.SORT` i - ascending sort in case insensitive `SERV.LIST.MyList.SORT` iasc - ascending sort in case insensitive `SERV.LIST.MyList.SORT` desc - descending sort in case sensitive `SERV.LIST.MyList.SORT` idesc - descending sort in case insensitive
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Scripts](Category:_Scripts "wikilink")
+
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Scripts](Category:_Scripts "wikilink")

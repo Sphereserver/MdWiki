@@ -1,18 +1,8 @@
-\_\_FORCETOC\_\_ Player characters are attached to accounts. The account
-object can be referenced by using *ACCOUNT.KEY* from the character
-object or *ACCOUNT.name_or_index.KEY* from the server object. The
-following tables detail the various properties of accounts in
-SphereServer:
+ Player characters are attached to accounts. The account object can be referenced by using *ACCOUNT.KEY* from the character object or *ACCOUNT.name_or_index.KEY* from the server object. The following tables detail the various properties of accounts in SphereServer:
 
 ## References
 
-References return pointers to other objects (e.g. the CHAR.n reference
-allows you to access the characters that are attached to the account).
-These can either be accessed by using *\<REFNAME\>* to return the
-[UID](UID "wikilink") (1 for object types that don't have UIDs) of the
-object or 0 if it doesn't exist, or by using *\<REFNAME.KEY\>* where KEY
-is a valid property/function/reference for the *REFNAME* object. Click
-on the name for more detailed information such as usage and examples.
+References return pointers to other objects (e.g. the CHAR.n referenceallows you to access the characters that are attached to the account). These can either be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink") (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid property/function/reference for the *REFNAME* object. Click on the name for more detailed information such as usage and examples.
 
 |  |  |  |
 |----|----|----|
@@ -21,9 +11,7 @@ on the name for more detailed information such as usage and examples.
 
 ## Properties and Functions
 
-Here is a list of all account properties and functions. If a function is
-marked as readable then it can return a value when used as <KEY>. Click
-on the name for more detailed information such as usage and examples.
+Here is a list of all account properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples.
 
 |  |  |  |
 |----|----|----|
@@ -51,6 +39,4 @@ on the name for more detailed information such as usage and examples.
 | [TAGCOUNT](TAGCOUNT "wikilink") | R | Gets the number of TAGs on the account. |
 | [TOTALCONNECTTIME](TOTALCONNECTTIME "wikilink") | RW | Gets the total number of minutes that the account has been connected for. |
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Objects](Category:_Objects "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Objects](Category:_Objects "wikilink")

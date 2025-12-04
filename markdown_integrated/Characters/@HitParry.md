@@ -1,9 +1,8 @@
 ## Description
 
 X branch only. The trigger is fired before the trigger @(Skill)UseQuick
-for parrying is succesfull. By default a parried hit will reduce the
-damage by 100% and thus negating the hit and the following triggers
-(@Hit and so on).
+```
+for parrying is succesfull. By default a parried hit will reduce the damage by 100% and thus negating the hit and the following triggers (@Hit and so on).
 
 There are two for changing the damage reduced:
 
@@ -14,13 +13,9 @@ There are two for changing the damage reduced:
 - By using the EFFECT property in the skill definition of the Parrying
   Skill, in this case the damage will be reduced by the EFFECT value:
 
-\- If only one values is defined (Example:EFFECT=75) the damage will
-always be reduced by 75% no matter skills.
+\- If only one values is defined (Example:EFFECT=75) the damage will always be reduced by 75% no matter skills.
 
-\- If one or more values are defined (Example: EFFECT=25,75) the damage
-will be reduced by 25% when the Parrying skill is near 0.0 and by 75%
-when the Parrying skill is near 100.0, that is damage reduction will be
-scaled according to the character parrying skill.
+\- If one or more values are defined (Example: EFFECT=25,75) the damage will be reduced by 25% when the Parrying skill is near 0.0 and by 75% when the Parrying skill is near 100.0, that is damage reduction will be scaled according to the character parrying skill.
 
 \- If no values are defined, the default value of 100 will be used.
 
@@ -28,25 +23,28 @@ Fires on:
 
 - [Characters](Characters "wikilink")
 
+```
 ## References
+```
 
-The following object references are explicitly available for this
-trigger:
+The following object references are explicitly available for this trigger:
 
+```
 |  |  |
 |----|----|
 | **Name** | **Description** |
 | [I](I "wikilink") | The [character](Characters "wikilink") that is attempting to parry the strike. |
 | [SRC](SRC "wikilink") | The [character](Characters "wikilink") that did the strike. |
 | [ARGO](ARGO "wikilink") | The [weapon](Items "wikilink") or shield used for parry, if any. |
+```
 
+```
 ## Arguments
+```
 
-The following arguments are set for this trigger. If an argument is
-marked as "In" then a value will be passed in to the trigger, if an
-argument is marked as "Out" then it can be set to a value to affect
-Sphere's behaviour:
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
 
+```
 |  |  |  |
 |----|----|----|
 | **Argument** | **In/Out** | **Description** |
@@ -56,18 +54,20 @@ Sphere's behaviour:
 | LOCAL.PARRYSKILLID | IO | The skill used for parrying, this can be changed by setting the appropriate skill ID. |
 | LOCAL.ITEMPARRYDAMAGECHANCE | IO | The chance that the parrying item will be damaged (default 100%). |
 | LOCAL.DAMAGE | IO | The amount of damage (raw) before the parry reduction. |
+```
 
+```
 ## Return Values
+```
 
 The following return values are explicitly defined for this trigger:
 
+```
 |  |  |
 |----|----|
 | **Return Value** | **Description** |
 | 1 | Completely blocks the damage as if the parry damage reduction was set to 100. |
+```
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink") [Category:
-Characters](Category:_Characters "wikilink") [Category:
-Combat](Category:_Combat "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Triggers](Category:_Triggers "wikilink") [Category: Characters](Category:_Characters "wikilink") [Category: Combat](Category:_Combat "wikilink")
+```

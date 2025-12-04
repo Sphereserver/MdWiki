@@ -1,20 +1,16 @@
-\_\_FORCETOC\_\_ Dialogs are a more advanced form of user interface
-whose layout can be completely customised.
+ Dialogs are a more advanced form of user interface whose layout can be completely customised.
 
 ## Syntax
 
-The definition of a dialog consists of *three* different blocks of
-script; a layout, a list of text strings used in the dialog and a
-buttons section which handles button responses from the client.
+The definition of a dialog consists of *three* different blocks of script; a layout, a list of text strings used in the dialog and a buttons section which handles button responses from the client.
 
 ### Layout
 
-The layout section of the dialog defines how the dialog will look to
-clients.
+The layout section of the dialog defines how the dialog will look to clients.
 
-`[DIALOG `*`defname`*`]`  
-*`x, y`*  
-*`script`*  
+`[DIALOG `*`defname`*`]`
+*`x, y`*
+*`script`*
 
 |           |                                                  |
 |-----------|--------------------------------------------------|
@@ -23,19 +19,9 @@ clients.
 | *x, y*    | The screen coordinates to display the dialog at. |
 | *script*  | The dialog's layout script.                      |
 
-The script text can be a complete script that is executed in the same
-way as a function or trigger script, and can even contain conditional
-statements to display different layouts to different clients if desired.
-The default object is the [character](Characters "wikilink") or
-[item](Items "wikilink") that the dialog has been called upon, and
-[SRC](SRC "wikilink") is the [client](Characters#Clients "wikilink") who
-is viewing the dialog. If the dialog ends with a "RETURN 1" then Sphere
-will cancel displaying the dialog.
+The script text can be a complete script that is executed in the same way as a function or trigger script, and can even contain conditional statements to display different layouts to different clients if desired. The default object is the [character](Characters "wikilink") or [item](Items "wikilink") that the dialog has been called upon, and [SRC](SRC "wikilink") is the [client](Characters#Clients "wikilink") who is viewing the dialog. If the dialog ends with a "`RETURN`1" then Sphere will cancel displaying the dialog.
 
-In addition to the usual functions, properties and references you would
-have access to in a normal script, there are also functions that place
-elements on to the dialog. The following table lists all elements that
-can be used:
+In addition to the usual functions, properties and references you would have access to in a normal script, there are also functions that place elements on to the dialog. The following table lists all elements that can be used:
 
 |  |  |
 |----|----|
@@ -73,45 +59,35 @@ can be used:
 
 ### Text
 
-The text section of the dialog simply lists the different text strings
-used in the dialog's layout. When using dialog elements that represent
-text, such as *text* or *htmlgump*, an index into the TEXT block will be
-specified so that the client knows which text to actually display on
-that dialog element. This dialog section is optional, and may be omitted
-if there are no text elements on the dialog or if the newer dialog text
-elements, such as *dtext* or *dhtmlgump*, are used because their text
-string is specified in the layout and Sphere will automatically populate
-the TEXT block for you.
+The text section of the dialog simply lists the different text strings used in the dialog's layout. When using dialog elements that represent text, such as *text* or *htmlgump*, an index into the TEXT block will be specified so that the client knows which text to actually display on that dialog element. This dialog section is optional, and may be omitted
+```
+if there are no text elements on the dialog or if the newer dialog text elements, such as *dtext* or *dhtmlgump*, are used because their text string is specified in the layout and Sphere will automatically populate the TEXT block for you.
 
-`[DIALOG `*`defname`*` TEXT]`  
-*`string1`*  
-*`string2`*  
-*`string3`*  
+`[DIALOG `*`defname`*` TEXT]`
+*`string1`*
+*`string2`*
+*`string3`*
 
+```
 ### Buttons
+```
 
-This section contains button triggers that fires when the client presses
-a certain button on the dialog. There are two ways that a button press
-can be handled, the syntaxc for both is shown below:
+This section contains button triggers that fires when the client presses a certain button on the dialog. There are two ways that a button press can be handled, the syntaxc for both is shown below:
 
-`[DIALOG `*`defname`*` BUTTON]`  
-`ON=`*`button_id`*  
-`    `*`script`*  
-  
-`ON=`*`button_id_start`*` `*`button_id_end`*  
-`    `*`script`*  
+`[DIALOG `*`defname`*` BUTTON]`
+`ON=`*`button_id`*
+`    `*`script`*
 
-The first "`ON=`*`button_id`*" will handle the button press for the
-button with the matching ID, the second will handle any button press
-where the ID is between *button_id_start* and *button_id_end*.
+`ON=`*`button_id_start`*` `*`button_id_end`*
+`    `*`script`*
 
-**Note:** If the client cancels the dialog by right clicking it, the
-trigger for button 0 will be fired.
+The first "`ON=`*`button_id`*" will handle the button press for the button with the matching ID, the second will handle any button press where the ID is between *button_id_start* and *button_id_end*.
 
-Inside the button triggers there are some arguments passed in that
-aren't available in normal functions and triggers. The following table
-describes each argument passed in to dialog button triggers:
+**Note:** If the client cancels the dialog by right clicking it, the trigger for button 0 will be fired.
 
+Inside the button triggers there are some arguments passed in that aren't available in normal functions and triggers. The following table describes each argument passed in to dialog button triggers:
+
+```
 |  |  |
 |----|----|
 | **Name** | **Description** |
@@ -121,19 +97,15 @@ describes each argument passed in to dialog button triggers:
 | [ARGN1](ARGN1 "wikilink") | The ID of the button pressed. |
 | [ARGTXT](ARGTXT "wikilink") | Returns the number of text fields submitted. |
 | [ARGTXT](ARGTXT "wikilink")\[*id*\]\] | Returns the submitted text for the text field with the specified ID. |
+```
 
+```
 ## Examples
+```
 
-<spherescript> // // Simple travel dialog from default script pack. //
-\[DIALOG d_TravelTown\] 0, 0 resizepic 0 0 3600 215 200 page 0 text 40
-17 0 0 text 40 37 1152 1 text 40 57 1152 2 text 40 77 1152 3 text 40 97
-1152 4 text 40 117 1152 5 text 40 137 1152 6 text 40 157 0 7 button 20
-40 1209 1210 1 0 1 button 20 60 1209 1210 1 0 2 button 20 80 1209 1210 1
-0 3 button 20 100 1209 1210 1 0 4 button 20 120 1209 1210 1 0 5 button
-20 140 1209 1210 1 0 6
+ // // Simple travel dialog from default script pack. // \[DIALOG d_TravelTown\] 0, 0 resizepic 0 0 3600 215 200 page 0 text 40 17 0 0 text 40 37 1152 1 text 40 57 1152 2 text 40 77 1152 3 text 40 97 1152 4 text 40 117 1152 5 text 40 137 1152 6 text 40 157 0 7 button 20 40 1209 1210 1 0 1 button 20 60 1209 1210 1 0 2 button 20 80 1209 1210 1 0 3 button 20 100 1209 1210 1 0 4 button 20 120 1209 1210 1 0 5 button 20 140 1209 1210 1 0 6
 
-\[DIALOG d_TravelTown TEXT\] Which Town? Britain Serpent's Hold Cove
-Vesper Bucaneer's Den Papua
+\[DIALOG d_TravelTown TEXT\] Which Town? Britain Serpent's Hold Cove Vesper Bucaneer's Den Papua
 
 \[DIALOG d_TravelTown BUTTON\]
 
@@ -165,8 +137,6 @@ ON=6 //PAPUA
 
 `   SRC.GO=5726,3205,-3`
 
-</spherescript>
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Definitions](Category:_Definitions "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Definitions](Category:_Definitions "wikilink")
+```

@@ -1,7 +1,6 @@
 ## Description
 
-X branch only. This trigger is called when the player enters on design
-mode in a t_custom_multi multi.
+X branch only. This trigger is called when the player enters on design mode in a `t_custom_multi` multi.
 
 Fires on:
 
@@ -9,8 +8,7 @@ Fires on:
 
 ## References
 
-The following object references are explicitly available for this
-trigger:
+The following object references are explicitly available for this trigger:
 
 |                   |                            |
 |-------------------|----------------------------|
@@ -19,10 +17,7 @@ trigger:
 
 ## Arguments
 
-The following arguments are set for this trigger. If an argument is
-marked as "In" then a value will be passed in to the trigger, if an
-argument is marked as "Out" then it can be set to a value to affect
-Sphere's behaviour:
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
 
 |  |  |  |
 |----|----|----|
@@ -35,16 +30,6 @@ Sphere's behaviour:
 
 The following return values are explicitly defined for this trigger:
 
-<table>
-<tbody>
-<tr>
-<td><p><strong>Return Value</strong></p></td>
-<td><p><strong>Description</strong></p></td>
-</tr>
-<tr>
-<td><p>1</p></td>
-<td><p>Forces the char to exit Customize mode.</p>
-<p><code>   WARNING: Forcing the char to exit here and setting argn1=0 in @HouseDesignExit will make it enter in customize mode, exit, enter... infinitelly, hence crashing the server with an infinite loop.</code></p></td>
-</tr>
-</tbody>
-</table>
+| **Return Value** | **Description** |
+| --- | --- |
+| 1 | Forces the char to exit Customize mode. `WARNING: Forcing the char to exit here and setting argn1=0 in @HouseDesignExit will make it enter in customize mode, exit, enter... infinitelly, hence crashing the server with an infinite loop.` |

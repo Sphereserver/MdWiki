@@ -1,13 +1,6 @@
 ## Properties and Functions
 
-Here is a list of all notoriety properties and functions. If a function
-is marked as readable then it can return a value when used as <KEY>.
-Click on the name for more detailed information such as usage and
-examples. Notoriety list saved on you holds the values others can read
-when seeing you or retrieving any notoriety data, ie:
-notosave.1.value=01 and notosave.2.value=07 will make you appear as
-NOTO_GOOD (1) for the character in slot 1 of your list and NOTO_INVUL
-(7) for the character number 2 of your list.
+Here is a list of all notoriety properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples. Notoriety list saved on you holds the values others can read when seeing you or retrieving any notoriety data, ie: notosave.1.value=01 and notosave.2.value=07 will make you appear as NOTO_GOOD (1) for the character in slot 1 of your list and NOTO_INVUL (7) for the character number 2 of your `list.`
 
 |  |  |  |
 |----|----|----|
@@ -19,14 +12,10 @@ NOTO_GOOD (1) for the character in slot 1 of your list and NOTO_INVUL
 | *n*.[COLOR](COLOR "wikilink") | R | Get's the color of notoriety I have to send to this character. |
 | *n*.[ELAPSED](ELAPSED "wikilink") | R | Get's the time elapsed since this index has been saved, when reaching ini's setting 'NotoTimeout' the notoriety for this character will be refreshed if needed. |
 
-To reset the Notoriety list for this character use
-[NotoUpdate](NotoUpdate "wikilink").
+To reset the Notoriety list for this character use [NotoUpdate](NotoUpdate "wikilink").
 
 ## Modifying Notoriety
 
-All Notoriety changes are made inside the
-[@NotoSend](@NotoSend "wikilink") trigger
+All Notoriety changes are made inside the [@NotoSend](@NotoSend "wikilink") trigger
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Objects](Category:_Objects "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Objects](Category:_Objects "wikilink")

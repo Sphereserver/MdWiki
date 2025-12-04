@@ -1,12 +1,11 @@
-Just to give you an impression about who is who of the contributors of
-this website, here's a small image gallery.
+Just to give you an impression about who is who of the contributors of this website, here's a small image gallery.
 
-`All pictures were taken from public sources. So if`  
-`you find your picture here accidentally and want it removed,`  
-`just drop me a mail to nazghul AT dv-team DOT de.`  
-`The same applies if you would be kind enough to provide a`  
-`photography of yourself to this page - just drop it into a`  
-`mail at the same mail address as above.`  
+`All pictures were taken from public sources. So if`
+`you find your picture here accidentally and want it removed,`
+`just drop me a mail to nazghul AT dv-team DOT de.`
+`The same applies if you would be kind enough to provide a`
+`photography of yourself to this page - just drop it into a`
+`mail at the same mail address as above.`
 
 |  |  |  |  |
 |----|----|----|----|

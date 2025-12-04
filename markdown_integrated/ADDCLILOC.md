@@ -2,12 +2,9 @@ Syntax:
 
 ADDCLILOC <cliloc id>, \[arguments\]
 
-Clilocs are used to build the tool tips, there are many cliloc ids most
-of which you are not able to customize. There are however some that you
-may, some of which (at least) are listed below.
+Clilocs are used to build the tool tips, there are many cliloc ids most of which you are not able to customize. There are however some that you may, some of which (at least) are listed below.
 
-The color of any *customizable* cliloc text may be changed by using html
-defs listed in sphere_defs.scp
+The color of any *customizable* cliloc text may be changed by using html defs listed in sphere_defs.scp
 
 1062028 //Condition: \[custom arguement\]
 
@@ -63,8 +60,7 @@ defs listed in sphere_defs.scp
 
 1113218 //Cooldown: \[custom arguement\] minutes
 
-1113943 //Cooldown: \[custom arguement\] hours 1114057 //\[custom
-arguement\]
+1113943 //Cooldown: \[custom arguement\] hours 1114057 //\[custom arguement\]
 
 1114778 //\[custom arguement\]
 

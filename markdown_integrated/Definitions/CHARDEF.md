@@ -1,7 +1,6 @@
-\_\_FORCETOC\_\_
 
-A CHARDEF block defines the basic properties of a
-[character](Characters "wikilink").
+
+A CHARDEF block defines the basic properties of a [character](Characters "wikilink").
 
 ## Properties
 
@@ -64,85 +63,68 @@ Here is a list of all character definition properties.
 | [TEVENTS](TEVENTS "wikilink") *event_defname* | RW | ?? | Gets a list of event handlers for the character, or adds an event handler to the character. |
 
 **†** Some properties can be overridden on a individual character basis.
-For example, you can set TAG.OVERRIDE.MOVERATE on a specific NPC to
-speed up or slow down the speed at which that one NPC will move.
+```
+For example, you can set TAG.OVERRIDE.MOVERATE on a specific NPC to speed up or slow down the speed at which that one NPC will move.
 
+```
 ## INI Overrides
+```
 
+```
 | **Name** | **Description** |
 |----|----|
 | TAG.OVERRIDE.RUNNINGPENALTY | This special tag overrides the INI setting of the same name on a per character basis. |
 | TAG.OVERRIDE.STAMINALOSSATWEIGHT | This special tag overrides the INI setting of the same name on a per character basis. |
+```
 
+```
 ## Others
+```
 
+```
 | **Name**       | **Description**                                           |
 |----------------|-----------------------------------------------------------|
 | TAG.NoMoveTill | doesn't allow char to move if TAG.NoMoveTill \> SERV.Time |
 |                |                                                           |
+```
 
+```
 ## Examples
+```
 
-This first example shows a "base" CHARDEF... these are identified by the
-fact that the CHARDEF keyword is followed by a number:
+This first example shows a "base" CHARDEF... these are identified by the fact that the CHARDEF keyword is followed by a number:
 
-<spherescript>\[CHARDEF 01\] // This is a "base" chardef for character
-animation 01 (from the mul/uop files) // This is the start of the "base"
-properties. // Values set in the base properties cannot have a range
-(you cannot use {1 10}) DEFNAME=c_ogre // The DEFNAME is a friendly name
-to reference this CHARDEF NAME=ogre // This is the creature's name as
-seen in-game ICON=i_pet_ogre // If the creature is shrunk, this is the
-item that will result SOUND=snd_monster_ogre1 // This is the start of
-the sound entries for this creature CAN=MT_WALK\|MT_USEHANDS\|MT_EQUIP
-// These flags are defined in the can_flags area of sphere_defs.scp
-DAM=18,22 // This is the range of damage they creature will cause when
-not using a weapon ARMOR=30 // ARMOR is the physical damage resistance
-\*before\* additional armor is equipped
-DESIRES=r_forests,t_gold,t_coin,t_gem,t_arock
-AVERSIONS=t_trap,r_civilization FOODTYPE=35 t_meat_raw // This is the
-maximum amount (and types) of food the creature eats RESOURCES=2
-i_ribs_raw // If this creature's corpse is carved, these resources will
-be created BLOODCOLOR=colors_blood // This is the color of this
-creatures blood MOVERATE=100 TAG.Barding.Diff=48.8 // When a TAG is
-added to the "base properties", all existing creatures are affected
-TAG.SlayerGroup=OGRE,REPOND TEVENTS=e_carnivores2 // EVENTS are
-collections of triggers used by CHARDEFs. Each TEVENT must be on its own
-line. CATEGORY=Monsters // CATEGORY, SUBSECTION, and DESCRIPTION are
-used by the GM tool "Axis" SUBSECTION=Giants DESCRIPTION=Ogre
+\[CHARDEF 01\] // This is a "base" chardef for character animation 01 (from the mul/uop files) // This is the start of the "base" properties. // Values set in the base properties cannot have a range (you cannot use {1 10}) DEFNAME=c_ogre // The DEFNAME is a friendly name to reference this CHARDEF NAME=ogre // This is the creature's name as seen in-game ICON=i_pet_ogre // If the creature is shrunk, this is the item that will result SOUND=snd_monster_ogre1 // This is the start of the sound entries for this creature CAN=MT_WALK\|MT_USEHANDS\|MT_EQUIP // These flags are defined in the can_flags area of sphere_defs.scp DAM=18,22 // This is the range of damage they creature will cause when not using a weapon ARMOR=30 // ARMOR is the physical damage resistance \*before\* additional armor is equipped DESIRES=r_forests,t_gold,t_coin,t_gem,t_arock AVERSIONS=t_trap,r_civilization FOODTYPE=35 t_meat_raw // This is the maximum amount (and types) of food the creature eats RESOURCES=2 i_ribs_raw // If this creature's corpse is carved, these resources will be created BLOODCOLOR=colors_blood // This is the color of this creatures blood MOVERATE=100 TAG.Barding.Diff=48.8 // When a TAG is added to the "base properties", all existing creatures are affected TAG.SlayerGroup=OGRE,REPOND TEVENTS=e_carnivores2 // EVENTS are collections of triggers used by CHARDEFs. Each TEVENT must be on its own line. CATEGORY=Monsters // CATEGORY, SUBSECTION, and DESCRIPTION are used by the GM tool "Axis" SUBSECTION=Giants DESCRIPTION=Ogre
 
-// This is the end of the "base" properties, and the start of the
-"triggers". // You can override \*most\* base properties in a trigger if
-necessary.
+// This is the end of the "base" properties, and the start of the "triggers". // You can override \*most\* base properties in a trigger if necessary.
 
 ON=@Create // This is the @Create trigger
 
-`  NAME=#NAMES_OGRE               // #NAMES_OGRE is an array of names defined in sphere_names.scp`  
-`  TITLE=the ogre`  
-`  NPC=brain_monster              // The available "brains" are defined in sphere_defs.scp`  
-`  FAME={1500 1999}               // The { } marks are used to set a range of possible values`  
-`  KARMA={-1500 -1999}`  
-`  STR={165 195}`  
-`  MAXHITS={100 120}              // If MAXHITS is not set, the default value is the same as STR`  
-`  DEX={45 65}`  
-`  MAXSTAM={45 65}                // If MAXSTAM is not set, the default value is the same as DEX`  
-`  INT={45 70}`  
-`  MAXMANA={45 70}                // If MAXMANA is not set, the default value is the same as INT`  
-`  MAGICRESISTANCE={55.0 70.0}`  
-`  PARRYING={60.0 70.0}`  
-`  TACTICS={60.0 70.0}`  
-`  WRESTLING={70.0 80.0}`  
-`  MODAR={0 5}                    // Setting MODAR in @Create lets us add o-5 more ARMOR to this creature`  
-`  RESCOLD={15 25}`  
-`  RESENERGY={15 25}`  
-`  RESFIRE={15 25}`  
+`  NAME=#NAMES_OGRE               // #NAMES_OGRE is an array of names defined in sphere_names.scp`
+`  TITLE=the ogre`
+`  NPC=brain_monster              // The available "brains" are defined in sphere_defs.scp`
+`  FAME={1500 1999}               // The { } marks are used to set a range of possible values`
+`  KARMA={-1500 -1999}`
+`  STR={165 195}`
+`  MAXHITS={100 120}              // If MAXHITS is not set, the default value is the same as STR`
+`  DEX={45 65}`
+`  MAXSTAM={45 65}                // If MAXSTAM is not set, the default value is the same as DEX`
+`  INT={45 70}`
+`  MAXMANA={45 70}                // If MAXMANA is not set, the default value is the same as INT`
+`  MAGICRESISTANCE={55.0 70.0}`
+`  PARRYING={60.0 70.0}`
+`  TACTICS={60.0 70.0}`
+`  WRESTLING={70.0 80.0}`
+`  MODAR={0 5}                    // Setting MODAR in @Create lets us add o-5 more ARMOR to this creature`
+`  RESCOLD={15 25}`
+`  RESENERGY={15 25}`
+`  RESFIRE={15 25}`
 `  RESPOISON={15 25}`
 
 ON=@NPCRestock
 
 `  ITEM=loot_ogre                 // This references a TEMPLATE in the sphere_templates_loot.scp file`
 
-</spherescript>
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Definitions](Category:_Definitions "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Definitions](Category:_Definitions "wikilink")
+```

@@ -8,8 +8,7 @@ Fires on:
 
 ## References
 
-The following object references are explicitly available for this
-trigger:
+The following object references are explicitly available for this trigger:
 
 |  |  |
 |----|----|
@@ -21,10 +20,7 @@ trigger:
 
 ## Arguments
 
-The following arguments are set for this trigger. If an argument is
-marked as "In" then a value will be passed in to the trigger, if an
-argument is marked as "Out" then it can be set to a value to affect
-Sphere's behaviour:
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
 
 |              |            |                                             |
 |--------------|------------|---------------------------------------------|
@@ -42,6 +38,4 @@ The following return values are explicitly defined for this trigger:
 | 0 | Proceeds with rewarding experience (if enabled) and placing the crafting item into the character's backpack, but does not play any potion sounds or display quality messages. |
 | 1 | Prevents any further action taking place for the skill. The crafted item will also be deleted. |
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Triggers](Category:_Triggers "wikilink")

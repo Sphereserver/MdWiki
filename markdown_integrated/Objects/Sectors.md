@@ -1,16 +1,8 @@
-\_\_FORCETOC\_\_ The world is split into fixed-size sectors (by default,
-64x64 tiles). Environmental settings (light, weather, etc) are stored on
-a per-sector basis. Accessing sectors in scripts can be accomplished
-using the SECTOR reference from a [character](Characters "wikilink"),
-[item](Items "wikilink") or [map point](Map_Points "wikilink") object.
-The following table details the various properties of the sector object
-in SphereServer:
+ The world is split into fixed-size sectors (by default,64x64 tiles). Environmental settings (light, weather, etc) are stored on a per-sector basis. Accessing sectors in scripts can be accomplished using the SECTOR reference from a [character](Characters "wikilink"), [item](Items "wikilink") or [map point](Map_Points "wikilink") object. The following table details the various properties of the sector object in SphereServer:
 
 ## Properties and Functions
 
-Here is a list of all sector properties and functions. If a function is
-marked as readable then it can return a value when used as <KEY>. Click
-on the name for more detailed information such as usage and examples.
+Here is a list of all sector properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples.
 
 |  |  |  |
 |----|----|----|
@@ -43,6 +35,4 @@ on the name for more detailed information such as usage and examples.
 | [SNOW](SNOW "wikilink") | W | Sets the weather to snowing. |
 | [WEATHER](WEATHER "wikilink") | RW | Gets or sets the current weather in the sector. |
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Objects](Category:_Objects "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Objects](Category:_Objects "wikilink")

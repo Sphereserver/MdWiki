@@ -1,7 +1,6 @@
 ## Description
 
-This trigger fires when a character attempts to quickly use a skill
-without changing their [ACTION](ACTION "wikilink") property.
+This trigger fires when a character attempts to quickly use a skill without changing their [ACTION](ACTION "wikilink") property.
 
 Fires on:
 
@@ -9,8 +8,7 @@ Fires on:
 
 ## References
 
-The following object references are explicitly available for this
-trigger:
+The following object references are explicitly available for this trigger:
 
 |  |  |
 |----|----|
@@ -20,10 +18,7 @@ trigger:
 
 ## Arguments
 
-The following arguments are set for this trigger. If an argument is
-marked as "In" then a value will be passed in to the trigger, if an
-argument is marked as "Out" then it can be set to a value to affect
-Sphere's behaviour:
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
 
 |  |  |  |
 |----|----|----|
@@ -42,6 +37,4 @@ The following return values are explicitly defined for this trigger:
 | 0                | Fails the skill use without awarding skill gain.    |
 | 1                | Succeeds the skill use without awarding skill gain. |
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Triggers](Category:_Triggers "wikilink")

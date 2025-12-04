@@ -1,7 +1,6 @@
-SERV.RTIME.FORMAT <args>
+`SERV.RTIME.FORMAT` <args>
 
-SERV.RTIME.FORMAT accepts arguments as a string, e.g. SERV.RTIME.FORMAT
-%d returns the number of the day.
+`SERV.RTIME.FORMAT` accepts arguments as a string, e.g. `SERV.RTIME.FORMAT` %d returns the number of the day.
 
 Acceptable variables are:
 

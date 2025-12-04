@@ -1,89 +1,38 @@
-\_\_FORCETOC\_\_
+
 
 ## Exit Codes
 
-When Sphere closes, an 'exit code' will normally be shown in the console
-to describe why it is being shut down. In general, an exit code less
-than 0 is considered to be an error code, and values above 0 are normal
-shutdown codes. In most cases, a more descriptive error will be shown in
-the console and/or log file to help better diagnose the reason behind
-error codes.
+When Sphere closes, an 'exit code' will normally be shown in the console to describe why it is being shut down. In general, an exit code less than 0 is considered to be an error code, and values above 0 are normal shutdown codes. In most cases, a more descriptive error will be shown in the console and/or log file to help better diagnose the reason behind error codes.
 
 The following table lists all of the current codes and their meanings.
 
-<table>
-<tbody>
-<tr>
-<td><p><strong>Code</strong></p></td>
-<td><p><strong>Description</strong></p></td>
-</tr>
-<tr>
-<td><p>-10</p></td>
-<td><p>Unexpected error occurred</p></td>
-</tr>
-<tr>
-<td><p>-9</p></td>
-<td><p>Failed to bind server port</p></td>
-</tr>
-<tr>
-<td><p>-8</p></td>
-<td><p>Failed to load world save(s)</p></td>
-</tr>
-<tr>
-<td><p>-3</p></td>
-<td><p>Failed to load server settings (script, ini, mul files)
-<em>or</em><br />
-did not write AGREE=1 in the sphere.ini</p></td>
-</tr>
-<tr>
-<td><p>-1</p></td>
-<td><p>Shutdown via commandline (/?, /T and /Q switches)</p></td>
-</tr>
-<tr>
-<td><p>1</p></td>
-<td><p>X in console <em>or</em><br />
-SIGHUP signal, terminal closed (Linux Only)</p></td>
-</tr>
-<tr>
-<td><p>2</p></td>
-<td><p>SHUTDOWN command</p></td>
-</tr>
-<tr>
-<td><p>4</p></td>
-<td><p>Service shutdown <em>(Windows Only)</em></p></td>
-</tr>
-<tr>
-<td><p>5</p></td>
-<td><p>Console window closed <em>(Windows Only)</em></p></td>
-</tr>
-<tr>
-<td><p>6</p></td>
-<td><p>SIGABRT signal, process aborted <em>(Linux Only)</em></p></td>
-</tr>
-</tbody>
-</table>
+| **Code** | **Description** |
+| --- | --- |
+| -10 | Unexpected error occurred |
+| -9 | Failed to bind server port |
+| -8 | Failed to load world save(s) |
+| -3 | Failed to load server settings (script, ini, mul files) *or* did not write AGREE=1 in the sphere.ini |
+| -1 | Shutdown via commandline (/?, /T and /Q switches) |
+| 1 | X in console *or* SIGHUP signal, terminal closed (Linux Only) |
+| 2 | SHUTDOWN command |
+| 4 | Service shutdown *(Windows Only)* |
+| 5 | Console window closed *(Windows Only)* |
+| 6 | SIGABRT signal, process aborted *(Linux Only)* |
 
 ## Garbage Collection
 
-The purpose of garbage collection is to validate all of the server
-objects and free up unused UIDs. Garbage collection is initiated:
+The purpose of garbage collection is to validate all of the server objects and free up unused UIDs. Garbage collection is initiated:
 
 - After the world save is loaded at startup.
 - Before a world save begins, if the
-  [FORCEGARBAGECOLLECT](FORCEGARBAGECOLLECT "wikilink") setting is
-  enabled in Sphere.ini.
+  [FORCEGARBAGECOLLECT](FORCEGARBAGECOLLECT "wikilink") setting is enabled in Sphere.ini.
 - After the [IMPORT](IMPORT "wikilink") or [RESTORE](RESTORE "wikilink")
   functions have been used on the [server](Server "wikilink") object.
 - When the 'G' command is entered via the Sphere console
 - When the [GARBAGE](GARBAGE "wikilink") function is used on the
   [server](Server "wikilink") object.
 
-When garbage collection encounters a problem with an object it may
-attempt to automatically correct the error, otherwise the object will be
-removed. When an object is removed by garbage collection there will
-normally be an error shown in the console describing the item that was
-removed along with the reason. The following table lists all of the
-garbage collection codes along with their description:
+When garbage collection encounters a problem with an object it may attempt to automatically correct the error, otherwise the object will be removed. When an object is removed by garbage collection there will normally be an error shown in the console describing the item that was removed along with the reason. The following table lists all of the garbage collection codes along with their description:
 
 |  |  |  |  |
 |----|----|----|----|
@@ -132,8 +81,4 @@ garbage collection codes along with their description:
 | 7102 | Object does not exist. | An object does not exist. | \* |
 | FFFF | Bad memory allocation | An exception was thrown whilst checking the object's validity. | \* |
 
-**Note**: *Garbage collection codes marked with \* generally indicate a
-serious error within an object's internal state and should not normally
-be seen. If you are experiencing and are able to reliably reproduce any
-such errors then please report the details to the [bug
-tracker](http://tracker.sphere.torfo.org/bugs/main_page.php).*
+**Note**: *Garbage collection codes marked with \* generally indicate a serious error within an object's internal state and should not normally be seen. If you are experiencing and are able to reliably reproduce any such errors then please report the details to the [bug tracker](http://tracker.sphere.torfo.org/bugs/main_page.php).*

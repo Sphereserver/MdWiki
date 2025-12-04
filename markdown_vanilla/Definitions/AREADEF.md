@@ -1,18 +1,15 @@
-\_\_FORCETOC\_\_ Areas in the world, such as dungeons and cities are
-defined by regions. Regions are constructed from one or more
-"rectangles" on the map.
+ Areas in the world, such as dungeons and cities are defined by regions. Regions are constructed from one or more "rectangles" on the map.
 
 The basic syntax for definining a region is as follows:
 
-`[AREADEF `*`defname`*`]`  
-`RECT=`*`left, top, right, bottom, map`*  
-`RECT=`*`left, top, right, bottom, map`*  
-`RECT=`*`left, top, right, bottom, map`*  
+`[AREADEF `*`defname`*`]`
+`RECT=`*`left, top, right, bottom, map`*
+`RECT=`*`left, top, right, bottom, map`*
+`RECT=`*`left, top, right, bottom, map`*
 
 ## Properties
 
-Within the region definition the following properties are also available
-to customise the behaviour of the area.
+Within the region definition the following properties are also available to customise the behaviour of the area.
 
 |  |  |  |
 |----|----|----|
@@ -43,21 +40,22 @@ to customise the behaviour of the area.
 
 ## Examples
 
-<spherescript> // // The world region from the default script pack. //
+```
+ // // The world region from the default script pack. //
+```
 \[AREADEF a_world\]
-EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
-NAME=Felucca GROUP=ALLMAP P=1323,1624,55,0 RECT=0,0,7168,4096,0
-</spherescript>
+```
+EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass NAME=Felucca GROUP=ALLMAP P=1323,1624,55,0 RECT=0,0,7168,4096,0
+```
 
-<spherescript> // // Lord British's Castle from the default script pack.
-// \[AREADEF a_lord_britishs_castle_1\]
-EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+
+```
+ // // Lord British's Castle from the default script pack. // \[AREADEF a_lord_britishs_castle_1\] EVENTS=r_default,r_default_rock,r_default_water,r_default_tree,r_default_grass
+```
 NAME=Lord British's Castle GROUP=Britain FLAGS=0648e P=1392,1625,30,0
-RECT=1294,1679,1411,1697,0 RECT=1295,1559,1313,1577,0
-RECT=1392,1559,1410,1577,0 RECT=1302,1577,1410,1680,0
-RECT=1313,1563,1392,1577,0 EVENTS=r_brit_castle TAG.GUARDOWNER=Lord
-British's Personal </spherescript>
+```
+RECT=1294,1679,1411,1697,0 RECT=1295,1559,1313,1577,0 RECT=1392,1559,1410,1577,0 RECT=1302,1577,1410,1680,0 RECT=1313,1563,1392,1577,0 EVENTS=r_brit_castle TAG.GUARDOWNER=Lord
+```
+British's Personal
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Definitions](Category:_Definitions "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Definitions](Category:_Definitions "wikilink")

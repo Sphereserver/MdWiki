@@ -1,15 +1,10 @@
-\_\_FORCETOC\_\_ Using the [FILE](FILE "wikilink") object reference,
-scripts can interact with text files. The following table details the
-various properties of the file object in SphereServer:
+ Using the [FILE](FILE "wikilink") object reference, scripts can interact with text files. The following table details the various properties of the file object in SphereServer:
 
-**Note:** Before the FILE object can be used, the OF_FileCommands flag
-must be set in Sphere.ini's OptionFlags setting.
+**Note:** Before the FILE object can be used, the OF_FileCommands flag must be set in Sphere.ini's OptionFlags setting.
 
 ## Properties and Functions
 
-Here is a list of all file properties and functions. If a function is
-marked as readable then it can return a value when used as <KEY>. Click
-on the name for more detailed information such as usage and examples.
+Here is a list of all file properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples.
 
 |  |  |  |
 |----|----|----|
@@ -38,6 +33,4 @@ on the name for more detailed information such as usage and examples.
 | [WRITECHR](WRITECHR "wikilink") *ascii_value* | W | Writes a single character to the currently open file. |
 | [WRITELINE](WRITELINE "wikilink") *text* | W | Writes *text* to the currently open file, with newline character(s) on the end. |
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Objects](Category:_Objects "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Objects](Category:_Objects "wikilink")

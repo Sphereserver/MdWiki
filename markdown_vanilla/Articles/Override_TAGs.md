@@ -1,28 +1,12 @@
 ## Override Common Data
 
-Ever wondered why you can't change for example 'TDATA' values on a
-per-item basis? Or some default values from Sphere.ini?
+Ever wondered why you can't change for example 'TDATA' values on a per-item basis? Or some default values from Sphere.ini?
 
-The reason is simple: The majority of items, characters and situation
-will not need individual values there and are working fine with the
-default ones (either hardcoded or set in the INI or the \*DEF sections),
-so it simply would be a waste of memory to store them again on each game
-object. Therefore for example a single crossbow in the world reads what
-items it needs as ammunition not from it's "WORLDITEM" data object, but
-from it's ITEMDEF (the TDATA property).
+The reason is simple: The majority of items, characters and situation will not need individual values there and are working fine with the default ones (either hardcoded or set in the INI or the \*DEF sections), so it simply would be a waste of memory to store them again on each game object. Therefore for example a single crossbow in the world reads what items it needs as ammunition not from it's "WORLDITEM" data object, but from it's ITEMDEF (the TDATA property).
 
-Alas, as time goes by for some stuff it showed reasonable to allow
-overriding the default values for a single item, character or even
-region. Nevertheless it still would be a waste of resources to give all
-crossbows an "ammunition" property what on almost all of them will read:
-"default". So the Sphere developers decided to store the respective
-individual changes in TAGs: If the TAG exists it will be used, if not,
-the default is used.
+Alas, as time goes by for some stuff it showed reasonable to allow overriding the default values for a single item, character or even region. Nevertheless it still would be a waste of resources to give all crossbows an "ammunition" property what on almost all of them will read: "default". So the Sphere developers decided to store the respective individual changes in TAGs: If the TAG exists it will be used, if not, the default is used.
 
-Common to most overrides is the syntax of the TAG's name:
-**TAG.OVERRIDE.\*** - where "**\***" denotes the name of the respective
-tag. But there are also some others what were named before this naming
-scheme was established.
+Common to most overrides is the syntax of the TAG's name: **`TAG.OVERRIDE.`\*** - where "**\***" denotes the name of the respective `tag.` But there are also some others what were named before this naming scheme was established.
 
 ## Item-based Override TAGs
 

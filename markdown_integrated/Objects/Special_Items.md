@@ -1,23 +1,12 @@
-Certain types of items have extended functionality, and therefore have
-additional properties, functions or references to the ones already
-listed on the [Items](Items "wikilink") page. The following sections
-describe what these are.
+Certain types of items have extended functionality, and therefore have additional properties, functions or references to the ones already listed on the [Items](Items "wikilink") page. The following sections describe what these are.
 
 ## Multis
 
-Multis have a TYPE t_multi, t_multi_custom or t_ship. These are
-multi-piece items that are usually stored in the client's multi.mul
-file, but are only considered to be one item to both the server and
-client (so when you approach a castle, there is a significant reduction
-in lag since the server doesn't have to tell the client to display
-thousands of wall pieces).
+Multis have a TYPE `t_multi`, `t_multi_custom` or `t_ship.` These are multi-piece items that are usually stored in the client's multi.mul file, but are only considered to be one item to both the server and client (so when you approach a castle, there is a significant reductionin lag since the server doesn't have to tell the client to display thousands of wall pieces).
 
 ### Properties and Functions
 
-Here is a list of all multi properties and functions. If a function is
-marked as readable then it can return a value when used as \<KEY\>.
-Click on the name for more detailed information such as usage and
-examples.
+Here is a list of all multi properties and functions. If a function is marked as readable then it can return a value when used as \<KEY\>. Click on the name for more detailed information such as usage and examples.
 
 |  |  |  |
 |----|----|----|
@@ -28,32 +17,28 @@ examples.
 
 ## Customizable Multis
 
-Customizable multis are represented by the TYPE of t_multi_custom. These
-are designed to be used with the AOS House Designer tool that is present
-since the 4.0.0 series of UO clients.
+Customizable multis are represented by the TYPE of `t_multi_custom.` These are designed to be used with the AOS House Designer tool that is present since the 4.0.0 series of UO clients.
 
 ### References
 
-References return pointers to other objects (e.g. the REGION reference
-allows you to access the REGION that an object is in). These can either
-be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink")
-(1 for object types that don't have UIDs) of the object or 0 if it
-doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid
-property/function/reference for the *REFNAME* object. Click on the name
+References return pointers to other objects (e.g. the REGION referenceallows you to access the REGION that an object is in). These can either be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink") (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid property/function/reference for the *REFNAME* object. Click on the name
+```
 for more detailed information such as usage and examples.
 
+```
 |  |  |  |
 |----|----|----|
 | **Name** | **Read/Write** | **Description** |
 | [DESIGNER](DESIGNER "wikilink") | R | Gets the [character](Characters "wikilink") currently modifying the house design. |
+```
 
+```
 ### Properties and Functions
+```
 
-Here is a list of all custom multi properties and functions. If a
-function is marked as readable then it can return a value when used as
-\<KEY\>. Click on the name for more detailed information such as usage
-and examples.
+Here is a list of all custom multi properties and functions. If a function is marked as readable then it can return a value when used as \<KEY\>. Click on the name for more detailed information such as usage and examples.
 
+```
 |  |  |  |
 |----|----|----|
 | **Name** | **Read/Write** | **Description** |
@@ -72,36 +57,36 @@ and examples.
 | [RESYNC](RESYNC "wikilink") *character_uid* | W | Resends the current building state to the specified character (or SRC). |
 | [REVERT](REVERT "wikilink") | W | Undoes all of the changes made to the house design since the last commit. |
 | [REVISION](REVISION "wikilink") | R | Gets the revision number of the house design. |
+```
 
+```
 ## Ships
+```
 
-Ships have the TYPE t_ship, and are another extended version of multis
-that are designed to be used to sail around the world.
+Ships have the TYPE t_ship, and are another extended version of multis that are designed to be used to sail around the world.
 
+```
 ### References
+```
 
-References return pointers to other objects (e.g. the REGION reference
-allows you to access the REGION that an object is in). These can either
-be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink")
-(1 for object types that don't have UIDs) of the object or 0 if it
-doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid
-property/function/reference for the *REFNAME* object. Click on the name
-for more detailed information such as usage and examples.
+References return pointers to other objects (e.g. the REGION referenceallows you to access the REGION that an object is in). These can either be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink") (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid property/function/reference for the *REFNAME* object. Click on the name for more detailed information such as usage and examples.
 
+```
 |  |  |  |
 |----|----|----|
 | **Name** | **Read/Write** | **Description** |
 | [HATCH](HATCH "wikilink") | R | Gets the ship's [hatch](Items "wikilink"). |
 | [TILLER](TILLER "wikilink") | R | Gets the ship's [tiller](Items "wikilink"). |
 | [PLANK](PLANK "wikilink")*.n* | R | Gets the nth ship [plank](Items "wikilink"). (zero-based) |
+```
 
+```
 ### Properties and Functions
+```
 
-Here is a list of all ship properties and functions. If a function is
-marked as readable then it can return a value when used as \<KEY\>.
-Click on the name for more detailed information such as usage and
-examples.
+Here is a list of all ship properties and functions. If a function is marked as readable then it can return a value when used as \<KEY\>. Click on the name for more detailed information such as usage and examples.
 
+```
 |  |  |  |
 |----|----|----|
 | **Name** | **Read/Write** | **Description** |
@@ -128,64 +113,41 @@ examples.
 | [SHIPTURNLEFT](SHIPTURNLEFT "wikilink") | W | Rotates the ship to its left. |
 | [SHIPTURNRIGHT](SHIPTURNRIGHT "wikilink") | W | Rotates the ship to its right. |
 | [SHIPUP](SHIPUP "wikilink") | W | Begins moving the ship upwards, if ATTR_MAGIC is set. |
+```
 
+```
 ## Maps
+```
 
-The TYPEs t_map and t_map_blank are used to represent maps. These
-display a map to the player when used, that can be marked with a series
-of pins (markers) to plot a route.
+The TYPEs t_map and t_map_blank are used to represent maps. These display a map to the player when used, that can be marked with a series of pins (markers) to plot a route.
 
+```
 ### Properties and Functions
+```
 
-Here is a list of all map properties and functions. If a function is
-marked as readable then it can return a value when used as \<KEY\>.
-Click on the name for more detailed information such as usage and
-examples.
+Here is a list of all map properties and functions. If a function is marked as readable then it can return a value when used as \<KEY\>. Click on the name for more detailed information such as usage and examples.
 
-<table>
-<tbody>
-<tr>
-<td><p><strong>Name</strong></p></td>
-<td><p><strong>Read/Write</strong></p></td>
-<td><p><strong>Description</strong></p></td>
-</tr>
-<tr>
-<td><p><a href="PIN" title="wikilink">PIN</a><em>.n</em><br />
-<a href="PIN" title="wikilink">PIN</a> <em>x, y</em></p></td>
-<td><p>RW</p></td>
-<td><p>Gets the position of the <em>nth</em> pin (zero-based), or adds a
-pin to the map at the specified location.</p></td>
-</tr>
-<tr>
-<td><p><a href="MORE1H" title="wikilink">MORE1H</a>,<a href="MORE1L"
-title="wikilink">MORE1L</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets the top left coordinates (x,y) of the area displayed on
-t_map.</p></td>
-</tr>
-<tr>
-<td><p><a href="MORE2H" title="wikilink">MORE2H</a>,<a href="MORE2L"
-title="wikilink">MORE2L</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets the bottom right coordinates (x,y) of the area displayed on
-t_map.</p></td>
-</tr>
-</tbody>
-</table>
+```
+| **Name** | **Read/Write** | **Description** |
+| --- | --- | --- |
+| [PIN](PIN)*.n* [PIN](PIN) *x, y* | RW | Gets the position of the *nth* pin (zero-based), or adds a pin to the map at the specified location. |
+| [MORE1H](MORE1H),[MORE1L](MORE1L) | RW | Gets the top left coordinates (x,y) of the area displayed on t_map. |
+| [MORE2H](MORE2H),[MORE2L](MORE2L) | RW | Gets the bottom right coordinates (x,y) of the area displayed on t_map. |
+```
 
+```
 ## Messages / Books
+```
 
-Messages (t_message) and books (t_book) possess a range of properties
-and functions that are used to store their title, author and body text.
-The maximum number of pages in a book has been extended to 255.
+Messages (t_message) and books (t_book) possess a range of properties and functions that are used to store their title, author and body text. The maximum number of pages in a book has been extended to 255.
 
+```
 ### Properties and Functions
+```
 
-Here is a list of all message properties and functions. If a function is
-marked as readable then it can return a value when used as \<KEY\>.
-Click on the name for more detailed information such as usage and
-examples.
+Here is a list of all message properties and functions. If a function is marked as readable then it can return a value when used as \<KEY\>. Click on the name for more detailed information such as usage and examples.
 
+```
 |  |  |  |
 |----|----|----|
 | **Name** | **Read/Write** | **Description** |
@@ -195,40 +157,40 @@ examples.
 | [PAGE](PAGE "wikilink")*.n* | W | Sets the text of the nth single line of the message. (zero-based) |
 | [PAGES](PAGES "wikilink") | R | Gets the number of lines of text in the message. |
 | [TITLE](TITLE "wikilink") | RW | Gets or sets the title of message. |
+```
 
+```
 ## Communication Crystals
+```
 
 Communication crystals have the TYPE of t_comm_crystal.
 
+```
 ### Properties and Functions
+```
 
-Here is a list of all communication crystal properties and functions. If
-a function is marked as readable then it can return a value when used as
-\<KEY\>. Click on the name for more detailed information such as usage
-and examples.
+Here is a list of all communication crystal properties and functions. If a function is marked as readable then it can return a value when used as \<KEY\>. Click on the name for more detailed information such as usage and examples.
 
+```
 |  |  |  |
 |----|----|----|
 | **Name** | **Read/Write** | **Description** |
 | [SPEECH](SPEECH "wikilink") *-/+speech_defname* | RW | Gets a list of attached SPEECH blocks, or adds to or removes from the attached speech.. |
+```
 
+```
 ## Guild/Town Stones
+```
 
-Guild and Town stones are defined by the types t_stone_guild and
-t_stone_town. Whilst a lot of functionality has been moved into the
-script pack, there are still some special properties, functions and
-references that can be used.
+Guild and Town stones are defined by the types t_stone_guild and t_stone_town. Whilst a lot of functionality has been moved into the script pack, there are still some special properties, functions and references that can be used.
 
+```
 ### References
+```
 
-References return pointers to other objects (e.g. the REGION reference
-allows you to access the REGION that an object is in). These can either
-be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink")
-(1 for object types that don't have UIDs) of the object or 0 if it
-doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid
-property/function/reference for the *REFNAME* object. Click on the name
-for more detailed information such as usage and examples.
+References return pointers to other objects (e.g. the REGION referenceallows you to access the REGION that an object is in). These can either be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink") (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid property/function/reference for the *REFNAME* object. Click on the name for more detailed information such as usage and examples.
 
+```
 |  |  |  |
 |----|----|----|
 | **Name** | **Read/Write** | **Description** |
@@ -236,14 +198,15 @@ for more detailed information such as usage and examples.
 | [GUILDFROMUID](GUILDFROMUID "wikilink")''stone_uid | R | Gets the linked [guild or town](#Guild.2FTown_Members "wikilink") with a specified UID. |
 | [MEMBER](MEMBER "wikilink")''.n | R | Gets the nth member of the [guild or town](#Guild.2FTown_Members "wikilink"). (zero-based) |
 | [MEMBERFROMUID](MEMBERFROMUID "wikilink").''character_uid | R | Gets the [member](#Guild.2FTown_Members "wikilink") of the guild with a specified UID. |
+```
 
+```
 ### Properties and Functions
+```
 
-Here is a list of all guild/town stone properties and functions. If a
-function is marked as readable then it can return a value when used as
-\<KEY\>. Click on the name for more detailed information such as usage
-and examples.
+Here is a list of all guild/town stone properties and functions. If a function is marked as readable then it can return a value when used as \<KEY\>. Click on the name for more detailed information such as usage and examples.
 
+```
 |  |  |  |
 |----|----|----|
 | **Name** | **Read/Write** | **Description** |
@@ -271,30 +234,25 @@ and examples.
 | [TOGGLEABBREVIATION](TOGGLEABBREVIATION "wikilink") *character_uid* | W | Toggles the display of guild/town abbreviation for a member or SRC. |
 | [WEBPAGE](WEBPAGE "wikilink") | RW | Gets or sets the guild or town's webpage. |
 | [CHARTER](CHARTER "wikilink")*.n* | EW | Gets or sets the nth line of the guild/town charter. (zero-based) |
+```
 
+```
 ## Guild/Town Members
+```
 
-When accessing a member of a guild or town via the
-[MEMBER](MEMBER "wikilink").x,r
-[MEMBERFROMUID](MEMBERFROMUID "wikilink").uid,
-[GUILD](GUILD "wikilink").x, or
-[GUILDFROMUID](GUILDFROMUID "wikilink").uid references, you access a
-special "Guild/Town Member" object which has specific properties,
-references and functions available. If you attempt to access something
-that doesn't exist in any of the following tables then the command is
-'redirected' to the actual character or item the member object is linked
-to (so something like *\<MEMBER.x.STR\>* would work because the STR
-property exists on the [character](Characters "wikilink")).
+When accessing a member of a guild or town via the [MEMBER](MEMBER "wikilink").x,r [MEMBERFROMUID](MEMBERFROMUID "wikilink").uid, [GUILD](GUILD "wikilink").x, or [GUILDFROMUID](GUILDFROMUID "wikilink").uid references, you access a special "Guild/Town Member" object which has specific properties, references and functions available. If you attempt to access something that doesn't exist in any of the following tables then the command is 'redirected' to the actual character or item the member object is linked to (so something like *\<MEMBER.x.STR\>* would work because the STRproperty exists on the [character](Characters "wikilink")).
 
+```
 ### Properties and Functions
+```
 
-Here is a list of all guild/town member properties and functions. If a
-function is marked as readable then it can return a value when used as
-\<KEY\>. Click on the name for more detailed information such as usage
-and examples.
+Here is a list of all guild/town member properties and functions. If a function is marked as readable then it can return a value when used as \<KEY\>. Click on the name for more detailed information such as usage and examples.
 
+```
 #### Character Members
+```
 
+```
 |  |  |  |
 |----|----|----|
 | **Name** | **Read/Write** | **Description** |
@@ -306,9 +264,13 @@ and examples.
 | [PRIVNAME](PRIVNAME "wikilink") | R | Returns the name of the member's privilege level within the guild/town. |
 | [TITLE](TITLE "wikilink") | RW | Gets or sets the member's title within the guild/town. |
 | [SHOWABBREV](SHOWABBREV "wikilink") | RW | Gets or sets whether or not the member's abbreviation is shown. |
+```
 
+```
 #### Item Members
+```
 
+```
 |  |  |  |
 |----|----|----|
 | **Name** | **Read/Write** | **Description** |
@@ -317,37 +279,36 @@ and examples.
 | [THEYWAR](THEYWAR "wikilink") | RW | Gets or sets whether or not the other guild/town has declared war. |
 | [WEALLIANCE](WEALLIANCE "wikilink") | RW | Gets or sets whether or not the guild/town has declared an alliance with the other guild/town. |
 | [WEWAR](WEWAR "wikilink") | RW | Gets or sets whether or not the guild/town has declared war with the other guild/town. |
+```
 
+```
 ## Containers
+```
 
-Container items (backpacks, bankboxes, bags, etc) can be used to hold
-other items. These items have the [TYPE](TYPE "wikilink") of
-t_container.
+Container items (backpacks, bankboxes, bags, etc) can be used to hold other items. These items have the [TYPE](TYPE "wikilink") of t_container.
 
+```
 ### References
+```
 
-References return pointers to other objects (e.g. the REGION reference
-allows you to access the REGION that an object is in). These can either
-be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink")
-(1 for object types that don't have UIDs) of the object or 0 if it
-doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid
-property/function/reference for the *REFNAME* object. Click on the name
-for more detailed information such as usage and examples.
+References return pointers to other objects (e.g. the REGION referenceallows you to access the REGION that an object is in). These can either be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink") (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid property/function/reference for the *REFNAME* object. Click on the name for more detailed information such as usage and examples.
 
+```
 |  |  |  |
 |----|----|----|
 | **Name** | **Read/Write** | **Description** |
 | [FINDCONT](FINDCONT "wikilink")*.n* | R | Gets the nth [item](Items "wikilink") from inside the container. (zero-based) |
 | [FINDID](FINDID "wikilink")*.item_id* | R | Gets the first [item](Items "wikilink") found inside the container with the matching [BASEID](BASEID "wikilink"). |
 | [FINDTYPE](FINDTYPE "wikilink")*.type* | R | Gets the first [item](Items "wikilink") found inside the container with the matching [TYPE](TYPE "wikilink"). |
+```
 
+```
 ### Properties and Functions
+```
 
-Here is a list of all custom multi properties and functions. If a
-function is marked as readable then it can return a value when used as
-\<KEY\>. Click on the name for more detailed information such as usage
-and examples.
+Here is a list of all custom multi properties and functions. If a function is marked as readable then it can return a value when used as \<KEY\>. Click on the name for more detailed information such as usage and examples.
 
+```
 |  |  |  |
 |----|----|----|
 | **Name** | **Read/Write** | **Description** |
@@ -359,27 +320,27 @@ and examples.
 | [OPEN](OPEN "wikilink") | W | Opens the container, for SRC to view its contents. |
 | [RESCOUNT](RESCOUNT "wikilink") *item_defname* | R | Returns the total amount of a specific item inside the container, including subcontainers. |
 | [RESTEST](RESTEST "wikilink") *item_list* | R | Returns 1 if all of the items in the list can be found inside the container, including subcontainers. |
+```
 
+```
 ## Vendable Items
+```
 
-When an item has value, either explicitly in the ITEMDEF's
-[VALUE](VALUE "wikilink") property or implicity in the ITEMDEF's
-[RESOURCES](RESOURCES "wikilink") property, it is considered a "Vendable
-Item" that can be sold on vendors.
+When an item has value, either explicitly in the ITEMDEF's [VALUE](VALUE "wikilink") property or implicity in the ITEMDEF's [RESOURCES](RESOURCES "wikilink") property, it is considered a "Vendable Item" that can be sold on vendors.
 
+```
 ### Properties and Functions
+```
 
-Here is a list of all vendable item properties and functions. If a
-function is marked as readable then it can return a value when used as
-\<KEY\>. Click on the name for more detailed information such as usage
-and examples.
+Here is a list of all vendable item properties and functions. If a function is marked as readable then it can return a value when used as \<KEY\>. Click on the name for more detailed information such as usage and examples.
 
+```
 |  |  |  |
 |----|----|----|
 | **Name** | **Read/Write** | **Description** |
 | [PRICE](PRICE "wikilink") | RW | Gets or sets the price of the item. (affect only the sell/buy price on player vendor. NPC use the value) |
 | [QUALITY](QUALITY "wikilink") | RW | Gets or sets the quality of the item. |
+```
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Objects](Category:_Objects "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Objects](Category:_Objects "wikilink")
+```

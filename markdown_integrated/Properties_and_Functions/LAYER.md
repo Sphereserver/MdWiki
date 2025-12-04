@@ -82,6 +82,4 @@ internally used layers - don't bother sending these to client.
 | 52 | layer_flag_murders | how many murders do we have ? and decay timer |
 | 53 | layer_flag_bandage | bandages go here for healing |
 
-[Category:Reference
-Compendium](Category:Reference_Compendium "wikilink") [Category:
-Properties and Functions](Category:_Properties_and_Functions "wikilink")
+[Category:Reference Compendium](Category:Reference_Compendium "wikilink") [Category: Properties and Functions](Category:_Properties_and_Functions "wikilink")

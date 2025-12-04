@@ -1,5 +1,4 @@
-\_\_FORCETOC\_\_ A spell block defines the basic properties and
-behaviours of a spell.
+ A spell block defines the basic properties and behaviours of a spell.
 
 ## Properties
 
@@ -30,9 +29,7 @@ The following properties are available when defining a spell:
 
 ## Triggers
 
-The following table lists all of the triggers that can be placed under a
-spell definition. All of the triggers here have an equivalent @Spell
-trigger on the [character](Characters "wikilink") object.
+The following table lists all of the triggers that can be placed under a spell definition. All of the triggers here have an equivalent @Spell trigger on the [character](Characters "wikilink") object.
 
 |  |  |  |
 |----|----|----|
@@ -49,15 +46,16 @@ trigger on the [character](Characters "wikilink") object.
 
 ## Examples
 
-<spherescript> // // Clumsy spell from the default script pack. //
+```
+ // // Clumsy spell from the default script pack. //
+```
 \[SPELL 1\] DEFNAME=s_clumsy NAME=Clumsy SOUND=snd_SPELL_CLUMSY RUNES=UJ
-CAST_TIME=1.0 RESOURCES=i_reag_blood_moss,i_reag_nightshade
-RUNE_ITEM=i_rune_CLUMSY SCROLL_ITEM=i_scroll_CLUMSY
-FLAGS=SPELLFLAG_TARG_CHAR \| SPELLFLAG_DIR_ANIM \| SPELLFLAG_HARM \|
-SPELLFLAG_FX_TARG \| SPELLFLAG_RESIST EFFECT_ID=i_fx_curse EFFECT=3,15
-DURATION=2\*60.0,3\*60.0 MANAUSE=4 SKILLREQ=MAGERY 10.0
-INTERRUPT=100.0,100.0 </spherescript>
+```
+CAST_TIME=1.0 RESOURCES=i_reag_blood_moss,i_reag_nightshade RUNE_ITEM=i_rune_CLUMSY SCROLL_ITEM=i_scroll_CLUMSY
+```
+FLAGS=SPELLFLAG_TARG_CHAR \| SPELLFLAG_DIR_ANIM \| SPELLFLAG_HARM \| SPELLFLAG_FX_TARG \| SPELLFLAG_RESIST EFFECT_ID=i_fx_curse EFFECT=3,15
+```
+DURATION=2\*60.0,3\*60.0 MANAUSE=4 SKILLREQ=MAGERY 10.0 INTERRUPT=100.0,100.0
+```
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Definitions](Category:_Definitions "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Definitions](Category:_Definitions "wikilink")

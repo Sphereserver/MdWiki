@@ -1,23 +1,18 @@
-\_\_FORCETOC\_\_ Skill menus are a more advanced form of
-[MENU](MENU "wikilink") where options can be hidden from the client
-based on criteria.
+ Skill menus are a more advanced form of [MENU](MENU "wikilink") where options can be hidden from the client based on criteria.
 
 ## Syntax
 
-The syntax for a skill menu is identical to a menu except for the
-definition starting with \[SKILLMENU rather than \[MENU. As with menus
-there are both text-based and item-based styles possible. Only the
-syntax for the item-based style of skill menu is shown below:
+The syntax for a skill menu is identical to a menu except for the definition starting with \[SKILLMENU rather than \[MENU. As with menus there are both text-based and item-based styles possible. Only the syntax for the item-based style of skill menu is shown below:
 
-`[SKILLMENU `*`defname`*`]`  
-*`title`*  
-  
-`ON=`*`baseid`*` `*`text`*  
-`    `*`script`*  
-  
-`ON=`*`baseid`*` @`*`hue`*`, `*`text`*  
-`    `*`script`*  
-  
+`[SKILLMENU `*`defname`*`]`
+*`title`*
+
+``ON=``*`baseid`*` `*`text`*
+`    `*`script`*
+
+``ON=``*`baseid`*` @`*`hue`*`, `*`text`*
+`    `*`script`*
+
 
 |  |  |
 |----|----|
@@ -32,10 +27,7 @@ syntax for the item-based style of skill menu is shown below:
 
 ## Functions
 
-Whilst the syntax for a skill menu is identical to a menu, the
-difference is that before displaying an option to the client Sphere will
-search the *script* lines for the following functions (more than one can
-be present). These functions affect the visibility of the menu option.
+Whilst the syntax for a skill menu is identical to a menu, the difference is that before displaying an option to the client Sphere will search the *script* lines for the following functions (more than one canbe present). These functions affect the visibility of the menu option.
 
 |  |  |
 |----|----|
@@ -47,64 +39,62 @@ be present). These functions affect the visibility of the menu option.
 
 ## Triggers
 
-When the client selects an option from the skill menu, the "ON=*...*"
-section will be executed, in a similar fashion to how a trigger would
-fire.
+When the client selects an option from the skill menu, the "`ON=`*...*" section will be executed, in a similar fashion to how a trigger would fire.
 
-If the client cancels the menu (by right-clicking it, or for text-based
-menus by pressing "Cancel"), an @Cancel trigger will be fired.
+```
+If the client cancels the menu (by right-clicking it, or for text-basedmenus by pressing "Cancel"), an @Cancel trigger will be fired.
 
 In both cases, the following references and arguments are available:
 
+```
 |  |  |
 |----|----|
 | **Name** | **Description** |
 | **[I](I "wikilink")** | The [character](Characters "wikilink") or [item](Items "wikilink") that the MENU function was called from. |
 | **[SRC](SRC "wikilink")** | The client operating the menu. |
+```
 
+```
 ## Examples
+```
 
-<spherescript> // // sm_cloth_misc skill menu from the default script
-pack. // \[SKILLMENU sm_cloth_misc\] Misc.
+ // // sm_cloth_misc skill menu from the default script pack. // \[SKILLMENU sm_cloth_misc\] Misc.
 
 ON=i_SASH <NAME> (<RESMAKE>) MAKEITEM=i_SASH
 
 ON=i_apron_half <NAME> (<RESMAKE>) MAKEITEM=i_apron_half
 
-ON=i_apron_full <NAME> (<RESMAKE>) MAKEITEM=i_apron_full </spherescript>
+ON=i_apron_full <NAME> (<RESMAKE>) MAKEITEM=i_apron_full
 
-<spherescript> // // Similar to the MENU example, except adds conditions
-to the options. // \[SKILLMENU sm_itemmenu\] Which item would you like?
+ // // Similar to the MENU example, except adds conditions to the options. // \[SKILLMENU sm_itemmenu\] Which item would you like?
 
 ON=i_sword_viking <NAME>
 
-`   TESTIF (<SRC.STR> > 100)             // client must have more than 100 strength to see this option`  
-`   SERV.NEWITEM i_sword_viking`  
-`   SRC.BOUNCE <NEW.UID>`  
+`   TESTIF (<SRC.STR> > 100)             // client must have more than 100 strength to see this option`
+`   SERV.NEWITEM i_sword_viking`
+`   SRC.BOUNCE <NEW.UID>`
 `   RETURN`
 
 ON=i_gold 5000 <NAME>
 
-`   TESTIF (<SRC.BANKBALANCE> < 5000)    // client must have less than 5000gp in their bank to see this option`  
-`   SERV.NEWITEM i_gold, 5000`  
-`   SRC.BOUNCE <NEW.UID>`  
+`   TESTIF (<SRC.BANKBALANCE> < 5000)    // client must have less than 5000gp in their bank to see this option`
+`   SERV.NEWITEM i_gold, 5000`
+`   SRC.BOUNCE <NEW.UID>`
 `   RETURN`
 
 ON=i_backpack @020, a red backpack
 
-`   TEST 1 i_backpack, 10.0 TAILORING    // client must have 1 backpack and 10% tailoring to see this option`  
-`   SERV.NEWITEM i_backpack`  
-`   NEW.COLOR = 020`  
-`   SRC.BOUNCE <NEW.UID>`  
+`   TEST 1 i_backpack, 10.0 TAILORING    // client must have 1 backpack and 10% tailoring to see this option`
+`   SERV.NEWITEM i_backpack`
+`   NEW.COLOR = 020`
+`   SRC.BOUNCE <NEW.UID>`
 `   RETURN`
 
 ON=0 Nothing
 
-`   SRC.SYSMESSAGE You get nothing!      // no special function here, this option will always be visible`  
+`   SRC.SYSMESSAGE You get nothing!      // no special function here, this option will always be visible`
 `   RETURN`
 
-</spherescript>
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Definitions](Category:_Definitions "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Definitions](Category:_Definitions "wikilink")
+```

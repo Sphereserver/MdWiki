@@ -2,214 +2,176 @@
 
 A basic event looks like the following:
 
-<spherescript>\[EVENTS defname\] code</spherescript>
+\[EVENTS defname\] code
 
-Looks just like every other thing we've done so far doesn't it? Well
-events work the same way. They can be installed either in-game our
-through a script using the following:
+Looks just like every other thing we've done so far doesn't it? Well events work the same way. They can be installed either in-game our through a script using the following:
 
-<spherescript>EVENTS +defname EVENTS=defname EVENTS
--defname</spherescript>
+EVENTS +defname EVENTS=defname EVENTS -defname
 
-These are three very different commands. Some people tend to confuse
-them. Here is what they do:
+These are three very different commands. Some people tend to confuse them. Here is what they do:
 
-**EVENTS +DEFNAME**  
-Adds the event to the character's list of events. Yes, a character can
-have more than one event. Both of the following will respond to triggers
-called on the character:
+**EVENTS +DEFNAME**
+Adds the event to the character's list of events. Yes, a character can have more than one event. Both of the following will respond to triggers called on the character:
 
-<spherescript>SRC.EVENTS +e_death_event SRC.EVENTS
-+e_ctf_event</spherescript>
+`SRC.EVENTS` +e_death_event `SRC.EVENTS` +e_ctf_event
 
-**EVENTS=DEFNAME**  
-This method is should not be used. It will erase all other events on the
-character in place of this one.
+**EVENTS=DEFNAME**
+This method is should not be used. It will erase all other events on the character in place of this one.
 
-**EVENTS -DEFNAME**  
+**EVENTS -DEFNAME**
 This will remove the specified event from the character.
 
-***THE DEFAULT OBJECT OF AN \[EVENTS\] SCRIPT IS THE CHARACTER ON WHICH
-THE SCRIPT IS INSTALLED.***
+***THE DEFAULT OBJECT OF AN \[EVENTS\] SCRIPT IS THE CHARACTER ON WHICH THE SCRIPT IS INSTALLED.***
 
 ## The order of event handling
 
-There are quite a few ways to add events to items or characters. These
-are:
+There are quite a few ways to add events to items or characters. These are:
 
-***EVENTS +DEFNAME***  
-Can be set by a function, another event, a player action, or inside a
-trigger (for example, the @Create trigger).
+***EVENTS +DEFNAME***
+Can be set by a function, another event, a player action, or inside a trigger (for example, the @Create trigger).
 
-***TEVENTS=DEFNAME***  
-In the body of the ITEMDEF or CHARDEF. There may be as many of TEVENTS
-lines as you wish.
+***TEVENTS=DEFNAME***
+In the body of the ITEMDEF or CHARDEF. There may be as many of TEVENTS lines as you wish.
 
-***TYPE=DEFNAME***  
-(Items only) In the body of the ITEMDEF. There can only be ONE base type
-definition. TYPEs are not only events, they also determine some basic
-behaviour of the item, and it's capabilities (for example, if an item is
-not of an equippable type, it cannot be equipped).
+***TYPE=DEFNAME***
+(Items only) In the body of the ITEMDEF. There can only be ONE base type definition. TYPEs are not only events, they also determine some basic behaviour of the item, and it's capabilities (for example, if an item isnot of an equippable type, it cannot be equipped).
 
-***DIRECT TRIGGERS***  
-Poor man's events: As events are generally assortments of triggers what
-can be added to an item or character. You may also "hardcode" some
-trigger actions in the ITEMDEF/CHARDEF itself.
+***DIRECT TRIGGERS***
+Poor man's events: As events are generally assortments of triggers what can be added to an item or character. You may also "hardcode" some trigger actions in the ITEMDEF/CHARDEF itself.
 
-***ORDER OF FIRING***  
+***ORDER OF FIRING***
 Look at these simple code examples:
 
-<spherescript>\[ITEMDEF i_triggertester\] ID=i_floor_wood TYPE =
-t_testtype NAME=TriggerTester TEVENTS=e_tev_test
+\[ITEMDEF i_triggertester\] ID=i_floor_wood TYPE = `t_testtype` NAME=TriggerTester TEVENTS=e_tev_test
 
+```
 ON=@Create
+```
 
 `   EVENTS +e_ev_test`
 
+```
 ON=@DClick
+```
 
-`   SERV.LOG item dclick from direct trigger`
+`   `SERV.LOG` item dclick from direct trigger`
 
-\[TYPEDEF e_ev_test\] ON=@DClick
+\[TYPEDEF e_ev_test\] `ON=`@DClick
 
-`   SERV.LOG dclick from event`
+`   `SERV.LOG` dclick from event`
 
-\[TYPEDEF e_tev_test\] ON=@DClick
+\[TYPEDEF e_tev_test\] `ON=`@DClick
 
-`   SERV.LOG item dclick from tevent`
+`   `SERV.LOG` item dclick from tevent`
 
-\[TYPEDEF t_testtype\] ON=@DClick
+\[TYPEDEF `t_testtype`\] `ON=`@DClick
 
-`   SERV.LOG item dclick from base typedef`</spherescript>
+`   `SERV.LOG` item dclick from base typedef`
 
 This gives the following results:
 
-`item dclick from event`  
-`item dclick from tevent`  
-`item dclick from base typedef`  
-`item dclick from direct trigger`  
+`item dclick from event`
+`item dclick from tevent`
+`item dclick from base typedef`
+`item dclick from direct trigger`
 
 The same for characters:
 
-<spherescript>\[CHARDEF c_testorc\] ID=c_orc NAME=TestOrc
+\[CHARDEF c_testorc\] ID=c_orc NAME=TestOrc
+```
 TEVENTS=e_tev_character
+```
 
+```
 ON=@Create
+```
 
 `   STR = 100`
 
+```
 ON=@NPCRestock
+```
 
 `   EVENTS +e_ev_character`
 
+```
 ON=@DClick
+```
 
-`   SERV.LOG char dclick from direct trigger`
+`   `SERV.LOG` char dclick from direct trigger`
 
-\[EVENTS e_tev_character\] ON=@DClick
+\[EVENTS e_tev_character\] `ON=`@DClick
 
-`   SERV.LOG char dclick from tevent`
+`   `SERV.LOG` char dclick from tevent`
 
-\[EVENTS e_ev_character\] ON=@DClick
+\[EVENTS e_ev_character\] `ON=`@DClick
 
-`   SERV.LOG char dclick from event`</spherescript>
+`   `SERV.LOG` char dclick from event`
 
 The results:
 
-`char dclick from event`  
-`char dclick from tevent`  
-`char dclick from direct trigger`  
+`char dclick from event`
+`char dclick from tevent`
+`char dclick from direct trigger`
 
 ## Item-based events
 
 There are two main types of events:
 
-**ITEM EVENT**  
+**ITEM EVENT**
 Triggered when any player interacts in a certain way with a given item.
 
-**PLAYER EVENT**  
-Triggered when a given player interacts in a certain way with ANY item
-or performs certain tasks, such as moving, casting a spell, crafting an
-item, etc.
+**PLAYER EVENT**
+Triggered when a given player interacts in a certain way with ANY item or performs certain tasks, such as moving, casting a spell, crafting an item, etc.
 
-In the item script, the item is the default object. In the player
-script, the player is the default object.
+In the item script, the item is the default object. In the player script, the player is the default object.
 
 So what are these events? Well here's a short list of some of them:
 
-`@itemDClick - Triggered when the player double-clicks any item. The reference object for the item is ACT.`  
-`@itemEquip - Triggered when the player equips any item. The reference object for the item is ACT.`  
-`@itemUnEquip - Triggered when the player unequips any item. The reference object for the item is ACT.`  
-`@itemClick - Triggered when the player double-clicks any item. The reference object for the item is ACT.`  
-`@itemStep - Triggered when the player steps on any item. The reference object for the item is ACT.`  
+`@itemDClick - Triggered when the player double-clicks any item. The reference object for the item is ACT.`
+`@itemEquip - Triggered when the player equips any item. The reference object for the item is ACT.`
+`@itemUnEquip - Triggered when the player unequips any item. The reference object for the item is ACT.`
+`@itemClick - Triggered when the player double-clicks any item. The reference object for the item is ACT.`
+`@itemStep - Triggered when the player steps on any item. The reference object for the item is ACT.`
 
-Notice anything similar between those descriptions? If you don't, I
-think you need to go back and take reading lessons. That's right. In ANY
-script beginning with @item, ACT is the item acted upon. How about that.
-Why do you suppose they called it ACT?
+Notice anything similar between those descriptions? If you don't, I think you need to go back and take reading lessons. That's right. In ANY script beginning with @item, ACT is the item acted upon. How about that. Why do you suppose they called it ACT?
 
 In any case, for @item scripts, the following is true:
 
-`ACT = the item acted upon`  
-`SRC = the character doing the acting (the player with the event)`  
-`[] = the character doing the acting (the player with the event)`  
+`ACT = the item acted upon`
+`SRC = the character doing the acting (the player with the event)`
+`[] = the character doing the acting (the player with the event)`
 
-Notice that in this case, SRC and the default object both refer to the
-character. THIS IS NOT ALWAYS THE CASE. If you want to refer to the
-character, get in the habit of using the default object rather than SRC
-in an event. Now, let's take a look at a rather useless event:
+Notice that in this case, SRC and the default object both refer to the character. THIS IS NOT ALWAYS THE CASE. If you want to refer to the character, get in the habit of using the default object rather than SRC in an event. Now, let's take a look at a rather useless event:
 
-<spherescript>\[EVENTS e_test_events\] ON=@itemStep
+\[EVENTS e_test_events\] `ON=`@itemStep
 
-`   SYSMESSAGE You have stepped on <ACT.NAME>! `  
-`   RETURN 0`</spherescript>
+`   SYSMESSAGE You have stepped on <ACT.NAME>! `
+`   `RETURN`0`
 
-Put this script in one of your files and resync your server. Now, go
-in-game and type: <font color="darkred">.xevents +e_test_events</font>
-Target yourself. Congratulations, you just installed an event on
-yourself. From this point forward, until you remove the event, any time
-you walk on an item, you'll get an irritating message. Try it. Go around
-walking on things! Make an item called "a bug" and walk around stepping
-on them.
+Put this script in one of your files and resync your server. Now, go in-game and type: <font color="darkred">.xevents +e_test_events</font> Target yourself. Congratulations, you just installed an event on yourself. From this point forward, until you remove the event, any time you walk on an item, you'll get an irritating message. Try it. Go around walking on things! Make an item called "a bug" and walk around stepping on them.
 
 Ok stop walking on things and continue reading now. :)
 
-Here's a little secret I bet you've already guessed: ALL ITEM EVENTS
-(except @Timer) HAVE AN @item COUNTERPART. This means that
+Here's a little secret I bet you've already guessed: ALL ITEM EVENTS (except @Timer) HAVE AN @item COUNTERPART. This means that
+```
 @itemPickUp_Pack, @itemTargOn_Char, @itemTargOn_Item, and all others
+```
 should all (in theory) work.
 
 ## Environmental Events
 
-This chapter serves to explain only one event, because we need to
-introduce some concepts beforehand. The first concept we're going to
-introduce is that of the **SECTOR**. In the game, the map is divided not
-only into regions, but into sectors as well. Sectors represent portions
-of the map that by default are 64 tiles wide and 64 tiles high. They can
-overlap between regions (for example, one sector is the upper corner of
-Britain and most of the Britain graveyard). They hold information such
-as light level, weather, and complexity information.
+This chapter serves to explain only one event, because we need to introduce some concepts beforehand. The first concept we're going to introduce is that of the **SECTOR**. In the game, the map is divided not only into regions, but into sectors as well. Sectors represent portions of the map that by default are 64 tiles wide and 64 tiles high. They can overlap between regions (for example, one sector is the upper corner ofBritain and most of the Britain graveyard). They hold information such as light level, weather, and complexity information.
 
-Also, the world is divided vertically into bands, which we shall call
-LOCAL areas here. This is used for the purpose of realistic fading of
-light during sunsets and a real "revolving" world effect.
+Also, the world is divided vertically into bands, which we shall call LOCAL areas here. This is used for the purpose of realistic fading of light during sunsets and a real "revolving" world effect.
 
-How do we manipulate these sectors? Well, there is a SECTOR object that
-is available to you in any script, and it refers to the sector in which
-the specific object sits. This SECTOR object has a VERY limited number
-of variables and functions:
+How do we manipulate these sectors? Well, there is a SECTOR object that is available to you in any script, and it refers to the sector in which the specific object sits. This SECTOR object has a VERY limited number of variables and functions:
 
-**COMPLEXITY**  
-Returns the number of characters (both PC and NPC) in the sector. This
-is useful if you have a huge effect-based script and you don't want to
-lag up everyone in a sector. It's also useful so NPCs don't spam huge
-portions of speech in crowded areas. If you look in the speech files
-provided with the game, you'll see this in use.
+**COMPLEXITY**
+Returns the number of characters (both PC and NPC) in the sector. This is useful if you have a huge effect-based script and you don't want to lag up everyone in a sector. It's also useful so NPCs don't spam huge portions of speech in crowded areas. If you look in the speech files provided with the game, you'll see this in use.
 
-**SEASON \<integer\>**  
-One of the most interesting features of the SECTOR, this controls which
-"seasonal" graphics the client displays. The values you can pass to this
-function are:
+**SEASON \<integer\>**
+One of the most interesting features of the SECTOR, this controls which "seasonal" graphics the client displays. The values you can pass to this function are:
 
 |  |  |
 |----|----|
@@ -220,453 +182,285 @@ function are:
 | 3 | Winter season (the ground is covered in snow and the trees have no leaves) |
 | 4 | Dead season (no leaves on trees, gravestones and gore everywhere) |
 
-**LIGHT \<level\>**  
-Holds a value between 0 and 30 that represents the light level, with 0
-being full daylight and 30 being pitch black. On pre-T2A clients, 18 is
-the darkest LIGHT value. If you give it a value, it will set the light
-to that level. If not, it will set the light level to whatever its
-default value happens to be at that time. (See LOCALLIGHT.)
+**LIGHT \<level\>**
+Holds a value between 0 and 30 that represents the light level, with 0 being full daylight and 30 being pitch black. On pre-T2A clients, 18 is the darkest LIGHT value. If you give it a value, it will set the light to that level. If not, it will set the light level to whatever its default value happens to be at that time. (See LOCALLIGHT.)
 
-**LOW**  
-Actually used - COMPLEXITY.LOW. Returns 1 if the complexity is within
-the "low" level.
+**LOW**
+Actually used - COMPLEXITY.LOW. Returns 1 if the complexity is within the "low" level.
 
-**MEDIUM**  
-Actually used - COMPLEXITY.MEDIUM. Returns 1 if the complexity is within
-the "medium" level.
+**MEDIUM**
+Actually used - COMPLEXITY.MEDIUM. Returns 1 if the complexity is within the "medium" level.
 
-**HIGH**  
-Actually used - COMPLEXITY.HIGH. Returns 1 if the complexity is within
-the "high" level.
+**HIGH**
+Actually used - COMPLEXITY.HIGH. Returns 1 if the complexity is within the "high" level.
 
-**ALLCLIENTS \<function call\>**  
-This can be used just like SERV.ALLCLIENTS or REGION.ALLCLIENTS. Any
-function given here will be executed on any player in the SECTOR. This
-is not a wise one to use, because the player could in fact be in a
-different sector than you expect.
+**ALLCLIENTS \<function call\>**
+This can be used just like `SERV.ALLCLIENTS` or REGION.ALLCLIENTS. Any function given here will be executed on any player in the SECTOR. This is not a wise one to use, because the player could in fact be in a different sector than you expect.
 
-**RAIN**  
+**RAIN**
 This makes it rain for all players in the sector.
 
-**SNOW**  
-Makes it snow for all players in the sector. (Doing SECTOR.RAIN, then
-SECTOR.SNOW is interesting. You get this weird rain/snow mix.)
+**SNOW**
+Makes it snow for all players in the sector. (Doing SECTOR.RAIN, thenSECTOR.SNOW is interesting. You get this weird rain/snow mix.)
 
-**DRY**  
+**DRY**
 Turns off both rain and snow.
 
-**RESTOCK**  
-Causes all spawnpoints to double-click themselves and reset any spawns
-in the area. Useful if you just changed the loot on something.
+**RESTOCK**
+Causes all spawnpoints to double-click themselves and reset any spawns in the area. Useful if you just changed the loot on something.
 
-**ISDARK**  
-Tests the light level of the sector to see if it is below a "dark"
-threshold.
+**ISDARK**
+Tests the light level of the sector to see if it is below a "dark" threshold.
 
-**ISNIGHTTIME**  
-There is a clock that is kept in LOCAL areas, like timezones in real
-life. This checks the clock to see if it is "night" in the area. It does
-not necessarily have to be dark.
+**ISNIGHTTIME**
+There is a clock that is kept in LOCAL areas, like timezones in real life. This checks the clock to see if it is "night" in the area. It does not necessarily have to be dark.
 
-**LOCALTOD**  
+**LOCALTOD**
 Returns the LOCAL time of day for this "time zone".
 
-**LOCALTIME**  
-Returns the LOCAL time in a format like this: "quarter past seven in the
-evening"
+**LOCALTIME**
+Returns the LOCAL time in a format like this: "quarter past seven in the evening"
 
-**LOCALLIGHT**  
-The light level in unaltered sectors in this LOCAL area. Used by LIGHT
-when you call that function without parameters.
+**LOCALLIGHT**
+The light level in unaltered sectors in this LOCAL area. Used by LIGHT when you call that function without parameters.
 
 Now, back to what we were originally discussing.
 
-The event associated with the SECTOR is **@EnvironChange**. This is a
-surprisingly useful event because it fires every time ANY of those
-sector variables are changed. That includes LOCALTIME, meaning that
-@EnvironChange will fire approximately once every ten seconds. (It
-depends on the speed of the game clock on your server.)
+The event associated with the SECTOR is **@EnvironChange**. This is a surprisingly useful event because it fires every time ANY of those sector variables are changed. That includes LOCALTIME, meaning that
+```
+@EnvironChange will fire approximately once every ten seconds. (Itdepends on the speed of the game clock on your server.)
+```
 
-This makes @EnvironChange the only repeating event for characters.
-(Actually there is another, but you haven't learned about REGION
-functions yet.) This may not seem very useful, but let's take a look at
-a script from the sphere_events_human.scp file.
+This makes @EnvironChange the only repeating event for characters. (Actually there is another, but you haven't learned about REGIONfunctions yet.) This may not seem very useful, but let's take a look at a script from the sphere_events_human.scp file.
 
-<spherescript>\[EVENTS e_Human_Environ\] ON=@EnvironChange // 1
+\[EVENTS e_Human_Environ\] `ON=`@EnvironChange // 1
 
-`   IF (`<FLAGS>` & statf_war)    // 2`  
-`       RETURN 0`  
-`   ENDIF`  
-`   IF !(<SECTOR.ISDARK>) || (`<FLAGS>` & statf_nightsight)   // 3`  
-`       IF (<FINDLAYER.layer_hand2>)    // 4`  
-`           IF (<FINDLAYER.layer_hand2.TYPE> == t_light_lit)`  
-`               FINDLAYER.layer_hand2.BOUNCE`  
-`           ENDIF`  
-`       ENDIF`  
-`       RETURN 0`  
-`   ENDIF`  
-`   // already have a lit light ? (5)`  
-`   IF (<FINDLAYER.layer_hand2>)    // 6`  
-`       IF (<FINDLAYER.layer_hand2.TYPE> == t_light_lit)`  
-`           RETURN 0`  
-`       ENDIF`  
-`   ENDIF`  
-`   // type to use a torch or light source if I have one. (and it's dark) (7)`  
-`   IF (<FINDTYPE.t_light_out>) // 8`  
-`       FINDTYPE.t_light_out.EQUIP`  
-`       FINDTYPE.t_light_out.USE`  
-`   ENDIF`  
-`   RETURN 0`</spherescript>
+`   IF (`<FLAGS>` & statf_war)    // 2`
+`       `RETURN`0`
+`   ENDIF`
+`   IF !(<SECTOR.ISDARK>) || (`<FLAGS>` & statf_nightsight)   // 3`
+`       IF (<FINDLAYER.layer_hand2>)    // 4`
+`           IF (<FINDLAYER.layer_hand2.TYPE> == `t_light_lit`)`
+`               FINDLAYER.layer_hand2.BOUNCE`
+`           ENDIF`
+`       ENDIF`
+`       `RETURN`0`
+`   ENDIF`
+`   // already have a lit light ? (5)`
+`   IF (<FINDLAYER.layer_hand2>)    // 6`
+`       IF (<FINDLAYER.layer_hand2.TYPE> == `t_light_lit`)`
+`           `RETURN`0`
+`       ENDIF`
+`   ENDIF`
+`   // type to use a torch or light source if I have one. (and it's dark) (7)`
+`   IF (<FINDTYPE.`t_light_out`>) // 8`
+`       FINDTYPE.`t_light_out.EQUIP``
+`       FINDTYPE.`t_light_out.USE``
+`   ENDIF`
+`   `RETURN`0`
 
-Well, this is different. This is our first rather complicated example
-script, so let's take it slowly. First of all, you can see it's in an
-\[EVENTS\] section, with the defname of e_Human_Environ. (If you look
-through spherechar_human.scp, you'll see this event installed a lot on
-the NPCs.) This script makes the character equip a torch, if he has one,
-based on the light level. It's a cool event when it becomes night and
-all your NPCs are walking around town with torches to light their way.
-Basically, this script has the following steps:
+Well, this is different. This is our first rather complicated example script, so let's take it slowly. First of all, you can see it's in an \[EVENTS\] section, with the defname of e_Human_Environ. (If you lookthrough spherechar_human.scp, you'll see this event installed a lot on the NPCs.) This script makes the character equip a torch, if he has one, based on the light level. It's a cool event when it becomes night and all your NPCs are walking around town with torches to light their way. Basically, this script has the following steps:
 
 1.  When the SECTOR changes, the event fires
 2.  We check to see if the character is in war mode by checking his
-    FLAGS using the & operator. If he is, we don't want him to do
-    anything, so we RETURN from the script immediately.
+    FLAGS using the & operator. If he is, we don't want him to do anything, so we RETURN from the script immediately.
 3.  Next, we check the character's sector to see if it's dark. In the
-    same IF statement we check to see if the NPC has the Nightsight
-    FLAGS set. If he does, he can't tell that it's dark anyway, and so
-    it doesn't matter if he has a torch or not. According to the
-    structure of our IF statement, it becomes true if SECTOR.ISDARK is
-    NOT true (!) OR (\|\|) `<FLAGS> & statf_nightsight` evaluates to
-    true.
+    same IF statement we check to see if the NPC has the Nightsight FLAGS set. If he does, he can't tell that it's dark anyway, and so it doesn't matter if he has a torch or not. According to the structure of our IF statement, it becomes true if SECTOR.ISDARK is NOT true (!) OR (\|\|) `<FLAGS> & statf_nightsight` evaluates to true.
 4.  If it is NOT dark outside, OR the character has nightsight on, we
-    don't want him to have a torch equipped, so we check his hand
-    (layer_hand2) for a torch. IF he has one, we use the BOUNCE function
-    on the torch to place it in the character's backpack. The script
-    then RETURNs.
+    don't want him to have a torch equipped, so we check his hand (layer_hand2) for a torch. IF he has one, we use the BOUNCE function on the torch to place it in the character's backpack. The script then RETURNs.
 5.  The next section of the script is only reached if it is BOTH dark
     outside and the character does not have nightsight on.
 6.  It checks to see if there is already a light in the character's hand
-    (layer_hand2). If there is, we don't need to equip another one so
-    the script exits. You must always do a check like this in these
-    kinds of scripts. Remember, @EnvironChange will take effect almost
-    once every ten seconds. We don't want him equipping a new torch
-    every ten seconds.
+    (layer_hand2). If there is, we don't need to equip another one so the script exits. You must always do a check like this in these kinds of scripts. Remember, @EnvironChange will take effect almost once every ten seconds. We don't want him equipping a new torch every ten seconds.
 7.  The only possible way to reach this point in the script is if the
-    following conditions have been met: it is dark outside, the
-    character does NOT have nightsight, and there is no torch equipped
-    on the character.
+    following conditions have been met: it is dark outside, the character does NOT have nightsight, and there is no torch equipped on the character.
 8.  The very last section checks to see if the character has any torches
-    equipped in his backpack. Remember, FINDTYPE will return the first
-    instance of an object of a given type (in this case t_light_out) in
-    the character or any sub-containers (his backpack).
+    equipped in his backpack. Remember, FINDTYPE will return the first instance of an object of a given type (in this case `t_light_out`) in the character or any sub-containers (his backpack).
 
 So what's a REAL use for this event that doesn't involve torches? Well,
-if you look through sphereevents.scp, you'll find another \[EVENTS\]
-section called e_undead, which makes dead creatures very very weak when
-it's light outside, and their normal strength at night. It uses a TAG to
-temporarily store their normal strength.
+```
+if you look through sphereevents.scp, you'll find another \[EVENTS\] section called e_undead, which makes dead creatures very very weak when it's light outside, and their normal strength at night. It uses a TAG to temporarily store their normal strength.
 
-You'll see another use for the @EnvironChange event at the end of the
-chapter. I take advantage of the fact that it's a periodic event (that
-is, it repeats a lot).
+You'll see another use for the @EnvironChange event at the end of the chapter. I take advantage of the fact that it's a periodic event (thatis, it repeats a lot).
 
 And a final piece of advise for you to think about:
 
-*Be careful when calling functions that change the environment (i.e.
-changing season, weather, light), from within the @EnvironChange
-trigger*.
+*Be careful when calling functions that change the environment (i.e.changing season, weather, light), from within the @EnvironChange trigger*.
 
-Remember that the @EnvironChange triggers fires when SECTOR properties
-change? What do you think might happen if you if used the following
-script?
+Remember that the @EnvironChange triggers fires when SECTOR properties change? What do you think might happen if you if used the following script?
 
-<spherescript>// don't run this! ON=@EnvironChange
+// don't run this! ON=@EnvironChange
 
-`   SECTOR.LIGHT += 1`  
-`   RETURN 0`</spherescript>
+`   SECTOR.LIGHT += 1`
+`   RETURN 0`
 
-Do you see what is going to happen? The sector's light is going to be
-incremented by 1 when the trigger fires, but when this happens the
-trigger will fire again because the environment has been changed, and
-this will cause the light to be incremented again, which will cause the
-trigger to fire again, which will cause the light to be incremented
-again... Quite clearly, this is not a good thing and your server will
-crash or freeze within seconds of this script running. If you must
-insist on changing the environment under the @EnvironChange trigger then
-you must put in a conditional statement which will prevent the server
-from entering an infinite loop, for example:
+Do you see what is going to happen? The sector's light is going to be incremented by 1 when the trigger fires, but when this happens the trigger will fire again because the environment has been changed, and this will cause the light to be incremented again, which will cause the trigger to fire again, which will cause the light to be incremented again... Quite clearly, this is not a good thing and your server will crash or freeze within seconds of this script running. If you must insist on changing the environment under the @EnvironChange trigger then you must put in a conditional statement which will prevent the server from entering an infinite loop, for example:
 
-<spherescript> ON=@EnvironChange
+ ON=@EnvironChange
 
-`   IF (<SECTOR.LIGHT> != 5)`  
-`       SECTOR.LIGHT = 5`  
-`   ENDIF`  
-`   RETURN 0`</spherescript>
+`   IF (<SECTOR.LIGHT> != 5)`
+`       SECTOR.LIGHT = 5`
+`   ENDIF`
+`   RETURN 0`
 
-This will set the light level to 5, but only if it is not 5 already
-(Sphere is already intelligent enough to not fire the trigger again if
-you set the LIGHT to the same value it already had, but the idea should
-be clear)
+This will set the light level to 5, but only if it is not 5 already (Sphere is already intelligent enough to not fire the trigger again ifyou set the LIGHT to the same value it already had, but the idea should be clear)
 
+```
 ### Information for Advanced Scripters
+```
 
-There is a way to refer to all of the sectors within a region. It works
-a little like ALLCLIENTS, in that it will run a function on all sectors.
-This is a good way to change the season for an entire region. If a
-region is contained within another (i.e. Britain contained within
-Britain Territory), it will be affected if you use this command on the
-surrounding region.
+There is a way to refer to all of the sectors within a region. It works a little like ALLCLIENTS, in that it will run a function on all sectors. This is a good way to change the season for an entire region. If a region is contained within another (i.e. Britain contained withinBritain Territory), it will be affected if you use this command on the surrounding region.
 
-<spherescript>REGION.SECTORS</spherescript>
+REGION.SECTORS
 
 For example:
 
-<spherescript>REGION.SECTORS SEASON 3</spherescript>
+REGION.SECTORS SEASON 3
 
-This will set all sectors in the region to the "winter" season. Keep in
-mind that sectors can "overlap" regions, meaning that you may get some
-winter in other surrounding regions as well.
+This will set all sectors in the region to the "winter" season. Keep in mind that sectors can "overlap" regions, meaning that you may get some winter in other surrounding regions as well.
 
+```
 ## The Clicky Events
+```
 
-**@DClick, @Click, and @Profile**  
-These events are surprisingly underused since they have so many specific
-purposes. Here's a summary of what they do:
+**@DClick, @Click, and @Profile**
+These events are surprisingly underused since they have so many specific purposes. Here's a summary of what they do:
 
-**@Click**  
+**@Click**
 User has been clicked by someone.
 
-**@DClick**  
+**@DClick**
 User has been double-clicked by someone.
 
-**@Profile**  
+**@Profile**
 Someone is trying to look at the user's profile.
 
-Now, these are three events where the RETURN value is exceedingly
-important. All of them have very expected default actions, such as the
-following:
+Now, these are three events where the RETURN value is exceedingly important. All of them have very expected default actions, such as the following:
 
+```
 |  |  |
 |----|----|
 | **Trigger** | **Default Action** |
 | @Click | The character's name pops up above his head (An allnames macro counts as @Click) |
 | @DClick | The character's paperdoll pops up |
 | @Profile | The character's personal profile pops up |
+```
 
-Now, if you RETURN 0 or 2 from any of these events, the default action
-will take place. The user's name will pop up as usual, or their
-paperdoll will appear on the clicker's screen. But there are occasions
-where you don't want this to happen. For example, I created an event for
-one of my custom spells which allowed the user to double-click any
-creature for a given amount of time and shoot fireballs at that player.
+Now, if you RETURN 0 or 2 from any of these events, the default action will take place. The user's name will pop up as usual, or their paperdoll will appear on the clicker's screen. But there are occasions where you don't want this to happen. For example, I created an event for one of my custom spells which allowed the user to double-click any creature for a given amount of time and shoot fireballs at that player.
 
-Here's an example script for the @Click event. This puts \[MURDERER\]
-above the player's name when he's clicked if his kills are above a
-certain amount. I had something similar on my server Talocon where new
-players (players with skills below a certain level) received a
-\[NEWBIE\] tag and certain protections.
+Here's an example script for the @Click event. This puts \[MURDERER\] above the player's name when he's clicked if his kills are above a certain amount. I had something similar on my server Talocon where new players (players with skills below a certain level) received a \[NEWBIE\] tag and certain protections.
 
-<spherescript>\[EVENTS e_murderer\] ON=@Click
+\[EVENTS e_murderer\] ON=@Click
 
-`   IF (`<KILLS>` > 5)`  
-`       MESSAGE [MURDERER]`  
-`   ENDIF`  
-`   RETURN 0  // Display his name`</spherescript>
+`   IF (`<KILLS>` > 5)`
+`       MESSAGE [MURDERER]`
+`   ENDIF`
+`   RETURN 0  // Display his name`
 
-We want to use a message here, rather than a SYSMESSAGE or a SAY so the
-text appears above the default object. In this case that's the player
-containing this event. SRC happens to be the player doing the clicking.
-It could be the same if someone clicks him- or herself, but that's
-usually not the case.
+We want to use a message here, rather than a SYSMESSAGE or a SAY so the text appears above the default object. In this case that's the player containing this event. SRC happens to be the player doing the clicking. It could be the same if someone clicks him- or herself, but that's usually not the case.
 
-(Remember, to install the events, we use the command in-game .events
-+e_murderer. In a script we use the same command without the dot.)
+(Remember, to install the events, we use the command in-game .events+e_murderer. In a script we use the same command without the dot.)
 
-We RETURN 0 from this event so that the player's name will actually be
-displayed. We could easily use a MESSAGE to put the player's name above
-his head, but it wouldn't be in the specific color necessary.
+We RETURN 0 from this event so that the player's name will actually be displayed. We could easily use a MESSAGE to put the player's name above his head, but it wouldn't be in the specific color necessary.
 
-Here's an example of the @DClick event. The effect of this event is to
-prevent players from seeing paperdolls of those outside of their guild.
-You'll also learn here how to check whether or not two people are in the
-same guild.
+Here's an example of the @DClick event. The effect of this event is to prevent players from seeing paperdolls of those outside of their guild. You'll also learn here how to check whether or not two people are in the same guild.
 
-<spherescript>ON=@DClick
+ON=@DClick
 
-`   IF (<SRC.UID> == `<UID>`) // did the player double click himself?`  
-`       RETURN 0`  
-`   ELSEIF (<SRC.MEMORYFINDTYPE.memory_guild.LINK.UID>) && (<SRC.MEMORYFINDTYPE.memory_guild.LINK> == <MEMORYFINDTYPE.memory_guild.LINK>)`  
-`       SRC.SYSMESSAGE You are in the same guild.  You may view this paperdoll. `  
-`       RETURN 0 // let them see the paperdoll`  
-`   ENDIF`  
-`   RETURN 1         // don't`</spherescript>
+`   IF (<SRC.UID> == `<UID>`) // did the player double click himself?`
+`       RETURN 0`
+`   ELSEIF (<SRC.MEMORYFINDTYPE.memory_guild.LINK.UID>) && (<SRC.MEMORYFINDTYPE.memory_guild.LINK> == <MEMORYFINDTYPE.memory_guild.LINK>)`
+`       SRC.SYSMESSAGE You are in the same guild.  You may view this paperdoll. `
+`       RETURN 0 // let them see the paperdoll`
+`   ENDIF`
+`   RETURN 1         // don't`
 
-I don't know if you'd want to use this event in your shard or not.
-Remember, it's up to you what your shard is like!
+I don't know if you'd want to use this event in your shard or not. Remember, it's up to you what your shard is like!
 
-Perhaps the most unused event is @Profile. It could be incredibly useful
-for various applications on a server.
+Perhaps the most unused event is @Profile. It could be incredibly useful for various applications on a server.
 
-<spherescript>ON=@Profile
+ON=@Profile
 
-`   DIALOG d_info `  
-`   RETURN 1`</spherescript>
+`   DIALOG d_info `
+`   RETURN 1`
 
-You should have learned about dialogs in [Chapter
-8](Chapter_8 "wikilink"). For now you need to know that this script
-would make a dialog called d_info appear on the screen of the SRC (the
-profile clicker). Perhaps contained in this dialog could be information
-about the person whose profile has been clicked. It may be that you want
-to include an IF statement like so:
+You should have learned about dialogs in [Chapter 8](Chapter_8 "wikilink"). For now you need to know that this script would make a dialog called d_info appear on the screen of the SRC (theprofile clicker). Perhaps contained in this dialog could be information about the person whose profile has been clicked. It may be that you want to include an IF statement like so:
 
-<spherescript>ON=@Profile
+ON=@Profile
 
-`   IF (<SRC.ISGM>)`  
-`       DIALOG d_info_gm `  
-`   ELSE `  
-`       DIALOG d_info `  
-`   ENDIF`</spherescript>
+`   IF (<SRC.ISGM>)`
+`       DIALOG d_info_gm `
+`   ELSE `
+`       DIALOG d_info `
+`   ENDIF`
 
-This would check first to see if the user was a GM and display a
-different amount of information. You've seen in [Chapter
-8](Chapter_8 "wikilink") how you can customize the appearance of this
-dialog down to the most detailed level.
+This would check first to see if the user was a GM and display a different amount of information. You've seen in [Chapter 8](Chapter_8 "wikilink") how you can customize the appearance of this dialog down to the most detailed level.
 
-These are just a few applications of these events. As you can probably
-imagine, as with anything else in SPHERE, the applications are
-limitless.
+These are just a few applications of these events. As you can probably imagine, as with anything else in SPHERE, the applications are limitless.
 
+```
 ## NPC-based Events
+```
 
-Hmm, you may be saying. How do we tell if an event can be used on a
-player or just on NPCs? (Remember, " NPC " means any computer-controlled
-character, be it a monster, a vendor, a banker, or anything)
+Hmm, you may be saying. How do we tell if an event can be used on a player or just on NPCs? (Remember, " NPC " means any computer-controlledcharacter, be it a monster, a vendor, a banker, or anything)
 
-Well, there's a rather easy way. Let's look at a list of some NPC-only
-events:
+Well, there's a rather easy way. Let's look at a list of some NPC-only events:
 
-<spherescript color="darkgreen">@NPCAcceptItem // NPC accepts item
-(needs) @NPCHearGreeting // hear greeting (can be triggered by most
-speech i found) @NPCHearNeed // someone mentions sopmething i want
-(needs) @NPCHearUnknown // rather obvious @NPCRefuseItem // NPC don't
-want this (needs) @NPCRestock //vendor/ npc restocks.. Auto called at
-on=@Create @NPCSeeNewPlayer // see new player @NPCSeeWantItem //see
-something i want (needs)</spherescript>
+@NPCAcceptItem // NPC accepts item (needs) @NPCHearGreeting // hear greeting (can be triggered by mostspeech i found) @NPCHearNeed // someone mentions sopmething i want (needs) @NPCHearUnknown // rather obvious @NPCRefuseItem // NPC don't want this (needs) @NPCRestock //vendor/ npc restocks.. Auto called at on=@Create @NPCSeeNewPlayer // see new player @NPCSeeWantItem //see something i want (needs)
 
-Those aren't my comments. :) Something else you'll notice is that some
-of them comment about this concept of NEEDS. We'll cover that in this
-section as well. Actually, why don't we cover that first?
+Those aren't my comments. :) Something else you'll notice is that some of them comment about this concept of NEEDS. We'll cover that in this section as well. Actually, why don't we cover that first?
 
-If you look in an NPC script, it'll have a property called DESIRES. It
-looks something like this:
+If you look in an NPC script, it'll have a property called DESIRES. It looks something like this:
 
-<spherescript>DESIRES=i_gold</spherescript>
+DESIRES=i_gold
 
-This means that the NPC wants gold. It's a NEED of this NPC to acquire
-gold. He wouldn't be happy otherwise. And we all know what happens when
-you get an NPC angry. (They say "Shut up and fight, coward!") Other NPC
-needs are, for example, fire for fire elementals, or t_crops for crows.
-Sometimes there's even t_grass for animals like sheep. But humans don't
-need to eat. All they need is money. I believe that an NPC will also
-accept any item that it sells (someone verify this).
+This means that the NPC wants gold. It's a NEED of this NPC to acquire gold. He wouldn't be happy otherwise. And we all know what happens when you get an NPC angry. (They say "Shut up and fight, coward!") Other NPC needs are, for example, fire for fire elementals, or t_crops for crows. Sometimes there's even t_grass for animals like sheep. But humans don't need to eat. All they need is money. I believe that an NPC will also accept any item that it sells (someone verify this).
 
-Now that you understand this concept of desires and needs, here's a more
-descriptive list of these events:
+Now that you understand this concept of desires and needs, here's a more descriptive list of these events:
 
-<spherescript color="darkgreen">@NPCAcceptItem - An item is dropped onto
-the NPC and identified as one of the NEEDS of this NPC. RETURN 1 will
-bounce the item back to where it came from. The item is stored in ACT.
-@NPCHearGreeting - Someone speaks directly to this NPC who hadn't spoken
-to him before. The NPC will remember for a short time that the player
-talked to him. (See later chapters on memory.) @NPCHearNeed - Someone
-says the name of one of the needs of the NPC. Such as "gold". In this
-event, the variable <needname> will print out the name of the need that
-was spoken. @NPCHearUnknown - Someone says something the NPC does not
-understand. This is where the "Huh?" and "I don't understand thee!" come
-from. @NPCRefuseItem - An item is dropped onto the NPC that he has no
-NEED for. The item is bounced back to where it came from. The item is
-stored in ACT. @NPCRestock - This occurs about once every half hour. BUY
-and SELL items should be placed under this event, along with any loot
-and clothing you want on your NPC. This is also called on creation of
-the NPC (since technically, he IS restocking for the first time).
-@NPCSeeNewPlayer - The most useful of the NPC events, this one fires
-when the NPC sees a player he didn't previously see. RETURN 1 from this
-event will prevent the NPC from remembering that he has seen the player,
-and RETURN 0 will let him remember. @NPCSeeWantItem - The NPC sees
-something he wants on the ground and walks toward it.</spherescript>
+@NPCAcceptItem - An item is dropped onto the NPC and identified as one of the NEEDS of this NPC. RETURN 1 will bounce the item back to where it came from. The item is stored in ACT. @NPCHearGreeting - Someone speaks directly to this NPC who hadn't spoken to him before. The NPC will remember for a short time that the player talked to him. (See later chapters on memory.) @NPCHearNeed - Someone says the name of one of the needs of the NPC. Such as "gold". In this event, the variable <needname> will print out the name of the need that was spoken. @NPCHearUnknown - Someone says something the NPC does not understand. This is where the "Huh?" and "I don't understand thee!" come from. @NPCRefuseItem - An item is dropped onto the NPC that he has no NEED for. The item is bounced back to where it came from. The item is stored in ACT. @NPCRestock - This occurs about once every half hour. BUY and SELL items should be placed under this event, along with any loot and clothing you want on your NPC. This is also called on creation of the NPC (since technically, he IS restocking for the first time). @NPCSeeNewPlayer - The most useful of the NPC events, this one fires when the NPC sees a player he didn't previously see. RETURN 1 from this event will prevent the NPC from remembering that he has seen the player, and RETURN 0 will let him remember. @NPCSeeWantItem - The NPC sees something he wants on the ground and walks toward it.
 
-Now let's see some examples of the use of these events. The examples
-that come with SPHERE (i.e. in sphereevents.scp in the 55i package) are
-huge and complex and deal with a lot of sector complexity and karma
-issues to determine which response to give. Each event has about 30
-potential spoken responses.
+Now let's see some examples of the use of these events. The examples that come with SPHERE (i.e. in sphereevents.scp in the 55i package) are huge and complex and deal with a lot of sector complexity and karma issues to determine which response to give. Each event has about 30 potential spoken responses.
 
-So here's a simpler example using what I see as the most useful of
-events. This could, for example, be placed on a new NPC to give him
-special abilities. We're going to assume that when this NPC is standing
-still, he is invisible. Actually in the last section, you're going to
-see the completed script for this NPC.
+So here's a simpler example using what I see as the most useful of events. This could, for example, be placed on a new NPC to give him special abilities. We're going to assume that when this NPC is standing still, he is invisible. Actually in the last section, you're going to see the completed script for this NPC.
 
-<spherescript>ON=@NPCSeeNewPlayer
+ON=@NPCSeeNewPlayer
 
-`   IF (`<DISTANCE>` > 5) // If the player is more than 5 steps away `  
-`       RETURN 1  // Don't remember him so the event fires when he gets closer `  
-`   ENDIF `  
-`   // We can only get this far if he is closer than 5 steps away `  
-`   SAY Boo! `  
-`   INVIS 0 `  
-`   ATTACK // Attacks the SRC of the event `  
-`   RETURN 0`</spherescript>
+`   IF (`<DISTANCE>` > 5) // If the player is more than 5 steps away `
+`       RETURN 1  // Don't remember him so the event fires when he gets closer `
+`   ENDIF `
+`   // We can only get this far if he is closer than 5 steps away `
+`   SAY Boo! `
+`   INVIS 0 `
+`   ATTACK // Attacks the SRC of the event `
+`   RETURN 0`
 
-This simple script would make a surprisingly diverse number of creatures
-with just a few variations. Do you understand it? Well, if you don't
-here's my explanation:
+This simple script would make a surprisingly diverse number of creatures with just a few variations. Do you understand it? Well, if you don't here's my explanation:
 
 1.  The NPC sees a player it doesn't remember seeing before and the
     event takes place.
 2.  We check to see how far away the player is. DISTANCE will return the
-    distance the object referenced (in this case the default object) is
-    from the SRC of the event (in this case the player who is being
-    seen). If the player is too far away, we don't want the NPC to
-    react. This event fires as soon as the creature first notices a
-    player nearby, meaning up to about 12 tiles away depending on the
-    player's resolution. We return 1 here so the NPC will forget that he
-    saw the player and the event will fire again a second or so later.
+    distance the object referenced (in this case the default object) is from the SRC of the event (in this case the player who is beingseen). If the player is too far away, we don't want the NPC to react. This event fires as soon as the creature first notices a player nearby, meaning up to about 12 tiles away depending on the player's resolution. We return 1 here so the NPC will forget that he saw the player and the event will fire again a second or so later.
 3.  If the player is close enough, the NPC appears (INVIS 0) and says
-    "Boo!" to scare the player. It then proceeds to attack him. We
-    RETURN 0 at the end of this second section because we don't need the
-    NPC to forget the player again.
+    "Boo!" to scare the player. It then proceeds to attack him. We RETURN 0 at the end of this second section because we don't need the NPC to forget the player again.
 
-This is a rather simple script, and you'll see one big example that
-utilizes almost every useful character-based event.
+This is a rather simple script, and you'll see one big example that utilizes almost every useful character-based event.
 
+```
 ## The Elusive @Death Event
+```
 
-Here are the object references available to you from within the @Death
-trigger:
+Here are the object references available to you from within the @Death trigger:
 
-`@Death Objects`  
-`  SRC = the creature being killed`  
-`  [] = the creature being killed`  
+`@Death Objects`
+`  SRC = the creature being killed`
+`  [] = the creature being killed`
 
-Any experienced admin will have encountered a particular obstacle when
-using this trigger. How do we know who killed the player? For a long
-time ACT was considered to be the killer, and many still believe this is
-the case. In fact, if you were to right now add an @Death trigger to a
-player, kill them, and check their ACT. You would more than likely
-discover that ACT did indeed point to the killer, yet here I am telling
-you that **ACT is \_NOT\_ the killer in @Death!**
+Any experienced admin will have encountered a particular obstacle when using this trigger. How do we know who killed the player? For a long time ACT was considered to be the killer, and many still believe this is the case. In fact, if you were to right now add an @Death trigger to a player, kill them, and check their ACT. You would more than likely discover that ACT did indeed point to the killer, yet here I am telling you that **ACT is \_NOT\_ the killer in @Death!**
 
-You can protest all you like, but it is a simple fact that the ACT
-reference is completely meaningless within the @Death trigger. ACT is
-used by various internal systems and means different things. For example
-if you were to get a player to craft an item and then target them
-<font color="darkred">.xhits 0</font> they will die, and you will
-discover that ACT actually points to the item the player was crafting
-with!
+You can protest all you like, but it is a simple fact that the ACT reference is completely meaningless within the @Death trigger. ACT is used by various internal systems and means different things. For example if you were to get a player to craft an item and then target them <font color="darkred">.xhits 0</font> they will die, and you will discover that ACT actually points to the item the player was crafting with!
 
-If you want to determine who killed someone, there are two safe ways of
-doing so:
+If you want to determine who killed someone, there are two safe ways of doing so:
 
 - Use the [@Kill](@Kill "wikilink") trigger, which fires when one
   character kills another (not discussed in this chapter)
@@ -675,18 +469,13 @@ doing so:
 
 Anyway, back to the topic at hand.
 
-Have you ever played Asheron's Call or Everquest? When you die in either
-of those games, you are returned to a particular location of your
-choosing, but you must choose the location prior to death. We're going
-to make a system similar to that. Here's the script, and then I'll
-explain it:
+Have you ever played Asheron's Call or Everquest? When you die in either of those games, you are returned to a particular location of your choosing, but you must choose the location prior to death. We're going to make a system similar to that. Here's the script, and then I'll explain it:
 
-<spherescript>\[PLEVEL 1\] deathpoint
+\[PLEVEL 1\] deathpoint
 
-\[FUNCTION deathpoint\] IF (\<REGION.FLAGS\> & region_flag_guarded) //
-Are they in a guarded area?
+\[FUNCTION deathpoint\] IF (\<REGION.FLAGS\> & region_flag_guarded) // Are they in a guarded area?
 
-`   // If so, we need to set this as their new death location. `  
+`   // If so, we need to set this as their new death location. `
 `   TAG.DEATH_LOC = `
 
 `   EVENTS +e_death `
@@ -695,218 +484,150 @@ ENDIF RETURN 1
 
 \[EVENTS e_death\] ON=@Death
 
-`   IF (`<BRAIN>`)  // We don't want this script on NPCs by accident (player brain  = 0 = false) `  
-`       RETURN 0 `  
-`   ENDIF `  
-`   RESURRECT // Prevent death `  
-`   IF !(<ISEMPTY <TAG.DEATH_LOC>>) // make sure the TAG has is not empty/blank`  
-`       GO <TAG.DEATH_LOC>`  
-`   ELSE  // No tag, send them to a default location, such as Britain `  
-`       GO Britain `  
-`   ENDIF `  
-`   RETURN 1 // No death recorded, no corpse left behind`</spherescript>
+`   IF (`<BRAIN>`)  // We don't want this script on NPCs by accident (player brain  = 0 = false) `
+`       RETURN 0 `
+`   ENDIF `
+`   RESURRECT // Prevent death `
+`   IF !(<ISEMPTY <TAG.DEATH_LOC>>) // make sure the TAG has is not empty/blank`
+`       GO <TAG.DEATH_LOC>`
+`   ELSE  // No tag, send them to a default location, such as Britain `
+`       GO Britain `
+`   ENDIF `
+`   RETURN 1 // No death recorded, no corpse left behind`
 
-I think that this requires a little explanation. First, we use a
-function differently than we've seen in the past:
+I think that this requires a little explanation. First, we use a function differently than we've seen in the past:
 
-This is an in-game command. You use it by typing .deathpoint in-game. In
-an in-game function, the objects are as follows: The person executing
-the function is the SRC. If they would type .xdeathpoint rather than
-.deathpoint, they would get a target. The target of the function is the
-default object.
+This is an in-game command. You use it by typing .deathpoint in-game. In an in-game function, the objects are as follows: The person executing the function is the SRC. If they would type .xdeathpoint rather than .deathpoint, they would get a target. The target of the function is the default object.
 
-When the player uses this function, we check to see if he's in a town.
-The purpose of this function is to let the player decide the place he
-goes when he dies. It can be any location as long as it's within the
-guarded area. So if he is in a guarded area, we simply store his current
-position into a TAG. We also install the event e_death on the player.
-Look over it until you understand what's going on. There's nothing here
-we haven't seen before.
+When the player uses this function, we check to see if he's in a town. The purpose of this function is to let the player decide the place he goes when he dies. It can be any location as long as it's within the guarded area. So if he is in a guarded area, we simply store his current position into a TAG. We also install the event e_death on the player. Look over it until you understand what's going on. There's nothing here we haven't seen before.
 
-The next part is an \[EVENTS\] section, which contains an @Death event.
-(Duh.) I think that the only part of this script that isn't things we've
-done before (or explained rather clearly in the comments) is the purpose
-of the \<ISEMPTY ...\> function in the middle of the event. Say, by some
-strange fluke in the game, this player has the e_death event installed,
-but the value for TAG.DEATH_LOC hasn't been set yet. When the @Death
-script is triggered (by the death of the player), we run into the
-following statement:
+The next part is an \[EVENTS\] section, which contains an @Death event. (Duh.) I think that the only part of this script that isn't things we've done before (or explained rather clearly in the comments) is the purpose of the \<ISEMPTY ...\> function in the middle of the event. Say, by some strange fluke in the game, this player has the e_death event installed, but the value for TAG.DEATH_LOC hasn't been set yet. When the @Death script is triggered (by the death of the player), we run into the following statement:
 
-<spherescript>GO \<TAG.DEATH_LOC\></spherescript>
+GO \<TAG.DEATH_LOC\>
 
-If TAG.DEATH_LOC has no value, this statement is meaningless and you
-WILL get an error. So we use the following statement to check if it has
-a value:
+If TAG.DEATH_LOC has no value, this statement is meaningless and you WILL get an error. So we use the following statement to check if it has a value:
 
-<spherescript>IF !(\<ISEMPTY \<TAG.DEATH_LOC\>\>)</spherescript>
+IF !(\<ISEMPTY \<TAG.DEATH_LOC\>\>)
 
-If the tag does have a value, this will evaluate to some scary number,
-which is not blank and therefore true. If it has no value, the statement
-simply becomes `IF !(<ISEMPTY >)`, which of course is false.
+If the tag does have a value, this will evaluate to some scary number, which is not blank and therefore true. If it has no value, the statement simply becomes `IF !(<ISEMPTY >)`, which of course is false.
 
-The @Death event can be a powerful tool if used wisely. A few other
-things it could be used for:
+The @Death event can be a powerful tool if used wisely. A few other things it could be used for:
 
-1.  Special race abilities (i.e. Last Chance, Final Attack type
-    abilities)
+1.  Special race abilities (i.e. Last Chance, Final Attack typeabilities)
 2.  A leveling system where NPCs have the @Death event to give
     experience to the killer
 3.  What you just saw up above
 
-Like I said in the beginning, this tutorial isn't here to give you free
-scripts. It's here to teach you HOW to script. Although in two more
-sections you're going to get a free script all for yourself! Can you
-wait? :)
+Like I said in the beginning, this tutorial isn't here to give you free scripts. It's here to teach you HOW to script. Although in two more sections you're going to get a free script all for yourself! Can you wait? :)
 
+```
 ## Combat Events
+```
 
-**@Hit, @GetHit, @SpellEffect, @SpellCast**  
-These are some fun events. They can also cause your server to crash,
-which we'll get to in just a minute here. Let's look at the objects
-associated with each one now:
+**@Hit, @GetHit, @SpellEffect, @SpellCast**
+These are some fun events. They can also cause your server to crash, which we'll get to in just a minute here. Let's look at the objects associated with each one now:
 
-**@Hit**  
-`SRC = The character being hit`  
-`[] = The character doing the hitting`  
-`ACT = The character being hit`  
+**@Hit**
+`SRC = The character being hit`
+`[] = The character doing the hitting`
+`ACT = The character being hit`
 
-**@GetHit**  
-`SRC = The character doing the hitting`  
-`[] = The character being hit`  
-`ARGN1 = The amount of damage done`  
-`ARGN2 = The type of damage done`  
+**@GetHit**
+`SRC = The character doing the hitting`
+`[] = The character being hit`
+`ARGN1 = The amount of damage done`
+`ARGN2 = The type of damage done`
 
-**@SpellEffect**  
-`SRC = The character casting the spell`  
-`[] = The character being hit by the spell`  
-`ARGN1 = The spell number (or defname, look in sphere_spells.scp)`  
-`ARGN2 = The spell strength`  
+**@SpellEffect**
+`SRC = The character casting the spell`
+`[] = The character being hit by the spell`
+`ARGN1 = The spell number (or defname, look in sphere_spells.scp)`
+`ARGN2 = The spell strength`
 
-**@SpellCast**  
-`SRC = The character casting the spell`  
-`TARG = The target of the spell`  
-`ARGN1 = The spell number (or defname)`  
+**@SpellCast**
+`SRC = The character casting the spell`
+`TARG = The target of the spell`
+`ARGN1 = The spell number (or defname)`
 
-These are very useful events, especially the @Hit and @SpellEffect
-events. You can use @Hit to make an NPC do a spell-type attack rather
-than a normal attack, if you wanted to. I'm going to show you an example
-that Swindler and I came up with a while back. You can use @SpellEffect
-to make a character immune to certain spells, or make certain spells do
-more damage. You can use @SpellCast to prevent the character from
-casting certain spells.
+These are very useful events, especially the @Hit and @SpellEffect events. You can use @Hit to make an NPC do a spell-type attack rather than a normal attack, if you wanted to. I'm going to show you an example that Swindler and I came up with a while back. You can use @SpellEffect to make a character immune to certain spells, or make certain spells do more damage. You can use @SpellCast to prevent the character from casting certain spells.
 
 Here's the full text of the @Hit portion of one of our scripts:
 
-<spherescript>ON=@Hit
+ON=@Hit
 
-`   IF !(RAND(10)) `  
-`       SRC.EFFECT = 3,i_fire_column,6,31,0 `  
-`       SRC.DAMAGE {20 40} `  
-`       SFX = snd_spell_flamestrike `  
-`   ELIF !(RAND(15)) `  
-`       SFX = 0054 `  
-`       SERV.NEWITEM = i_sakara_fire `  
-`       NEW.TIMER = 15 `  
-`       NEW.P = <SRC.P> `  
-`       NEW.MOVE <EVAL (RAND(6))> <EVAL (RAND(6))> `  
-`       SERV.NEWITEM = i_sakara_fire `  
-`       NEW.TIMER = 15 `  
-`       NEW.P = <SRC.P> `  
-`       NEW.MOVE <EVAL (RAND(6))> <EVAL (RAND(6))> `  
-`       SERV.NEWITEM = i_sakara_fire `  
-`       NEW.TIMER = 15 `  
-`       NEW.P = <SRC.P> `  
-`       NEW.MOVE <EVAL (RAND(6))> <EVAL (RAND(6))> `  
-`       SERV.NEWITEM = i_sakara_fire `  
-`       NEW.TIMER = 15 `  
-`       NEW.P = <SRC.P> `  
-`       NEW.MOVE <EVAL (RAND(6))> <EVAL (RAND(6))> `  
-`       SERV.NEWITEM = i_sakara_fire `  
-`       NEW.TIMER = 15 `  
-`       NEW.P = <SRC.P> `  
-`       NEW.MOVE <EVAL (RAND(6))> <EVAL (RAND(6))> `  
-`       SERV.NEWITEM = i_sakara_fire `  
-`       NEW.TIMER = 15 `  
-`       NEW.P = <SRC.P> `  
-`       NEW.MOVE <EVAL (RAND(6)) - (RAND(6))> <EVAL (RAND(6)) - (RAND(6))> `  
-`       SERV.NEWITEM = i_sakara_fire `  
-`       NEW.TIMER = 15 `  
-`       NEW.P = <SRC.P> `  
-`       NEW.MOVE <EVAL (RAND(6)) - (RAND(6))> <EVAL (RAND(6)) - (RAND(6))> `  
-`       SERV.NEWITEM = i_sakara_fire `  
-`       NEW.TIMER = 15 `  
-`       NEW.P = <SRC.P> `  
-`       NEW.MOVE <EVAL (RAND(6)) - (RAND(6))> <EVAL (RAND(6)) - (RAND(6))> `  
-`       SERV.NEWITEM = i_sakara_fire `  
-`       NEW.TIMER = 15 `  
-`       NEW.P = <SRC.P> `  
-`       NEW.MOVE <EVAL (RAND(6)) - (RAND(6))> <EVAL (RAND(6)) - (RAND(6))> `  
-`       SERV.NEWITEM = i_sakara_fire `  
-`       NEW.TIMER = 15 `  
-`       NEW.P = <SRC.P> `  
-`       NEW.MOVE <EVAL (RAND(6)) - (RAND(6))> <EVAL (RAND(6)) - (RAND(6))>`  
-`   ENDIF`</spherescript>
+`   IF !(RAND(10)) `
+`       SRC.EFFECT = 3,i_fire_column,6,31,0 `
+`       SRC.DAMAGE {20 40} `
+`       SFX = snd_spell_flamestrike `
+`   ELIF !(RAND(15)) `
+`       SFX = 0054 `
+`       SERV.NEWITEM = i_sakara_fire `
+`       NEW.TIMER = 15 `
+`       NEW.P = <SRC.P> `
+`       NEW.MOVE <EVAL (RAND(6))> <EVAL (RAND(6))> `
+`       SERV.NEWITEM = i_sakara_fire `
+`       NEW.TIMER = 15 `
+`       NEW.P = <SRC.P> `
+`       NEW.MOVE <EVAL (RAND(6))> <EVAL (RAND(6))> `
+`       SERV.NEWITEM = i_sakara_fire `
+`       NEW.TIMER = 15 `
+`       NEW.P = <SRC.P> `
+`       NEW.MOVE <EVAL (RAND(6))> <EVAL (RAND(6))> `
+`       SERV.NEWITEM = i_sakara_fire `
+`       NEW.TIMER = 15 `
+`       NEW.P = <SRC.P> `
+`       NEW.MOVE <EVAL (RAND(6))> <EVAL (RAND(6))> `
+`       SERV.NEWITEM = i_sakara_fire `
+`       NEW.TIMER = 15 `
+`       NEW.P = <SRC.P> `
+`       NEW.MOVE <EVAL (RAND(6))> <EVAL (RAND(6))> `
+`       SERV.NEWITEM = i_sakara_fire `
+`       NEW.TIMER = 15 `
+`       NEW.P = <SRC.P> `
+`       NEW.MOVE <EVAL (RAND(6)) - (RAND(6))> <EVAL (RAND(6)) - (RAND(6))> `
+`       SERV.NEWITEM = i_sakara_fire `
+`       NEW.TIMER = 15 `
+`       NEW.P = <SRC.P> `
+`       NEW.MOVE <EVAL (RAND(6)) - (RAND(6))> <EVAL (RAND(6)) - (RAND(6))> `
+`       SERV.NEWITEM = i_sakara_fire `
+`       NEW.TIMER = 15 `
+`       NEW.P = <SRC.P> `
+`       NEW.MOVE <EVAL (RAND(6)) - (RAND(6))> <EVAL (RAND(6)) - (RAND(6))> `
+`       SERV.NEWITEM = i_sakara_fire `
+`       NEW.TIMER = 15 `
+`       NEW.P = <SRC.P> `
+`       NEW.MOVE <EVAL (RAND(6)) - (RAND(6))> <EVAL (RAND(6)) - (RAND(6))> `
+`       SERV.NEWITEM = i_sakara_fire `
+`       NEW.TIMER = 15 `
+`       NEW.P = <SRC.P> `
+`       NEW.MOVE <EVAL (RAND(6)) - (RAND(6))> <EVAL (RAND(6)) - (RAND(6))>`
+`   ENDIF`
 
-You obviously don't have the rest of this script, but just know that
-i_sakara_fire is a valid item and it won't cause an error. Actually it's
-a fire field-looking item that does a lot of damage if you step on it.
+You obviously don't have the rest of this script, but just know that i_sakara_fire is a valid item and it won't cause an error. Actually it's a fire field-looking item that does a lot of damage if you step on it.
 
-You'll see a few interesting things in here. First of all is Swindler's
-creative use of the RAND function in an IF statement. This assures that
-the special effects only happen rarely. The two effects we're dealing
-with here, if you can't tell from the script, are:
+You'll see a few interesting things in here. First of all is Swindler's creative use of the RAND function in an IF statement. This assures that the special effects only happen rarely. The two effects we're dealing with here, if you can't tell from the script, are:
 
 1.  A single flamestrike on the player (1 in 10 chance of happening)
 2.  An explosion that leaves i_sakara_fire scattered all over the place
     (1 in 15 chance)
 
-The IF statements assure that we only have a 1 in 10 chance for the
-first event to happen. When RAND(10) is evaluated (all statements in an
-IF are sent through EVAL), it picks a number from 0 to 9. In this
-particular situation, we're looking for that 1 in 10 chance that the
-RAND(10) evaluates to zero. This makes the IF statement false, but look,
-we have the NOT (!) symbol in there:
+The IF statements assure that we only have a 1 in 10 chance for the first event to happen. When RAND(10) is evaluated (all statements in anIF are sent through EVAL), it picks a number from 0 to 9. In this particular situation, we're looking for that 1 in 10 chance that the RAND(10) evaluates to zero. This makes the IF statement false, but look, we have the NOT (!) symbol in there:
 
 *IF (! false) becomes IF (true)*
 
-If the first random statement results in a zero, we get the flamestrike
-effect. There are several methods of doing this, but Swindler chose to
-use an EFFECT (see the command list) statement and some damage. He also
-added a sound effect, which is something I always forget to do in my
-scripts. It makes it very impressive to those who actually play with
-their sound on.
+If the first random statement results in a zero, we get the flamestrike effect. There are several methods of doing this, but Swindler chose to use an EFFECT (see the command list) statement and some damage. He also added a sound effect, which is something I always forget to do in my scripts. It makes it very impressive to those who actually play with their sound on.
 
-If the first statement results in anything other than a zero, it becomes
-false, thanks to the NOT symbol. We skip to the next section, which
-begins with ELIF. This is the section which creates a lot of items and
-uses SRC.ACT.MOVE to move them relative to their original position.
-These items happen to be i_sakara_fire items, which cause some damage
-when a player steps on them. Here's the part you may be having some
-trouble with:
+If the first statement results in anything other than a zero, it becomes false, thanks to the NOT symbol. We skip to the next section, which begins with ELIF. This is the section which creates a lot of items and uses SRC.ACT.MOVE to move them relative to their original position. These items happen to be i_sakara_fire items, which cause some damage when a player steps on them. Here's the part you may be having some trouble with:
 
-<spherescript>SRC.ACT.MOVE \<EVAL (RAND(6)) - (RAND(6))\> \<EVAL
-(RAND(6)) - (RAND(6))\></spherescript>
+SRC.ACT.MOVE \<EVAL (RAND(6)) - (RAND(6))\> \<EVAL (RAND(6)) - (RAND(6))\>
 
-This is Swindler's very interesting way to get values between -5 and 5.
-You could just as easily write a random selector {-6 6}. However
-Swindler's method seems to have this interesting factor built in that
-the numbers tend be more likely to be closer to zero than -5 or 5. Let's
-see how that works:
+This is Swindler's very interesting way to get values between -5 and 5. You could just as easily write a random selector {-6 6}. However Swindler's method seems to have this interesting factor built in that the numbers tend be more likely to be closer to zero than -5 or 5. Let's see how that works:
 
-RAND(X) will return a number between 0 and (X - 1). For example RAND(9)
-returns any number between 0 and 8. So the lowest possible value of
-Swindler's RAND(6) is 0 and the highest possible value is 5. Notice that
-we have two of them:
+RAND(X) will return a number between 0 and (X - 1). For example RAND(9) returns any number between 0 and 8. So the lowest possible value of Swindler's RAND(6) is 0 and the highest possible value is 5. Notice that we have two of them:
 
 `RAND(6) - RAND(6)`
 
-We're subtracting one number between 0 and 5 from another. If one
-happens to be 0 and the other is 5, the answer will be 0 - 5 = -5. If it
-is the other way around, the answer will be 5 - 0 = 5. However, as we
-get closer to the middle, the numbers are the same. There is more of a
-chance of receiving a small number (3 - 2 = 1, 2 - 1 = 1, 4 - 3 = 1,
-etc) than a large one. This makes the script more interesting! :) Don't
-deny it. It's interesting. Say it. "This script is interesting." Now
-shut up and keep reading.
+We're subtracting one number between 0 and 5 from another. If one happens to be 0 and the other is 5, the answer will be 0 - 5 = -5. If it is the other way around, the answer will be 5 - 0 = 5. However, as we get closer to the middle, the numbers are the same. There is more of a chance of receiving a small number (3 - 2 = 1, 2 - 1 = 1, 4 - 3 = 1,etc) than a large one. This makes the script more interesting! :) Don't deny it. It's interesting. Say it. "This script is interesting." Now shut up and keep reading.
 
 [Category:Tutorials](Category:Tutorials "wikilink")
+```

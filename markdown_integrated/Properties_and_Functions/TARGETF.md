@@ -1,7 +1,4 @@
-Targetf is a command you can use to directly target a character or item
-and using a function on it without manually creating an memory item or
-such. Using the targetf itself works like calling an ordinary function
-and you can put arguments after the function normally.
+Targetf is a command you can use to directly target a character or item and using a function on it without manually creating an memory item or such. Using the targetf itself works like calling an ordinary function and you can put arguments after the function normally.
 
 ex. targetf f_hello or targetf f_hello 1,2
 
@@ -9,12 +6,12 @@ In targetf:
 
 SRC= player using the function
 
+```
 ARGO= target's UID
+```
 
 TARGP= ID of the tiles when target is a static tile
 
 local.id stores the ID of the targeted object
 
-[Category:Reference
-Compendium](Category:Reference_Compendium "wikilink") [Category:
-Properties and Functions](Category:_Properties_and_Functions "wikilink")
+[Category:Reference Compendium](Category:Reference_Compendium "wikilink") [Category: Properties and Functions](Category:_Properties_and_Functions "wikilink")

@@ -1,194 +1,33 @@
-\_\_FORCETOC\_\_ A skill block defines the basic properties and
-behaviours of a skill.
+ A skill block defines the basic properties and behaviours of a skill.
 
 ## Properties
 
 The following properties are available when defining a skill:
 
-<table>
-<tbody>
-<tr>
-<td><p><strong>Name</strong></p></td>
-<td><p><strong>Read/Write</strong></p></td>
-<td><p><strong>Description</strong></p></td>
-</tr>
-<tr>
-<td><p><a href="ADV_RATE" title="wikilink">ADV_RATE</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the skill's advance rate. Accepts multiple values to
-adjust based on skill level.</p></td>
-</tr>
-<tr>
-<td><p><a href="BONUS_DEX" title="wikilink">BONUS_DEX</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets a multiplier for how much dexterity affects a
-character's non-real skill amount, and affects stat gain.</p></td>
-</tr>
-<tr>
-<td><p><a href="BONUS_INT" title="wikilink">BONUS_INT</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets a multiplier for how much intelligence affects a
-character's non-real skill amount, and affects stat gain.</p></td>
-</tr>
-<tr>
-<td><p><a href="BONUS_STATS" title="wikilink">BONUS_STATS</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets a modifier for gaining stats when using the
-skill.</p></td>
-</tr>
-<tr>
-<td><p><a href="BONUS_STR" title="wikilink">BONUS_STR</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets a multiplier for how much strength affects a
-character's non-real skill amount, and affects stat gain.</p></td>
-</tr>
-<tr>
-<td><p><a href="DELAY" title="wikilink">DELAY</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets how long it takes to attempt to complete the skill,
-in tenths of a second. Accepts multiple values to adjust based on skill
-level.</p></td>
-</tr>
-<tr>
-<td><p><a href="EFFECT" title="wikilink">EFFECT</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets a value which effects skills in different ways.
-(Crafting = Resource Loss % on Fail, Healing = Amount Healed). Accepts
-multiple values to adjust based on skill level.</p></td>
-</tr>
-<tr>
-<td><p><a href="FLAGS" title="wikilink">FLAGS</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets skill attributes. The available flags are defined in
-the sphere_defs.scp file:</p>
-<table>
-<tbody>
-<tr>
-<td><p>SKF_SCRIPTED</p></td>
-<td><p>0001</p></td>
-<td><p>fully scripted, no hardcoded behaviour</p></td>
-</tr>
-<tr>
-<td><p>SKF_FIGHT</p></td>
-<td><p>0002</p></td>
-<td><p>considered a fight skill, maintains fight active</p></td>
-</tr>
-<tr>
-<td><p>SKF_MAGIC</p></td>
-<td><p>0004</p></td>
-<td><p>considered a magic skill</p></td>
-</tr>
-<tr>
-<td><p>SKF_CRAFT</p></td>
-<td><p>0008</p></td>
-<td><p>considered a crafting skill, compatible with MAKEITEM
-function</p></td>
-</tr>
-<tr>
-<td><p>SKF_IMMOBILE</p></td>
-<td><p>0010</p></td>
-<td><p>skilluser can not move while skilluse</p></td>
-</tr>
-<tr>
-<td><p>SKF_SELECTABLE</p></td>
-<td><p>0020</p></td>
-<td><p>from skill list. ATTENTION: This does <em>not</em> place the
-button next to the skill in the client's skill list! For this you have
-to edit skills.mul or script the trigger.</p></td>
-</tr>
-<tr>
-<td><p>SKF_NOMINDIST</p></td>
-<td><p>0040</p></td>
-<td><p>you can mine, fish, chop, hack on the same point you are standing
-on</p></td>
-</tr>
-<tr>
-<td><p>SKF_NOANIM</p></td>
-<td><p>0080</p></td>
-<td><p>don't show hard-coded animation for this skill</p></td>
-</tr>
-<tr>
-<td><p>SKF_NOSFX</p></td>
-<td><p>0100</p></td>
-<td><p>don't play hard-coded sound for this skill</p></td>
-</tr>
-<tr>
-<td><p>SKF_RANGED</p></td>
-<td><p>0200</p></td>
-<td><p>considered a ranged skill (combine with SKF_FIGHT)</p></td>
-</tr>
-</tbody>
-</table></td>
-</tr>
-<tr>
-<td><p><a href="GAINRADIUS" title="wikilink">GAINRADIUS</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets a difficulty "radius" that prevents characters from
-gaining skill when performing "easy" actions. Skillgain will only be
-calculated if the current skill is less than the actual difficulty +
-GAINRADIUS. If skillgain is aborted due to GAINRADIUS not met, a message
-will only be displayed if TAG.NOSKILLMSG=1 on character.</p></td>
-</tr>
-<tr>
-<td><p><a href="GROUP" title="wikilink">GROUP</a></p></td>
-<td><p>RW</p></td>
-<td><p>Get or sets the skill's group flags.</p></td>
-</tr>
-<tr>
-<td><p><a href="KEY" title="wikilink">KEY</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the skill's defname.</p></td>
-</tr>
-<tr>
-<td><p><a href="NAME" title="wikilink">NAME</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the name of the skill.</p></td>
-</tr>
-<tr>
-<td><p><a href="STAT_DEX" title="wikilink">STAT_DEX</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the maximum dexterity a character can gain up to
-when using this skill.</p></td>
-</tr>
-<tr>
-<td><p><a href="STAT_INT" title="wikilink">STAT_INT</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the maximum intelligence a character can gain up to
-when using this skill.</p></td>
-</tr>
-<tr>
-<td><p><a href="STAT_STR" title="wikilink">STAT_STR</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the maximum strength a character can gain up to when
-using this skill.</p></td>
-</tr>
-<tr>
-<td><p><a href="PROMPT_MSG" title="wikilink">PROMPT_MSG</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the message shown when the character selects the
-skill, and also forces characters to select a target when
-non-empty.</p></td>
-</tr>
-<tr>
-<td><p><a href="TITLE" title="wikilink">TITLE</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the professional title for the skill.</p></td>
-</tr>
-<tr>
-<td><p><a href="VALUES" title="wikilink">VALUES</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets a modifier for the value of items that are created
-using the skill. Accepts multiple values to adjust based on skill
-level.</p></td>
-</tr>
-</tbody>
-</table>
+| **Name** | **Read/Write** | **Description** |  |  |
+| --- | --- | --- | --- | --- |
+| [ADV_RATE](ADV_RATE) | RW | Gets or sets the skill's advance rate. Accepts multiple values to adjust based on skill level. |  |  |
+| [BONUS_DEX](BONUS_DEX) | RW | Gets or sets a multiplier for how much dexterity affects a character's non-real skill amount, and affects stat gain. |  |  |
+| [BONUS_INT](BONUS_INT) | RW | Gets or sets a multiplier for how much intelligence affects a character's non-real skill amount, and affects stat gain. |  |  |
+| [BONUS_STATS](BONUS_STATS) | RW | Gets or sets a modifier for gaining stats when using the skill. |  |  |
+| [BONUS_STR](BONUS_STR) | RW | Gets or sets a multiplier for how much strength affects a character's non-real skill amount, and affects stat gain. |  |  |
+| [DELAY](DELAY) | RW | Gets or sets how long it takes to attempt to complete the skill, in tenths of a second. Accepts multiple values to adjust based on skill level. |  |  |
+| [EFFECT](EFFECT) | RW | Gets or sets a value which effects skills in different ways. (Crafting = Resource Loss % on Fail, Healing = Amount Healed). Accepts multiple values to adjust based on skill level. |  |  |
+| [FLAGS](FLAGS) | RW | Gets or sets skill attributes. The available flags are defined in the sphere_defs.scp file: <table> SKF_SCRIPTED | 0001 | fully scripted, no hardcoded behaviour |
+| SKF_FIGHT | 0002 | considered a fight skill, maintains fight active |  |  |
+| SKF_MAGIC | 0004 | considered a magic skill |  |  |
+| SKF_CRAFT | 0008 | considered a crafting skill, compatible with MAKEITEM function |  |  |
+| SKF_IMMOBILE | 0010 | skilluser can not move while skilluse |  |  |
+| SKF_SELECTABLE | 0020 | from skill list. ATTENTION: This does *not* place the button next to the skill in the client's skill list! For this you have to edit skills.mul or script the trigger. |  |  |
+| SKF_NOMINDIST | 0040 | you can mine, fish, chop, hack on the same point you are standing on |  |  |
+| SKF_NOANIM | 0080 | don't show hard-coded animation for this skill |  |  |
+| SKF_NOSFX | 0100 | don't play hard-coded sound for this skill |  |  |
+| SKF_RANGED | 0200 | considered a ranged skill (combine with SKF_FIGHT) |  |  |</td>
+</tr> <tr> <td><p>[GAINRADIUS](GAINRADIUS)</p></td> <td><p>RW</p></td> <td><p>Gets or sets a difficulty "radius" that prevents characters from gaining skill when performing "easy" actions. Skillgain will only be calculated if the current skill is less than the actual difficulty + GAINRADIUS. If skillgain is aborted due to GAINRADIUS not met, a message will only be displayed if `TAG.NOSKILLMSG`=1 on character.</p></td> </tr> <tr> <td><p>[GROUP](GROUP)</p></td> <td><p>RW</p></td> <td><p>Get or sets the skill's group flags.</p></td> </tr> <tr> <td><p>[KEY](KEY)</p></td> <td><p>RW</p></td> <td><p>Gets or sets the skill's defname.</p></td> </tr> <tr> <td><p>[NAME](NAME)</p></td> <td><p>RW</p></td> <td><p>Gets or sets the name of the skill.</p></td> </tr> <tr> <td><p>[STAT_DEX](STAT_DEX)</p></td> <td><p>RW</p></td> <td><p>Gets or sets the maximum dexterity a character can gain up to when using this skill.</p></td> </tr> <tr> <td><p>[STAT_INT](STAT_INT)</p></td> <td><p>RW</p></td> <td><p>Gets or sets the maximum intelligence a character can gain up to when using this skill.</p></td> </tr> <tr> <td><p>[STAT_STR](STAT_STR)</p></td> <td><p>RW</p></td> <td><p>Gets or sets the maximum strength a character can gain up to when using this skill.</p></td> </tr> <tr> <td><p>[PROMPT_MSG](PROMPT_MSG)</p></td> <td><p>RW</p></td> <td><p>Gets or sets the message shown when the character selects the skill, and also forces characters to select a target when non-empty.</p></td> </tr> <tr> <td><p>[TITLE](TITLE)</p></td> <td><p>RW</p></td> <td><p>Gets or sets the professional title for the skill.</p></td> </tr> <tr> <td><p>[VALUES](VALUES)</p></td> <td><p>RW</p></td> <td><p>Gets or sets a modifier for the value of items that are created using the skill. Accepts multiple values to adjust based on skill level.</p></td> </tr> </tbody> </table>
 
 ## Triggers
 
-The following table lists all of the triggers that can be placed under a
-skill definition. All of the triggers here have an equivalent @Skill
-trigger on the [character](Characters "wikilink") object.
+The following table lists all of the triggers that can be placed under a skill definition. All of the triggers here have an equivalent @Skill trigger on the [character](Characters "wikilink") object.
 
 |  |  |
 |----|----|
@@ -205,24 +44,33 @@ trigger on the [character](Characters "wikilink") object.
 
 ## Examples
 
-<spherescript> // // Alchemy skill from the default script pack. //
+```
+ // // Alchemy skill from the default script pack. //
+```
 \[SKILL 0\] DEFNAME=SKILL_ALCHEMY KEY=Alchemy TITLE=Alchemist
+```
 DELAY=3.0,1.0 ADV_RATE=10.0,200.0,800.0 VALUES=1,20,100
+```
 
+```
 BONUS_STATS=10 BONUS_STR=0 BONUS_DEX=20 BONUS_INT=80
+```
 
+```
 STAT_STR=5 STAT_INT=75 STAT_DEX=40
+```
 
+```
 ON=@Fail
+```
 
-`   SRC.SYSMESSAGE You toss the failed mixture from the mortar, unable to create a potion from it.`
+`   `SRC.SYSMESSAGE` You toss the failed mixture from the mortar, unable to create a potion from it.`
 
+```
 ON=@Abort
+```
 
-`   SRC.SYSMESSAGE You fail to complete the potion.`
+`   `SRC.SYSMESSAGE` You fail to complete the potion.`
 
-</spherescript>
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Definitions](Category:_Definitions "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Definitions](Category:_Definitions "wikilink")

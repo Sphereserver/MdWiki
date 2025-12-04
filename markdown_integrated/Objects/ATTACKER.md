@@ -1,15 +1,10 @@
-\_\_FORCETOC\_\_
+
 
 ## Properties and Functions
 
-Here is a list of all attacker properties and functions. If a function
-is marked as readable then it can return a value when used as <KEY>.
-Click on the name for more detailed information such as usage and
-examples.
+Here is a list of all attacker properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples.
 
-This parameters must use with
-[ATTACKER](#Properties_and_Functions "wikilink"). For examples, please
-go [Examples](#Examples "wikilink").
+This parameters must use with [ATTACKER](#Properties_and_Functions "wikilink"). For examples, please go [Examples](#Examples "wikilink").
 
 |  |  |  |
 |----|----|----|
@@ -31,15 +26,13 @@ go [Examples](#Examples "wikilink").
 
 ## Examples
 
-The following examples are about
-[attacker](#Properties_and_Functions "wikilink").
+The following examples are about [attacker](#Properties_and_Functions "wikilink").
 
 **ATTACKER**
 
 ------------------------------------------------------------------------
 
-<spherescript> \[Events e_example\] On=@Death SERV.LOG Number Of
-Attacker: <attacker> </spherescript>
+ \[Events e_example\] `On=`@Death `SERV.LOG` Number Of Attacker: <attacker>
 
 You will see *number of attacker* output to the console.
 
@@ -47,24 +40,19 @@ You will see *number of attacker* output to the console.
 
 ------------------------------------------------------------------------
 
-<spherescript> \[EVENTS e_example\] ON=@GetHit Serv.Log \<src.name\> is
-the attacker number '\<attacker.id <src>\>' on my list. </spherescript>
+ \[EVENTS e_example\] `ON=`@GetHit `Serv.Log` \<`src.name`\> is the attacker number '\<attacker.id <src>\>' on my `list.`
 
 **ATTACKER***.n***\[.UID\]**
 
 ------------------------------------------------------------------------
 
-<spherescript> \[Events e_example\] On=@Death SERV.LOG First Attacker:
-\<uid.\<attacker.0\>.name\> SERV.LOG Fourth Attacker:
-\<uid.\<attacker.3.uid\>.name\> </spherescript>
+ \[Events e_example\] `On=`@Death `SERV.LOG` First Attacker: \<uid.\<attacker.0\>.name\> `SERV.LOG` Fourth Attacker: \<uid.\<attacker.3.uid\>.name\>
 
 You will see *first and fourth attackers* output to the concole.
 
 OR
 
-<spherescript> \[Events e_example\] On=@Death for 0 \<eval
-<ATTACKER>-1\> SERV.LOG \<eval \<DLOCAL.\_FOR\>+1\>. Attacker:
-\<uid.\<attacker.\<dlocal.\_for\>\>.name\> endfor </spherescript>
+ \[Events e_example\] `On=`@Death for 0 \<eval <ATTACKER>-1\> `SERV.LOG` \<eval \<DLOCAL.\_FOR\>+1\>. Attacker: \<uid.\<attacker.\<dlocal.\_for\>\>.name\> endfor
 
 You will see *all attackers* output to the console.
 
@@ -72,8 +60,7 @@ You will see *all attackers* output to the console.
 
 ------------------------------------------------------------------------
 
-<spherescript> \[Events e_example\] On=@Death SERV.LOG Last Attacker:
-\<uid.\<attacker.last\>.name\> </spherescript>
+ \[Events e_example\] `On=`@Death `SERV.LOG` Last Attacker: \<uid.\<attacker.last\>.name\>
 
 You will see *last attacker* output to the console.
 
@@ -81,44 +68,34 @@ You will see *last attacker* output to the console.
 
 ------------------------------------------------------------------------
 
-<spherescript> \[Events e_example\] On=@Death SERV.LOG Max Attacker:
-\<uid.\<attacker.max\>.name\> </spherescript>
+ \[Events e_example\] `On=`@Death `SERV.LOG` Max Attacker: \<uid.\<attacker.max\>.name\>
 
-You will see *the attacker who dealt the most damage to the character*
-output to the console.
+You will see *the attacker who dealt the most damage to the character* output to the console.
 
 **ATTACKER.TARGET**
 
 ------------------------------------------------------------------------
 
-<spherescript> \[Events e_example\] On=@Death ref1=\<attacker.target\>
-SERV.LOG My current target is: \<ref1.name\> </spherescript>
+ \[Events e_example\] `On=`@Death ref1=\<attacker.target\> `SERV.LOG` My current target is: \<ref1.name\>
 
 This will output in the console the name of the current best target.
 
-Note: Enabling NPC_AI_THREAT in the ini's npc_ai settings will make
-characters to check for Threat when looking for targets.
+Note: Enabling NPC_AI_THREAT in the ini's npc_ai settings will make characters to check for Threat when looking for targets.
 
 **ATTACKER***.n***.DAMAGE**
 
 ------------------------------------------------------------------------
 
-<spherescript> \[Events e_example\] On=@Death SERV.LOG Damage from first
-player: \<attacker.0.dam\> </spherescript>
+ \[Events e_example\] `On=`@Death `SERV.LOG` Damage from first player: \<attacker.0.dam\>
 
-You will see *amount of damage which first attacker has dealt* output to
-the console.
+You will see *amount of damage which first attacker has dealt* output to the console.
 
 **ATTACKER***.n***.ELAPSED**
 
 ------------------------------------------------------------------------
 
-<spherescript> \[Events e_example\] On=@Death SERV.LOG Attack time of
-the first player: \<attacker.0.elapsed\> </spherescript>
+ \[Events e_example\] `On=`@Death `SERV.LOG` Attack time of the first player: \<attacker.0.elapsed\>
 
-You will see *the length of time since the first opponent has damaged*
-output to the console.
+You will see *the length of time since the first opponent has damaged* output to the console.
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Objects](Category:_Objects "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Objects](Category:_Objects "wikilink")

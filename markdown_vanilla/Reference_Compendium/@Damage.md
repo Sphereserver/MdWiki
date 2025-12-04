@@ -8,8 +8,7 @@ Fires on:
 
 ## References
 
-The following object references are explicitly available for this
-trigger:
+The following object references are explicitly available for this trigger:
 
 |  |  |
 |----|----|
@@ -19,10 +18,7 @@ trigger:
 
 ## Arguments
 
-The following arguments are set for this trigger. If an argument is
-marked as "In" then a value will be passed in to the trigger, if an
-argument is marked as "Out" then it can be set to a value to affect
-Sphere's behaviour:
+The following arguments are set for this trigger. If an argument is marked as "In" then a value will be passed in to the trigger, if an argument is marked as "Out" then it can be set to a value to affect Sphere's behaviour:
 
 |              |            |                                     |
 |--------------|------------|-------------------------------------|
@@ -41,26 +37,20 @@ The following return values are explicitly defined for this trigger:
 
 ## Notes
 
-Damage function in items doesn't mean the amount of hitpoints receiving
-but a chance to receive 1 point of damage, so by default Sphere is using
-this formula to calc the chace of receive damage:
+Damage function in items doesn't mean the amount of hitpoints receiving but a chance to receive 1 point of damage, so by default Sphere is using this formula to calc the chace of receive damage:
 
-<spherescript>local.success = \<eval <MaxHits>\*16\> if
-(\<r\<local.success\>\> \> damage)
+local.success = \<eval <MaxHits>\*16\> if (\<r\<local.success\>\> \> damage)
 
-`return 1// and block the damage`
+``RETURN`1// and block the damage`
 
-endif</spherescript>
+```
+endif
+```
 
-So if a random number between 1 and MaxHits\*16 is higher than the
-damage dealt, there's no damage.
+So if a random number between 1 and MaxHits\*16 is higher than the damage dealt, there's no damage.
 
-In a PickAxe with 45 Hits it will mean that a number higher than 720
-(45\*16) have to be given to force one point of damage.
+In a PickAxe with 45 Hits it will mean that a number higher than 720 (45\*16) have to be given to force one point of damage.
 
-Here's a damage formula to force damage: <spherescript> damage=\<eval
-<maxhits>\*16\>,<src>,dam_physical </spherescript>
+Here's a damage formula to force damage:  damage=\<eval <maxhits>\*16\>,<src>,dam_physical
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Triggers](Category:_Triggers "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Triggers](Category:_Triggers "wikilink")

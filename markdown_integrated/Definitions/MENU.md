@@ -1,26 +1,23 @@
-\_\_FORCETOC\_\_ Menus are a simple way of displaying a selection dialog
-to clients. Menus can be shown to players in one of two styles:
+ Menus are a simple way of displaying a selection dialog to clients. Menus can be shown to players in one of two styles:
 
 - Text-based
 - Item-based
 
 ## Text-Based Menu
 
-A text-based menu simply shows a list of text options the choose from in
-a vertical list. The player can select an option and then press a
-"Continue" button to submit it.
+A text-based menu simply shows a list of text options the choose from in a vertical `list.` The player can select an option and then press a "Continue" button to submit it.
 
 The syntax for defining a text-based menu is as follows:
 
-`[MENU `*`defname`*`]`  
-*`title`*  
-  
-`ON=0 `*`text`*  
-`    `*`script`*  
-  
-`ON=0 `*`text`*  
-`    `*`script`*  
-  
+`[MENU `*`defname`*`]`
+*`title`*
+
+``ON=0` `*`text`*
+`    `*`script`*
+
+``ON=0` `*`text`*
+`    `*`script`*
+
 
 |  |  |
 |----|----|
@@ -34,15 +31,15 @@ The syntax for defining a text-based menu is as follows:
 
 The syntax for an item-based menu is as follows:
 
-`[MENU `*`defname`*`]`  
-*`title`*  
-  
-`ON=`*`baseid`*` `*`text`*  
-`    `*`script`*  
-  
-`ON=`*`baseid`*` @`*`hue`*`, `*`text`*  
-`    `*`script`*  
-  
+`[MENU `*`defname`*`]`
+*`title`*
+
+``ON=``*`baseid`*` `*`text`*
+`    `*`script`*
+
+``ON=``*`baseid`*` @`*`hue`*`, `*`text`*
+`    `*`script`*
+
 
 |  |  |
 |----|----|
@@ -57,85 +54,79 @@ The syntax for an item-based menu is as follows:
 
 ## Triggers
 
-When the client selects an option from the menu, the "ON=*...*" section
-will be executed, in a similar fashion to how a trigger would fire.
+When the client selects an option from the menu, the "`ON=`*...*" section will be executed, in a similar fashion to how a trigger would fire.
 
-If the client cancels the menu (by right-clicking it, or for text-based
-menus by pressing "Cancel"), an @Cancel trigger will be fired.
+```
+If the client cancels the menu (by right-clicking it, or for text-basedmenus by pressing "Cancel"), an @Cancel trigger will be fired.
 
 In both cases, the following references and arguments are available:
 
+```
 |  |  |
 |----|----|
 | **Name** | **Description** |
 | **[I](I "wikilink")** | The [character](Characters "wikilink") or [item](Items "wikilink") that the MENU function was called from. |
 | **[SRC](SRC "wikilink")** | The client operating the menu. |
+```
 
+```
 ## Examples
+```
 
-<spherescript> // // Displays a menu asking if the player wants more
-gold, and creates it // if they select Yes. // \[MENU m_goldmenu\] You
-currently have \<SRC.BANKBALANCE\>gp in your account. Would you like
-some more gold?
+ // // Displays a menu asking if the player wants more gold, and creates it // if they select Yes. // \[MENU m_goldmenu\] You currently have \<SRC.BANKBALANCE\>gp in your account. Would you like some more gold?
 
 ON=0 Yes
 
-`   SERV.NEWITEM i_gold, 5000`  
-`   SRC.BOUNCE <NEW.UID>`  
+`   SERV.NEWITEM i_gold, 5000`
+`   SRC.BOUNCE <NEW.UID>`
 `   RETURN`
 
 ON=0 No
 
-`   SRC.SYSMESSAGE Ok then!`  
+`   SRC.SYSMESSAGE Ok then!`
 `   RETURN`
 
-</spherescript>
 
-<spherescript> // // Displays a menu asking the player which item they
-would like. // \[MENU m_itemmenu\] Which item would you like?
+ // // Displays a menu asking the player which item they would like. // \[MENU m_itemmenu\] Which item would you like?
 
 ON=i_sword_viking <NAME>
 
-`   SERV.NEWITEM i_sword_viking`  
-`   SRC.BOUNCE <NEW.UID>`  
+`   SERV.NEWITEM i_sword_viking`
+`   SRC.BOUNCE <NEW.UID>`
 `   RETURN`
 
 ON=i_gold 5000 <NAME>
 
-`   SERV.NEWITEM i_gold, 5000`  
-`   SRC.BOUNCE <NEW.UID>`  
+`   SERV.NEWITEM i_gold, 5000`
+`   SRC.BOUNCE <NEW.UID>`
 `   RETURN`
 
 ON=i_backpack @020, a red backpack
 
-`   SERV.NEWITEM i_backpack`  
-`   NEW.COLOR = 020`  
-`   SRC.BOUNCE <NEW.UID>`  
+`   SERV.NEWITEM i_backpack`
+`   NEW.COLOR = 020`
+`   SRC.BOUNCE <NEW.UID>`
 `   RETURN`
 
 ON=0 Nothing
 
-`   SRC.SYSMESSAGE You get nothing! `  
+`   SRC.SYSMESSAGE You get nothing! `
 `   RETURN`
 
-</spherescript>
 
-<spherescript> // // Demonstrates the @Cancel trigger // \[MENU
-m_cancelmenu\] Don't cancel this menu!
+ // // Demonstrates the @Cancel trigger // \[MENU m_cancelmenu\] Don't cancel this menu!
 
 ON=0 Ok!
 
-`   SRC.SYSMESSAGE Thank you!`  
+`   SRC.SYSMESSAGE Thank you!`
 `   RETURN`
 
 ON=@Cancel
 
-`   SRC.SYSMESSAGE I said don't cancel this menu!`  
-`   MENU m_cancelmenu`  
+`   SRC.SYSMESSAGE I said don't cancel this menu!`
+`   MENU m_cancelmenu`
 `   RETURN`
 
-</spherescript>
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Definitions](Category:_Definitions "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Definitions](Category:_Definitions "wikilink")
+```

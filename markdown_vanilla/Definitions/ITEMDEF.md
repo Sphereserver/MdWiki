@@ -1,7 +1,6 @@
-\_\_FORCETOC\_\_
 
-An ITEMDEF block defines the basic properties of an
-[item](Items "wikilink").
+
+An ITEMDEF block defines the basic properties of an [item](Items "wikilink").
 
 ## Properties
 
@@ -71,13 +70,16 @@ Here is a list of all item definition properties.
 
 ## Multi Definitions
 
-For multi items (t_multi, t_multi_custom, t_ship), the ITEMDEF has
-additional properties.
+```
+For multi items (t_multi, t_multi_custom, t_ship), the ITEMDEF has additional properties.
 
+```
 ### Properties
+```
 
 Here is a list of all multi definition properties.
 
+```
 |  |  |  |  |
 |----|----|----|----|
 | **Name** | **Read/Write** | **Override†** | **Description** |
@@ -92,31 +94,21 @@ Here is a list of all multi definition properties.
 | [SHIPSPEED.TILES](SHIPSPEED.TILES "wikilink") | RW | Y | Gets or sets the tiles that a ship will move at each movement. (t_ship only) |
 | [SHIPSPEED.PERIOD](SHIPSPEED.PERIOD "wikilink") | RW | Y | Gets or sets the speed (tenths per each movement) that a ship will move at. (t_ship only) |
 | [TSPEECH](TSPEECH "wikilink") | RW | ?? | Gets a list of attached [SPEECH](SPEECH "wikilink") handlers, or adds a handler to the multi. |
+```
 
-**†** Some ITEMDEF properties can be overridden by using
-[Override_TAGs](Override_TAGs "wikilink"). For example,
-TAG.OVERRIDE.SHIPSPEED.PERIOD and TAG.OVERRIDE.SHIPSPEED.TILES can be
-set on individual ships in-game to affect their speed.
+**†** Some ITEMDEF properties can be overridden by using [Override_TAGs](Override_TAGs "wikilink"). For example, TAG.OVERRIDE.SHIPSPEED.PERIOD and TAG.OVERRIDE.SHIPSPEED.TILES can be set on individual ships in-game to affect their speed.
 
+```
 ## Examples
+```
 
-<spherescript>// // Blue Gold // \[ITEMDEF i_gold_blue\] ID=i_gold //
-inherits from i_gold NAME=Blue Gold // named Blue Gold TYPE=t_gold // is
-type t_gold VALUE=10 // valued at gold
+// // Blue Gold // \[ITEMDEF i_gold_blue\] ID=i_gold // inherits from i_gold NAME=Blue Gold // named Blue Gold TYPE=t_gold // is type t_gold VALUE=10 // valued at gold
 
 ON=@Create
 
 `   COLOR = colors_blue`
 
-// // Small Stone and Plaster House (from default script pack) //
-\[ITEMDEF 04064\] // item ID 0x4064 (in mul files)
-DEFNAME=i_multi_house_stone_plaster_small NAME=Small Stone and Plaster
-House TYPE=t_multi VALUE=43800 // valued at 43800 gold
-MULTIREGION=-3,-3,3,4 // size of the region, relative to location of the
-item COMPONENT=i_door_wood,0,3,7 // adds a door at 0,3,7 (relative to
-location of the item) COMPONENT=i_sign_brass_2,2,4,5 // adds a brass
-sign at 2,4,5 (relative to location of the item)</spherescript>
+// // Small Stone and Plaster House (from default script pack) // \[ITEMDEF 04064\] // item ID 0x4064 (in mul files) DEFNAME=i_multi_house_stone_plaster_small NAME=Small Stone and Plaster House TYPE=t_multi VALUE=43800 // valued at 43800 gold MULTIREGION=-3,-3,3,4 // size of the region, relative to location of the item COMPONENT=i_door_wood,0,3,7 // adds a door at 0,3,7 (relative tolocation of the item) COMPONENT=i_sign_brass_2,2,4,5 // adds a brass sign at 2,4,5 (relative to location of the item)
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Definitions](Category:_Definitions "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Definitions](Category:_Definitions "wikilink")
+```

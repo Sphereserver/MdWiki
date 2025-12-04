@@ -1,15 +1,12 @@
-\_\_FORCETOC\_\_ A character can be either a player or an NPC.
+ A character can be either a player or an NPC.
 
 ## References
 
-References return pointers to other objects (e.g. the REGION reference
-allows you to access the REGION that an object is in). These can either
-be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink")
-(1 for object types that don't have UIDs) of the object or 0 if it
-doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid
-property/function/reference for the *REFNAME* object. Click on the name
+References return pointers to other objects (e.g. the REGION referenceallows you to access the REGION that an object is in). These can either be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink") (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid property/function/reference for the *REFNAME* object. Click on the name
+```
 for more detailed information such as usage and examples.
 
+```
 |  |  |  |  |
 |----|----|----|----|
 | **Name** | **Read/Write** | **Description** | **Sphere X only?** |
@@ -30,1796 +27,280 @@ for more detailed information such as usage and examples.
 | [SECTOR](Sectors "wikilink") | R | Gets the [sector](Sectors "wikilink") that the character is in. |  |
 | [TOPOBJ](TOPOBJ "wikilink") | R | Gets the top-most [character](Characters "wikilink") or [item](Items "wikilink") in the world that contains the character. |  |
 | [TYPEDEF](TYPEDEF_(Reference) "wikilink") | R | Gets the [CHARDEF](CHARDEF "wikilink") that defines the character. |  |
+```
 
+```
 ## Properties and Functions
+```
 
-Here is a list of all character properties and functions. If a function
-is marked as readable then it can return a value when used as <KEY>.
-Click on the name for more detailed information such as usage and
-examples. If an attempt is made to access a property that does not exist
-on the character, the property from the [CHARDEF](CHARDEF "wikilink")
-will be accessed instead.
+Here is a list of all character properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples. If an attempt is made to access a property that does not exist on the character, the property from the [CHARDEF](CHARDEF "wikilink") will be accessed instead.
 
-<table>
-<tbody>
-<tr>
-<td><p><strong>Name</strong></p></td>
-<td><p><strong>Read/Write</strong></p></td>
-<td><p><strong>Description</strong></p></td>
-<td><p><strong>Sphere X only?</strong></p></td>
-</tr>
-<tr>
-<td><p><a href="AC" title="wikilink">AC</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns the character's total defense.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ACTARG1" title="wikilink">ACTARG1</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's ACTARG1 value. X branch only: for
-skills Enticement, Peacemaking and Provocation, if ACTARG1 is set to the
-UID of the instrument to play, it will be played the sound of that
-instrument.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ACTARG2" title="wikilink">ACTARG2</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's ACTARG2 value.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ACTARG3" title="wikilink">ACTARG3</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's ACTARG3 value.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ACTDIFF" title="wikilink">ACTDIFF</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the difficulty of the character's current
-action.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ACTION" title="wikilink">ACTION</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the skill that the character is currently
-using.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ACTP" title="wikilink">ACTP</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's ACTP value. Can get x,y,z,position
-of the point in X branch.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ACTPRV" title="wikilink">ACTPRV</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's ACTPRV value.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ADDHOUSE_uid" title="wikilink">ADDHOUSE uid</a></p></td>
-<td><p>W</p></td>
-<td><p>X branch only. Adds the given uid to the player's house. If the
-player current count of houses is greater than the limit he has, the
-house will be redeeded.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ADDSHIP_uid" title="wikilink">ADDSHIP uid</a></p></td>
-<td><p>W</p></td>
-<td><p>X branch only. Adds the given uid to the player's ship. If the
-player current count of ships is greater than the limit he has, the ship
-will be redeeded.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="AFK" title="wikilink">AFK</a></p></td>
-<td><p>W</p></td>
-<td><p>Gets or sets whether or not the character is in AFK
-mode.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="AGE" title="wikilink">AGE</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns the age of the character since its creation, in
-seconds.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ALLSKILLS" title="wikilink">ALLSKILLS</a>
-<em>amount</em></p></td>
-<td><p>W</p></td>
-<td><p>Sets all of the character's skills to the specified
-amount.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ANIM" title="wikilink">ANIM</a>
-<em>anim_id</em></p></td>
-<td><p>W</p></td>
-<td><p>Plays the specified animation on the character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ATTACKER"
-title="wikilink">ATTACKER</a><em>.properties</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the number of opponents who have damaged the
-character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="BANK" title="wikilink">BANK</a> <em>layer</em></p></td>
-<td><p>W</p></td>
-<td><p>Opens the character's bank (or the container at the specified
-layer) for SRC to view.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="BANKBALANCE" title="wikilink">BANKBALANCE</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns the total amount of gold in the character's
-bankbox.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="BARK" title="wikilink">BARK</a>
-<em>sound_id</em></p></td>
-<td><p>W</p></td>
-<td><p>Plays the specified sound (or the character's generic sound if
-not specified) to nearby clients from this character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="BODY" title="wikilink">BODY</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's body.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="BOUNCE" title="wikilink">BOUNCE</a>
-<em>item_uid</em></p></td>
-<td><p>W</p></td>
-<td><p>Places a specified item in the character's backpack.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="BOW" title="wikilink">BOW</a></p></td>
-<td><p>W</p></td>
-<td><p>Makes the character bow to SRC.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="CAN_(Characters)" title="wikilink">CAN</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or Sets the Can flags for this chardef. Only readable in X
-branch.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="CANCAST" title="wikilink">CANCAST</a> <em>spell_id,
-check_antimagic</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the character can cast a given spell, bypassing
-anti-magic field tests if <em>check_antimagic</em> set to 0.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="CANMAKE" title="wikilink">CANMAKE</a>
-<em>item_id</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the character has the skills and resources to craft
-a certain item.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="CANMAKESKILL" title="wikilink">CANMAKESKILL</a>
-<em>item_id</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the character has the skills to craft a certain
-item.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="CANMASK_(Characters)"
-title="wikilink">CANMASK</a></p></td>
-<td><p>RW</p></td>
-<td><p>X branch only. Stores the CAN flags to be dynamically switched on
-or off from the base CAN property.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="CANMOVE" title="wikilink">CANMOVE</a>
-<em>direction</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the character can move in the given
-direction.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="CANSEE" title="wikilink">CANSEE</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if SRC can see the character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="CANSEELOS" title="wikilink">CANSEELOS</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if SRC has line of sight to the character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="CANSEELOSFLAG" title="wikilink">CANSEELOSFLAG</a>
-<em>flags</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if SRC has line of sight to the character, with flags
-to modify what tests take place.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="COLOR" title="wikilink">COLOR</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's hue.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="CONSUME" title="wikilink">CONSUME</a>
-<em>resource_list</em></p></td>
-<td><p>W</p></td>
-<td><p>Removes specified resources from SRC's backpack.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="COUNT" title="wikilink">COUNT</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns the number of items equipped to the character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="CREATE" title="wikilink">CREATE</a></p></td>
-<td><p>RW (R only on X)</p></td>
-<td><p>Gets or sets the character's age since creation, in seconds
-(Tenth of seconds on X).</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="CRIMINAL" title="wikilink">CRIMINAL</a></p></td>
-<td><p>W</p></td>
-<td><p>Sets whether or not the character is a criminal.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="CURFOLLOWER" title="wikilink">CURFOLLOWER</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the number of current followers the character
-has,</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DAMAGE" title="wikilink">DAMAGE</a> <em>amount, type,
-source</em></p></td>
-<td><p>W</p></td>
-<td><p>Inflicts damage upon the character.</p>
-<p><code>When using COMBAT_ELEMENTAL_ENGINE add the following parameters after </code><em><code>source</code></em><code>: </code><em><code>physical</code></em><code>,</code><em><code>fire</code></em><code>,</code><em><code>cold</code></em><code>,</code><em><code>poison</code></em><code>,</code><em><code>energy</code></em><code>. All the values are in %.</code></p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DELHOUSE_uid" title="wikilink">DELHOUSE uid</a></p></td>
-<td><p>W</p></td>
-<td><p>X branch only. Deletes the given uid from the player's list (Will
-not delete the house)(-1 clears the whole list).</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DELSHIP_uid" title="wikilink">DELSHIP uid</a></p></td>
-<td><p>W</p></td>
-<td><p>X branch only. Deletes the given uid from the player's list (Will
-not delete the ship)(-1 clears the whole list).</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DESTROY" title="wikilink">DESTROY</a></p></td>
-<td><p>W</p></td>
-<td><p>Deletes the object, not stopped by a return 1 in <a
-href="@Destroy" title="wikilink">@Destroy</a></p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DEX" title="wikilink">DEX</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's total dexterity.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DIALOG_(Function)" title="wikilink">DIALOG</a>
-<em>dialog_id, page, parameters</em></p></td>
-<td><p>W</p></td>
-<td><p>Displays a dialog to SRC.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DIALOGCLOSE" title="wikilink">DIALOGCLOSE</a>
-<em>dialog_id button</em></p></td>
-<td><p>W</p></td>
-<td><p>Closes a dialog that SRC has open, simulating a button
-press.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DIALOGLIST"
-title="wikilink">DIALOGLIST</a><em>.COUNT</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the number of number of dialogs currently considered to be
-visible on SRC's screen.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DIALOGLIST"
-title="wikilink">DIALOGLIST</a><em>.n.ID</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the ID of the nth dialog that SRC has open
-(zero-based).</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DIALOGLIST"
-title="wikilink">DIALOGLIST</a><em>.n.COUNT</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the number of instances of nth dialog SRC has open
-(zero-based).</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DIR" title="wikilink">DIR</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or setes the direction that the character is
-facing.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DISCONNECT" title="wikilink">DISCONNECT</a></p></td>
-<td><p>W</p></td>
-<td><p>Disconnects the character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DISMOUNT" title="wikilink">DISMOUNT</a></p></td>
-<td><p>W</p></td>
-<td><p>Dismounts the character from their ride.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DISPIDDEC" title="wikilink">DISPIDDEC</a></p></td>
-<td><p>R</p></td>
-<td><p>Gets the ID of the character as a decimal number.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DISTANCE" title="wikilink">DISTANCE</a>
-<em>point_or_uid</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets the distance between this object and either SRC, a map
-location or another object.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DCLICK" title="wikilink">DCLICK</a></p></td>
-<td><p>W</p></td>
-<td><p>Double clicks the character, with SRC as the source of the
-event.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DCLICK" title="wikilink">DCLICK</a>
-<em>object_uid</em></p></td>
-<td><p>W</p></td>
-<td><p>Double clicks an object, with the character as SRC.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DRAWMAP" title="wikilink">DRAWMAP</a>
-<em>radius</em></p></td>
-<td><p>W</p></td>
-<td><p>Starts the cartography skill, drawing a map of the local area up
-to <em>radius</em> tiles.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DROP" title="wikilink">DROP</a>
-<em>item_uid</em></p></td>
-<td><p>W</p></td>
-<td><p>Drops a specified item at the character's feet.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="DUPE" title="wikilink">DUPE</a></p></td>
-<td><p>W</p></td>
-<td><p>Creates a clone of the character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="EDIT" title="wikilink">EDIT</a></p></td>
-<td><p>W</p></td>
-<td><p>Displays an editing dialog for the character to SRC.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="EFFECT" title="wikilink">EFFECT</a> <em>type, item_id,
-speed, loop, explode, color, rendermode</em></p></td>
-<td><p>W</p></td>
-<td><p>Displays an effect to nearby clients.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="EFFECTLOCATION" title="wikilink">EFFECTLOCATION</a>
-<em>x,y,z,type,itemid,speed,loop,explode,color,render</em></p></td>
-<td><p>W</p></td>
-<td><p>Similar to the EFFECT command but instead of an object it takes a
-terrain location as a target.</p></td>
-<td><p>X</p></td>
-</tr>
-<tr>
-<td><p><a href="EMOTE" title="wikilink">EMOTE</a>
-<em>message</em></p></td>
-<td><p>W</p></td>
-<td><p>Displays a *You see* message to all nearby clients.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="EMOTEACT" title="wikilink">EMOTEACT</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets, sets or toggles whether or not the character will emote all
-of its actions.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="EQUIP" title="wikilink">EQUIP</a>
-<em>item_uid</em></p></td>
-<td><p>W</p></td>
-<td><p>Equips an item to the character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="EQUIPARMOR" title="wikilink">EQUIPARMOR</a></p></td>
-<td><p>W</p></td>
-<td><p>Equips the character with the best armour in their
-backpack.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="EQUIPHALO" title="wikilink">EQUIPHALO</a>
-<em>timeout</em></p></td>
-<td><p>W</p></td>
-<td><p>Equips a halo light to the character, lasting for
-<em>timeout</em> tenths of a second.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="EQUIPWEAPON" title="wikilink">EQUIPWEAPON</a></p></td>
-<td><p>W</p></td>
-<td><p>Equips the character with the best weapon in their
-backpack.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="EVENTS_(Property)" title="wikilink">EVENTS</a>
-<em>event_defname</em></p></td>
-<td><p>RW</p></td>
-<td><p>Gets a list of events attached to the object, or adds or removes
-an event to or from the object.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="EXP" title="wikilink">EXP</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's experience points.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="FACE" title="wikilink">FACE</a> <em>object_uid</em> (P
-coords in X branch)</p></td>
-<td><p>W</p></td>
-<td><p>Turns the character to face a specified object or SRC. Admits
-coordinates instead uid in X branch.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="FAME" title="wikilink">FAME</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's fame.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="FAME"
-title="wikilink">FAME</a><em>.fame_group</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the character's fame falls within the specified fame
-group.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="FCOUNT" title="wikilink">FCOUNT</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns the total number of items equipped to the character,
-including subitems</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="FLAGS" title="wikilink">FLAGS</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's flags.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="FIX" title="wikilink">FIX</a></p></td>
-<td><p>W</p></td>
-<td><p>Re-aligns the character's Z level to ground level.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="FIXWEIGHT" title="wikilink">FIXWEIGHT</a></p></td>
-<td><p>W</p></td>
-<td><p>Recalculates the character's total weight.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="FLIP" title="wikilink">FLIP</a></p></td>
-<td><p>W</p></td>
-<td><p>Rotates the character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="FONT" title="wikilink">FONT</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's speech font.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="FOOD" title="wikilink">FOOD</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's food level.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="FORGIVE" title="wikilink">FORGIVE</a></p></td>
-<td><p>W</p></td>
-<td><p>Revokes the character's jailed status.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="GETHOUSEPOS_uid" title="wikilink">GETHOUSEPOS
-uid</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns the position of the given UID on the houses list (-1 if
-not found).</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="GETSHIPPOS_uid" title="wikilink">GETSHIPPOS
-uid</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns the position of the given UID on the ships list (-1 if
-not found).</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="GO" title="wikilink">GO</a> <em>location</em></p></td>
-<td><p>W</p></td>
-<td><p>Teleports the character to the specified location.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="GOCHAR" title="wikilink">GOCHAR</a> <em>n</em></p></td>
-<td><p>W</p></td>
-<td><p>Teleports the character to the nth character in the
-world.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="GOCHARID" title="wikilink">GOCHARID</a>
-<em>character_defname</em></p></td>
-<td><p>W</p></td>
-<td><p>Teleports the character to the next characer in the world with
-the specified <a href="BASEID" title="wikilink">BASEID</a></p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="GOCLI" title="wikilink">GOCLI</a> <em>n</em></p></td>
-<td><p>W</p></td>
-<td><p>Teleports the character to the nth online player.
-(zero-based)</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="GOITEMID" title="wikilink">GOITEMID</a>
-<em>item_defname</em></p></td>
-<td><p>W</p></td>
-<td><p>Teleports the character to the next item in the world with the
-specified <a href="BASEID" title="wikilink">BASEID</a>.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="GOLD" title="wikilink">GOLD</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the amount of gold the character has.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="GONAME" title="wikilink">GONAME</a>
-<em>name</em></p></td>
-<td><p>W</p></td>
-<td><p>Teleports the character to the next character or item in the
-world with the specified name, accepts wildcards (*).</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="GOSOCK" title="wikilink">GOSOCK</a>
-<em>socket</em></p></td>
-<td><p>W</p></td>
-<td><p>Teleports the character to the online player with the specified
-socket number.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="GOTYPE" title="wikilink">GOTYPE</a>
-<em>item_type</em></p></td>
-<td><p>W</p></td>
-<td><p>Teleports the character to the next item in the world with the
-specified <a href="TYPE" title="wikilink">TYPE</a>.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="GOUID" title="wikilink">GOUID</a>
-<em>object_uid</em></p></td>
-<td><p>W</p></td>
-<td><p>Teleports the character to the object with the specified <a
-href="UID" title="wikilink">UID</a>.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="GUILDABBREV" title="wikilink">GUILDABBREV</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns the character's guild abbreviation.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="HEAR" title="wikilink">HEAR</a> <em>text</em></p></td>
-<td><p>W</p></td>
-<td><p>For NPCs, acts as if SRC had spoken the specified <em>text</em>.
-For players, displays <em>text</em> as a system message.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="HEIGHT" title="wikilink">HEIGHT</a></p></td>
-<td><p>R</p></td>
-<td><p>Gets the character's height.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="HITS" title="wikilink">HITS</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's hitpoints.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="HOME" title="wikilink">HOME</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's home location.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="HOUSE.n" title="wikilink">HOUSE.n</a></p></td>
-<td><p>R</p></td>
-<td><p>X branch only.Access the house in the Nth position, eg:
-house.3.Redeed</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="HOUSES" title="wikilink">HOUSES</a></p></td>
-<td><p>R</p></td>
-<td><p>X branch only. Returns the number of houses on the player's
-list.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="HUNGRY" title="wikilink">HUNGRY</a></p></td>
-<td><p>W</p></td>
-<td><p>Displays this character's hunger level to SRC.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ID" title="wikilink">ID</a></p></td>
-<td><p>R</p></td>
-<td><p>Gets the character's ID.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="INFO" title="wikilink">INFO</a></p></td>
-<td><p>W</p></td>
-<td><p>Displays an information dialog about the character to
-SRC.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="INT" title="wikilink">INT</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's total intelligence.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="INVIS" title="wikilink">INVIS</a></p></td>
-<td><p>W</p></td>
-<td><p>Sets whether or not the character is invisible.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="INVUL" title="wikilink">INVUL</a></p></td>
-<td><p>W</p></td>
-<td><p>Sets whether or not the character is invulnerable.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISARMOR" title="wikilink">ISARMOR</a>
-<em>object_uid</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the object is armour.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISCHAR" title="wikilink">ISCHAR</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the object is a character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISCONT" title="wikilink">ISCONT</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the object is a container.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISDIALOGOPEN" title="wikilink">ISDIALOGOPEN</a>
-<em>dialog_id</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if SRC has the specified dialog visible on their
-screen.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISEVENT"
-title="wikilink">ISEVENT</a><em>.event_defname</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the object has an event attached to it.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISGM" title="wikilink">ISGM</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the character is in GM mode.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISINPARTY" title="wikilink">ISINPARTY</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the player is in a <a href="party"
-title="wikilink">party</a>.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISITEM" title="wikilink">ISITEM</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the object is an item.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISMYPET" title="wikilink">ISMYPET</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the character belongs to SRC.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISNEARTYPE" title="wikilink">ISNEARTYPE</a> <em>type,
-distance, flags</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if a nearby item has the given TYPE.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISNEARTYPETOP" title="wikilink">ISNEARTYPETOP</a>
-<em>type, distance, flags</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns a nearby world location of a nearby item which has the
-given TYPE.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISONLINE" title="wikilink">ISONLINE</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the character is considered to be online.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISPLAYER" title="wikilink">ISPLAYER</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the object is a player.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISSTUCK" title="wikilink">ISSTUCK</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the character cannot walk in any direction.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISTEVENT"
-title="wikilink">ISTEVENT</a><em>.event_defname</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the object has an event attached to its <a
-href="CHARDEF" title="wikilink">CHARDEF</a>.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISTIMERF"
-title="wikilink">ISTIMERF</a><em>.function</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns the number of seconds left on the specified timerf if it
-exists.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISVENDOR" title="wikilink">ISVENDOR</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the character is a vendor.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISVERTICALSPACE" title="wikilink">ISVERTICALSPACE</a>
-<em>location</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the ceiling at the given location is high enough for
-the character to fit under.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ISWEAPON" title="wikilink">ISWEAPON</a>
-<em>object_uid</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the object is a weapon.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="JAIL" title="wikilink">JAIL</a> <em>cell</em></p></td>
-<td><p>W</p></td>
-<td><p>Sends the character to jail, to a specified jail cell.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="KARMA" title="wikilink">KARMA</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's karma.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="KARMA"
-title="wikilink">KARMA</a><em>.karma_group</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the character's karma falls within the specified
-karma group.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="KILL" title="wikilink">KILL</a></p></td>
-<td><p>W</p></td>
-<td><p>Kills the character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="LEVEL" title="wikilink">LEVEL</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's experience level.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="LIGHT" title="wikilink">LIGHT</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's personal light level.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="LUCK" title="wikilink">LUCK</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the luck value for the character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MAKEITEM" title="wikilink">MAKEITEM</a>
-<em>item_defname, amount</em></p></td>
-<td><p>| W</p></td>
-<td><p>Begins an attempt to craft the specified quantity of the given
-item.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MANA" title="wikilink">MANA</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's mana.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MAP" title="wikilink">MAP</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the map that this object is located.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MAPWAYPOINT" title="wikilink">MAPWAYPOINT</a>
-"ObjectUID, WaypointType"</p></td>
-<td><p>W</p></td>
-<td><p>Add/remove waypoints on client radar map (enhanced clients
-only).</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MAXFOLLOWER" title="wikilink">MAXFOLLOWER</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the maximum number of followers the character can
-have.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MAXHITS" title="wikilink">MAXHITS</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's maximum hitpoints.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MAXHOUSES" title="wikilink">MAXHOUSES</a></p></td>
-<td><p>RW</p></td>
-<td><p>Added to Accounts and Chars, when created they read this setting
-from the sphere.ini (if values on sphere.ini change, they will not
-reflect on already created accounts/chars).</p></td>
-<td><p>X</p></td>
-</tr>
-<tr>
-<td><p><a href="MAXMANA" title="wikilink">MAXMANA</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's maximum mana.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MAXSHIPS" title="wikilink">MAXSHIPS</a></p></td>
-<td><p>RW</p></td>
-<td><p>Added Accounts and Chars, when created they read this new setting
-from the sphere.ini (if values on sphere.ini change, they will not
-reflect on already created accounts/chars).</p></td>
-<td><p>X</p></td>
-</tr>
-<tr>
-<td><p><a href="MAXSTAM" title="wikilink">MAXSTAM</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's maximum stamina.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MAXWEIGHT" title="wikilink">MAXWEIGHT</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns the maximum weight that the character can carry.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MEMORY"
-title="wikilink">MEMORY</a><em>.object_uid</em></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the memory flags the character has for the given
-object.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MENU_(Function)" title="wikilink">MENU</a>
-<em>menu_defname</em></p></td>
-<td><p>W</p></td>
-<td><p>Displays a menu to SRC.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MESSAGE" title="wikilink">MESSAGE</a>
-<em>message</em></p></td>
-<td><p>W</p></td>
-<td><p>Displays a message above this character to SRC.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MESSAGEUA" title="wikilink">MESSAGEUA</a> <em>colour,
-talkmode, font, lang_id, message</em></p></td>
-<td><p>W</p></td>
-<td><p>Displays a UNICODE message above this character to SRC.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MODAR" title="wikilink">MODAR</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets a modifier for the character's armour
-rating.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MODDEX" title="wikilink">MODDEX</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's dexterity modifier.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MODINT" title="wikilink">MODINT</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's intelligence modifier.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MODMAXWEIGHT" title="wikilink">MODMAXWEIGHT</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's maximum weight modifier.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MODSTR" title="wikilink">MODSTR</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's strength modifier.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MOUNT" title="wikilink">MOUNT</a></p></td>
-<td><p>R</p></td>
-<td><p>Gets the UID of the character's mount.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MOUNT" title="wikilink">MOUNT</a>
-<em>mount_uid</em></p></td>
-<td><p>W</p></td>
-<td><p>Attempts to mount the character on to the specified
-mount.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MOVE" title="wikilink">MOVE</a>
-<em>direction</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns the movement flags for the tile in the given direction
-(see can_flags in sphere_defs.scp).</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MOVE" title="wikilink">MOVE</a> <em>direction,
-amount</em><br />
-<a href="MOVE" title="wikilink">MOVE</a> <em>x y</em></p></td>
-<td><p>W</p></td>
-<td><p>Moves the object relative to its current position.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MOVENEAR" title="wikilink">MOVENEAR</a> <em>object_uid,
-distance</em></p></td>
-<td><p>W</p></td>
-<td><p>Moves the character to a random location near another object
-within a certain distance.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="MOVETO" title="wikilink">MOVETO</a>
-<em>location</em></p></td>
-<td><p>W</p></td>
-<td><p>Moves the character to a specific location.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="NAME" title="wikilink">NAME</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's name.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="NEWBIESKILL" title="wikilink">NEWBIESKILL</a>
-<em>skill_id</em></p></td>
-<td><p>W</p></td>
-<td><p>Distributes items that are associated with the specified skill,
-to the character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="NEWGOLD" title="wikilink">NEWGOLD</a>
-<em>amount</em></p></td>
-<td><p>W</p></td>
-<td><p>Generates <em>amount</em> gold in the character's
-backpack.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="NEWLOOT" title="wikilink">NEWLOOT</a>
-<em>item_or_template_defname</em></p></td>
-<td><p>W</p></td>
-<td><p>Generates the specified item or template into the character's
-backpack, providing that they are an NPC that hasn't been
-summoned.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="NIGHTSIGHT" title="wikilink">NIGHTSIGHT</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets whether or not the character has nightsight
-enabled.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="NOTOGETFLAG" title="wikilink">NOTOGETFLAG</a>
-<em>viewer_uid, allow_incognito</em></p></td>
-<td><p>RW</p></td>
-<td><p>Gets the character's notoriety flags as seen by the specified
-viewer.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="NPC" title="wikilink">NPC</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's AI type.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="NUDGEDOWN" title="wikilink">NUDGEDOWN</a>
-<em>amount</em></p></td>
-<td><p>W</p></td>
-<td><p>Decreases the character's Z level.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="NUDGEUP" title="wikilink">NUDGEUP</a>
-<em>amount</em></p></td>
-<td><p>W</p></td>
-<td><p>Increases the characer's Z level.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="OBODY" title="wikilink">OBODY</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's original body.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="OPENPAPERDOLL"
-title="wikilink">OPENPAPERDOLL</a></p></td>
-<td><p>W</p></td>
-<td><p>Displays the character's paperdoll to SRC.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="OPENPAPERDOLL" title="wikilink">OPENPAPERDOLL</a>
-<em>character_uid</em></p></td>
-<td><p>W</p></td>
-<td><p>Displays a specified character's paperdoll to this
-character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="OSKIN" title="wikilink">OSKIN</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's original colour.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="ODEX" title="wikilink">ODEX</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's base dexterity (without
-modifiers).</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="OINT" title="wikilink">OINT</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's base intelligence (without
-modifiers).</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="OSTR" title="wikilink">OSTR</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's base strength (without
-modifiers).</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="PACK" title="wikilink">PACK</a></p></td>
-<td><p>W</p></td>
-<td><p>Opens the character's backpack for SRC to view.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="POISON" title="wikilink">POISON</a>
-<em>strength</em></p></td>
-<td><p>W</p></td>
-<td><p>Poisons the character, with the specified poison
-strength.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="POLY" title="wikilink">POLY</a>
-<em>character_id</em></p></td>
-<td><p>W</p></td>
-<td><p>Begins casting the polymorph spell, with <em>character_id</em>
-being the character to turn into.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="PROMPTCONSOLE" title="wikilink">PROMPTCONSOLE</a>
-<em>function, prompt_message</em></p></td>
-<td><p>W</p></td>
-<td><p>Displays a prompt message to SRC and passes their response into a
-specified function.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="PROMPTCONSOLEU" title="wikilink">PROMPTCONSOLEU</a>
-<em>function, prompt_message</em></p></td>
-<td><p>W</p></td>
-<td><p>Displays a prompt message to SRC and passes their response into a
-specified function, supporting UNICODE response.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="PRIVSET" title="wikilink">PRIVSET</a>
-<em>plevel</em></p></td>
-<td><p>W</p></td>
-<td><p>Sets the PLEVEL of the character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="RANGE" title="wikilink">RANGE</a></p></td>
-<td><p>R</p></td>
-<td><p>Gets the combat range of the character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="RELEASE" title="wikilink">RELEASE</a></p></td>
-<td><p>W</p></td>
-<td><p>Clears the character's owners.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="REMOVE" title="wikilink">REMOVE</a>
-<em>allow_player_removal</em></p></td>
-<td><p>W</p></td>
-<td><p>Deletes the character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="REMOVEFROMVIEW"
-title="wikilink">REMOVEFROMVIEW</a></p></td>
-<td><p>W</p></td>
-<td><p>Removes the object from nearby clients' screens.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="RESCOLD" title="wikilink">RESCOLD</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's resistance to cold.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="RESCOLDMAX" title="wikilink">RESCOLDMAX</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's maximum resistance to cold.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="RESCOUNT" title="wikilink">RESCOUNT</a>
-<em>item_defname</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns the total amount of a specific item equipped to the
-character or inside their baackpack.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="RESENDTOOLTIP" title="wikilink">RESENDTOOLTIP</a>
-<em>sendfull</em>,<em>usecache</em></p></td>
-<td><p>W</p></td>
-<td><p>Forces Sphere to update the tooltips for nearby clients. If
-sendfull is 1 the entire tooltip is sent and if 0 then just the header
-is sent. If usecache is 1 then the cached version (if found) will be
-sent and if 0 then the cached version (if found) will be replaced and
-sent</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="RESENERGY" title="wikilink">RESENERGY</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's resistance to energy.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="RESENERGYMAX" title="wikilink">RESENERGYMAX</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's maximum resistance to
-energy.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="RESFIRE" title="wikilink">RESFIRE</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's resistance to fire.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="RESFIREMAX" title="wikilink">RESFIREMAX</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's maximum resistance to fire.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="RESPOISON" title="wikilink">RESPOISON</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's resistance to poison.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="RESPOISONMAX" title="wikilink">RESPOISONMAX</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's maximum resistance to
-poison.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="RESTEST" title="wikilink">RESTEST</a>
-<em>item_list</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if all of the items in the list can be found equipped
-to the character or inside their backpack.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="RESURRECT" title="wikilink">RESURRECT</a>
-<em>force</em></p></td>
-<td><p>W</p></td>
-<td><p>Resurrects the character. If <em>force</em> is 1 then usual
-anti-magic checks are bypasses.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SALUTE" title="wikilink">SALUTE</a>
-<em>object_uid</em></p></td>
-<td><p>W</p></td>
-<td><p>Makes the character salute a specified object or SRC.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SAY" title="wikilink">SAY</a> <em>message</em></p></td>
-<td><p>W</p></td>
-<td><p>Makes the character speak a message.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SAYU" title="wikilink">SAYU</a>
-<em>message</em></p></td>
-<td><p>W</p></td>
-<td><p>Makes the character speak a UTF-8 message</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SAYUA" title="wikilink">SAYUA</a> <em>colour, talkmode,
-font, lang_id, text</em></p></td>
-<td><p>W</p></td>
-<td><p>MAkes the character speak a UNICODE message.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SDIALOG" title="wikilink">SDIALOG</a> <em>dialog_id,
-page, parameters</em></p></td>
-<td><p>W</p></td>
-<td><p>Displays a dialog to SRC, providing that it is not already
-open.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SERIAL" title="wikilink">SERIAL</a></p></td>
-<td><p>R</p></td>
-<td><p>Gets the item's unique ID in the world.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SEX" title="wikilink">SEX</a>
-<em>value_male:value_female</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns <em>value_male</em> or <em>value_female</em> depending on
-the character's gender.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SEXTANTP" title="wikilink">SEXTANTP</a>
-<em>location</em></p></td>
-<td><p>R</p></td>
-<td><p>Converts the character's location or a specified location into
-sextant coordinates.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><em>skill_name</em></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's skill level in
-<em>skill_name</em>.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SHIP.n" title="wikilink">SHIP.n</a></p></td>
-<td><p>R</p></td>
-<td><p>X branch only. Added to access the ship in the Nth position, eg:
-ship.3.Redeed</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SHIPS" title="wikilink">SHIPS</a></p></td>
-<td><p>R</p></td>
-<td><p>X branch only. Return the ships on the player's list.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SKILL_(Function)" title="wikilink">SKILL</a></p></td>
-<td><p>W</p></td>
-<td><p>Begins using a skill.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SKILLADJUSTED"
-title="wikilink">SKILLADJUSTED</a>."number or skill_name" (X branch
-only)</p></td>
-<td><p>R</p></td>
-<td><p>Returns the skill value adjusted by the stat bonus. Example
-“SkillAdjusted.1” or “SkillAdjusted.Anatomy”.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SKILLCHECK" title="wikilink">SKILLCHECK</a>
-<em>skill_id, difficulty</em></p></td>
-<td><p>R</p></td>
-<td><p>Performs a check for skill success, returning 1 if the attempt
-was successful.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SKILLBEST"
-title="wikilink">SKILLBEST</a><em>.n</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns the ID of the character's nth highest skill (0 =
-Highest)</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SKILLGAIN" title="wikilink">SKILLGAIN</a> <em>skill,
-difficulty</em></p></td>
-<td><p>W</p></td>
-<td><p>Invokes Sphere's skill gain for the specified skill, with the
-given difficulty (0-100)</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SKILLTEST" title="wikilink">SKILLTEST</a>
-<em>skill_list</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns 1 if the character possess all of the skills in the
-list.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SKILLTOTAL" title="wikilink">SKILLTOTAL</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns the total value of all the character's skills.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SKILLTOTAL" title="wikilink">SKILLTOTAL</a>
-<em>skill_group</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns the total value of all the character's skills with the
-specified group flag(s).</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SKILLTOTAL" title="wikilink">SKILLTOTAL</a>
-<em>-amount</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns the total value of all the character's skills that are
-under <em>amount</em>.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SKILLTOTAL" title="wikilink">SKILLTOTAL</a>
-<em>+amount</em></p></td>
-<td><p>R</p></td>
-<td><p>Returns the total value of all the character's skills that are
-over <em>amount</em>.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SKILLUSEQUICK" title="wikilink">SKILLUSEQUICK</a>
-<em>skill_id, difficulty</em></p></td>
-<td><p>R</p></td>
-<td><p>Quickly uses a skill, returning 1 if the attempt was
-successful.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SLEEP" title="wikilink">SLEEP</a>
-<em>fall_forwards</em></p></td>
-<td><p>W</p></td>
-<td><p>Makes the character appear to sleep.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SOUND" title="wikilink">SOUND</a> <em>sound_id,
-repeat</em></p></td>
-<td><p>W</p></td>
-<td><p>Plays a sound from this character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SPELLEFFECT" title="wikilink">SPELLEFFECT</a>
-<em>spell_id, strength, source_character_uid,
-source_item_uid</em></p></td>
-<td><p>W</p></td>
-<td><p>Causes the character to be affected by a spell.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SPEECHCOLOROVERRIDE"
-title="wikilink">SPEECHCOLOROVERRIDE</a> <em>value</em></p></td>
-<td><p>RW</p></td>
-<td><p>Override client speech hue.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="STAM" title="wikilink">STAM</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's stamina.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="STEPSTEALTH" title="wikilink">STEPSTEALTH</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the amount of steps a character can do while using
-the Stealth skill.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="STONE" title="wikilink">STONE</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets whether or not the character is trapped in
-stone.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="STR" title="wikilink">STR</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's total strength.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SUICIDE" title="wikilink">SUICIDE</a></p></td>
-<td><p>W</p></td>
-<td><p>Forces the character to commit suicide.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SUMMONCAGE" title="wikilink">SUMMONCAGE</a></p></td>
-<td><p>W</p></td>
-<td><p>Teleports the character to SRC's, surrounded by a cage
-multi.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="SUMMONTO" title="wikilink">SUMMONTO</a></p></td>
-<td><p>W</p></td>
-<td><p>Teleports the character to SRC's position.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="TAG" title="wikilink">TAG</a><em>.name</em></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the value of a TAG.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="TAGAT"
-title="wikilink">TAGAT</a><em>.index</em></p></td>
-<td><p>R</p></td>
-<td><p>Gets a TAG at the given zero-based index.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="TAGAT"
-title="wikilink">TAGAT</a><em>.index</em>.KEY</p></td>
-<td><p>R</p></td>
-<td><p>Gets the name of the TAG at the given zero-based index.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="TAGAT"
-title="wikilink">TAGAT</a><em>.index</em>.VAL</p></td>
-<td><p>R</p></td>
-<td><p>Gets the value of the TAG at the given zero-based index.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="TAGCOUNT" title="wikilink">TAGCOUNT</a></p></td>
-<td><p>R</p></td>
-<td><p>Gets the number of TAGs stored on the item.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="TAGLIST" title="wikilink">TAGLIST</a></p></td>
-<td><p>W</p></td>
-<td><p>Outputs a list of the object's TAGs.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="TARGET" title="wikilink">TARGET</a><em>FGMW</em>
-<em>function</em></p></td>
-<td><p>W</p></td>
-<td><p>Displays a targeting cursor to SRC.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="TIMER" title="wikilink">TIMER</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the length of time before the item's timer expires,
-in seconds.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="TIMERD" title="wikilink">TIMERD</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the length of time before the item's timer expires,
-in tenths of a second.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="TIMERF" title="wikilink">TIMERF</a> <em>time,
-function</em></p></td>
-<td><p>W</p></td>
-<td><p>Scheduled a function to be executed on this object in
-<em>time</em> seconds.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="TIMERF" title="wikilink">TIMERF</a>
-<em>CLEAR</em></p></td>
-<td><p>W</p></td>
-<td><p>Clears all scheduled functions from the character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="TIMERF" title="wikilink">TIMERF</a> <em>STOP,
-function</em></p></td>
-<td><p>W</p></td>
-<td><p>Stops the specified function from the character. (On X version
-wild character * is available for defining the function name or the
-argument)</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="TIMERMS" title="wikilink">TIMERMS</a></p></td>
-<td><p>W</p></td>
-<td><p>Set an object timer to elapse after the given number of
-milliseconds.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="TITHING" title="wikilink">TITHING</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the number of tithing points the character
-has.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="TITLE" title="wikilink">TITLE</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's title.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="TOWNABBREV" title="wikilink">TOWNABBREV</a></p></td>
-<td><p>R</p></td>
-<td><p>Returns the character's town abbreviation.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="TRIGGER" title="wikilink">TRIGGER</a> <em>trig_name,
-trig_type</em></p></td>
-<td><p>R</p></td>
-<td><p>Fires a custom trigger and returns the RETURN value.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="UID" title="wikilink">UID</a></p></td>
-<td><p>R</p></td>
-<td><p>Gets the item's unique ID in the world.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="UNDERWEAR" title="wikilink">UNDERWEAR</a></p></td>
-<td><p>W</p></td>
-<td><p>Toggles the display of underwear on the character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="UNEQUIP" title="wikilink">UNEQUIP</a>
-<em>item_uid</em></p></td>
-<td><p>W</p></td>
-<td><p>Unequips an item from the character, placing it in their
-backpack.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="UPDATE" title="wikilink">UPDATE</a></p></td>
-<td><p>W</p></td>
-<td><p>Updates the state of the character to nearby clients.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="UPDATEX" title="wikilink">UPDATEX</a></p></td>
-<td><p>W</p></td>
-<td><p>Updates the state of the character to nearby clients, removing it
-from their view first to ensure a full refresh.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="USEITEM" title="wikilink">USEITEM</a></p></td>
-<td><p>W</p></td>
-<td><p>Double clicks the character, with SRC as the source of the event,
-without checking for line of sight.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="USEITEM" title="wikilink">USEITEM</a>
-<em>object_uid</em></p></td>
-<td><p>W</p></td>
-<td><p>Double clicks an object, with the character as SRC.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="VISUALRANGE" title="wikilink">VISUALRANGE</a></p></td>
-<td><p>RW</p></td>
-<td><p>Gets or sets the character's sight range.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="WEIGHT" title="wikilink">WEIGHT</a></p></td>
-<td><p>R</p></td>
-<td><p>Gets the weight of the character.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="WHERE" title="wikilink">WHERE</a></p></td>
-<td><p>W</p></td>
-<td><p>Describes the character's location to SRC.</p></td>
-<td></td>
-</tr>
-<tr>
-<td><p><a href="Z" title="wikilink">Z</a></p></td>
-<td><p>R</p></td>
-<td><p>Gets the Z position of the character.</p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
+```
+| **Name** | **Read/Write** | **Description** | **Sphere X only?** |
+| --- | --- | --- | --- |
+| [AC](AC) | R | Returns the character's total defense. |  |
+| [ACTARG1](ACTARG1) | RW | Gets or sets the character's ACTARG1 value. X branch only: for skills Enticement, Peacemaking and Provocation, if ACTARG1 is set to the UID of the instrument to play, it will be played the sound of that instrument. |  |
+| [ACTARG2](ACTARG2) | RW | Gets or sets the character's ACTARG2 value. |  |
+| [ACTARG3](ACTARG3) | RW | Gets or sets the character's ACTARG3 value. |  |
+| [ACTDIFF](ACTDIFF) | RW | Gets or sets the difficulty of the character's current action. |  |
+| [ACTION](ACTION) | RW | Gets or sets the skill that the character is currently using. |  |
+| [ACTP](ACTP) | RW | Gets or sets the character's ACTP value. Can get x,y,z,position of the point in X branch. |  |
+| [ACTPRV](ACTPRV) | RW | Gets or sets the character's ACTPRV value. |  |
+| [ADDHOUSE uid](ADDHOUSE_uid) | W | X branch only. Adds the given uid to the player's house. If the player current count of houses is greater than the limit he has, the house will be redeeded. |  |
+| [ADDSHIP uid](ADDSHIP_uid) | W | X branch only. Adds the given uid to the player's ship. If the player current count of ships is greater than the limit he has, the ship will be redeeded. |  |
+| [AFK](AFK) | W | Gets or sets whether or not the character is in AFK mode. |  |
+| [AGE](AGE) | R | Returns the age of the character since its creation, in seconds. |  |
+| [ALLSKILLS](ALLSKILLS) *amount* | W | Sets all of the character's skills to the specified amount. |  |
+| [ANIM](ANIM) *anim_id* | W | Plays the specified animation on the character. |  |
+| [ATTACKER](ATTACKER)*.properties* | R | Gets the number of opponents who have damaged the character. |  |
+| [BANK](BANK) *layer* | W | Opens the character's bank (or the container at the specified layer) for SRC to view. |  |
+| [BANKBALANCE](BANKBALANCE) | R | Returns the total amount of gold in the character's bankbox. |  |
+| [BARK](BARK) *sound_id* | W | Plays the specified sound (or the character's generic sound if not specified) to nearby clients from this character. |  |
+| [BODY](BODY) | RW | Gets or sets the character's body. |  |
+| [BOUNCE](BOUNCE) *item_uid* | W | Places a specified item in the character's backpack. |  |
+| [BOW](BOW) | W | Makes the character bow to SRC. |  |
+| [CAN](CAN_(Characters)) | RW | Gets or Sets the Can flags for this chardef. Only readable in X branch. |  |
+| [CANCAST](CANCAST) *spell_id, check_antimagic* | R | Returns 1 if the character can cast a given spell, bypassing anti-magic field tests if *check_antimagic* set to 0. |  |
+| [CANMAKE](CANMAKE) *item_id* | R | Returns 1 if the character has the skills and resources to craft a certain item. |  |
+| [CANMAKESKILL](CANMAKESKILL) *item_id* | R | Returns 1 if the character has the skills to craft a certain item. |  |
+| [CANMASK](CANMASK_(Characters)) | RW | X branch only. Stores the CAN flags to be dynamically switched on or off from the base CAN property. |  |
+| [CANMOVE](CANMOVE) *direction* | R | Returns 1 if the character can move in the given direction. |  |
+| [CANSEE](CANSEE) | R | Returns 1 if SRC can see the character. |  |
+| [CANSEELOS](CANSEELOS) | R | Returns 1 if SRC has line of sight to the character. |  |
+| [CANSEELOSFLAG](CANSEELOSFLAG) *flags* | R | Returns 1 if SRC has line of sight to the character, with flags to modify what tests take place. |  |
+| [COLOR](COLOR) | RW | Gets or sets the character's hue. |  |
+| [CONSUME](CONSUME) *resource_list* | W | Removes specified resources from SRC's backpack. |  |
+| [COUNT](COUNT) | R | Returns the number of items equipped to the character. |  |
+| [CREATE](CREATE) | RW (R only on X) | Gets or sets the character's age since creation, in seconds (Tenth of seconds on X). |  |
+| [CRIMINAL](CRIMINAL) | W | Sets whether or not the character is a criminal. |  |
+| [CURFOLLOWER](CURFOLLOWER) | RW | Gets or sets the number of current followers the character has, |  |
+| [DAMAGE](DAMAGE) *amount, type, source* | W | Inflicts damage upon the character. `When using COMBAT_ELEMENTAL_ENGINE add the following parameters after`*`source`*`:`*`physical`*`,`*`fire`*`,`*`cold`*`,`*`poison`*`,`*`energy`*`. All the values are in %.` |  |
+| [DELHOUSE uid](DELHOUSE_uid) | W | X branch only. Deletes the given uid from the player's list (Will not delete the house)(-1 clears the whole list). |  |
+| [DELSHIP uid](DELSHIP_uid) | W | X branch only. Deletes the given uid from the player's list (Will not delete the ship)(-1 clears the whole list). |  |
+| [DESTROY](DESTROY) | W | Deletes the object, not stopped by a return 1 in [@Destroy](@Destroy) |  |
+| [DEX](DEX) | RW | Gets or sets the character's total dexterity. |  |
+| [DIALOG](DIALOG_(Function)) *dialog_id, page, parameters* | W | Displays a dialog to SRC. |  |
+| [DIALOGCLOSE](DIALOGCLOSE) *dialog_id button* | W | Closes a dialog that SRC has open, simulating a button press. |  |
+| [DIALOGLIST](DIALOGLIST)*.COUNT* | R | Gets the number of number of dialogs currently considered to be visible on SRC's screen. |  |
+| [DIALOGLIST](DIALOGLIST)*.n.ID* | R | Gets the ID of the nth dialog that SRC has open (zero-based). |  |
+| [DIALOGLIST](DIALOGLIST)*.n.COUNT* | R | Gets the number of instances of nth dialog SRC has open (zero-based). |  |
+| [DIR](DIR) | RW | Gets or setes the direction that the character is facing. |  |
+| [DISCONNECT](DISCONNECT) | W | Disconnects the character. |  |
+| [DISMOUNT](DISMOUNT) | W | Dismounts the character from their ride. |  |
+| [DISPIDDEC](DISPIDDEC) | R | Gets the ID of the character as a decimal number. |  |
+| [DISTANCE](DISTANCE) *point_or_uid* | R | Gets the distance between this object and either SRC, a map location or another object. |  |
+| [DCLICK](DCLICK) | W | Double clicks the character, with SRC as the source of the event. |  |
+| [DCLICK](DCLICK) *object_uid* | W | Double clicks an object, with the character as SRC. |  |
+| [DRAWMAP](DRAWMAP) *radius* | W | Starts the cartography skill, drawing a map of the local area up to *radius* tiles. |  |
+| [DROP](DROP) *item_uid* | W | Drops a specified item at the character's feet. |  |
+| [DUPE](DUPE) | W | Creates a clone of the character. |  |
+| [EDIT](EDIT) | W | Displays an editing dialog for the character to SRC. |  |
+| [EFFECT](EFFECT) *type, item_id, speed, loop, explode, color, rendermode* | W | Displays an effect to nearby clients. |  |
+| [EFFECTLOCATION](EFFECTLOCATION) *x,y,z,type,itemid,speed,loop,explode,color,render* | W | Similar to the EFFECT command but instead of an object it takes a terrain location as a target. | X |
+| [EMOTE](EMOTE) *message* | W | Displays a *You see* message to all nearby clients. |  |
+| [EMOTEACT](EMOTEACT) | RW | Gets, sets or toggles whether or not the character will emote all of its actions. |  |
+| [EQUIP](EQUIP) *item_uid* | W | Equips an item to the character. |  |
+| [EQUIPARMOR](EQUIPARMOR) | W | Equips the character with the best armour in their backpack. |  |
+| [EQUIPHALO](EQUIPHALO) *timeout* | W | Equips a halo light to the character, lasting for *timeout* tenths of a second. |  |
+| [EQUIPWEAPON](EQUIPWEAPON) | W | Equips the character with the best weapon in their backpack. |  |
+| [EVENTS](EVENTS_(Property)) *event_defname* | RW | Gets a list of events attached to the object, or adds or removes an event to or from the object. |  |
+| [EXP](EXP) | RW | Gets or sets the character's experience points. |  |
+| [FACE](FACE) *object_uid* (P coords in X branch) | W | Turns the character to face a specified object or SRC. Admits coordinates instead uid in X branch. |  |
+| [FAME](FAME) | RW | Gets or sets the character's fame. |  |
+| [FAME](FAME)*.fame_group* | R | Returns 1 if the character's fame falls within the specified fame group. |  |
+| [FCOUNT](FCOUNT) | R | Returns the total number of items equipped to the character, including subitems |  |
+| [FLAGS](FLAGS) | RW | Gets or sets the character's flags. |  |
+| [FIX](FIX) | W | Re-aligns the character's Z level to ground level. |  |
+| [FIXWEIGHT](FIXWEIGHT) | W | Recalculates the character's total weight. |  |
+| [FLIP](FLIP) | W | Rotates the character. |  |
+| [FONT](FONT) | RW | Gets or sets the character's speech font. |  |
+| [FOOD](FOOD) | RW | Gets or sets the character's food level. |  |
+| [FORGIVE](FORGIVE) | W | Revokes the character's jailed status. |  |
+| [GETHOUSEPOS uid](GETHOUSEPOS_uid) | R | Returns the position of the given UID on the houses list (-1 if not found). |  |
+| [GETSHIPPOS uid](GETSHIPPOS_uid) | R | Returns the position of the given UID on the ships list (-1 if not found). |  |
+| [GO](GO) *location* | W | Teleports the character to the specified location. |  |
+| [GOCHAR](GOCHAR) *n* | W | Teleports the character to the nth character in the world. |  |
+| [GOCHARID](GOCHARID) *character_defname* | W | Teleports the character to the next characer in the world with the specified [BASEID](BASEID) |  |
+| [GOCLI](GOCLI) *n* | W | Teleports the character to the nth online player. (zero-based) |  |
+| [GOITEMID](GOITEMID) *item_defname* | W | Teleports the character to the next item in the world with the specified [BASEID](BASEID). |  |
+| [GOLD](GOLD) | RW | Gets or sets the amount of gold the character has. |  |
+| [GONAME](GONAME) *name* | W | Teleports the character to the next character or item in the world with the specified name, accepts wildcards (*). |  |
+| [GOSOCK](GOSOCK) *socket* | W | Teleports the character to the online player with the specified socket number. |  |
+| [GOTYPE](GOTYPE) *item_type* | W | Teleports the character to the next item in the world with the specified [TYPE](TYPE). |  |
+| [GOUID](GOUID) *object_uid* | W | Teleports the character to the object with the specified [UID](UID). |  |
+| [GUILDABBREV](GUILDABBREV) | R | Returns the character's guild abbreviation. |  |
+| [HEAR](HEAR) *text* | W | For NPCs, acts as if SRC had spoken the specified *text*. For players, displays *text* as a system message. |  |
+| [HEIGHT](HEIGHT) | R | Gets the character's height. |  |
+| [HITS](HITS) | RW | Gets or sets the character's hitpoints. |  |
+| [HOME](HOME) | RW | Gets or sets the character's home location. |  |
+| [HOUSE.n](HOUSE.n) | R | X branch only.Access the house in the Nth position, eg: house.3.Redeed |  |
+| [HOUSES](HOUSES) | R | X branch only. Returns the number of houses on the player's list. |  |
+| [HUNGRY](HUNGRY) | W | Displays this character's hunger level to SRC. |  |
+| [ID](ID) | R | Gets the character's ID. |  |
+| [INFO](INFO) | W | Displays an information dialog about the character to SRC. |  |
+| [INT](INT) | RW | Gets or sets the character's total intelligence. |  |
+| [INVIS](INVIS) | W | Sets whether or not the character is invisible. |  |
+| [INVUL](INVUL) | W | Sets whether or not the character is invulnerable. |  |
+| [ISARMOR](ISARMOR) *object_uid* | R | Returns 1 if the object is armour. |  |
+| [ISCHAR](ISCHAR) | R | Returns 1 if the object is a character. |  |
+| [ISCONT](ISCONT) | R | Returns 1 if the object is a container. |  |
+| [ISDIALOGOPEN](ISDIALOGOPEN) *dialog_id* | R | Returns 1 if SRC has the specified dialog visible on their screen. |  |
+| [ISEVENT](ISEVENT)*.event_defname* | R | Returns 1 if the object has an event attached to it. |  |
+| [ISGM](ISGM) | R | Returns 1 if the character is in GM mode. |  |
+| [ISINPARTY](ISINPARTY) | R | Returns 1 if the player is in a [party](party). |  |
+| [ISITEM](ISITEM) | R | Returns 1 if the object is an item. |  |
+| [ISMYPET](ISMYPET) | R | Returns 1 if the character belongs to SRC. |  |
+| [ISNEARTYPE](ISNEARTYPE) *type, distance, flags* | R | Returns 1 if a nearby item has the given TYPE. |  |
+| [ISNEARTYPETOP](ISNEARTYPETOP) *type, distance, flags* | R | Returns a nearby world location of a nearby item which has the given TYPE. |  |
+| [ISONLINE](ISONLINE) | R | Returns 1 if the character is considered to be online. |  |
+| [ISPLAYER](ISPLAYER) | R | Returns 1 if the object is a player. |  |
+| [ISSTUCK](ISSTUCK) | R | Returns 1 if the character cannot walk in any direction. |  |
+| [ISTEVENT](ISTEVENT)*.event_defname* | R | Returns 1 if the object has an event attached to its [CHARDEF](CHARDEF). |  |
+| [ISTIMERF](ISTIMERF)*.function* | R | Returns the number of seconds left on the specified timerf if it exists. |  |
+| [ISVENDOR](ISVENDOR) | R | Returns 1 if the character is a vendor. |  |
+| [ISVERTICALSPACE](ISVERTICALSPACE) *location* | R | Returns 1 if the ceiling at the given location is high enough for the character to fit under. |  |
+| [ISWEAPON](ISWEAPON) *object_uid* | R | Returns 1 if the object is a weapon. |  |
+| [JAIL](JAIL) *cell* | W | Sends the character to jail, to a specified jail cell. |  |
+| [KARMA](KARMA) | RW | Gets or sets the character's karma. |  |
+| [KARMA](KARMA)*.karma_group* | R | Returns 1 if the character's karma falls within the specified karma group. |  |
+| [KILL](KILL) | W | Kills the character. |  |
+| [LEVEL](LEVEL) | RW | Gets or sets the character's experience level. |  |
+| [LIGHT](LIGHT) | RW | Gets or sets the character's personal light level. |  |
+| [LUCK](LUCK) | RW | Gets or sets the luck value for the character. |  |
+| [MAKEITEM](MAKEITEM) *item_defname, amount* | \| W | Begins an attempt to craft the specified quantity of the given item. |  |
+| [MANA](MANA) | RW | Gets or sets the character's mana. |  |
+| [MAP](MAP) | RW | Gets or sets the map that this object is located. |  |
+| [MAPWAYPOINT](MAPWAYPOINT) "ObjectUID, WaypointType" | W | Add/remove waypoints on client radar map (enhanced clients only). |  |
+| [MAXFOLLOWER](MAXFOLLOWER) | RW | Gets or sets the maximum number of followers the character can have. |  |
+| [MAXHITS](MAXHITS) | RW | Gets or sets the character's maximum hitpoints. |  |
+| [MAXHOUSES](MAXHOUSES) | RW | Added to Accounts and Chars, when created they read this setting from the sphere.ini (if values on sphere.ini change, they will not reflect on already created accounts/chars). | X |
+| [MAXMANA](MAXMANA) | RW | Gets or sets the character's maximum mana. |  |
+| [MAXSHIPS](MAXSHIPS) | RW | Added Accounts and Chars, when created they read this new setting from the sphere.ini (if values on sphere.ini change, they will not reflect on already created accounts/chars). | X |
+| [MAXSTAM](MAXSTAM) | RW | Gets or sets the character's maximum stamina. |  |
+| [MAXWEIGHT](MAXWEIGHT) | R | Returns the maximum weight that the character can carry. |  |
+| [MEMORY](MEMORY)*.object_uid* | RW | Gets or sets the memory flags the character has for the given object. |  |
+| [MENU](MENU_(Function)) *menu_defname* | W | Displays a menu to SRC. |  |
+| [MESSAGE](MESSAGE) *message* | W | Displays a message above this character to SRC. |  |
+| [MESSAGEUA](MESSAGEUA) *colour, talkmode, font, lang_id, message* | W | Displays a UNICODE message above this character to SRC. |  |
+| [MODAR](MODAR) | RW | Gets or sets a modifier for the character's armour rating. |  |
+| [MODDEX](MODDEX) | RW | Gets or sets the character's dexterity modifier. |  |
+| [MODINT](MODINT) | RW | Gets or sets the character's intelligence modifier. |  |
+| [MODMAXWEIGHT](MODMAXWEIGHT) | RW | Gets or sets the character's maximum weight modifier. |  |
+| [MODSTR](MODSTR) | RW | Gets or sets the character's strength modifier. |  |
+| [MOUNT](MOUNT) | R | Gets the UID of the character's mount. |  |
+| [MOUNT](MOUNT) *mount_uid* | W | Attempts to mount the character on to the specified mount. |  |
+| [MOVE](MOVE) *direction* | R | Returns the movement flags for the tile in the given direction (see can_flags in sphere_defs.scp). |  |
+| [MOVE](MOVE) *direction, amount* [MOVE](MOVE) *x y* | W | Moves the object relative to its current position. |  |
+| [MOVENEAR](MOVENEAR) *object_uid, distance* | W | Moves the character to a random location near another object within a certain distance. |  |
+| [MOVETO](MOVETO) *location* | W | Moves the character to a specific location. |  |
+| [NAME](NAME) | RW | Gets or sets the character's name. |  |
+| [NEWBIESKILL](NEWBIESKILL) *skill_id* | W | Distributes items that are associated with the specified skill, to the character. |  |
+| [NEWGOLD](NEWGOLD) *amount* | W | Generates *amount* gold in the character's backpack. |  |
+| [NEWLOOT](NEWLOOT) *item_or_template_defname* | W | Generates the specified item or template into the character's backpack, providing that they are an NPC that hasn't been summoned. |  |
+| [NIGHTSIGHT](NIGHTSIGHT) | RW | Gets or sets whether or not the character has nightsight enabled. |  |
+| [NOTOGETFLAG](NOTOGETFLAG) *viewer_uid, allow_incognito* | RW | Gets the character's notoriety flags as seen by the specified viewer. |  |
+| [NPC](NPC) | RW | Gets or sets the character's AI type. |  |
+| [NUDGEDOWN](NUDGEDOWN) *amount* | W | Decreases the character's Z level. |  |
+| [NUDGEUP](NUDGEUP) *amount* | W | Increases the characer's Z level. |  |
+| [OBODY](OBODY) | RW | Gets or sets the character's original body. |  |
+| [OPENPAPERDOLL](OPENPAPERDOLL) | W | Displays the character's paperdoll to SRC. |  |
+| [OPENPAPERDOLL](OPENPAPERDOLL) *character_uid* | W | Displays a specified character's paperdoll to this character. |  |
+| [OSKIN](OSKIN) | RW | Gets or sets the character's original colour. |  |
+| [ODEX](ODEX) | RW | Gets or sets the character's base dexterity (without modifiers). |  |
+| [OINT](OINT) | RW | Gets or sets the character's base intelligence (without modifiers). |  |
+| [OSTR](OSTR) | RW | Gets or sets the character's base strength (without modifiers). |  |
+| [PACK](PACK) | W | Opens the character's backpack for SRC to view. |  |
+| [POISON](POISON) *strength* | W | Poisons the character, with the specified poison strength. |  |
+| [POLY](POLY) *character_id* | W | Begins casting the polymorph spell, with *character_id* being the character to turn into. |  |
+| [PROMPTCONSOLE](PROMPTCONSOLE) *function, prompt_message* | W | Displays a prompt message to SRC and passes their response into a specified function. |  |
+| [PROMPTCONSOLEU](PROMPTCONSOLEU) *function, prompt_message* | W | Displays a prompt message to SRC and passes their response into a specified function, supporting UNICODE response. |  |
+| [PRIVSET](PRIVSET) *plevel* | W | Sets the PLEVEL of the character. |  |
+| [RANGE](RANGE) | R | Gets the combat range of the character. |  |
+| [RELEASE](RELEASE) | W | Clears the character's owners. |  |
+| [REMOVE](REMOVE) *allow_player_removal* | W | Deletes the character. |  |
+| [REMOVEFROMVIEW](REMOVEFROMVIEW) | W | Removes the object from nearby clients' screens. |  |
+| [RESCOLD](RESCOLD) | RW | Gets or sets the character's resistance to cold. |  |
+| [RESCOLDMAX](RESCOLDMAX) | RW | Gets or sets the character's maximum resistance to cold. |  |
+| [RESCOUNT](RESCOUNT) *item_defname* | R | Returns the total amount of a specific item equipped to the character or inside their baackpack. |  |
+| [RESENDTOOLTIP](RESENDTOOLTIP) *sendfull*,*usecache* | W | Forces Sphere to update the tooltips for nearby clients. If sendfull is 1 the entire tooltip is sent and if 0 then just the header is sent. If usecache is 1 then the cached version (if found) will be sent and if 0 then the cached version (if found) will be replaced and sent |  |
+| [RESENERGY](RESENERGY) | RW | Gets or sets the character's resistance to energy. |  |
+| [RESENERGYMAX](RESENERGYMAX) | RW | Gets or sets the character's maximum resistance to energy. |  |
+| [RESFIRE](RESFIRE) | RW | Gets or sets the character's resistance to fire. |  |
+| [RESFIREMAX](RESFIREMAX) | RW | Gets or sets the character's maximum resistance to fire. |  |
+| [RESPOISON](RESPOISON) | RW | Gets or sets the character's resistance to poison. |  |
+| [RESPOISONMAX](RESPOISONMAX) | RW | Gets or sets the character's maximum resistance to poison. |  |
+| [RESTEST](RESTEST) *item_list* | R | Returns 1 if all of the items in the list can be found equipped to the character or inside their backpack. |  |
+| [RESURRECT](RESURRECT) *force* | W | Resurrects the character. If *force* is 1 then usual anti-magic checks are bypasses. |  |
+| [SALUTE](SALUTE) *object_uid* | W | Makes the character salute a specified object or SRC. |  |
+| [SAY](SAY) *message* | W | Makes the character speak a message. |  |
+| [SAYU](SAYU) *message* | W | Makes the character speak a UTF-8 message |  |
+| [SAYUA](SAYUA) *colour, talkmode, font, lang_id, text* | W | MAkes the character speak a UNICODE message. |  |
+| [SDIALOG](SDIALOG) *dialog_id, page, parameters* | W | Displays a dialog to SRC, providing that it is not already open. |  |
+| [SERIAL](SERIAL) | R | Gets the item's unique ID in the world. |  |
+| [SEX](SEX) *value_male:value_female* | R | Returns *value_male* or *value_female* depending on the character's gender. |  |
+| [SEXTANTP](SEXTANTP) *location* | R | Converts the character's location or a specified location into sextant coordinates. |  |
+| *skill_name* | RW | Gets or sets the character's skill level in *skill_name*. |  |
+| [SHIP.n](SHIP.n) | R | X branch only. Added to access the ship in the Nth position, eg: ship.3.Redeed |  |
+| [SHIPS](SHIPS) | R | X branch only. Return the ships on the player's list. |  |
+| [SKILL](SKILL_(Function)) | W | Begins using a skill. |  |
+| [SKILLADJUSTED](SKILLADJUSTED)."number or skill_name" (X branch only) | R | Returns the skill value adjusted by the stat bonus. Example “SkillAdjusted.1” or “SkillAdjusted.Anatomy”. |  |
+| [SKILLCHECK](SKILLCHECK) *skill_id, difficulty* | R | Performs a check for skill success, returning 1 if the attempt was successful. |  |
+| [SKILLBEST](SKILLBEST)*.n* | R | Returns the ID of the character's nth highest skill (0 = Highest) |  |
+| [SKILLGAIN](SKILLGAIN) *skill, difficulty* | W | Invokes Sphere's skill gain for the specified skill, with the given difficulty (0-100) |  |
+| [SKILLTEST](SKILLTEST) *skill_list* | R | Returns 1 if the character possess all of the skills in the list. |  |
+| [SKILLTOTAL](SKILLTOTAL) | R | Returns the total value of all the character's skills. |  |
+| [SKILLTOTAL](SKILLTOTAL) *skill_group* | R | Returns the total value of all the character's skills with the specified group flag(s). |  |
+| [SKILLTOTAL](SKILLTOTAL) *-amount* | R | Returns the total value of all the character's skills that are under *amount*. |  |
+| [SKILLTOTAL](SKILLTOTAL) *+amount* | R | Returns the total value of all the character's skills that are over *amount*. |  |
+| [SKILLUSEQUICK](SKILLUSEQUICK) *skill_id, difficulty* | R | Quickly uses a skill, returning 1 if the attempt was successful. |  |
+| [SLEEP](SLEEP) *fall_forwards* | W | Makes the character appear to sleep. |  |
+| [SOUND](SOUND) *sound_id, repeat* | W | Plays a sound from this character. |  |
+| [SPELLEFFECT](SPELLEFFECT) *spell_id, strength, source_character_uid, source_item_uid* | W | Causes the character to be affected by a spell. |  |
+| [SPEECHCOLOROVERRIDE](SPEECHCOLOROVERRIDE) *value* | RW | Override client speech hue. |  |
+| [STAM](STAM) | RW | Gets or sets the character's stamina. |  |
+| [STEPSTEALTH](STEPSTEALTH) | RW | Gets or sets the amount of steps a character can do while using the Stealth skill. |  |
+| [STONE](STONE) | RW | Gets or sets whether or not the character is trapped in stone. |  |
+| [STR](STR) | RW | Gets or sets the character's total strength. |  |
+| [SUICIDE](SUICIDE) | W | Forces the character to commit suicide. |  |
+| [SUMMONCAGE](SUMMONCAGE) | W | Teleports the character to SRC's, surrounded by a cage multi. |  |
+| [SUMMONTO](SUMMONTO) | W | Teleports the character to SRC's position. |  |
+| [TAG](TAG)*.name* | RW | Gets or sets the value of a TAG. |  |
+| [TAGAT](TAGAT)*.index* | R | Gets a TAG at the given zero-based index. |  |
+| [TAGAT](TAGAT)*.index*.KEY | R | Gets the name of the TAG at the given zero-based index. |  |
+| [TAGAT](TAGAT)*.index*.VAL | R | Gets the value of the TAG at the given zero-based index. |  |
+| [TAGCOUNT](TAGCOUNT) | R | Gets the number of TAGs stored on the item. |  |
+| [TAGLIST](TAGLIST) | W | Outputs a list of the object's TAGs. |  |
+| [TARGET](TARGET)*FGMW* *function* | W | Displays a targeting cursor to SRC. |  |
+| [TIMER](TIMER) | RW | Gets or sets the length of time before the item's timer expires, in seconds. |  |
+| [TIMERD](TIMERD) | RW | Gets or sets the length of time before the item's timer expires, in tenths of a second. |  |
+| [TIMERF](TIMERF) *time, function* | W | Scheduled a function to be executed on this object in *time* seconds. |  |
+| [TIMERF](TIMERF) *CLEAR* | W | Clears all scheduled functions from the character. |  |
+| [TIMERF](TIMERF) *STOP, function* | W | Stops the specified function from the character. (On X version wild character * is available for defining the function name or the argument) |  |
+| [TIMERMS](TIMERMS) | W | Set an object timer to elapse after the given number of milliseconds. |  |
+| [TITHING](TITHING) | RW | Gets or sets the number of tithing points the character has. |  |
+| [TITLE](TITLE) | RW | Gets or sets the character's title. |  |
+| [TOWNABBREV](TOWNABBREV) | R | Returns the character's town abbreviation. |  |
+| [TRIGGER](TRIGGER) *trig_name, trig_type* | R | Fires a custom trigger and returns the RETURN value. |  |
+| [UID](UID) | R | Gets the item's unique ID in the world. |  |
+| [UNDERWEAR](UNDERWEAR) | W | Toggles the display of underwear on the character. |  |
+| [UNEQUIP](UNEQUIP) *item_uid* | W | Unequips an item from the character, placing it in their backpack. |  |
+| [UPDATE](UPDATE) | W | Updates the state of the character to nearby clients. |  |
+| [UPDATEX](UPDATEX) | W | Updates the state of the character to nearby clients, removing it from their view first to ensure a full refresh. |  |
+| [USEITEM](USEITEM) | W | Double clicks the character, with SRC as the source of the event, without checking for line of sight. |  |
+| [USEITEM](USEITEM) *object_uid* | W | Double clicks an object, with the character as SRC. |  |
+| [VISUALRANGE](VISUALRANGE) | RW | Gets or sets the character's sight range. |  |
+| [WEIGHT](WEIGHT) | R | Gets the weight of the character. |  |
+| [WHERE](WHERE) | W | Describes the character's location to SRC. |  |
+| [Z](Z) | R | Gets the Z position of the character. |  |
+```
 
+```
 ## Triggers
+```
 
-Here is a list of all character triggers. Click on the trigger name for
-more detailed information such as arguments and examples.
+Here is a list of all character triggers. Click on the trigger name for more detailed information such as arguments and examples.
 
+```
 |  |  |  |
 |----|----|----|
 | **Name** | **Description** | **Sphere X only?** |
@@ -1972,36 +453,36 @@ more detailed information such as arguments and examples.
 | [@UserVirtue](@UserVirtue "wikilink") | Fires when the player presses on the Virtue button. |  |
 | [@UserVirtueInvoke](@UserVirtueInvoke "wikilink") | Fires when the player invokes a virtue through macros. |  |
 | [@UserWarmode](@UserWarmode "wikilink") | Fires when the player switches between war and peace mode. |  |
+```
 
+```
 ## Players
+```
 
-Characters that are attached to an account become Player Characters. In
-addition to the basic character references, properties and functions
-they also receive the following:
+Characters that are attached to an account become Player Characters. In addition to the basic character references, properties and functions they also receive the following:
 
+```
 ### References
+```
 
-References return pointers to other objects (e.g. the REGION reference
-allows you to access the REGION that an object is in). These can either
-be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink")
-(1 for object types that don't have UIDs) of the object or 0 if it
-doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid
-property/function/reference for the *REFNAME* object. Click on the name
-for more detailed information such as usage and examples.
+References return pointers to other objects (e.g. the REGION referenceallows you to access the REGION that an object is in). These can either be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink") (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid property/function/reference for the *REFNAME* object. Click on the name for more detailed information such as usage and examples.
 
+```
 |  |  |  |
 |----|----|----|
 | **Name** | **Read/Write** | **Description** |
 | [GUILD](GUILD "wikilink") | R | Gets the [guild stone](Special_Items#Guild.2FTown_Stones "wikilink") that the player belongs to. |
 | [SKILLCLASS](SKILLCLASS_(Reference) "wikilink") | RW | Gets or sets the player's [skillclass](SKILLCLASS "wikilink"). |
 | [TOWN](TOWN "wikilink") | R | Gets the [town stone](Special_Items#Guild.2FTown_Stones "wikilink") that the player belongs to. |
+```
 
+```
 ### Properties and Functions
+```
 
-Here is a list of all player properties and functions. If a function is
-marked as readable then it can return a value when used as <KEY>. Click
-on the name for more detailed information such as usage and examples.
+Here is a list of all player properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples.
 
+```
 |  |  |  |  |
 |----|----|----|----|
 | **Name** | **Read/Write** | **Description** | **Sphere X only?** |
@@ -2021,19 +502,21 @@ on the name for more detailed information such as usage and examples.
 | [SKILLLOCK](SKILLLOCK "wikilink")*.skill_id* | RW | Gets or sets the lock state of the player's skill. 0 is Up. 1 is Down. 2 is Locked. |  |
 | [SPEEDMODE](SPEEDMODE "wikilink") | RW | Gets or sets the speed that the player moves at. (0=Normal, 1=Double Speed on Foot, 2=Always walk, 3=Always Run on Foot/Always Walk on Mount, 4=Can not Walk or Run) |  |
 | [STATLOCK](STATLOCK "wikilink")''.stat_id | RW | Gets or sets the lock state of the player's STR (0), DEX (2) or INT (1). \[0 = up, 1 = down, 2 = locked\] |  |
+```
 
+```
 ## NPCs
+```
 
-Characters that are not attached to an account are NPCs and are
-controlled by Sphere's AI. In addition to the basic character
-references, properties and functions they also receive the following:
+Characters that are not attached to an account are NPCs and are controlled by Sphere's AI. In addition to the basic character references, properties and functions they also receive the following:
 
+```
 ### Properties and Functions
+```
 
-Here is a list of all NPC properties and functions. If a function is
-marked as readable then it can return a value when used as <KEY>. Click
-on the name for more detailed information such as usage and examples.
+Here is a list of all NPC properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples.
 
+```
 |  |  |  |  |
 |----|----|----|----|
 | **Name** | **Read/Write** | **Description** | **Sphere X only?** |
@@ -2064,22 +547,21 @@ on the name for more detailed information such as usage and examples.
 | [VENDCAP](VENDCAP "wikilink") | RW | Gets or sets the amount of gold a vendor will restock to. |  |
 | [VENDGOLD](VENDGOLD "wikilink") | RW | Gets or sets the amount of gold a vendor has. |  |
 | [WALK](WALK "wikilink") *direction* | W | Forces the NPC to walk one tile in the specified direction. |  |
+```
 
+```
 ## Clients
+```
 
-When a client is controlling a character, the following references,
-properties and functions will be available:
+When a client is controlling a character, the following references, properties and functions will be available:
 
+```
 ### References
+```
 
-References return pointers to other objects (e.g. the REGION reference
-allows you to access the REGION that an object is in). These can either
-be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink")
-(1 for object types that don't have UIDs) of the object or 0 if it
-doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid
-property/function/reference for the *REFNAME* object. Click on the name
-for more detailed information such as usage and examples.
+References return pointers to other objects (e.g. the REGION referenceallows you to access the REGION that an object is in). These can either be accessed by using *\<REFNAME\>* to return the [UID](UID "wikilink") (1 for object types that don't have UIDs) of the object or 0 if it doesn't exist, or by using *\<REFNAME.KEY\>* where KEY is a valid property/function/reference for the *REFNAME* object. Click on the name for more detailed information such as usage and examples.
 
+```
 |  |  |  |  |
 |----|----|----|----|
 | **Name** | **Read/Write** | **Description** | **Sphere X only?** |
@@ -2090,13 +572,15 @@ for more detailed information such as usage and examples.
 | [TARGP](TARGP "wikilink") | RW | Gets or sets the [location](Map_Points "wikilink") that the client has targeted. |  |
 | [TARGPROP](TARGPROP "wikilink") | RW | Gets or sets the character whose skills are shown in the client's skill menu. |  |
 | [TARGPRV](TARGPRV "wikilink") | RW | Gets or sets the [character](Characters "wikilink") or [item](Items "wikilink") that the client previously targeted. |  |
+```
 
+```
 ### Properties and Functions
+```
 
-Here is a list of all client properties and functions. If a function is
-marked as readable then it can return a value when used as <KEY>. Click
-on the name for more detailed information such as usage and examples.
+Here is a list of all client properties and functions. If a function is marked as readable then it can return a value when used as <KEY>. Click on the name for more detailed information such as usage and examples.
 
+```
 |  |  |  |  |
 |----|----|----|----|
 | **Name** | **Read/Write** | **Description** | **Sphere X only?** |
@@ -2168,7 +652,7 @@ on the name for more detailed information such as usage and examples.
 | [VERSION](VERSION "wikilink") | W | Displays the server description to the client. |  |
 | [WEBLINK](WEBLINK "wikilink") *url* | W | Opens the client's web browser to send them to the specified url. |  |
 | [X](X "wikilink")*command* | W | Prompts the client to target an object to execute *command* on. |  |
+```
 
-[Category: Reference
-Compendium](Category:_Reference_Compendium "wikilink") [Category:
-Objects](Category:_Objects "wikilink")
+[Category: Reference Compendium](Category:_Reference_Compendium "wikilink") [Category: Objects](Category:_Objects "wikilink")
+```
