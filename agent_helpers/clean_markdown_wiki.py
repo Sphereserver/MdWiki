@@ -46,10 +46,11 @@ RESET = "\033[0m"
 
 # Maximum total width (in characters) for a Markdown table row,
 # including leading/trailing pipes and spaces.
+# When any cell content exceeds this, use compact separators.
 MAX_TABLE_WIDTH = 120
 
-# Minimum column width to avoid overly narrow columns
-MIN_COL_WIDTH = 3
+# Minimum separator width (number of dashes)
+MIN_SEPARATOR_WIDTH = 3
 
 # Default SphereScript prefixes for highlighting (case-insensitive).
 # These are common SphereScript property/tag prefixes.
@@ -141,9 +142,23 @@ def normalize_spacing_safely(text: str) -> str:
     """
     Only trim trailing whitespace on each line.
     Preserve leading whitespace and internal spacing entirely.
+    Also collapse excessive blank lines (max 2 consecutive).
     """
     lines = [line.rstrip() for line in text.splitlines()]
-    result = "\n".join(lines)
+
+    # Collapse excessive blank lines
+    result_lines = []
+    blank_count = 0
+    for line in lines:
+        if line.strip() == "":
+            blank_count += 1
+            if blank_count <= 2:
+                result_lines.append(line)
+        else:
+            blank_count = 0
+            result_lines.append(line)
+
+    result = "\n".join(result_lines)
     if result and not result.endswith("\n"):
         result += "\n"
     return result
@@ -318,11 +333,11 @@ def convert_html_tables_to_markdown(text: str) -> str:
     """
     Convert all HTML <table>...</table> blocks to Markdown tables.
 
-    Handles:
-    - Tables with <th> (header) and <td> (data) cells
-    - Nested content (lists, code, paragraphs) within cells
-    - Column width normalization and scaling
-    - Proper escaping of pipe characters within cells
+    Strategy:
+    - NO truncation of cell content (preserve all text)
+    - NO padding of cells with spaces
+    - Use compact separators (| --- |) when header is wide
+    - Let the Markdown renderer handle wrapping/display
     """
 
     def convert_single_table(m: Match) -> str:
@@ -373,67 +388,40 @@ def convert_html_tables_to_markdown(text: str) -> str:
         if max_cols == 0:
             max_cols = 1
 
-        # Compute natural widths per column (before scaling)
-        col_widths = [MIN_COL_WIDTH] * max_cols
+        # Pad all rows to have the same number of columns
         for row in parsed_rows:
-            for col_idx, cell in enumerate(row):
-                if col_idx < max_cols:
-                    cell_str = str(cell)
-                    col_widths[col_idx] = max(col_widths[col_idx], len(cell_str))
+            while len(row) < max_cols:
+                row.append("")
 
-        # Compute total row width including pipes and spaces
-        total_width = sum(col_widths) + max_cols * 3 + 1
-
-        # If too wide, scale columns down proportionally
-        if total_width > MAX_TABLE_WIDTH:
-            excess = total_width - MAX_TABLE_WIDTH
-            scale_factor = MAX_TABLE_WIDTH / max(total_width, 1)
-            col_widths = [max(MIN_COL_WIDTH, int(w * scale_factor)) for w in col_widths]
-
-        # FIXED: Get the first row as header, pad with empty strings if needed
-        # Previously this was: header = parsed_rows + [""] * ... (WRONG - concatenated entire list)
+        # Determine if we should use compact separators:
+        # Use compact if ANY cell or the table width would exceed MAX_TABLE_WIDTH
+        max_cell_length = max((len(cell) for row in parsed_rows for cell in row), default=0)
         header_row = parsed_rows[0] if parsed_rows else []
-        header_row = header_row + [""] * (max_cols - len(header_row))
-
-        # Body rows: all rows after the first (or empty if only one row)
-        body_rows = []
-        for row in parsed_rows[1:]:
-            padded = row + [""] * (max_cols - len(row))
-            body_rows.append(padded)
+        header_line_length = sum(len(cell) for cell in header_row) + (max_cols + 1) * 3
+        # Use compact if: header is wide OR any single cell is very long (>60 chars)
+        use_compact_separator = header_line_length > MAX_TABLE_WIDTH or max_cell_length > 60
 
         md_lines: List[str] = []
 
-        # Header row
-        header_line = "|"
-        for i, cell in enumerate(header_row):
-            if i >= len(col_widths):
-                break
-            cell_str = sanitize_cell_text(str(cell))
-            # Truncate if exceeds column width
-            if len(cell_str) > col_widths[i]:
-                cell_str = cell_str[:col_widths[i]-1] + "…"
-            padding = " " * max(0, col_widths[i] - len(cell_str))
-            header_line += f" {cell_str}{padding} |"
+        # Header row - no padding, just content
+        header_line = "| " + " | ".join(header_row) + " |"
         md_lines.append(header_line)
 
-        # Separator row (dashes)
-        sep_line = "|"
-        for width in col_widths:
-            sep_line += f" {'-' * width} |"
+        # Separator row - always use compact form for wide headers
+        if use_compact_separator:
+            # Compact: | --- | --- | --- |
+            sep_line = "| " + " | ".join(["-" * MIN_SEPARATOR_WIDTH for _ in range(max_cols)]) + " |"
+        else:
+            # Standard: match header column widths
+            col_widths = [max(len(row[i]) if i < len(row) else 0 for row in parsed_rows) 
+                         for i in range(max_cols)]
+            col_widths = [max(w, MIN_SEPARATOR_WIDTH) for w in col_widths]
+            sep_line = "| " + " | ".join(["-" * w for w in col_widths]) + " |"
         md_lines.append(sep_line)
 
-        # Body rows
-        for row in body_rows:
-            row_line = "|"
-            for i, cell in enumerate(row):
-                if i >= len(col_widths):
-                    break
-                cell_str = sanitize_cell_text(str(cell))
-                # Truncate if exceeds column width
-                if len(cell_str) > col_widths[i]:
-                    cell_str = cell_str[:col_widths[i]-1] + "…"
-                padding = " " * max(0, col_widths[i] - len(cell_str))
-                row_line += f" {cell_str}{padding} |"
+        # Body rows - no padding, just content
+        for row in parsed_rows[1:]:
+            row_line = "| " + " | ".join(row) + " |"
             md_lines.append(row_line)
 
         return "\n".join(md_lines)
@@ -523,12 +511,12 @@ def is_valid_md_table(lines: List[str]) -> bool:
 
 def normalize_single_table_block(block_lines: List[str]) -> List[str]:
     """
-    Fix a malformed Markdown table and align columns with total width cap.
+    Fix a malformed Markdown table.
 
-    This function handles Markdown tables that may have:
-    - Inconsistent column counts across rows
-    - Missing or malformed separator rows
-    - Improper alignment/padding
+    Strategy:
+    - NO padding of cells
+    - Use compact separators for wide tables
+    - Preserve all content without truncation
     """
     rows: List[List[str]] = []
     for line in block_lines:
@@ -553,41 +541,32 @@ def normalize_single_table_block(block_lines: List[str]) -> List[str]:
     if max_cols == 0:
         max_cols = 1
 
-    col_widths = [MIN_COL_WIDTH] * max_cols
-
+    # Pad all rows to have the same number of columns
     for row in data_rows:
-        for col_idx, cell in enumerate(row):
-            if col_idx < max_cols:
-                col_widths[col_idx] = max(col_widths[col_idx], len(cell))
+        while len(row) < max_cols:
+            row.append("")
 
-    total_width = sum(col_widths) + max_cols * 3 + 1
-    if total_width > MAX_TABLE_WIDTH:
-        scale_factor = MAX_TABLE_WIDTH / max(total_width, 1)
-        col_widths = [max(MIN_COL_WIDTH, int(w * scale_factor)) for w in col_widths]
-
-    # FIXED: Get first row as header, pad with empty strings if needed
-    # Previously this was: header = rows + [""] * ... (WRONG - concatenated entire list)
-    header_row = rows[0] if rows else []
-    header_row = header_row + [""] * (max_cols - len(header_row))
+    # Check if we need compact separator based on ALL cell lengths
+    max_cell_length = max((len(cell) for row in data_rows for cell in row), default=0)
+    header_row = data_rows[0] if data_rows else []
+    header_line_length = sum(len(cell) for cell in header_row) + (max_cols + 1) * 3
+    # Use compact if: header is wide OR any single cell is very long (>60 chars)
+    use_compact_separator = header_line_length > MAX_TABLE_WIDTH or max_cell_length > 60
 
     normalized: List[str] = []
 
-    # Header row
-    header_line = "|"
-    for i, cell in enumerate(header_row):
-        if i >= len(col_widths):
-            break
-        cell_str = sanitize_cell_text(cell)
-        if len(cell_str) > col_widths[i]:
-            cell_str = cell_str[:col_widths[i]-1] + "…"
-        padding = " " * max(0, col_widths[i] - len(cell_str))
-        header_line += f" {cell_str}{padding} |"
+    # Header row - no padding
+    header_line = "| " + " | ".join(header_row) + " |"
     normalized.append(header_line)
 
     # Separator row
-    sep_line = "|"
-    for width in col_widths:
-        sep_line += f" {'-' * width} |"
+    if use_compact_separator:
+        sep_line = "| " + " | ".join(["-" * MIN_SEPARATOR_WIDTH for _ in range(max_cols)]) + " |"
+    else:
+        col_widths = [max(len(row[i]) if i < len(row) else 0 for row in data_rows) 
+                     for i in range(max_cols)]
+        col_widths = [max(w, MIN_SEPARATOR_WIDTH) for w in col_widths]
+        sep_line = "| " + " | ".join(["-" * w for w in col_widths]) + " |"
     normalized.append(sep_line)
 
     # Body rows (skip the original separator if present)
@@ -596,16 +575,11 @@ def normalize_single_table_block(block_lines: List[str]) -> List[str]:
         if all(c.strip().replace('-', '') == '' for c in row):
             continue
 
-        row_line = "|"
-        padded_row = row + [""] * (max_cols - len(row))
-        for i, cell in enumerate(padded_row):
-            if i >= len(col_widths):
-                break
-            cell_str = sanitize_cell_text(cell)
-            if len(cell_str) > col_widths[i]:
-                cell_str = cell_str[:col_widths[i]-1] + "…"
-            padding = " " * max(0, col_widths[i] - len(cell_str))
-            row_line += f" {cell_str}{padding} |"
+        # Pad row to max_cols
+        while len(row) < max_cols:
+            row.append("")
+
+        row_line = "| " + " | ".join(row) + " |"
         normalized.append(row_line)
 
     return normalized
@@ -707,7 +681,6 @@ def highlight_spherescript(text: str, prefixes: List[str]) -> str:
 
         # 3. Bracket block at beginning of line: [SOMETHING]
         #    BUT only if NOT followed by ( which indicates a Markdown link
-        #    FIXED: Added negative lookahead (?!\s*\() to avoid breaking links
         line = re.sub(
             r"^\s*(\[[^\]\n]+\])(?!\s*\()",
             lambda m: f"`{m.group(1)}`",
@@ -868,7 +841,7 @@ def process_markdown(text: str, spherescript_prefixes: List[str]) -> str:
     7. Normalize malformed Markdown tables
     8. Fence SphereScript code blocks (very conservative)
     9. Highlight SphereScript inline (outside fences and tables)
-    10. Trailing-whitespace cleanup
+    10. Trailing-whitespace and excessive blank line cleanup
     """
     text = remove_mediawiki_magic(text)
     text = remove_spherescript_tags(text)
